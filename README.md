@@ -10,7 +10,7 @@ Let the user see the statistics by navigating trough the years.
 Main features:
 Visualize every year the tranfer development by category: 1. Minimum viable product
 
-                                                          shows worldmap, while hovering one sees the total transfer expenditures(?) and amount of transfers, by clicking one sees the statistics per clubs in                                                                        competition, otherwise per competition (MVP)
+                                                          shows worldmap, while hovering one sees the total transfer expenditures(?) and amount of transfers, by clicking one sees the statistics per clubs in competition, otherwise per competition (MVP)
                                                          
                                                           show a barchart with total transfer expenditures per competition/team (MVP)
                                                           
@@ -19,7 +19,7 @@ Visualize every year the tranfer development by category: 1. Minimum viable prod
                                                           2. Extra features
                                                          
                                                           show a heatmap per position/ total value and amount of transfers (hover) (?)
-                                                          otherwise a multi set bar chart with the amount of transfers of different                                                                   positions by competition/club 
+                                                          otherwise a multi set bar chart with the amount of transfers of different positions by competition/club 
                                                        
                                                        
 # Prerequisites
