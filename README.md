@@ -21,7 +21,9 @@ Visualize every year the tranfer development by category: 1. Minimum viable prod
                                                           show a heatmap per position/ total value and amount of transfers (hover) (?)
                                                           otherwise a multi set bar chart with the amount of transfers of different positions by competition/club 
                                                        
-                                                       
+ 
+For the visual sketch see the visual_sketch.jpg in the Project folder.
+
 # Prerequisites
 Data source: https://www.kaggle.com/vardan95ghazaryan/top-250-football-transfers-from-2000-to-2018/version/1
 External components: pandas, csv, d3.js
