@@ -1,4 +1,7 @@
 # Project Minor Programming (UvA)
+
+Name: Julien Fer (10649441)
+
 This repository now only contains the proposal for the final project of the minor programming at the University of Amsterdam
 
 # Problem Statement
@@ -11,17 +14,17 @@ Main features:
 Visualize every year the tranfer development by category: 1. Minimum viable product
 
                                                           shows worldmap, while hovering one sees the total transfer expenditures(?) and amount of transfers, by clicking one sees the statistics per clubs in competition, otherwise per competition (MVP)
-                                                         
+
                                                           show a barchart with total transfer expenditures per competition/team (MVP)
-                                                          
+
                                                           shows pie chart with percentages (amount/total amount) per competition/team (MVP)
-                                                          
+
                                                           2. Extra features
-                                                         
+
                                                           show a heatmap per position/ total value and amount of transfers (hover) (?)
-                                                          otherwise a multi set bar chart with the amount of transfers of different positions by competition/club 
-                                                       
- 
+                                                          otherwise a multi set bar chart with the amount of transfers of different positions by competition/club
+
+
 For the visual sketch see the visual_sketch.jpg in the Project folder.
 
 # Prerequisites
