@@ -1,6 +1,10 @@
 // This script contains the necessary functionality to create a dashboard
 
+// const var for data source
 let data = "https://raw.githubusercontent.com/JRMfer/Project/master/data/top250-00-19.csv"
+
+// const var for seasons
+const seasons = []
 
 window.onload = function() {
   d3.csv(data)

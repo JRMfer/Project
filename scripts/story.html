@@ -10,7 +10,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- <link href="linkedViews.css" rel="stylesheet"> -->
+  <link href="football.css" rel="stylesheet">
   <script src="http://d3js.org/topojson.v1.min.js"></script>
   <script src="https://d3js.org/d3.v5.min.js"></script>
   <!-- Latest compiled and minified CSS -->
@@ -28,13 +28,26 @@
   <script src="football.js"></script>
   <!-- <h1>Central goverment spending OECD (2014)</h1> -->
   <div class="row">
-    <h1>Central goverment spending OECD (2014)</h1>
-    <div class="col-sm-6", id="area1"><h2>By Country</h2></div>
-    <div class="col-sm-6", id="area2"><h2>By Category</h2></div>
+    <div class="col-sm-12", id="navbar">
+      <nav class="navbar navbar-default">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <a class="navbar-brand" href="/">WebSiteName</a>
+          </div>
+          <ul class="nav navbar-nav">
+            <li><a href="/story.html">Story</a></li>
+            <li><a href="/data.html">Data Source</a></li>
+          </ul>
+        </div>
+      </nav>
+    </div>
   </div>
   <div class="row">
-    <div class="col-sm-6" id="area3"><h2 id="exp">Explanation</h2></div>
-    <div class="col-sm-6" id="area4"></div>
+    <div class="col-sm-12", id="area1">
+      <p>
+        A page with a short story about the visualization.
+      </p>
+    </div>
   </div>
 </body>
 
