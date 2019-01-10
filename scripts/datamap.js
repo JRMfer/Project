@@ -11,13 +11,13 @@ const marginsMap = {top: 0, right: 0, bottom: 0, left: 0},
 let svgMap = d3.select("#map")
       .append("svg")
       .attr("preserveAspectRatio", "xMinYMin meet")
-      .attr("viewBox", "0 0 960 500")
+      .attr("viewBox", "0 0 800 400")
       // .attr("height", heightMap + marginsMap.top + marginsMap.bottom)
       // .attr("width", widthMap + marginsMap.left + marginsMap.right)
       .append("g")
       .attr("class", "svgMap")
       .attr("id", "dataMap")
-      .attr("transform", "translate(" + marginsMap.left + "," + marginsMap.top + ")");
+      // .attr("transform", "translate(" + marginsMap.left + "," + marginsMap.top + ")");
 
 
 let projection = d3.geoMercator()
@@ -52,7 +52,7 @@ function ready(error, topology, data) {
           .style("opacity", 0.9)
           div.html(d.properties.name)
           .style("left", (d3.event.pageX) + "px")
-          .style("top", (d3.event.pageY - 100) + "px")
+          .style("top", (d3.event.pageY - heightMap / 2.5) + "px")
           d3.select(this).style('opacity', 0.5)
         })
         .on("mouseout", function(d) {
