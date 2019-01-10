@@ -94,11 +94,11 @@
 92,Alex Nyarko,Centre-Back,26,Lens,Ligue 1,Everton,England,2000-2001,,6300000
 93,Bob Peeters,Centre-Forward,26,Roda JC,Eredivisie,Vitesse,Netherlands,2000-2001,,6300000
 94,César Sánchez,Goalkeeper,28,Real Valladolid,LaLiga,Real Madrid,Spain,2000-2001,,6250000
-95,Carlos Gamarra,Centre-Back,29,Atlético Madrid,LaLiga2,Flamengo, Brazil,2000-2001,,6250000
+95,Carlos Gamarra,Centre-Back,29,Atlético Madrid,LaLiga2,Flamengo,Brazil,2000-2001,,6250000
 96,Patrick M'Boma,Centre-Forward,29,Cagliari Calcio,Serie B,Parma,Italy,2000-2001,,6100000
 97,Claus Jensen,Attacking Midfield,23,Bolton, England,Charlton,England,2000-2001,,6000000
 98,Lucas Bernardi,Central Midfield,22,Newell's, Argentina,Marseille,France,2000-2001,,6000000
-99,Alain Goma,Centre-Back,28,Newcastle,Premier League,Fulham, England,2000-2001,,6000000
+99,Alain Goma,Centre-Back,28,Newcastle,Premier League,Fulham,England,2000-2001,,6000000
 100,Frédéric Déhu,Centre-Back,27,FC Barcelona,LaLiga,Paris SG,France,2000-2001,,6000000
 101,Esteban Fuertes,Centre-Forward,27,Derby,Premier League,Lens,France,2000-2001,,6000000
 102,Milan Rapaic,Left Midfield,26,Perugia,Serie A,Fenerbahce,Turkey,2000-2001,,6000000
@@ -130,7 +130,7 @@
 128,Radostin Kishishev,Defensive Midfield,25,Litex Lovetch, Bulgaria,Charlton,England,2000-2001,,4500000
 129,Bernard Diomède,Left Winger,26,AJ Auxerre,Ligue 1,Liverpool,England,2000-2001,,4500000
 130,Sixto Peralta,Central Midfield,21,Racing Club, Argentina,Inter,Italy,2000-2001,,4500000
-131,David Johnson,Left Winger,24,Ipswich,Premier League,Nottm Forest, England,2000-2001,,4500000
+131,David Johnson,Left Winger,24,Ipswich,Premier League,Nottm Forest,England,2000-2001,,4500000
 132,Kennet Andersson,Centre-Forward,32,Bologna,Serie A,Fenerbahce,Turkey,2000-2001,,4500000
 133,Marquinhos,Attacking Midfield,18,Avaí FC, Brazil,Bay. Leverkusen,Germany,2000-2001,,4500000
 134,Alan Thompson,Left Midfield,26,Aston Villa,Premier League,Celtic,England,2000-2001,,4400000
@@ -144,7 +144,7 @@
 142,Gianni Guigou,Defensive Midfield,25,Nacional, Uruguay,AS Roma,Italy,2000-2001,,4000000
 143,Richard Dutruel,Goalkeeper,27,Celta de Vigo,LaLiga,FC Barcelona,Spain,2000-2001,,4000000
 144,Pascal Nouma,Centre-Forward,28,Lens,Ligue 1,Besiktas,Turkey,2000-2001,,4000000
-145,Craig Hignett,Right Winger,30,Barnsley FC, England,Blackburn, England,2000-2001,,4000000
+145,Craig Hignett,Right Winger,30,Barnsley FC, England,Blackburn,England,2000-2001,,4000000
 146,Zoran Mirkovic,Right-Back,28,Juventus,Serie A,Fenerbahce,Turkey,2000-2001,,4000000
 147,Charles Amoah,Centre-Forward,25,FC St. Gallen,Super League,Sturm Graz,Switzerland,2000-2001,,3930000
 148,Niclas Alexandersson,Right Midfield,28,Sheff Wed, England,Everton,England,2000-2001,,3800000
@@ -163,13 +163,13 @@
 161,Stephen Hughes,Defensive Midfield,23,Arsenal,Premier League,Everton,England,2000-2001,,3500000
 162,Marc Wilmots,Attacking Midfield,31,FC Schalke 04,1.Bundesliga,G. Bordeaux,France,2000-2001,,3500000
 163,Alen Boksic,Centre-Forward,30,Lazio,Serie A,Middlesbrough,England,2000-2001,,3450000
-164,Geoff Horsfield,Centre-Forward,26,Fulham, England,Birmingham, England,2000-2001,,3380000
-165,Louis Saha,Centre-Forward,21,FC Metz,Ligue 1,Fulham, England,2000-2001,,3150000
-166,Marcus Bent,Centre-Forward,22,Sheffield Utd., England,Blackburn, England,2000-2001,,3150000
+164,Geoff Horsfield,Centre-Forward,26,Fulham, England,Birmingham,England,2000-2001,,3380000
+165,Louis Saha,Centre-Forward,21,FC Metz,Ligue 1,Fulham,England,2000-2001,,3150000
+166,Marcus Bent,Centre-Forward,22,Sheffield Utd., England,Blackburn,England,2000-2001,,3150000
 167,Vratislav Lokvenc,Centre-Forward,26,Sparta Praha, Czech Republic,1.FC K'lautern,Germany,2000-2001,,3150000
 168,Aleksey Smertin,Defensive Midfield,25,Loko Moscow,Premier Liga,G. Bordeaux,France,2000-2001,,3000000
 169,Stjepan Tomas,Centre-Back,24,Dinamo Zagreb, Croatia,Vicenza,Italy,2000-2001,,3000000
-170,Jason Roberts,Centre-Forward,22,Bristol Rovers, England,West Brom, England,2000-2001,,3000000
+170,Jason Roberts,Centre-Forward,22,Bristol Rovers, England,West Brom,England,2000-2001,,3000000
 171,Emmanuel Olisadebe,Centre-Forward,22,Pol. Warsaw,Ekstraklasa,Panathinaikos,China,2000-2001,,3000000
 172,Danny Higginbotham,Centre-Back,21,Man Utd,Premier League,Derby,England,2000-2001,,3000000
 173,Andrew O'Brien,Centre-Back,21,Bradford City,Premier League,Newcastle,England,2000-2001,,3000000
@@ -178,22 +178,22 @@
 176,Changui,Centre-Forward,23,SD Compostela,LaLiga2,Dep. La Coruña,Spain,2000-2001,,3000000
 177,Shaun Bartlett,Centre-Forward,28,FC Zürich,Super League,Charlton,England,2000-2001,,3000000
 178,Dmitri Alenichev,Central Midfield,27,AS Roma,Serie A,FC Porto,Portugal,2000-2001,,3000000
-179,Andrejs Stolcers,Attacking Midfield,26,Shakhtar D.,Premier Liga,Fulham, England,2000-2001,,3000000
+179,Andrejs Stolcers,Attacking Midfield,26,Shakhtar D.,Premier Liga,Fulham,England,2000-2001,,3000000
 180,Oktay Derelioglu,Centre-Forward,24,Siirtspor,Süper Lig,UD Las Palmas,Spain,2000-2001,,3000000
 181,Bjørn Otto Bragstad,Centre-Back,29,Rosenborg BK,Eliteserien,Derby,England,2000-2001,,3000000
 182,Kenny Miller,Centre-Forward,20,Hibernian FC, Scotland,Rangers,England,2000-2001,,3000000
 183,Johan Elmander,Centre-Forward,19,Örgryte, Sweden,Feyenoord,Netherlands,2000-2001,,2900000
 184,Milan Fukal,Centre-Back,25,Sparta Praha, Czech Republic,Hamburger SV,Germany,2000-2001,,2900000
-185,Andrejs Rubins,Left Winger,21,Skonto Riga, Latvia,Crystal Palace, England,2000-2001,,2800000
+185,Andrejs Rubins,Left Winger,21,Skonto Riga, Latvia,Crystal Palace,England,2000-2001,,2800000
 186,Marcel Ketelaer,Left Midfield,22,Bor. M'gladbach,2.Bundesliga,Hamburger SV,Germany,2000-2001,,2800000
-187,John Collins,Left Midfield,32,Everton,Premier League,Fulham, England,2000-2001,,2750000
+187,John Collins,Left Midfield,32,Everton,Premier League,Fulham,England,2000-2001,,2750000
 188,Didier Martel,Forward,28,FC Utrecht,Eredivisie,Vitesse,Netherlands,2000-2001,,2750000
 189,Bernard Mendy,Right-Back,18,SM Caen,Ligue 2,Paris SG,France,2000-2001,,2700000
 190,Danijel Ljuboja,Centre-Forward,21,FC Sochaux,Ligue 2,R. Strasbourg,France,2000-2001,,2700000
 191,Tomás Galásek,Defensive Midfield,27,Willem II,Eredivisie,AFC Ajax,Netherlands,2000-2001,,2700000
 192,Yoshikatsu Kawaguchi,Goalkeeper,26,Yokohama F. M.,J1 - 2nd Stage,Portsmouth,England,2000-2001,,2700000
 193,Gabriel Schürrer,Centre-Back,28,Dep. La Coruña,LaLiga,UD Las Palmas,Spain,2000-2001,,2700000
-194,Henning Berg,Right-Back,30,Man Utd,Premier League,Blackburn, England,2000-2001,,2630000
+194,Henning Berg,Right-Back,30,Man Utd,Premier League,Blackburn,England,2000-2001,,2630000
 195,Gary Naysmith,Left-Back,21,Heart of Midl., Scotland,Everton,England,2000-2001,,2630000
 196,Petri Pasanen,Centre-Back,19,FC Lahti, Finland,AFC Ajax,Netherlands,2000-2001,,2600000
 197,Christian Dailly,Centre-Back,27,Blackburn, England,West Ham,England,2000-2001,,2600000
@@ -207,20 +207,20 @@
 205,Feliciano Magro,Attacking Midfield,21,Grasshoppers,Super League,Udinese Calcio,Italy,2000-2001,,2500000
 206,Jean-François Gillet,Goalkeeper,21,Monza,Serie B,Bari,Italy,2000-2001,,2500000
 207,Dimitar Berbatov,Centre-Forward,19,CSKA Sofia, Bulgaria,Bay. Leverkusen,Germany,2000-2001,,2500000
-208,Cédric Roussel,Centre-Forward,23,Coventry City,Premier League,Wolves, England,2000-2001,,2400000
-209,Per Frandsen,Right Midfield,30,Blackburn, England,Bolton, England,2000-2001,,2400000
+208,Cédric Roussel,Centre-Forward,23,Coventry City,Premier League,Wolves,England,2000-2001,,2400000
+209,Per Frandsen,Right Midfield,30,Blackburn, England,Bolton,England,2000-2001,,2400000
 210,Luciano,Right Midfield,24,Bologna,Serie A,Chievo Verona,Italy,2000-2001,,2330000
 211,Edgaras Jankauskas,Centre-Forward,25,Club Brugge,Jupiler Pro League,Real Sociedad,Spain,2000-2001,,2300000
-212,Alan Mahon,Left Midfield,22,Sporting CP,Liga NOS,Blackburn, England,2000-2001,,2300000
-213,Gustavo Nery,Left-Back,22,Guarani, Brazil,São Paulo, Brazil,2000-2001,,2300000
+212,Alan Mahon,Left Midfield,22,Sporting CP,Liga NOS,Blackburn,England,2000-2001,,2300000
+213,Gustavo Nery,Left-Back,22,Guarani, Brazil,São Paulo,Brazil,2000-2001,,2300000
 214,Ciriaco Sforza,Central Midfield,30,1.FC K'lautern,1.Bundesliga,Bayern Munich ,Germany,2000-2001,,2300000
-215,David Hopkin,Right Midfield,30,Bradford City,Premier League,Crystal Palace, England,2000-2001,,2250000
-216,Paul Robinson,Centre-Forward,21,Newcastle,Premier League,MK Dons, England,2000-2001,,2250000
+215,David Hopkin,Right Midfield,30,Bradford City,Premier League,Crystal Palace,England,2000-2001,,2250000
+216,Paul Robinson,Centre-Forward,21,Newcastle,Premier League,MK Dons,England,2000-2001,,2250000
 217,Karel Poborsky,Right Midfield,28,Benfica,Liga NOS,Lazio,Italy,2000-2001,,2250000
 218,Rab Douglas,Goalkeeper,28,Dundee FC, Scotland,Celtic,England,2000-2001,,2250000
 219,Erman Güracar,Centre-Back,25,Samsunspor,Süper Lig,Besiktas,Turkey,2000-2001,,2250000
 220,Trevor Benjamin,Centre-Forward,21,Cambridge Utd., England,Leicester,England,2000-2001,,2250000
-221,John Curtis,Right-Back,21,Man Utd,Premier League,Blackburn, England,2000-2001,,2250000
+221,John Curtis,Right-Back,21,Man Utd,Premier League,Blackburn,England,2000-2001,,2250000
 222,Peter Lövenkrands,Centre-Forward,20,Akademisk BK, Denmark,Rangers,England,2000-2001,,2200000
 223,Ivica Dragutinovic,Centre-Back,24,KAA Gent,Jupiler Pro League,Standard Liège,Belgium,2000-2001,,2200000
 224,Francesc Arnau,Goalkeeper,25,FC Barcelona,LaLiga,Málaga CF,Spain,2000-2001,,2100000
@@ -229,14 +229,14 @@
 227,Chris Makin,Left-Back,27,Sunderland,Premier League,Ipswich,England,2000-2001,,2100000
 228,Frank Verlaat,Centre-Back,32,AFC Ajax,Eredivisie,Werder Bremen,Germany,2000-2001,,2100000
 229,Ashley Ward,Centre-Forward,29,Blackburn, England,Bradford City,England,2000-2001,,2100000
-230,David Healy,Centre-Forward,21,Man Utd,Premier League,Preston NE, England,2000-2001,,2000000
+230,David Healy,Centre-Forward,21,Man Utd,Premier League,Preston NE,England,2000-2001,,2000000
 231,Georgi Peev,Right Midfield,21,Lok. Sofia, Bulgaria,Dynamo Kyiv,Russia,2000-2001,,2000000
 232,Hervé Tum,Centre-Forward,21,FC Sion,Super League,FC Basel,China,2000-2001,,2000000
 233,Goran Gavrancic,Centre-Back,22,Cukaricki, Serbia,Dynamo Kyiv,Russia,2000-2001,,2000000
 234,Elvir Bolic,Centre-Forward,28,Fenerbahce,Süper Lig,Rayo Vallecano,Spain,2000-2001,,2000000
 235,Aleksandr Panov,Centre-Forward,24,Zenit S-Pb,Premier Liga,Saint-Étienne,France,2000-2001,,2000000
-236,Marzouq Al-Otaibi,Centre-Forward,0,Shabab, Saudi Arabia,Ittihad, Saudi Arabia,2000-2001,,2000000
-237,Espen Baardsen,Goalkeeper,22,Spurs,Premier League,Watford, England,2000-2001,,2000000
+236,Marzouq Al-Otaibi,Centre-Forward,0,Shabab, Saudi Arabia,Ittihad,Saudi Arabia,2000-2001,,2000000
+237,Espen Baardsen,Goalkeeper,22,Spurs,Premier League,Watford,England,2000-2001,,2000000
 238,Slavisa Jokanovic,Defensive Midfield,32,Dep. La Coruña,LaLiga,Chelsea,England,2000-2001,,1900000
 239,José Amavisca,Left Midfield,29,Racing,LaLiga,Dep. La Coruña,Spain,2000-2001,,1900000
 240,Ivica Banovic,Defensive Midfield,19,NK Zagreb, Croatia,Werder Bremen,Germany,2000-2001,,1900000
@@ -288,7 +288,7 @@
 286,Goran Drulic,Centre-Forward,24,Red Star, Serbia,Real Zaragoza,Spain,2001-2002,,13000000
 287,Andy Cole,Centre-Forward,30,Man Utd,Premier League,Blackburn,England,2001-2002,,12200000
 288,Dean Richards,Centre-Back,27,Southampton,Premier League,Spurs,England,2001-2002,,12150000
-289,Simão,Left Winger,21,FC Barcelona,LaLiga,Benfica, Portugal,2001-2002,,12000000
+289,Simão,Left Winger,21,FC Barcelona,LaLiga,Benfica,Portugal,2001-2002,,12000000
 290,Éric Carrière,Attacking Midfield,28,FC Nantes,Ligue 1,Olympique Lyon,France,2001-2002,,12000000
 291,Daniel Van Buyten,Centre-Back,23,Standard Liège,Jupiler Pro League,Marseille,France,2001-2002,,11500000
 292,Seth Johnson,Central Midfield,22,Derby,Premier League,Leeds,England,2001-2002,,11500000
@@ -325,7 +325,7 @@
 323,Boudewijn Zenden,Left Winger,24,FC Barcelona,LaLiga,Chelsea,England,2001-2002,,8000000
 324,Patrik Andersson,Centre-Back,29,Bayern Munich ,1.Bundesliga,FC Barcelona,Spain,2001-2002,,8000000
 325,Bosko Balaban,Centre-Forward,22,Dinamo Zagreb, Croatia,Aston Villa,England,2001-2002,,7800000
-326,Hugo Ibarra,Right-Back,27,Boca Juniors, Argentina,FC Porto, Portugal,2001-2002,,7800000
+326,Hugo Ibarra,Right-Back,27,Boca Juniors, Argentina,FC Porto,Portugal,2001-2002,,7800000
 327,Zlatan Ibrahimovic,Centre-Forward,19,Malmö FF, Sweden,AFC Ajax,Netherlands,2001-2002,,7800000
 328,Jermaine Jenas,Central Midfield,18,Nottm Forest,First Division,Newcastle,England,2001-2002,,7500000
 329,Fernando Meira,Centre-Back,23,Benfica, Portugal,VfB Stuttgart,Germany,2001-2002,,7500000
@@ -356,7 +356,7 @@
 354,Matteo Sereni,Goalkeeper,26,Sampdoria,Serie B,Ipswich,England,2001-2002,,6250000
 355,Bart Goor,Left Midfield,28,RSC Anderlecht,Jupiler Pro League,Hertha BSC,Germany,2001-2002,,6250000
 356,John Arne Riise,Left-Back,20,Monaco,Ligue 1,Liverpool,England,2001-2002,,6100000
-357,Alex,Attacking Midfield,24,Parma,Serie A,Cruzeiro, Brazil,2001-2002,,6000000
+357,Alex,Attacking Midfield,24,Parma,Serie A,Cruzeiro,Brazil,2001-2002,,6000000
 358,Luke Young,Right-Back,21,Spurs,Premier League,Charlton,England,2001-2002,,6000000
 359,Rory Delap,Central Midfield,25,Derby,Premier League,Southampton,England,2001-2002,,6000000
 360,Goran Bunjevcevic,Centre-Back,28,Red Star, Serbia,Spurs,England,2001-2002,,6000000
@@ -371,7 +371,7 @@
 369,Didier Domi,Left-Back,23,Newcastle,Premier League,Paris SG,France,2001-2002,,5580000
 370,Niko Kovac,Defensive Midfield,29,Hamburger SV,1.Bundesliga,Bayern Munich ,Germany,2001-2002,,5500000
 371,Shinji Ono,Attacking Midfield,21,Urawa Reds,J1 - 2nd Stage,Feyenoord,Netherlands,2001-2002,,5500000
-372,Marius Niculae,Centre-Forward,20,Dinamo Bukarest, Romania,Sporting CP, Portugal,2001-2002,,5300000
+372,Marius Niculae,Centre-Forward,20,Dinamo Bukarest, Romania,Sporting CP,Portugal,2001-2002,,5300000
 373,Sylvain Legwinski,Left Midfield,28,G. Bordeaux,Ligue 1,Fulham,England,2001-2002,,5250000
 374,Jon Harley,Left-Back,21,Chelsea,Premier League,Fulham,England,2001-2002,,5250000
 375,Nicolás Medina,Defensive Midfield,19,Argentinos, Argentina,Sunderland,England,2001-2002,,5250000
@@ -381,7 +381,7 @@
 379,César,Left Midfield,26,São Caetano, Brazil,Lazio,Italy,2001-2002,,5000000
 380,Christian Panucci,Right-Back,28,Inter,Serie A,AS Roma,Italy,2001-2002,,5000000
 381,Ezequiel González,Attacking Midfield,20,CA Rosario, Argentina,Fiorentina,Italy,2001-2002,,5000000
-382,Mantorras,Centre-Forward,19,Alverca, Portugal,Benfica, Portugal,2001-2002,,5000000
+382,Mantorras,Centre-Forward,19,Alverca, Portugal,Benfica,Portugal,2001-2002,,5000000
 383,Eduardo Costa,Defensive Midfield,18,Grêmio, Brazil,G. Bordeaux,France,2001-2002,,5000000
 384,Ümit Davala,Right Midfield,28,Galatasaray,Süper Lig,AC Milan,Italy,2001-2002,,5000000
 385,Sander Westerveld,Goalkeeper,27,Liverpool,Premier League,Real Sociedad,Spain,2001-2002,,5000000
@@ -394,7 +394,7 @@
 392,Jérôme Rothen,Left Midfield,23,Troyes,Ligue 1,Monaco,France,2001-2002,,4500000
 393,Shota Arveladze,Centre-Forward,28,AFC Ajax,Eredivisie,Rangers,England,2001-2002,,4500000
 394,Marcus Bent,Centre-Forward,23,Blackburn,Premier League,Ipswich,England,2001-2002,,4500000
-395,Jardel,Centre-Forward,27,Galatasaray,Süper Lig,Sporting CP, Portugal,2001-2002,,4500000
+395,Jardel,Centre-Forward,27,Galatasaray,Süper Lig,Sporting CP,Portugal,2001-2002,,4500000
 396,Patrick M'Boma,Centre-Forward,31,Parma,Serie A,Sunderland,England,2001-2002,,4500000
 397,Matthew Jones,Central Midfield,20,Leeds,Premier League,Leicester,England,2001-2002,,4500000
 398,James Scowcroft,Centre-Forward,25,Ipswich,Premier League,Leicester,England,2001-2002,,4500000
@@ -448,9 +448,9 @@
 446,Francisco Rojas,Right-Back,26,Colo Colo, Chile,Sturm Graz,Switzerland,2001-2002,,2660000
 447,Colin Cameron,Central Midfield,28,Heart of Midl., Scotland,Wolves,England,2001-2002,,2650000
 448,Brett Ormerod,Centre-Forward,25,Blackpool, England,Southampton,England,2001-2002,,2650000
-449,Tiago,Central Midfield,20,Braga, Portugal,Benfica, Portugal,2001-2002,,2500000
+449,Tiago,Central Midfield,20,Braga, Portugal,Benfica,Portugal,2001-2002,,2500000
 450,Ümit Karan,Centre-Forward,24,Genclerbirligi,Süper Lig,Galatasaray,Turkey,2001-2002,,2500000
-451,Ali Karimi,Attacking Midfield,22,Persepolis, Iran,Al-Ahli (UAE), United Arab Emirates,2001-2002,,2500000
+451,Ali Karimi,Attacking Midfield,22,Persepolis, Iran,Al-Ahli (UAE),United Arab Emirates,2001-2002,,2500000
 452,Daniel Andersson,Centre-Back,23,Bari,Serie B,Venezia,Italy,2001-2002,,2500000
 453,Fatih Akyel,Right-Back,23,Galatasaray,Süper Lig,RCD Mallorca,Spain,2001-2002,,2500000
 454,Pierre van Hooijdonk,Centre-Forward,31,Benfica, Portugal,Feyenoord,Netherlands,2001-2002,,2500000
@@ -485,7 +485,7 @@
 483,Mbo Mpenza,Centre-Forward,25,Galatasaray,Süper Lig,Exc. Mouscron,Belgium,2001-2002,,2000000
 484,Andrés Fleurquín,Defensive Midfield,26,Sturm Graz,Bundesliga,Galatasaray,Turkey,2001-2002,,2000000
 485,Johan Walem,Left Midfield,29,Udinese Calcio,Serie A,Standard Liège,Belgium,2001-2002,,2000000
-486,Yobanny Rivero,Right Midfield,20,Trujillanos, Venezuela,Caracas FC, Venezuela,2001-2002,,2000000
+486,Yobanny Rivero,Right Midfield,20,Trujillanos, Venezuela,Caracas FC,Venezuela,2001-2002,,2000000
 487,Claudio Taffarel,Goalkeeper,35,Galatasaray,Süper Lig,Parma,Italy,2001-2002,,2000000
 488,Marc Wilmots,Attacking Midfield,32,G. Bordeaux,Ligue 1,FC Schalke 04,Germany,2001-2002,,2000000
 489,Gheorghe Popescu,Centre-Back,33,Galatasaray,Süper Lig,Lecce,Italy,2001-2002,,2000000
@@ -493,7 +493,7 @@
 491,Tugay Kerimoglu,Defensive Midfield,30,Rangers, Scotland,Blackburn,England,2001-2002,,1950000
 492,Ulrich Le Pen,Left Winger,27,FC Lorient,Ligue 1,Ipswich,England,2001-2002,,1950000
 493,Papa Bouba Diop,Defensive Midfield,23,Grasshoppers,Super League,Lens,France,2001-2002,,1800000
-494,Nathan Ellington,Centre-Forward,20,Bristol Rovers, England,Wigan, England,2001-2002,,1800000
+494,Nathan Ellington,Centre-Forward,20,Bristol Rovers, England,Wigan,England,2001-2002,,1800000
 495,Adékambi Olufadé,Right Winger,21,KSC Lokeren,Jupiler Pro League,LOSC Lille,France,2001-2002,,1800000
 496,John Aloisi,Centre-Forward,25,Coventry City,First Division,CA Osasuna,Spain,2001-2002,,1800000
 497,Thomas Gaardsöe,Centre-Back,22,Aalborg BK, Denmark,Ipswich,England,2001-2002,,1800000
@@ -533,7 +533,7 @@
 531,Torsten Frings,Defensive Midfield,25,Werder Bremen,1.Bundesliga,Bor. Dortmund,Germany,2002-2003,,8500000
 532,França,Centre-Forward,26,São Paulo, Brazil,Bay. Leverkusen,Germany,2002-2003,,8500000
 533,Mikel Arteta,Central Midfield,20,FC Barcelona,LaLiga,Rangers,England,2002-2003,,7900000
-534,Ricardinho,Attacking Midfield,26,Corinthians, Brazil,São Paulo, Brazil,2002-2003,,7800000
+534,Ricardinho,Attacking Midfield,26,Corinthians, Brazil,São Paulo,Brazil,2002-2003,,7800000
 535,Fabrizio Miccoli,Centre-Forward,23,Ternana,Serie B,Juventus,Italy,2002-2003,,7500000
 536,Salif Diao,Defensive Midfield,25,CS Sedan,Ligue 1,Liverpool,England,2002-2003,,7500000
 537,Matías Vuoso,Centre-Forward,20,Independiente, Argentina,Man City,England,2002-2003,,7500000
@@ -560,7 +560,7 @@
 558,Matt Piper,Right Midfield,20,Leicester,First Division,Sunderland,England,2002-2003,,5250000
 559,Michael Ricketts,Centre-Forward,24,Bolton,Premier League,Middlesbrough,England,2002-2003,,5250000
 560,Ji-seong Park,Attacking Midfield,21,Kyoto Sanga,J1 - 2nd Stage,PSV Eindhoven,Netherlands,2002-2003,,5000000
-561,Ariel Ortega,Attacking Midfield,28,Fenerbahce,Süper Lig,Newell's, Argentina,2002-2003,,5000000
+561,Ariel Ortega,Attacking Midfield,28,Fenerbahce,Süper Lig,Newell's,Argentina,2002-2003,,5000000
 562,Dario Simic,Centre-Back,26,Inter,Serie A,AC Milan,Italy,2002-2003,,5000000
 563,Matteo Brighi,Central Midfield,21,Juventus,Serie A,Parma,Italy,2002-2003,,5000000
 564,Petr Cech,Goalkeeper,20,Sparta Praha, Czech Republic,Stade Rennais,France,2002-2003,,5000000
@@ -594,7 +594,7 @@
 592,Dwight Yorke,Centre-Forward,30,Man Utd,Premier League,Blackburn,England,2002-2003,,3500000
 593,Dagui Bakari,Centre-Forward,27,LOSC Lille,Ligue 1,Lens,France,2002-2003,,3500000
 594,Juan,Centre-Back,23,Flamengo, Brazil,Bay. Leverkusen,Germany,2002-2003,,3500000
-595,Luís Fabiano,Centre-Forward,21,Stade Rennais,Ligue 1,São Paulo, Brazil,2002-2003,,3500000
+595,Luís Fabiano,Centre-Forward,21,Stade Rennais,Ligue 1,São Paulo,Brazil,2002-2003,,3500000
 596,Jason Koumas,Attacking Midfield,22,Tranmere Rovers,Second Division (bis 03/04),West Brom,England,2002-2003,,3450000
 597,Jiri Stajner,Second Striker,26,Slovan Liberec, Czech Republic,Hannover 96,Germany,2002-2003,,3100000
 598,Jiri Jarosik,Centre-Back,25,Sparta Praha, Czech Republic,CSKA Moscow,Russia,2002-2003,,3000000
@@ -603,7 +603,7 @@
 601,Cosmin Contra,Right-Back,26,AC Milan,Serie A,Atlético Madrid,Spain,2002-2003,,3000000
 602,Antti Niemi,Goalkeeper,30,Heart of Midl., Scotland,Southampton,England,2002-2003,,3000000
 603,Rodrigo Fabri,Central Midfield,26,Grêmio, Brazil,Atlético Madrid,Spain,2002-2003,,3000000
-604,Federico Insúa,Attacking Midfield,23,Argentinos, Argentina,Independiente, Argentina,2002-2003,,3000000
+604,Federico Insúa,Attacking Midfield,23,Argentinos, Argentina,Independiente,Argentina,2002-2003,,3000000
 605,Michael Svensson,Centre-Back,26,Troyes,Ligue 1,Southampton,England,2002-2003,,3000000
 606,Marcus Allbäck,Centre-Forward,29,Heerenveen,Eredivisie,Aston Villa,England,2002-2003,,3000000
 607,Grigoris Georgatos,Left-Back,29,Inter,Serie A,AEK Athens,China,2002-2003,,3000000
@@ -649,9 +649,9 @@
 647,Kemal Aslan,Central Midfield,21,Gaziantepspor,Süper Lig,Fenerbahce,Turkey,2002-2003,,2000000
 648,Julio Hernán Rossi,Centre-Forward,25,FC Lugano,Auf-/Abstiegsrunde NLA/NLB,FC Basel,China,2002-2003,,2000000
 649,Boris Smiljanic,Centre-Back,25,Grasshoppers,Super League,FC Basel,China,2002-2003,,2000000
-650,Sixto Peralta,Central Midfield,23,Inter,Serie A,Racing Club, Argentina,2002-2003,,2000000
+650,Sixto Peralta,Central Midfield,23,Inter,Serie A,Racing Club,Argentina,2002-2003,,2000000
 651,Aleksandar Rankovic,Right-Back,23,Rad, Serbia,Vitesse,Netherlands,2002-2003,,2000000
-652,Sergio Hellings,Defender,17,Ajax U19,U19 Eredivisie,Anderlecht U19, Belgium,2002-2003,,2000000
+652,Sergio Hellings,Defender,17,Ajax U19,U19 Eredivisie,Anderlecht U19,Belgium,2002-2003,,2000000
 653,Mazhar Abdelrahman,Forward,25,El Masry,Premier League,Monaco,France,2002-2003,,2000000
 654,Matthew Clarke,Goalkeeper,28,Bradford City,First Division,Crystal Palace,England,2002-2003,,2000000
 655,Shunsuke Nakamura,Attacking Midfield,24,Yokohama F. M.,J1 - 2nd Stage,Reggina,Italy,2002-2003,,2000000
@@ -685,32 +685,32 @@
 683,Blaise Nkufo,Centre-Forward,27,1.FSV Mainz 05,2.Bundesliga,Hannover 96,Germany,2002-2003,,1400000
 684,Kevin Vandenbergh,Centre-Forward,19,KVC Westerlo,Jupiler Pro League,KRC Genk,Belgium,2002-2003,,1400000
 685,Bill Tchato,Left-Back,27,Montpellier,Ligue 1,1.FC K'lautern,Germany,2002-2003,,1400000
-686,Diego Crosa,Centre-Back,26,Real Betis,LaLiga,Boca Juniors, Argentina,2002-2003,,1400000
+686,Diego Crosa,Centre-Back,26,Real Betis,LaLiga,Boca Juniors,Argentina,2002-2003,,1400000
 687,Stephen Clemence,Right Midfield,24,Spurs,Premier League,Birmingham,England,2002-2003,,1350000
 688,Alexander Manninger,Goalkeeper,25,Arsenal,Premier League,Espanyol,Spain,2002-2003,,1320000
-689,Chengying Wu,Left-Back,27,SH Shenhua, China,BJ Renhe, China,2002-2003,,1300000
+689,Chengying Wu,Left-Back,27,SH Shenhua, China,BJ Renhe,China,2002-2003,,1300000
 690,Hannu Tihinen,Centre-Back,26,Viking FK,Eliteserien,RSC Anderlecht,Belgium,2002-2003,,1300000
 691,Jiayi Shao,Left Midfield,22,BJ Sinobo Guoan, China,1860 Munich,Germany,2002-2003,,1300000
 692,Ognjen Koroman,Right Winger,23,OFK Beograd, Serbia,Dinamo Moscow,Russia,2002-2003,,1250000
 693,Aleksandar Mitreski,Centre-Back,21,BSC Young Boys,Super League,Grasshoppers,China,2002-2003,,1250000
 694,Marco Ferreira,Right Winger,24,Vitória Setúbal,Liga NOS,FC Porto,Portugal,2002-2003,,1230000
-695,Cristian Traverso,Centre-Back,30,Boca Juniors, Argentina,Querétaro FC, Mexico,2002-2003,,1200000
+695,Cristian Traverso,Centre-Back,30,Boca Juniors, Argentina,Querétaro FC,Mexico,2002-2003,,1200000
 696,Hermann Hreidarsson,Centre-Back,28,Ipswich,First Division,Charlton,England,2002-2003,,1200000
 697,Michal Zewlakow,Centre-Back,26,Exc. Mouscron,Jupiler Pro League,RSC Anderlecht,Belgium,2002-2003,,1200000
 698,Zafer Demiray,Right Midfield,25,Trabzonspor,Süper Lig,Besiktas,Turkey,2002-2003,,1200000
 699,Hakan Ünsal,Left-Back,29,Blackburn,Premier League,Galatasaray,Turkey,2002-2003,,1200000
 700,Radoslaw Kaluzny,Defensive Midfield,28,Energie Cottbus,1.Bundesliga,Bay. Leverkusen,Germany,2002-2003,,1200000
 701,Edvin Murati,Left Midfield,26,LOSC Lille,Ligue 1,Iraklis,China,2002-2003,,1200000
-702,Heriberto Morales,Centre-Back,27,Morelia, Mexico,Chivas, Mexico,2002-2003,,1150000
+702,Heriberto Morales,Centre-Back,27,Morelia, Mexico,Chivas,Mexico,2002-2003,,1150000
 703,Andy Johnson,Centre-Forward,21,Birmingham,Premier League,Crystal Palace,England,2002-2003,,1150000
 704,Mark Kinsella,Defensive Midfield,29,Charlton,Premier League,Aston Villa,England,2002-2003,,1150000
 705,Tony Dinning,Midfielder,27,Wolves,First Division,Wigan,England,2002-2003,,1130000
 706,François Grenet,Right-Back,27,Derby,First Division,Stade Rennais,France,2002-2003,,1120000
-707,Stepan Vachousek,Left Midfield,22,FK Teplice, Czech Republic,Slavia Prag, Czech Republic,2002-2003,,1100000
+707,Stepan Vachousek,Left Midfield,22,FK Teplice, Czech Republic,Slavia Prag,Czech Republic,2002-2003,,1100000
 708,Seyfo Soley,Defensive Midfield,21,KSC Lokeren,Jupiler Pro League,KRC Genk,Belgium,2002-2003,,1100000
-709,Guilherme Alves,Centre-Forward,28,Corinthians, Brazil,Ittihad, Saudi Arabia,2002-2003,,1100000
+709,Guilherme Alves,Centre-Forward,28,Corinthians, Brazil,Ittihad,Saudi Arabia,2002-2003,,1100000
 710,Lee Marshall,Central Midfield,23,Leicester,First Division,West Brom,England,2002-2003,,1050000
-711,Ivica Olic,Centre-Forward,22,NK Zagreb, Croatia,Dinamo Zagreb, Croatia,2002-2003,,1000000
+711,Ivica Olic,Centre-Forward,22,NK Zagreb, Croatia,Dinamo Zagreb,Croatia,2002-2003,,1000000
 712,Brandão,Centre-Forward,22,Iraty SC, Brazil,Shakhtar D.,Russia,2002-2003,,1000000
 713,Kanga Akalé,Left Winger,21,FC Zürich,Super League,AJ Auxerre,France,2002-2003,,1000000
 714,Pablo Thiam,Defensive Midfield,29,Bayern Munich ,1.Bundesliga,VfL Wolfsburg,Germany,2002-2003,,1000000
@@ -721,25 +721,25 @@
 719,Christian Timm,Right Winger,23,1. FC Köln,2.Bundesliga,1.FC K'lautern,Germany,2002-2003,,1000000
 720,Éder Gaúcho,Centre-Back,24,Leiria,Liga NOS,Boavista,Portugal,2002-2003,,1000000
 721,Jorge Acuña,Defensive Midfield,23,CDUC, Chile,Feyenoord,Netherlands,2002-2003,,1000000
-722,Victor Ikpeba,Centre-Forward,29,Bor. Dortmund,1.Bundesliga,Al-Ittihad, Libya,2002-2003,,1000000
+722,Victor Ikpeba,Centre-Forward,29,Bor. Dortmund,1.Bundesliga,Al-Ittihad,Libya,2002-2003,,1000000
 723,Alex Yi,Centre-Back,20,UCLA Bruins, United States,Royal Antwerp,Belgium,2002-2003,,1000000
-724,Mauricio Aros,Left-Back,26,Feyenoord,Eredivisie,M. Tel Aviv, Israel,2002-2003,,1000000
+724,Mauricio Aros,Left-Back,26,Feyenoord,Eredivisie,M. Tel Aviv,Israel,2002-2003,,1000000
 725,Thomas Thorninger,Centre-Forward,29,FC Copenhagen, Denmark,Udinese Calcio,Italy,2002-2003,,1000000
-726,Mert Nobre,Centre-Forward,21,Paraná, Brazil,Cruzeiro, Brazil,2002-2003,,1000000
+726,Mert Nobre,Centre-Forward,21,Paraná, Brazil,Cruzeiro,Brazil,2002-2003,,1000000
 727,Filipe Teixeira,Right Winger,21,Istres FC,Ligue 2,Paris SG,France,2002-2003,,1000000
-728,Moubarak Boussoufa,Attacking Midfield,17,Ajax U19,U19 Eredivisie,Chelsea U23, England,2002-2003,,1000000
+728,Moubarak Boussoufa,Attacking Midfield,17,Ajax U19,U19 Eredivisie,Chelsea U23,England,2002-2003,,1000000
 729,Mikkel Bischoff,Centre-Back,20,Akademisk BK, Denmark,Man City,England,2002-2003,,950000
 730,Martijn Meerdink,Right Winger,25,De Graafschap,Eredivisie,AZ Alkmaar,Netherlands,2002-2003,,950000
 731,Frédson,Defensive Midfield,21,Paraná, Brazil,Espanyol,Spain,2002-2003,,950000
-732,Yuning Zhang,Centre-Forward,25,Liaoning FC, China,SH Shenhua, China,2002-2003,,950000
+732,Yuning Zhang,Centre-Forward,25,Liaoning FC, China,SH Shenhua,China,2002-2003,,950000
 733,Marco Storari,Goalkeeper,25,Anconitana,Serie B,SSC Napoli,Italy,2002-2003,,950000
-734,Kléber Pereira,Centre-Forward,26,Atlético-PR, Brazil,Tigres UANL, Mexico,2002-2003,,900000
+734,Kléber Pereira,Centre-Forward,26,Atlético-PR, Brazil,Tigres UANL,Mexico,2002-2003,,900000
 735,Sebastián Cejas,Goalkeeper,27,Siena,Serie B,Ascoli,Italy,2002-2003,,900000
 736,Apostolos Liolidis,Right Winger,24,Aris Saloniki,Super League,Atalanta,Italy,2002-2003,,900000
 737,Chris Barker,Left-Back,22,Barnsley FC,Second Division (bis 03/04),Cardiff,England,2002-2003,,900000
-738,Diego,Goalkeeper,23,Juventude, Brazil,Atlético-PR, Brazil,2002-2003,,900000
+738,Diego,Goalkeeper,23,Juventude, Brazil,Atlético-PR,Brazil,2002-2003,,900000
 739,Georgios Kyriazis,Centre-Back,22,Iraklis,Super League,Catania,Italy,2002-2003,,900000
-740,Cata Díaz,Centre-Back,23,CA Rosario, Argentina,CD Cruz Azul, Mexico,2002-2003,,850000
+740,Cata Díaz,Centre-Back,23,CA Rosario, Argentina,CD Cruz Azul,Mexico,2002-2003,,850000
 741,Rémo Meyer,Centre-Back,21,Lausanne-Sport,Challenge League,1860 Munich,Germany,2002-2003,,825000
 742,David Beckham,Right Midfield,28,Man Utd,Premier League,Real Madrid,Spain,2003-2004,,37500000
 743,Ronaldinho,Attacking Midfield,23,Paris SG,Ligue 1,FC Barcelona,Spain,2003-2004,,32250000
@@ -831,7 +831,7 @@
 829,Zdenek Grygera,Right-Back,23,Sparta Praha,HET Liga,AFC Ajax,Netherlands,2003-2004,,3500000
 830,Jens Lehmann,Goalkeeper,33,Bor. Dortmund,1.Bundesliga,Arsenal,England,2003-2004,,3500000
 831,Ognjen Koroman,Right Winger,24,Dinamo Moscow,Premier Liga,KS Samara,Russia,2003-2004,,3500000
-832,Ahmet Dursun,Centre-Forward,25,Besiktas,Süper Lig,TJ Teda, China,2003-2004,,3500000
+832,Ahmet Dursun,Centre-Forward,25,Besiktas,Süper Lig,TJ Teda,China,2003-2004,,3500000
 833,Collins John,Centre-Forward,18,FC Twente,Eredivisie,Fulham,England,2003-2004,,3500000
 834,Gabriel Tamas,Centre-Back,20,Galatasaray,Süper Lig,Spartak Moscow,Russia,2003-2004,,3500000
 835,Gavin McCann,Central Midfield,25,Sunderland,First Division,Aston Villa,England,2003-2004,,3380000
@@ -856,7 +856,7 @@
 854,Sebastián Battaglia,Defensive Midfield,23,Boca Juniors, Argentina,Villarreal CF,Spain,2003-2004,,2800000
 855,David James,Goalkeeper,33,West Ham,First Division,Man City,England,2003-2004,,2800000
 856,Mauricio Pinilla,Centre-Forward,19,U. de Chile, Chile,Inter,Italy,2003-2004,,2800000
-857,Wálter Gaitán,Attacking Midfield,26,Boca Juniors, Argentina,Tigres UANL, Mexico,2003-2004,,2700000
+857,Wálter Gaitán,Attacking Midfield,26,Boca Juniors, Argentina,Tigres UANL,Mexico,2003-2004,,2700000
 858,Andrea Gasbarroni,Second Striker,21,Juventus,Serie A,US Palermo,Italy,2003-2004,,2700000
 859,Kily González,Left Midfield,28,Valencia CF,LaLiga,Inter,Italy,2003-2004,,2500000
 860,Gustavo Munúa,Goalkeeper,25,Nacional, Uruguay,Dep. La Coruña,Spain,2003-2004,,2500000
@@ -869,10 +869,10 @@
 867,Karel D'Haene,Centre-Back,22,Royal Antwerp,Jupiler Pro League,Trabzonspor,Turkey,2003-2004,,2500000
 868,Zisis Vryzas,Centre-Forward,30,Perugia,Serie A,Fiorentina,Italy,2003-2004,,2500000
 869,Thomas Christiansen,Centre-Forward,30,VfL Bochum,1.Bundesliga,Hannover 96,Germany,2003-2004,,2500000
-870,Sixto Peralta,Central Midfield,24,Racing Club, Argentina,Santos Laguna, Mexico,2003-2004,,2500000
+870,Sixto Peralta,Central Midfield,24,Racing Club, Argentina,Santos Laguna,Mexico,2003-2004,,2500000
 871,Carlos Alberto,Attacking Midfield,19,Fluminense, Brazil,FC Porto,Portugal,2003-2004,,2500000
 872,Jan Lastuvka,Goalkeeper,20,Banik Ostrava,HET Liga,Shakhtar D.,Russia,2003-2004,,2500000
-873,Marcelo Delgado,Centre-Forward,30,Boca Juniors, Argentina,CD Cruz Azul, Mexico,2003-2004,,2450000
+873,Marcelo Delgado,Centre-Forward,30,Boca Juniors, Argentina,CD Cruz Azul,Mexico,2003-2004,,2450000
 874,Mbulelo Mabizela,Centre-Back,22,Orlando Pirates, South Africa,Spurs,England,2003-2004,,2300000
 875,Eyal Berkovic,Attacking Midfield,31,Celtic,Premiership,Man City,England,2003-2004,,2300000
 876,Henri Camara,Centre-Forward,26,CS Sedan,Ligue 2,Wolves,England,2003-2004,,2250000
@@ -881,8 +881,8 @@
 879,Maik Taylor,Goalkeeper,32,Fulham,Premier League,Birmingham,England,2003-2004,,2250000
 880,Amdy Fayé,Defensive Midfield,26,AJ Auxerre,Ligue 1,Portsmouth,England,2003-2004,,2230000
 881,Neil McCann,Left Winger,29,Rangers,Premiership,Southampton,England,2003-2004,,2230000
-882,Léo Lima,Attacking Midfield,21,Vasco da Gama, Brazil,CSKA Sofia, Bulgaria,2003-2004,,2200000
-883,Adolfo Bautista,Second Striker,24,CF Pachuca, Mexico,Chivas, Mexico,2003-2004,,2150000
+882,Léo Lima,Attacking Midfield,21,Vasco da Gama, Brazil,CSKA Sofia,Bulgaria,2003-2004,,2200000
+883,Adolfo Bautista,Second Striker,24,CF Pachuca, Mexico,Chivas,Mexico,2003-2004,,2150000
 884,Lorenzo Amoruso,Centre-Back,32,Rangers,Premiership,Blackburn,England,2003-2004,,2100000
 885,Jason Roberts,Centre-Forward,25,West Brom,First Division,Wigan,England,2003-2004,,2100000
 886,Srdjan Stanic,Attacking Midfield,21,OFK Beograd, Serbia,Spartak Moscow,Russia,2003-2004,,2100000
@@ -895,7 +895,7 @@
 893,Evgeni Aldonin,Defensive Midfield,23,Rotor Volgograd,Premier Liga,CSKA Moscow,Russia,2003-2004,,2000000
 894,Maris Verpakovskis,Centre-Forward,24,Skonto Riga,Virsliga,Dynamo Kyiv,Russia,2003-2004,,2000000
 895,Jody Craddock,Centre-Back,27,Sunderland,First Division,Wolves,England,2003-2004,,2000000
-896,Marcelinho Carioca,Attacking Midfield,32,Vasco da Gama, Brazil,Al-Nasr, United Arab Emirates,2003-2004,,2000000
+896,Marcelinho Carioca,Attacking Midfield,32,Vasco da Gama, Brazil,Al-Nasr,United Arab Emirates,2003-2004,,2000000
 897,Emanuel Centurión,Left Midfield,20,Vélez Sarsfield, Argentina,VfB Stuttgart,Germany,2003-2004,,2000000
 898,Óscar Córdoba,Goalkeeper,33,Boca Juniors, Argentina,Besiktas,Turkey,2003-2004,,2000000
 899,Fabiano Rossato,Left-Back,25,Nacional,Liga NOS,FC Porto,Portugal,2003-2004,,2000000
@@ -909,14 +909,14 @@
 907,Moumouni Dagano,Centre-Forward,22,KRC Genk,Jupiler Pro League,Guingamp,France,2003-2004,,1800000
 908,Goran Sablic,Centre-Back,24,Hajduk Split, Croatia,Dynamo Kyiv,Russia,2003-2004,,1800000
 909,Valdo,Right Winger,22,Real Madrid,LaLiga,CA Osasuna,Spain,2003-2004,,1800000
-910,Cata Díaz,Centre-Back,24,CD Cruz Azul, Mexico,Colón, Argentina,2003-2004,,1800000
+910,Cata Díaz,Centre-Back,24,CD Cruz Azul, Mexico,Colón,Argentina,2003-2004,,1800000
 911,Hamit Altintop,Central Midfield,20,Wattenscheid 09,Regionalliga Nord,FC Schalke 04,Germany,2003-2004,,1800000
 912,Emiliano Moretti,Centre-Back,22,Juventus,Serie A,Parma,Italy,2003-2004,,1800000
 913,James McFadden,Second Striker,20,Motherwell FC,Premiership,Everton,England,2003-2004,,1750000
-914,Salvador Carmona,Centre-Back,28,Toluca, Mexico,Chivas, Mexico,2003-2004,,1750000
+914,Salvador Carmona,Centre-Back,28,Toluca, Mexico,Chivas,Mexico,2003-2004,,1750000
 915,Florin Bratu,Centre-Forward,23,Rapid Bucharest, Romania,Galatasaray,Turkey,2003-2004,,1750000
 916,Laurent Batlles,Attacking Midfield,28,SC Bastia,Ligue 1,Marseille,France,2003-2004,,1650000
-917,Álvaro Santos,Centre-Forward,23,Helsingborg, Sweden,FC Copenhagen, Denmark,2003-2004,,1650000
+917,Álvaro Santos,Centre-Forward,23,Helsingborg, Sweden,FC Copenhagen,Denmark,2003-2004,,1650000
 918,Moisés Moura,Centre-Back,24,Spartak Moscow,Premier Liga,KS Samara,Russia,2003-2004,,1600000
 919,Hakan Yakin,Attacking Midfield,26,FC Basel,Super League,Paris SG,France,2003-2004,,1600000
 920,Hakan Yakin,Attacking Midfield,26,Paris SG,Ligue 1,FC Basel,China,2003-2004,,1600000
@@ -924,13 +924,13 @@
 922,Martin Taylor,Centre-Back,24,Blackburn,Premier League,Birmingham,England,2003-2004,,1600000
 923,Rudi Skácel,Attacking Midfield,24,Slavia Prag,HET Liga,Marseille,France,2003-2004,,1600000
 924,Pablo Guiñazú,Defensive Midfield,25,Newell's, Argentina,Saturn,Russia,2003-2004,,1530000
-925,Luis Perea,Centre-Back,24,Indep. Medellín, Colombia,Boca Juniors, Argentina,2003-2004,,1500000
+925,Luis Perea,Centre-Back,24,Indep. Medellín, Colombia,Boca Juniors,Argentina,2003-2004,,1500000
 926,Tore André Flo,Centre-Forward,30,Sunderland,First Division,Siena,Italy,2003-2004,,1500000
 927,Denis Kolodin,Centre-Back,21,Uralan, Russia,KS Samara,Russia,2003-2004,,1500000
 928,Hossam Ghaly,Central Midfield,21,Ahly,Premier League,Feyenoord,Netherlands,2003-2004,,1500000
 929,Tolga Seyhan,Centre-Back,26,Malatyaspor,Süper Lig,Trabzonspor,Turkey,2003-2004,,1500000
 930,Vaclav Sverkos,Centre-Forward,19,Banik Ostrava,HET Liga,Bor. M'gladbach,Germany,2003-2004,,1500000
-931,Matías Vuoso,Centre-Forward,21,Man City,Premier League,Santos Laguna, Mexico,2003-2004,,1500000
+931,Matías Vuoso,Centre-Forward,21,Man City,Premier League,Santos Laguna,Mexico,2003-2004,,1500000
 932,César Prates,Right-Back,28,Sporting CP,Liga NOS,Galatasaray,Turkey,2003-2004,,1500000
 933,Cédric Barbosa,Left Winger,27,Montpellier,Ligue 1,Stade Rennais,France,2003-2004,,1500000
 934,Claudiu Raducanu,Centre-Forward,27,FCS Bucharest, Romania,Espanyol,Spain,2003-2004,,1500000
@@ -942,17 +942,17 @@
 940,Geoff Horsfield,Centre-Forward,30,Wigan,First Division,West Brom,England,2003-2004,,1500000
 941,Fábio Júnior,Centre-Forward,26,Atlético-MG, Brazil,Kashima Antlers,Japan,2003-2004,,1500000
 942,Selcuk Sahin,Defensive Midfield,22,Istanbulspor,Süper Lig,Fenerbahce,Turkey,2003-2004,,1500000
-943,César Delgado,Right Winger,21,CA Rosario, Argentina,CD Cruz Azul, Mexico,2003-2004,,1500000
+943,César Delgado,Right Winger,21,CA Rosario, Argentina,CD Cruz Azul,Mexico,2003-2004,,1500000
 944,Sergey Kornilenko,Centre-Forward,20,Dinamo Minsk,Vysheyshaya Liga,Dynamo Kyiv,Russia,2003-2004,,1500000
-945,Lee Martin,Attacking Midfield,16,MK Dons U18, England,Man Utd U18, England,2003-2004,,1500000
+945,Lee Martin,Attacking Midfield,16,MK Dons U18, England,Man Utd U18,England,2003-2004,,1500000
 946,Alejandro Domínguez,Attacking Midfield,22,River Plate, Argentina,Rubin Kazan,Russia,2003-2004,,1500000
 947,Paul Kpaka,Centre-Forward,21,Beerschot AC,Jupiler Pro League,KRC Genk,Belgium,2003-2004,,1500000
 948,Marlon King,Centre-Forward,23,Gillingham FC,First Division,Nottm Forest,England,2003-2004,,1400000
 949,Okan Koc,Right Winger,21,Genclerbirligi,Süper Lig,Besiktas,Turkey,2003-2004,,1400000
 950,Josip Skoko,Central Midfield,27,KRC Genk,Jupiler Pro League,Genclerbirligi,Turkey,2003-2004,,1350000
-951,Afonso Alves,Centre-Forward,22,Örgryte, Sweden,Malmö FF, Sweden,2003-2004,,1330000
+951,Afonso Alves,Centre-Forward,22,Örgryte, Sweden,Malmö FF,Sweden,2003-2004,,1330000
 952,Matías Delgado,Attacking Midfield,20,Chacarita Jrs, Argentina,FC Basel,China,2003-2004,,1300000
-953,Dorin Goian,Centre-Back,23,FCM Bacau, Romania,FCS Bucharest, Romania,2003-2004,,1300000
+953,Dorin Goian,Centre-Back,23,FCM Bacau, Romania,FCS Bucharest,Romania,2003-2004,,1300000
 954,Kennedy,Right Midfield,23,Hammarby, Sweden,Iraklis,China,2003-2004,,1300000
 955,Andrezinho,Central Midfield,20,Flamengo, Brazil,Pohang Steelers,South Korea,2003-2004,,1300000
 956,Kevin Kilbane,Left Midfield,26,Sunderland,First Division,Everton,England,2003-2004,,1250000
@@ -966,8 +966,8 @@
 964,Chidi Odiah,Right-Back,20,Sheriff, Moldova,CSKA Moscow,Russia,2003-2004,,1200000
 965,Elpídio Silva,Centre-Forward,27,Boavista,Liga NOS,Sporting CP,Portugal,2003-2004,,1200000
 966,Alan Lee,Centre-Forward,25,Rotherham Utd.,First Division,Cardiff,England,2003-2004,,1200000
-967,Dário,Centre-Forward,26,Coimbra,Liga NOS,Al-Jazira, United Arab Emirates,2003-2004,,1200000
-968,Marcinho Guerreiro,Defensive Midfield,23,Figueirense FC, Brazil,Palmeiras, Brazil,2003-2004,,1200000
+967,Dário,Centre-Forward,26,Coimbra,Liga NOS,Al-Jazira,United Arab Emirates,2003-2004,,1200000
+968,Marcinho Guerreiro,Defensive Midfield,23,Figueirense FC, Brazil,Palmeiras,Brazil,2003-2004,,1200000
 969,Fernando,Centre-Back,23,Flamengo, Brazil,1860 Munich,Germany,2003-2004,,1200000
 970,Darijo Srna,Right-Back,21,Hajduk Split, Croatia,Shakhtar D.,Russia,2003-2004,,1200000
 971,Duccio Innocenti,Centre-Back,27,Bari,Serie B,Atalanta,Italy,2003-2004,,1150000
@@ -1063,7 +1063,7 @@
 1061,Edú,Second Striker,25,Celta de Vigo,LaLiga2,Real Betis,Spain,2004-2005,,5500000
 1062,Dario Dainelli,Centre-Back,25,Brescia,Serie A,Fiorentina,Italy,2004-2005,,5500000
 1063,Stephen Makinwa,Centre-Forward,21,Genoa,Serie B,Atalanta,Italy,2004-2005,200000.0,5400000
-1064,Joel Huiqui,Centre-Back,21,CF Pachuca, Mexico,CD Cruz Azul, Mexico,2004-2005,,5400000
+1064,Joel Huiqui,Centre-Back,21,CF Pachuca, Mexico,CD Cruz Azul,Mexico,2004-2005,,5400000
 1065,Gerard Piqué,Centre-Back,17,Barça Juvenil A, Spain,Man Utd,England,2004-2005,,5250000
 1066,Sean Davis,Defensive Midfield,24,Fulham,Premier League,Spurs,England,2004-2005,,5200000
 1067,Fabricio Coloccini,Centre-Back,23,AC Milan,Serie A,Dep. La Coruña,Spain,2004-2005,8000000.0,5000000
@@ -1147,7 +1147,7 @@
 1145,David Healy,Centre-Forward,25,Preston NE,Championship,Leeds,England,2004-2005,,2750000
 1146,Sotiris Kyrgiakos,Centre-Back,25,Panathinaikos,Super League,Rangers,England,2004-2005,3800000.0,2630000
 1147,Eric Djemba-Djemba,Defensive Midfield,23,Man Utd,Premier League,Aston Villa,England,2004-2005,7000000.0,2540000
-1148,Leandro Romagnoli,Attacking Midfield,23,San Lorenzo, Argentina,Tiburones Rojos, Mexico,2004-2005,3000000.0,2500000
+1148,Leandro Romagnoli,Attacking Midfield,23,San Lorenzo, Argentina,Tiburones Rojos,Mexico,2004-2005,3000000.0,2500000
 1149,Sergey Semak,Central Midfield,28,CSKA Moscow,Premier Liga,Paris SG,France,2004-2005,1000000.0,2500000
 1150,Emile Mpenza,Centre-Forward,26,Standard Liège,Jupiler Pro League,Hamburger SV,Germany,2004-2005,,2500000
 1151,Ricardo Fuller,Centre-Forward,24,Preston NE,Championship,Portsmouth,England,2004-2005,,2500000
@@ -1161,7 +1161,7 @@
 1159,Fabrizio Miccoli,Centre-Forward,25,Fiorentina,Serie A,Juventus,Italy,2004-2005,15000000.0,2400000
 1160,Erik Hagen,Centre-Back,29,Valerenga,Eliteserien,Zenit S-Pb,Russia,2004-2005,2400000.0,2400000
 1161,Noé Pamarot,Centre-Back,25,OGC Nice,Ligue 1,Spurs,England,2004-2005,,2400000
-1162,Cata Díaz,Centre-Back,25,Colón, Argentina,Boca Juniors, Argentina,2004-2005,,2400000
+1162,Cata Díaz,Centre-Back,25,Colón, Argentina,Boca Juniors,Argentina,2004-2005,,2400000
 1163,Roger,Attacking Midfield,26,Benfica,Liga NOS,Corinthians,Brazil,2004-2005,1500000.0,2300000
 1164,Mathieu Berson,Defensive Midfield,24,FC Nantes,Ligue 1,Aston Villa,England,2004-2005,,2300000
 1165,Marek Heinz,Centre-Forward,26,Banik Ostrava,HET Liga,Bor. M'gladbach,Germany,2004-2005,,2300000
@@ -1178,7 +1178,7 @@
 1176,Tim Cahill,Attacking Midfield,24,Millwall,Championship,Everton,England,2004-2005,,2200000
 1177,Adriano,Left-Back,20,Coritiba FC,Série A,Sevilla FC,Spain,2004-2005,,2100000
 1178,Jesper Grönkjaer,Left Winger,27,Birmingham,Premier League,Atlético Madrid,Spain,2004-2005,6500000.0,2000000
-1179,Sonny Anderson,Centre-Forward,34,Villarreal CF,LaLiga,Al Rayyan, Qatar,2004-2005,4000000.0,2000000
+1179,Sonny Anderson,Centre-Forward,34,Villarreal CF,LaLiga,Al Rayyan,Qatar,2004-2005,4000000.0,2000000
 1180,Chong-gug Song,Right-Back,25,Feyenoord,Eredivisie,Suwon Bluewings,South Korea,2004-2005,2800000.0,2000000
 1181,Luís Loureiro,Defensive Midfield,28,Braga,Liga NOS,Dinamo Moscow,Russia,2004-2005,2750000.0,2000000
 1182,Leandro,Left-Back,25,Cruzeiro,Série A,FC Porto,Portugal,2004-2005,2500000.0,2000000
@@ -1188,12 +1188,12 @@
 1186,Paulo Assunção,Defensive Midfield,24,Nacional,Liga NOS,FC Porto,Portugal,2004-2005,,2000000
 1187,Jussiê,Attacking Midfield,21,Cruzeiro,Série A,Lens,France,2004-2005,,2000000
 1188,Kevin Hofland,Centre-Back,25,PSV Eindhoven,Eredivisie,VfL Wolfsburg,Germany,2004-2005,,2000000
-1189,Juan Carlos Cacho,Centre-Forward,22,CD Cruz Azul, Mexico,CF Pachuca, Mexico,2004-2005,,2000000
+1189,Juan Carlos Cacho,Centre-Forward,22,CD Cruz Azul, Mexico,CF Pachuca,Mexico,2004-2005,,2000000
 1190,Marco Caneira,Centre-Back,25,G. Bordeaux,Ligue 1,Valencia CF,Spain,2004-2005,,2000000
 1191,Vahid Hashemian,Centre-Forward,27,VfL Bochum,1.Bundesliga,Bayern Munich ,Germany,2004-2005,,2000000
 1192,Seyi Olofinjana,Central Midfield,24,SK Brann,Eliteserien,Wolves,England,2004-2005,,2000000
 1193,Erik Edman,Left-Back,25,Heerenveen,Eredivisie,Spurs,England,2004-2005,,2000000
-1194,Weldon,Centre-Forward,23,Ponte Preta, Brazil,Al-Nasr, United Arab Emirates,2004-2005,,2000000
+1194,Weldon,Centre-Forward,23,Ponte Preta, Brazil,Al-Nasr,United Arab Emirates,2004-2005,,2000000
 1195,Rodolfo,Centre-Back,21,Fluminense, Brazil,Dynamo Kyiv,Russia,2004-2005,,2000000
 1196,Serkan Balci,Right-Back,20,Genclerbirligi,Süper Lig,Fenerbahce,Turkey,2004-2005,,2000000
 1197,Davide Carrus,Defensive Midfield,25,Fiorentina,Serie A,Bari,Italy,2004-2005,,2000000
@@ -1206,7 +1206,7 @@
 1204,Ki-hyeon Seol,Right Winger,25,RSC Anderlecht,Jupiler Pro League,Wolves,England,2004-2005,,1800000
 1205,Serghei Covalciuc,Central Midfield,22,Karpaty, Ukraine,Spartak Moscow,Russia,2004-2005,,1800000
 1206,Marcel,Centre-Forward,23,Suwon Bluewings," Korea, South",Coimbra,Portugal,2004-2005,,1800000
-1207,Sixto Peralta,Central Midfield,25,Santos Laguna, Mexico,Tigres UANL, Mexico,2004-2005,,1800000
+1207,Sixto Peralta,Central Midfield,25,Santos Laguna, Mexico,Tigres UANL,Mexico,2004-2005,,1800000
 1208,Calum Davenport,Centre-Back,21,Coventry City,Championship,Spurs,England,2004-2005,,1800000
 1209,Ibson,Central Midfield,21,Flamengo,Série A,FC Porto,Portugal,2004-2005,,1800000
 1210,Mladen Petric,Centre-Forward,23,Grasshoppers,Super League,FC Basel,China,2004-2005,,1750000
@@ -1218,7 +1218,7 @@
 1216,Maksim Romashchenko,Left Midfield,28,Trabzonspor,Süper Lig,Dinamo Moscow,Russia,2004-2005,2200000.0,1600000
 1217,Tobias Linderoth,Defensive Midfield,25,Everton,Premier League,FC Copenhagen,Denmark,2004-2005,,1600000
 1218,Dragan Mladenovic,Defensive Midfield,28,Red Star, Serbia,Rangers,England,2004-2005,,1600000
-1219,Niko Kranjcar,Attacking Midfield,20,Dinamo Zagreb, Croatia,Hajduk Split, Croatia,2004-2005,5000000.0,1500000
+1219,Niko Kranjcar,Attacking Midfield,20,Dinamo Zagreb, Croatia,Hajduk Split,Croatia,2004-2005,5000000.0,1500000
 1220,Juan Pablo Sorín,Left-Back,28,Cruzeiro, Brazil,Villarreal CF,Spain,2004-2005,4000000.0,1500000
 1221,Élson,Attacking Midfield,23,Palmeiras,Série A,VfB Stuttgart,Germany,2004-2005,1200000.0,1500000
 1222,Damani Ralph,Centre-Forward,24,Chicago Fire,MLS,Rubin Kazan,Russia,2004-2005,1000000.0,1500000
@@ -1298,8 +1298,8 @@
 1296,Joseph Enakarhire,Centre-Back,22,Sporting CP,Liga NOS,Dinamo Moscow,Russia,2005-2006,2250000.0,6000000
 1297,Manuel Pasqual,Left-Back,23,Arezzo,Serie B,Fiorentina,Italy,2005-2006,1700000.0,6000000
 1298,Valon Behrami,Defensive Midfield,20,Genoa,Serie C - A,Lazio,Italy,2005-2006,500000.0,6000000
-1299,Yasser Al-Qahtani,Centre-Forward,22,Al Qadisiyah, Saudi Arabia,Hilal, Saudi Arabia,2005-2006,,6000000
-1300,Emerson Sheik,Left Winger,26,Urawa Reds,J1 League,Al Sadd, Qatar,2005-2006,,6000000
+1299,Yasser Al-Qahtani,Centre-Forward,22,Al Qadisiyah, Saudi Arabia,Hilal,Saudi Arabia,2005-2006,,6000000
+1300,Emerson Sheik,Left Winger,26,Urawa Reds,J1 League,Al Sadd,Qatar,2005-2006,,6000000
 1301,Antonio Cassano,Second Striker,23,AS Roma,Serie A,Real Madrid,Spain,2005-2006,24000000.0,5500000
 1302,Riccardo Montolivo,Defensive Midfield,20,Atalanta,Serie B,Fiorentina,Italy,2005-2006,5000000.0,5500000
 1303,Markus Rosenberg,Centre-Forward,22,Malmö FF,Allsvenskan,AFC Ajax,Netherlands,2005-2006,5500000.0,5300000
@@ -1328,7 +1328,7 @@
 1326,Martin Stranzl,Centre-Back,25,VfB Stuttgart,1.Bundesliga,Spartak Moscow,Russia,2005-2006,3500000.0,4500000
 1327,Darren Bent,Centre-Forward,21,Ipswich,Championship,Charlton,England,2005-2006,3500000.0,4500000
 1328,Nathan Ellington,Centre-Forward,24,Wigan,Premier League,West Brom,England,2005-2006,2250000.0,4500000
-1329,Lima,Centre-Forward,23,Atlético-PR,Série A,Ittihad, Saudi Arabia,2005-2006,200000.0,4500000
+1329,Lima,Centre-Forward,23,Atlético-PR,Série A,Ittihad,Saudi Arabia,2005-2006,200000.0,4500000
 1330,Curtis Davies,Centre-Back,20,Luton Town,Championship,West Brom,England,2005-2006,,4500000
 1331,Lassana Diarra,Defensive Midfield,20,AC Le Havre,Ligue 2,Chelsea,England,2005-2006,,4500000
 1332,Shunsuke Nakamura,Attacking Midfield,27,Reggina,Serie A,Celtic,England,2005-2006,2500000.0,4200000
@@ -1369,7 +1369,7 @@
 1367,Tomas Jun,Second Striker,22,Sparta Praha,HET Liga,Trabzonspor,Turkey,2005-2006,4000000.0,3250000
 1368,Danny Murphy,Central Midfield,28,Charlton,Premier League,Spurs,England,2005-2006,5300000.0,3210000
 1369,Vikash Dhorasoo,Central Midfield,31,AC Milan,Serie A,Paris SG,France,2005-2006,4000000.0,3200000
-1370,Fran Mérida,Central Midfield,15,Barcelona Yth., Spain,Arsenal U18, England,2005-2006,,3200000
+1370,Fran Mérida,Central Midfield,15,Barcelona Yth., Spain,Arsenal U18,England,2005-2006,,3200000
 1371,Maciej Zurawski,Centre-Forward,28,Wisla Kraków,Ekstraklasa,Celtic,England,2005-2006,5000000.0,3100000
 1372,Clinton Morrison,Centre-Forward,26,Birmingham,Premier League,Crystal Palace,England,2005-2006,7000000.0,3000000
 1373,Jesper Grönkjaer,Left Winger,27,Atlético Madrid,LaLiga,VfB Stuttgart,Germany,2005-2006,6500000.0,3000000
@@ -1432,7 +1432,7 @@
 1430,Bostjan Cesar,Centre-Back,22,Dinamo Zagreb,1.HNL,Marseille,France,2005-2006,1000000.0,2500000
 1431,Quincy Owusu-Abeyie,Left Winger,19,Arsenal,Premier League,Spartak Moscow,Russia,2005-2006,750000.0,2500000
 1432,Edixon Perea,Centre-Forward,21,Atl. Nacional, Colombia,G. Bordeaux,France,2005-2006,,2500000
-1433,Felipe,Left Winger,27,Fluminense,Série A,Al Sadd, Qatar,2005-2006,,2500000
+1433,Felipe,Left Winger,27,Fluminense,Série A,Al Sadd,Qatar,2005-2006,,2500000
 1434,Federico Insúa,Attacking Midfield,25,Independiente,Torneo Final,Boca Juniors,Argentina,2005-2006,4500000.0,2480000
 1435,Naldo,Centre-Back,22,Juventude,Série A,Werder Bremen,Germany,2005-2006,2750000.0,2400000
 1436,Garry O'Connor,Centre-Forward,22,Hibernian FC,Premiership,Loko Moscow,Russia,2005-2006,2000000.0,2400000
@@ -1461,7 +1461,7 @@
 1459,Sasa Ilic,Central Midfield,27,Partizan,SuperLiga,Galatasaray,Turkey,2005-2006,3000000.0,2000000
 1460,Miguel Ángel,Defensive Midfield,26,Málaga CF,LaLiga,Real Betis,Spain,2005-2006,2000000.0,2000000
 1461,Chun-soo Lee,Second Striker,23,Real Sociedad,LaLiga,Ulsan,South Korea,2005-2006,2000000.0,2000000
-1462,Martin Kamburov,Centre-Forward,25,Lok. Plovdiv, Bulgaria,Al Ahli, Qatar,2005-2006,2000000.0,2000000
+1462,Martin Kamburov,Centre-Forward,25,Lok. Plovdiv, Bulgaria,Al Ahli,Qatar,2005-2006,2000000.0,2000000
 1463,Javier Arizmendi,Centre-Forward,21,Atlético Madrid,LaLiga,Dep. La Coruña,Spain,2005-2006,1500000.0,2000000
 1464,Marián Had,Centre-Back,23,Zbrojovka Brno,HET Liga,Loko Moscow,Russia,2005-2006,1250000.0,2000000
 1465,Martin Andresen,Central Midfield,28,Stabaek IF,OBOS-ligaen,SK Brann,Norway,2005-2006,1250000.0,2000000
@@ -1520,7 +1520,7 @@
 1518,Craig Bellamy,Left Winger,26,Blackburn,Premier League,Liverpool,England,2006-2007,9000000.0,9000000
 1519,Fernando Cavenaghi,Centre-Forward,23,Spartak Moscow,Premier Liga,G. Bordeaux,France,2006-2007,6500000.0,9000000
 1520,Arouna Koné,Centre-Forward,22,Roda JC,Eredivisie,PSV Eindhoven,Netherlands,2006-2007,6000000.0,9000000
-1521,Wagner,Attacking Midfield,21,Cruzeiro,Série A,Ittihad, Saudi Arabia,2006-2007,,9000000
+1521,Wagner,Attacking Midfield,21,Cruzeiro,Série A,Ittihad,Saudi Arabia,2006-2007,,9000000
 1522,Javier Chevantón,Centre-Forward,25,Monaco,Ligue 1,Sevilla FC,Spain,2006-2007,7000000.0,8900000
 1523,Robert Huth,Centre-Back,21,Chelsea,Premier League,Middlesbrough,England,2006-2007,2750000.0,8900000
 1524,Amauri,Centre-Forward,26,Chievo Verona,Serie A,US Palermo,Italy,2006-2007,4000000.0,8750000
@@ -1604,7 +1604,7 @@
 1602,Deivid,Centre-Forward,26,Sporting CP,Liga NOS,Fenerbahce,Turkey,2006-2007,3500000.0,4500000
 1603,Yoann Gourcuff,Attacking Midfield,19,Stade Rennais,Ligue 1,AC Milan,Italy,2006-2007,3500000.0,4500000
 1604,Greg Halford,Centre-Back,22,Colchester Utd.,Championship,Reading,England,2006-2007,400000.0,4500000
-1605,Dodô,Centre-Forward,32,Botafogo,Série A,Al-Ain FC, United Arab Emirates,2006-2007,,4500000
+1605,Dodô,Centre-Forward,32,Botafogo,Série A,Al-Ain FC,United Arab Emirates,2006-2007,,4500000
 1606,Cameron Jerome,Centre-Forward,19,Cardiff,Championship,Birmingham,England,2006-2007,5000000.0,4450000
 1607,Denny Landzaat,Central Midfield,30,AZ Alkmaar,Eredivisie,Wigan,England,2006-2007,7000000.0,4400000
 1608,Andy Reid,Left Midfield,23,Spurs,Premier League,Charlton,England,2006-2007,5700000.0,4200000
@@ -1642,7 +1642,7 @@
 1640,Benni McCarthy,Centre-Forward,28,FC Porto,Liga NOS,Blackburn,England,2006-2007,6000000.0,3700000
 1641,Rodolfo,Centre-Back,24,Dynamo Kyiv,Premier Liga,Loko Moscow,Russia,2006-2007,2500000.0,3700000
 1642,Jonathan Santana,Central Midfield,24,River Plate,Torneo Final,VfL Wolfsburg,Germany,2006-2007,4500000.0,3600000
-1643,Leonardo Pisculichi,Attacking Midfield,22,RCD Mallorca,LaLiga,Al Arabi, Qatar,2006-2007,1750000.0,3600000
+1643,Leonardo Pisculichi,Attacking Midfield,22,RCD Mallorca,LaLiga,Al Arabi,Qatar,2006-2007,1750000.0,3600000
 1644,Konstantinos Katsouranis,Defensive Midfield,27,AEK Athens,Super League,Benfica,Portugal,2006-2007,7000000.0,3500000
 1645,Jiri Jarosik,Centre-Back,28,Chelsea,Premier League,Celtic,England,2006-2007,6500000.0,3500000
 1646,Ronald Zubar,Centre-Back,20,SM Caen,Ligue 2,Marseille,France,2006-2007,3750000.0,3500000
@@ -1753,7 +1753,7 @@
 1751,Cristian Chivu,Centre-Back,26,AS Roma,Serie A,Inter,Italy,2007-2008,15000000.0,16000000
 1752,Miroslav Klose,Centre-Forward,29,Werder Bremen,1.Bundesliga,Bayern Munich ,Germany,2007-2008,23000000.0,15000000
 1753,Éric Abidal,Left-Back,27,Olympique Lyon,Ligue 1,FC Barcelona,Spain,2007-2008,13500000.0,15000000
-1754,Mauro Zárate,Second Striker,20,Vélez Sarsfield,Torneo Final,Al Sadd, Qatar,2007-2008,7500000.0,15000000
+1754,Mauro Zárate,Second Striker,20,Vélez Sarsfield,Torneo Final,Al Sadd,Qatar,2007-2008,7500000.0,15000000
 1755,Nery Castillo,Right Winger,23,Olympiacos,Super League,Shakhtar D.,Russia,2007-2008,3000000.0,15000000
 1756,Gareth Bale,Right Winger,17,Southampton,Championship,Spurs,England,2007-2008,7500000.0,14700000
 1757,Matuzalém,Defensive Midfield,27,Shakhtar D.,Premier Liga,Real Zaragoza,Spain,2007-2008,14000000.0,14500000
@@ -1844,7 +1844,7 @@
 1842,Ciprian Marica,Centre-Forward,21,Shakhtar D.,Premier Liga,VfB Stuttgart,Germany,2007-2008,5000000.0,7000000
 1843,Felipe Caicedo,Centre-Forward,19,FC Basel,Super League,Man City,England,2007-2008,5000000.0,7000000
 1844,Andrea Caracciolo,Centre-Forward,26,Sampdoria,Serie A,Brescia,Italy,2007-2008,4400000.0,7000000
-1845,Emerson Sheik,Left Winger,29,Stade Rennais,Ligue 1,Al Sadd, Qatar,2007-2008,3500000.0,7000000
+1845,Emerson Sheik,Left Winger,29,Stade Rennais,Ligue 1,Al Sadd,Qatar,2007-2008,3500000.0,7000000
 1846,Diego López,Goalkeeper,25,Real Madrid,LaLiga,Villarreal CF,Spain,2007-2008,2750000.0,7000000
 1847,Andrés Guardado,Central Midfield,20,Atlas,Liga MX Clausura,Dep. La Coruña,Spain,2007-2008,600000.0,7000000
 1848,Carlos Eduardo,Attacking Midfield,20,Grêmio,Série A,TSG Hoffenheim,Germany,2007-2008,,7000000
@@ -2025,7 +2025,7 @@
 2023,Domenico Criscito,Left-Back,21,Juventus,Serie A,Genoa,Italy,2008-2009,4500000.0,11500000
 2024,Shaun Wright-Phillips,Right Winger,26,Chelsea,Premier League,Man City,England,2008-2009,13000000.0,11250000
 2025,Gianluca Zambrotta,Right-Back,31,FC Barcelona,LaLiga,AC Milan,Italy,2008-2009,16000000.0,10500000
-2026,Rafael Sóbis,Centre-Forward,23,Real Betis,LaLiga,Al-Jazira, United Arab Emirates,2008-2009,8000000.0,10500000
+2026,Rafael Sóbis,Centre-Forward,23,Real Betis,LaLiga,Al-Jazira,United Arab Emirates,2008-2009,8000000.0,10500000
 2027,Luca Cigarini,Defensive Midfield,22,Parma,Serie B,Atalanta,Italy,2008-2009,7000000.0,10500000
 2028,Deco,Attacking Midfield,30,FC Barcelona,LaLiga,Chelsea,England,2008-2009,18000000.0,10000000
 2029,Jefferson Farfán,Right Winger,23,PSV Eindhoven,Eredivisie,FC Schalke 04,Germany,2008-2009,14500000.0,10000000
@@ -2049,7 +2049,7 @@
 2047,Heurelho Gomes,Goalkeeper,27,PSV Eindhoven,Eredivisie,Spurs,England,2008-2009,7500000.0,9000000
 2048,Andrea Dossena,Left Midfield,26,Udinese Calcio,Serie A,Liverpool,England,2008-2009,6500000.0,9000000
 2049,Marcelo Moreno,Centre-Forward,21,Cruzeiro,Série A,Shakhtar D.,Russia,2008-2009,6000000.0,9000000
-2050,Kim,Centre-Forward,28,AS Nancy,Ligue 1,Al Arabi, Qatar,2008-2009,4500000.0,9000000
+2050,Kim,Centre-Forward,28,AS Nancy,Ligue 1,Al Arabi,Qatar,2008-2009,4500000.0,9000000
 2051,Diogo,Centre-Forward,21,Portuguesa,Série A,Olympiacos,China,2008-2009,4000000.0,9000000
 2052,Marco Borriello,Centre-Forward,26,Genoa,Serie A,AC Milan,Italy,2008-2009,12000000.0,8750000
 2053,Pablo Zabaleta,Right-Back,23,Espanyol,LaLiga,Man City,England,2008-2009,8000000.0,8700000
@@ -2065,8 +2065,8 @@
 2063,Asamoah Gyan,Centre-Forward,22,Udinese Calcio,Serie A,Stade Rennais,France,2008-2009,6000000.0,8000000
 2064,Henrique,Centre-Back,21,Desp. Brasil, Brazil,FC Barcelona,Spain,2008-2009,6000000.0,8000000
 2065,Loïc Rémy,Centre-Forward,21,Olympique Lyon,Ligue 1,OGC Nice,France,2008-2009,6000000.0,8000000
-2066,Jorge Valdivia,Attacking Midfield,24,Palmeiras,Série A,Al-Ain FC, United Arab Emirates,2008-2009,5500000.0,8000000
-2067,Amara Diané,Right Winger,25,Paris SG,Ligue 1,Al Rayyan, Qatar,2008-2009,5000000.0,8000000
+2066,Jorge Valdivia,Attacking Midfield,24,Palmeiras,Série A,Al-Ain FC,United Arab Emirates,2008-2009,5500000.0,8000000
+2067,Amara Diané,Right Winger,25,Paris SG,Ligue 1,Al Rayyan,Qatar,2008-2009,5000000.0,8000000
 2068,Stéphane Sessègnon,Attacking Midfield,24,Le Mans,Ligue 1,Paris SG,France,2008-2009,5000000.0,8000000
 2069,Felipe Melo,Defensive Midfield,25,UD Almería,LaLiga,Fiorentina,Italy,2008-2009,5000000.0,8000000
 2070,Damián Escudero,Attacking Midfield,21,Vélez Sarsfield,Torneo Final,Villarreal CF,Spain,2008-2009,4450000.0,8000000
@@ -2090,7 +2090,7 @@
 2088,Cristian Rodríguez,Left Midfield,22,Paris SG,Ligue 1,FC Porto,Portugal,2008-2009,3500000.0,7000000
 2089,Lautaro Acosta,Left Winger,20,Lanús,Torneo Final,Sevilla FC,Spain,2008-2009,2900000.0,7000000
 2090,Sidnei,Centre-Back,18,Internacional,Série A,Benfica,Portugal,2008-2009,1500000.0,7000000
-2091,Fernandão,Centre-Forward,30,Internacional,Série A,Al Gharafa, Qatar,2008-2009,1000000.0,7000000
+2091,Fernandão,Centre-Forward,30,Internacional,Série A,Al Gharafa,Qatar,2008-2009,1000000.0,7000000
 2092,Daniele Dessena,Central Midfield,21,Parma,Serie B,Sampdoria,Italy,2008-2009,4000000.0,6700000
 2093,Federico Marchetti,Goalkeeper,25,UC AlbinoLeffe,Serie B,Cagliari Calcio,Italy,2008-2009,1000000.0,6700000
 2094,Sébastien Squillaci,Centre-Back,27,Olympique Lyon,Ligue 1,Sevilla FC,Spain,2008-2009,15000000.0,6500000
@@ -2118,8 +2118,8 @@
 2116,Roberto Soldado,Centre-Forward,23,Real Madrid,LaLiga,Getafe CF,Spain,2008-2009,4000000.0,6000000
 2117,Aritz Aduriz,Centre-Forward,27,Athletic Bilbao,LaLiga,RCD Mallorca,Spain,2008-2009,3800000.0,6000000
 2118,Nélson,Right-Back,25,Benfica,Liga NOS,Real Betis,Spain,2008-2009,3200000.0,6000000
-2119,Mirel Radoi,Defensive Midfield,27,FCS Bucharest,Liga 1,Hilal, Saudi Arabia,2008-2009,3000000.0,6000000
-2120,Baré,Centre-Forward,26,Gamba Osaka,J1 League,Al-Ahli (UAE), United Arab Emirates,2008-2009,,6000000
+2119,Mirel Radoi,Defensive Midfield,27,FCS Bucharest,Liga 1,Hilal,Saudi Arabia,2008-2009,3000000.0,6000000
+2120,Baré,Centre-Forward,26,Gamba Osaka,J1 League,Al-Ahli (UAE),United Arab Emirates,2008-2009,,6000000
 2121,Borja Valero,Central Midfield,23,RCD Mallorca,LaLiga,West Brom,England,2008-2009,3800000.0,5900000
 2122,Jonás Gutiérrez,Left Midfield,25,RCD Mallorca,LaLiga,Newcastle,England,2008-2009,6000000.0,5800000
 2123,Jesús Dátolo,Attacking Midfield,24,Boca Juniors,Torneo Final,SSC Napoli,Italy,2008-2009,3300000.0,5700000
@@ -2139,7 +2139,7 @@
 2137,Steed Malbranque,Central Midfield,28,Spurs,Premier League,Sunderland,England,2008-2009,9000000.0,5000000
 2138,Guilherme,Second Striker,20,Cruzeiro,Série A,Dynamo Kyiv,Russia,2008-2009,8000000.0,5000000
 2139,Alex,Attacking Midfield,26,Internacional,Série A,Spartak Moscow,Russia,2008-2009,7500000.0,5000000
-2140,Pascal Feindouno,Right Winger,27,Saint-Étienne,Ligue 1,Al Sadd, Qatar,2008-2009,7500000.0,5000000
+2140,Pascal Feindouno,Right Winger,27,Saint-Étienne,Ligue 1,Al Sadd,Qatar,2008-2009,7500000.0,5000000
 2141,Igor Budan,Centre-Forward,28,Parma,Serie B,US Palermo,Italy,2008-2009,6500000.0,5000000
 2142,Igor Semshov,Central Midfield,30,Dinamo Moscow,Premier Liga,Zenit S-Pb,Russia,2008-2009,6000000.0,5000000
 2143,Gerard Piqué,Centre-Back,21,Man Utd,Premier League,FC Barcelona,Spain,2008-2009,5500000.0,5000000
@@ -2256,7 +2256,7 @@
 2254,Wesley Sneijder,Attacking Midfield,25,Real Madrid,LaLiga,Inter,Italy,2009-2010,25000000.0,15000000
 2255,Klaas-Jan Huntelaar,Centre-Forward,26,Real Madrid,LaLiga,AC Milan,Italy,2009-2010,20000000.0,15000000
 2256,Álvaro Negredo,Centre-Forward,24,Real Madrid,LaLiga,Sevilla FC,Spain,2009-2010,12000000.0,15000000
-2257,Ricardo Oliveira,Centre-Forward,29,Real Betis,LaLiga2,Al-Jazira, United Arab Emirates,2009-2010,10000000.0,15000000
+2257,Ricardo Oliveira,Centre-Forward,29,Real Betis,LaLiga2,Al-Jazira,United Arab Emirates,2009-2010,10000000.0,15000000
 2258,Raúl Albiol,Centre-Back,23,Valencia CF,LaLiga,Real Madrid,Spain,2009-2010,9000000.0,15000000
 2259,Robert Acquafresca,Centre-Forward,21,Inter,Serie A,Genoa,Italy,2009-2010,8000000.0,15000000
 2260,Keirrison,Centre-Forward,20,Desp. Brasil, Brazil,FC Barcelona,Spain,2009-2010,14000000.0,14000000
@@ -2266,7 +2266,7 @@
 2264,Stewart Downing,Left Midfield,25,Middlesbrough,Championship,Aston Villa,England,2009-2010,11000000.0,13000000
 2265,Bafétimbi Gomis,Centre-Forward,23,Saint-Étienne,Ligue 1,Olympique Lyon,France,2009-2010,8000000.0,13000000
 2266,Stéphane Mbia,Defensive Midfield,23,Stade Rennais,Ligue 1,Marseille,France,2009-2010,9500000.0,12000000
-2267,Afonso Alves,Centre-Forward,28,Middlesbrough,Championship,Al Sadd, Qatar,2009-2010,6800000.0,12000000
+2267,Afonso Alves,Centre-Forward,28,Middlesbrough,Championship,Al Sadd,Qatar,2009-2010,6800000.0,12000000
 2268,Thomas Vermaelen,Centre-Back,23,AFC Ajax,Eredivisie,Arsenal,England,2009-2010,6000000.0,12000000
 2269,Darren Bent,Centre-Forward,25,Spurs,Premier League,Sunderland,England,2009-2010,12000000.0,11800000
 2270,Anatoliy Tymoshchuk,Defensive Midfield,30,Zenit S-Pb,Premier Liga,Bayern Munich ,Germany,2009-2010,20000000.0,11000000
@@ -2306,7 +2306,7 @@
 2304,Kevin Doyle,Centre-Forward,25,Reading,Championship,Wolves,England,2009-2010,4000000.0,7600000
 2305,Abdul Kader Keita,Right Winger,27,Olympique Lyon,Ligue 1,Galatasaray,Turkey,2009-2010,8000000.0,7500000
 2306,Ramires,Central Midfield,22,Cruzeiro,Série A,Benfica,Portugal,2009-2010,8000000.0,7500000
-2307,Leandro,Centre-Forward,24,Gamba Osaka,J1 League,Al Sadd, Qatar,2009-2010,2500000.0,7500000
+2307,Leandro,Centre-Forward,24,Gamba Osaka,J1 League,Al Sadd,Qatar,2009-2010,2500000.0,7500000
 2308,Alessandro Rosina,Second Striker,25,Torino,Serie B,Zenit S-Pb,Russia,2009-2010,11000000.0,7300000
 2309,Daniel Sturridge,Centre-Forward,19,Man City,Premier League,Chelsea,England,2009-2010,3000000.0,7250000
 2310,Lúcio,Centre-Back,31,Bayern Munich ,1.Bundesliga,Inter,Italy,2009-2010,18000000.0,7000000
@@ -2322,7 +2322,7 @@
 2320,Hugo Campagnaro,Centre-Back,29,Sampdoria,Serie A,SSC Napoli,Italy,2009-2010,3200000.0,7000000
 2321,Emiliano Viviano,Goalkeeper,23,Brescia,Serie B,Inter,Italy,2009-2010,3000000.0,7000000
 2322,Javier Pastore,Attacking Midfield,20,Huracán,Torneo Final,US Palermo,Italy,2009-2010,3000000.0,7000000
-2323,José Sand,Centre-Forward,29,Lanús,Torneo Final,Al-Ain FC, United Arab Emirates,2009-2010,4500000.0,6950000
+2323,José Sand,Centre-Forward,29,Lanús,Torneo Final,Al-Ain FC,United Arab Emirates,2009-2010,4500000.0,6950000
 2324,Richard Dunne,Centre-Back,29,Man City,Premier League,Aston Villa,England,2009-2010,9500000.0,6800000
 2325,Johnny Heitinga,Centre-Back,25,Atlético Madrid,LaLiga,Everton,England,2009-2010,8000000.0,6800000
 2326,Adem Ljajic,Attacking Midfield,18,Partizan,SuperLiga,Fiorentina,Italy,2009-2010,4500000.0,6800000
@@ -2349,7 +2349,7 @@
 2347,Kyle Walker,Right-Back,19,Sheffield Utd.,Championship,Spurs,England,2009-2010,50000.0,5900000
 2348,Lorik Cana,Centre-Back,25,Marseille,Ligue 1,Sunderland,England,2009-2010,14000000.0,5800000
 2349,Tuncay Sanli,Left Winger,27,Middlesbrough,Championship,Stoke City,England,2009-2010,9800000.0,5700000
-2350,Davi,Centre-Forward,25,Nagoya Grampus,J1 League,Umm Salal, Qatar,2009-2010,3000000.0,5700000
+2350,Davi,Centre-Forward,25,Nagoya Grampus,J1 League,Umm Salal,Qatar,2009-2010,3000000.0,5700000
 2351,James Collins,Centre-Back,26,West Ham,Premier League,Aston Villa,England,2009-2010,2000000.0,5700000
 2352,Bryan Ruíz,Left Midfield,23,KAA Gent,Jupiler Pro League,FC Twente,Netherlands,2009-2010,5000000.0,5500000
 2353,Ikechukwu Uche,Centre-Forward,25,Getafe CF,LaLiga,Real Zaragoza,Spain,2009-2010,4000000.0,5500000
@@ -2374,7 +2374,7 @@
 2372,Roman Eremenko,Attacking Midfield,22,Udinese Calcio,Serie A,Dynamo Kyiv,Russia,2009-2010,3500000.0,5000000
 2373,Franco Semioli,Right Winger,29,Fiorentina,Serie A,Sampdoria,Italy,2009-2010,3000000.0,5000000
 2374,Boubacar Sanogo,Centre-Forward,26,Werder Bremen,1.Bundesliga,Saint-Étienne,France,2009-2010,3000000.0,5000000
-2375,Fernando Baiano,Centre-Forward,30,Al-Jazira, United Arab Emirates,Al-Wahda FC, United Arab Emirates,2009-2010,3000000.0,5000000
+2375,Fernando Baiano,Centre-Forward,30,Al-Jazira, United Arab Emirates,Al-Wahda FC,United Arab Emirates,2009-2010,3000000.0,5000000
 2376,Daniele Vantaggiato,Centre-Forward,25,Parma,Serie A,Padova,Italy,2009-2010,3000000.0,5000000
 2377,Erwin Hoffer,Centre-Forward,22,Rapid Vienna,Bundesliga,SSC Napoli,Italy,2009-2010,2600000.0,5000000
 2378,Alan Kasaev,Left Winger,23,Kuban Krasnodar,Premier Liga,Rubin Kazan,Russia,2009-2010,2500000.0,5000000
@@ -2409,7 +2409,7 @@
 2407,Edgaras Cesnauskis,Left Midfield,25,FK Moskau, Russia,Dinamo Moscow,Russia,2009-2010,3700000.0,4200000
 2408,Lucas Barrios,Centre-Forward,24,Colo Colo,Primera División,Bor. Dortmund,Germany,2009-2010,2400000.0,4200000
 2409,Fraizer Campbell,Centre-Forward,21,Man Utd,Premier League,Sunderland,England,2009-2010,2800000.0,4100000
-2410,Douglas,Attacking Midfield,27,Corinthians,Série A,Al-Wasl, United Arab Emirates,2009-2010,2700000.0,4100000
+2410,Douglas,Attacking Midfield,27,Corinthians,Série A,Al-Wasl,United Arab Emirates,2009-2010,2700000.0,4100000
 2411,Álvaro Arbeloa,Right-Back,26,Liverpool,Premier League,Real Madrid,Spain,2009-2010,11000000.0,4000000
 2412,Pedro León,Right Winger,22,Real Valladolid,LaLiga,Getafe CF,Spain,2009-2010,6000000.0,4000000
 2413,Damien Duff,Right Midfield,30,Newcastle,Championship,Fulham,England,2009-2010,5700000.0,4000000
@@ -2448,7 +2448,7 @@
 2446,Juan Arango,Left Winger,29,RCD Mallorca,LaLiga,Bor. M'gladbach,Germany,2009-2010,7000000.0,3600000
 2447,Daniel Montenegro,Attacking Midfield,30,Independiente,Torneo Final,América,Mexico,2009-2010,6200000.0,3600000
 2448,Antonio Mirante,Goalkeeper,26,Sampdoria,Serie A,Parma,Italy,2009-2010,2000000.0,3600000
-2449,Carlos Villanueva,Attacking Midfield,23,Audax Italiano,Primera División,Al-Shabab, United Arab Emirates,2009-2010,1900000.0,3600000
+2449,Carlos Villanueva,Attacking Midfield,23,Audax Italiano,Primera División,Al-Shabab,United Arab Emirates,2009-2010,1900000.0,3600000
 2450,Konstantinos Katsouranis,Defensive Midfield,30,Benfica,Liga NOS,Panathinaikos,China,2009-2010,7000000.0,3500000
 2451,Hérita Ilunga,Left-Back,27,Toulouse,Ligue 1,West Ham,England,2009-2010,5500000.0,3500000
 2452,Gelson Fernandes,Defensive Midfield,22,Man City,Premier League,Saint-Étienne,France,2009-2010,5500000.0,3500000
@@ -2470,7 +2470,7 @@
 2468,Fabián Orellana,Right Winger,23,Audax Italiano,Primera División,Udinese Calcio,Italy,2009-2010,800000.0,3500000
 2469,Marco Parolo,Central Midfield,24,Chievo Verona,Serie A,RC Cesena,Italy,2009-2010,,3500000
 2470,Jonathan Pereira,Centre-Forward,22,Villarreal CF,LaLiga,Real Betis,Spain,2009-2010,3000000.0,3400000
-2471,Quincy Owusu-Abeyie,Left Winger,23,Spartak Moscow,Premier Liga,Al Sadd, Qatar,2009-2010,1000000.0,3400000
+2471,Quincy Owusu-Abeyie,Left Winger,23,Spartak Moscow,Premier Liga,Al Sadd,Qatar,2009-2010,1000000.0,3400000
 2472,Míchel,Central Midfield,24,Sporting Gijón,LaLiga,Birmingham,England,2009-2010,2400000.0,3300000
 2473,Sebastián Prediger,Defensive Midfield,22,Colón,Torneo Final,FC Porto,Portugal,2009-2010,2200000.0,3300000
 2474,Michele Paolucci,Centre-Forward,23,Udinese Calcio,Serie A,Juventus,Italy,2009-2010,2000000.0,3300000
@@ -2540,7 +2540,7 @@
 2538,Víctor Ruiz,Centre-Back,21,Espanyol,LaLiga,SSC Napoli,Italy,2010-2011,4000000.0,8500000
 2539,Roberto,Goalkeeper,24,Atlético Madrid,LaLiga,Benfica,Portugal,2010-2011,2000000.0,8500000
 2540,Nico Gaitán,Left Winger,22,Boca Juniors,Torneo Final,Benfica,Portugal,2010-2011,5000000.0,8400000
-2541,Abdul Kader Keita,Right Winger,28,Galatasaray,Süper Lig,Al Sadd, Qatar,2010-2011,10000000.0,8150000
+2541,Abdul Kader Keita,Right Winger,28,Galatasaray,Süper Lig,Al Sadd,Qatar,2010-2011,10000000.0,8150000
 2542,André,Centre-Forward,19,Santos FC,Série A,Dynamo Kyiv,Russia,2010-2011,4000000.0,8100000
 2543,Ricardo Carvalho,Centre-Back,32,Chelsea,Premier League,Real Madrid,Spain,2010-2011,17500000.0,8000000
 2544,Rafinha,Right-Back,24,FC Schalke 04,1.Bundesliga,Genoa,Italy,2010-2011,12000000.0,8000000
@@ -2548,7 +2548,7 @@
 2546,Oleksandr Aliyev,Attacking Midfield,26,Loko Moscow,Premier Liga,Dynamo Kyiv,Russia,2010-2011,10000000.0,8000000
 2547,Moubarak Boussoufa,Attacking Midfield,26,RSC Anderlecht,Jupiler Pro League,Anzhi,Russia,2010-2011,9000000.0,8000000
 2548,Nicolás Burdisso,Centre-Back,29,Inter,Serie A,AS Roma,Italy,2010-2011,7000000.0,8000000
-2549,Ismaël Bangoura,Centre-Forward,25,Stade Rennais,Ligue 1,Al-Nasr, United Arab Emirates,2010-2011,6000000.0,8000000
+2549,Ismaël Bangoura,Centre-Forward,25,Stade Rennais,Ligue 1,Al-Nasr,United Arab Emirates,2010-2011,6000000.0,8000000
 2550,Chris Smalling,Centre-Back,20,Fulham,Premier League,Man Utd,England,2010-2011,2000000.0,8000000
 2551,Luís Fabiano,Centre-Forward,30,Sevilla FC,LaLiga,São Paulo,Brazil,2010-2011,8000000.0,7600000
 2552,Heiko Westermann,Centre-Back,26,FC Schalke 04,1.Bundesliga,Hamburger SV,Germany,2010-2011,9000000.0,7500000
@@ -2614,7 +2614,7 @@
 2612,Mounir El Hamdaoui,Centre-Forward,25,AZ Alkmaar,Eredivisie,AFC Ajax,Netherlands,2010-2011,7500000.0,5000000
 2613,Senijad Ibricic,Attacking Midfield,25,Hajduk Split,1.HNL,Loko Moscow,Russia,2010-2011,6500000.0,5000000
 2614,Alexis,Centre-Back,25,Valencia CF,LaLiga,Sevilla FC,Spain,2010-2011,6000000.0,5000000
-2615,Aristide Bancé,Centre-Forward,25,1.FSV Mainz 05,1.Bundesliga,Al-Ahli (UAE), United Arab Emirates,2010-2011,5500000.0,5000000
+2615,Aristide Bancé,Centre-Forward,25,1.FSV Mainz 05,1.Bundesliga,Al-Ahli (UAE),United Arab Emirates,2010-2011,5500000.0,5000000
 2616,Diego Tardelli,Centre-Forward,25,Atlético-MG,Série A,Anzhi,Russia,2010-2011,4500000.0,5000000
 2617,Bogdan Stancu,Centre-Forward,23,FCS Bucharest,Liga 1,Galatasaray,Turkey,2010-2011,3700000.0,5000000
 2618,Razak Boukari,Right Winger,23,Lens,Ligue 1,Stade Rennais,France,2010-2011,3600000.0,5000000
@@ -2643,13 +2643,13 @@
 2641,Massimo Maccarone,Centre-Forward,30,Siena,Serie B,US Palermo,Italy,2010-2011,4500000.0,4400000
 2642,Alberto Paloschi,Centre-Forward,21,Genoa,Serie A,AC Milan,Italy,2010-2011,4800000.0,4350000
 2643,Aritz Aduriz,Centre-Forward,29,RCD Mallorca,LaLiga,Valencia CF,Spain,2010-2011,7000000.0,4300000
-2644,Adriano,Centre-Forward,29,Gamba Osaka,J1 League,El-Jaish, Qatar,2010-2011,1000000.0,4300000
+2644,Adriano,Centre-Forward,29,Gamba Osaka,J1 League,El-Jaish,Qatar,2010-2011,1000000.0,4300000
 2645,Cheik Tioté,Defensive Midfield,24,FC Twente,Eredivisie,Newcastle,England,2010-2011,3500000.0,4280000
 2646,Juanfran,Right-Back,25,CA Osasuna,LaLiga,Atlético Madrid,Spain,2010-2011,6000000.0,4250000
 2647,Juan Iturbe,Right Winger,17,Quilmes,Torneo Final,FC Porto,Portugal,2010-2011,100000.0,4250000
 2648,Jonathan Biabiany,Right Winger,22,Parma,Serie A,Inter,Italy,2010-2011,7500000.0,4200000
 2649,Jajá,Centre-Forward,24,Metalist,Premier Liga,Trabzonspor,Turkey,2010-2011,6000000.0,4200000
-2650,Nadir Belhadj,Left-Back,28,Portsmouth,Championship,Al Sadd, Qatar,2010-2011,5500000.0,4200000
+2650,Nadir Belhadj,Left-Back,28,Portsmouth,Championship,Al Sadd,Qatar,2010-2011,5500000.0,4200000
 2651,Éder,Second Striker,23,FC Empoli,Serie B,Brescia,Italy,2010-2011,3000000.0,4200000
 2652,Winston Reid,Centre-Back,22,FC Midtjylland,Superligaen,West Ham,England,2010-2011,1500000.0,4200000
 2653,Federico Rodríguez,Centre-Forward,19,Peñarol,Primera División,Genoa,Italy,2010-2011,300000.0,4200000
@@ -2675,7 +2675,7 @@
 2673,Dídac Vilà,Left-Back,21,Espanyol,LaLiga,AC Milan,Italy,2010-2011,800000.0,4000000
 2674,Wellington Silva,Right Winger,18,Fluminense,Série A,Arsenal,England,2010-2011,800000.0,4000000
 2675,Marco Fossati,Central Midfield,17,Inter U19,Primavera B,Milan U19,Italy,2010-2011,300000.0,4000000
-2676,Alípio,Centre-Forward,18,R. Madrid Youth, Spain,Benfica U19, Portugal,2010-2011,,4000000
+2676,Alípio,Centre-Forward,18,R. Madrid Youth, Spain,Benfica U19,Portugal,2010-2011,,4000000
 2677,Roberto Firmino,Second Striker,19,Tombense, Brazil,TSG Hoffenheim,Germany,2010-2011,,4000000
 2678,Cristian Molinaro,Left-Back,26,Juventus,Serie A,VfB Stuttgart,Germany,2010-2011,5000000.0,3900000
 2679,Damián Álvarez,Left Winger,32,CF Pachuca,Liga MX Clausura,Tigres UANL,Mexico,2010-2011,2300000.0,3900000
@@ -2696,7 +2696,7 @@
 2694,Danilinho,Right Winger,23,Chiapas FC,Liga MX Clausura,Tigres UANL,Mexico,2010-2011,5000000.0,3500000
 2695,Jelle Van Damme,Left-Back,27,Wolves,Premier League,Standard Liège,Belgium,2010-2011,4500000.0,3500000
 2696,Jeremain Lens,Right Winger,22,AZ Alkmaar,Eredivisie,PSV Eindhoven,Netherlands,2010-2011,4500000.0,3500000
-2697,Bakari Koné,Right Winger,28,Marseille,Ligue 1,Al Duhail, Qatar,2010-2011,4000000.0,3500000
+2697,Bakari Koné,Right Winger,28,Marseille,Ligue 1,Al Duhail,Qatar,2010-2011,4000000.0,3500000
 2698,Nelson Valdez,Centre-Forward,26,Bor. Dortmund,1.Bundesliga,Hércules CF,Spain,2010-2011,4000000.0,3500000
 2699,Emir Bajrami,Right Winger,22,Elfsborg,Allsvenskan,FC Twente,Netherlands,2010-2011,3000000.0,3500000
 2700,Georg Niedermeier,Centre-Back,24,FC Bayern II,3.Liga,VfB Stuttgart,Germany,2010-2011,3000000.0,3500000
@@ -2734,7 +2734,7 @@
 2732,Santi Cazorla,Central Midfield,26,Villarreal CF,LaLiga,Málaga CF,Spain,2011-2012,18000000.0,23000000
 2733,Stewart Downing,Left Midfield,26,Aston Villa,Premier League,Liverpool,England,2011-2012,12000000.0,22800000
 2734,Phil Jones,Centre-Back,19,Blackburn,Premier League,Man Utd,England,2011-2012,3500000.0,19300000
-2735,Balázs Dzsudzsák,Left Winger,25,Anzhi, Russia,Dinamo Moscow, Russia,2011-2012,14000000.0,19000000
+2735,Balázs Dzsudzsák,Left Winger,25,Anzhi, Russia,Dinamo Moscow,Russia,2011-2012,14000000.0,19000000
 2736,Ashley Young,Left Midfield,25,Aston Villa,Premier League,Man Utd,England,2011-2012,18000000.0,18000000
 2737,Gökhan Inler,Defensive Midfield,27,Udinese Calcio,Serie A,SSC Napoli,Italy,2011-2012,15000000.0,18000000
 2738,Jordan Henderson,Central Midfield,21,Sunderland,Premier League,Liverpool,England,2011-2012,8500000.0,18000000
@@ -2747,7 +2747,7 @@
 2745,Domenico Criscito,Left-Back,24,Genoa,Serie A,Zenit S-Pb,Russia,2011-2012,12500000.0,15000000
 2746,Yuri Zhirkov,Left Midfield,27,Chelsea,Premier League,Anzhi,Russia,2011-2012,12000000.0,15000000
 2747,Balázs Dzsudzsák,Left Winger,24,PSV Eindhoven,Eredivisie,Anzhi,Russia,2011-2012,14000000.0,14000000
-2748,Christopher Samba,Centre-Back,27,Blackburn,Premier League,Anzhi, Russia,2011-2012,12000000.0,14000000
+2748,Christopher Samba,Centre-Back,27,Blackburn,Premier League,Anzhi,Russia,2011-2012,12000000.0,14000000
 2749,Alex Oxlade-Chamberlain,Right Midfield,17,Southampton,Championship,Arsenal,England,2011-2012,2500000.0,13800000
 2750,Raúl Meireles,Central Midfield,28,Liverpool,Premier League,Chelsea,England,2011-2012,16000000.0,13500000
 2751,Jérôme Boateng,Centre-Back,22,Man City,Premier League,Bayern Munich ,Germany,2011-2012,15000000.0,13500000
@@ -2789,7 +2789,7 @@
 2787,Cristián Zapata,Centre-Back,24,Udinese Calcio,Serie A,Villarreal CF,Spain,2011-2012,9000000.0,9000000
 2788,Dimitri Payet,Attacking Midfield,24,Saint-Étienne,Ligue 1,LOSC Lille,France,2011-2012,9000000.0,9000000
 2789,Sébastien Frey,Goalkeeper,31,Fiorentina,Serie A,Genoa,Italy,2011-2012,8500000.0,9000000
-2790,Roman Pavlyuchenko,Centre-Forward,30,Spurs,Premier League,Loko Moscow, Russia,2011-2012,8500000.0,9000000
+2790,Roman Pavlyuchenko,Centre-Forward,30,Spurs,Premier League,Loko Moscow,Russia,2011-2012,8500000.0,9000000
 2791,Emmanuel Emenike,Centre-Forward,24,Karabükspor,Süper Lig,Fenerbahce,Turkey,2011-2012,6000000.0,9000000
 2792,Brown Ideye,Centre-Forward,22,FC Sochaux,Ligue 1,Dynamo Kyiv,Russia,2011-2012,6000000.0,9000000
 2793,Blerim Dzemaili,Central Midfield,25,Parma,Serie A,SSC Napoli,Italy,2011-2012,5000000.0,9000000
@@ -2808,7 +2808,7 @@
 2806,Alberto Gilardino,Centre-Forward,29,Fiorentina,Serie A,Genoa,Italy,2011-2012,16000000.0,8000000
 2807,Jérémy Ménez,Second Striker,24,AS Roma,Serie A,Paris SG,France,2011-2012,15000000.0,8000000
 2808,Kevin De Bruyne,Attacking Midfield,20,KRC Genk,Jupiler Pro League,Chelsea,England,2011-2012,9000000.0,8000000
-2809,Christian Noboa,Central Midfield,26,Rubin Kazan, Russia,Dinamo Moscow, Russia,2011-2012,8000000.0,8000000
+2809,Christian Noboa,Central Midfield,26,Rubin Kazan, Russia,Dinamo Moscow,Russia,2011-2012,8000000.0,8000000
 2810,Víctor Ruiz,Centre-Back,22,SSC Napoli,Serie A,Valencia CF,Spain,2011-2012,8000000.0,8000000
 2811,Blaise Matuidi,Central Midfield,24,Saint-Étienne,Ligue 1,Paris SG,France,2011-2012,8000000.0,8000000
 2812,José Enrique,Left-Back,25,Newcastle,Premier League,Liverpool,England,2011-2012,7500000.0,8000000
@@ -2841,7 +2841,7 @@
 2839,Scott Dann,Centre-Back,24,Birmingham,Championship,Blackburn,England,2011-2012,4500000.0,6800000
 2840,Fernando Muslera,Goalkeeper,25,Lazio,Serie A,Galatasaray,Turkey,2011-2012,12000000.0,6750000
 2841,Eliaquim Mangala,Centre-Back,20,Standard Liège,Jupiler Pro League,FC Porto,Portugal,2011-2012,5000000.0,6750000
-2842,Diniyar Bilyaletdinov,Attacking Midfield,26,Everton,Premier League,Spartak Moscow, Russia,2011-2012,6500000.0,6700000
+2842,Diniyar Bilyaletdinov,Attacking Midfield,26,Everton,Premier League,Spartak Moscow,Russia,2011-2012,6500000.0,6700000
 2843,Mevlüt Erdinc,Centre-Forward,24,Paris SG,Ligue 1,Stade Rennais,France,2011-2012,7250000.0,6600000
 2844,Nikica Jelavic,Centre-Forward,26,Rangers,Premiership,Everton,England,2011-2012,5000000.0,6600000
 2845,Craig Gardner,Central Midfield,24,Birmingham,Championship,Sunderland,England,2011-2012,4000000.0,6600000
@@ -2889,14 +2889,14 @@
 2887,Georginio Wijnaldum,Central Midfield,20,Feyenoord,Eredivisie,PSV Eindhoven,Netherlands,2011-2012,6500000.0,5000000
 2888,Djibril Cissé,Centre-Forward,30,Lazio,Serie A,QPR,England,2011-2012,6000000.0,5000000
 2889,Ikechukwu Uche,Centre-Forward,27,Real Zaragoza,LaLiga,Villarreal CF,Spain,2011-2012,5000000.0,5000000
-2890,Ahmed Musa,Centre-Forward,19,VVV-Venlo,Eredivisie,CSKA Moscow, Russia,2011-2012,5000000.0,5000000
+2890,Ahmed Musa,Centre-Forward,19,VVV-Venlo,Eredivisie,CSKA Moscow,Russia,2011-2012,5000000.0,5000000
 2891,Rúben Micael,Attacking Midfield,24,FC Porto,Liga NOS,Atlético Madrid,Spain,2011-2012,4900000.0,5000000
 2892,Gabriel Torje,Right Winger,21,Dinamo Bukarest,Liga 1,Udinese Calcio,Italy,2011-2012,4500000.0,5000000
 2893,Jonathan,Right-Back,25,Santos FC,Série A,Inter,Italy,2011-2012,4500000.0,5000000
 2894,Éder,Second Striker,24,Brescia,Serie B,RC Cesena,Italy,2011-2012,4200000.0,5000000
 2895,Ibson,Central Midfield,27,Spartak Moscow,Premier Liga,Santos FC,Brazil,2011-2012,3500000.0,5000000
 2896,Simone Padoin,Central Midfield,27,Atalanta,Serie A,Juventus,Italy,2011-2012,3500000.0,5000000
-2897,Sergey Davydov,Centre-Forward,26,Kuban Krasnodar, Russia,Rubin Kazan, Russia,2011-2012,3000000.0,5000000
+2897,Sergey Davydov,Centre-Forward,26,Kuban Krasnodar, Russia,Rubin Kazan,Russia,2011-2012,3000000.0,5000000
 2898,Nemanja Matic,Defensive Midfield,22,Chelsea,Premier League,Benfica,Portugal,2011-2012,3000000.0,5000000
 2899,Dudu,Right Midfield,19,Cruzeiro,Série A,Dynamo Kyiv,Russia,2011-2012,750000.0,5000000
 2900,Derek Boateng,Defensive Midfield,28,Getafe CF,LaLiga,Dnipro,Russia,2011-2012,2500000.0,4880000
@@ -2911,7 +2911,7 @@
 2909,Alan Hutton,Right-Back,26,Spurs,Premier League,Aston Villa,England,2011-2012,7500000.0,4500000
 2910,Achille Emaná,Attacking Midfield,29,Real Betis,LaLiga,Hilal,Saudi Arabia,2011-2012,7000000.0,4500000
 2911,John O'Shea,Centre-Back,30,Man Utd,Premier League,Sunderland,England,2011-2012,6500000.0,4500000
-2912,Jajá,Centre-Forward,25,Trabzonspor,Süper Lig,Al-Ahli (UAE), United Arab Emirates,2011-2012,6000000.0,4500000
+2912,Jajá,Centre-Forward,25,Trabzonspor,Süper Lig,Al-Ahli (UAE),United Arab Emirates,2011-2012,6000000.0,4500000
 2913,Vedad Ibisevic,Centre-Forward,27,TSG Hoffenheim,1.Bundesliga,VfB Stuttgart,Germany,2011-2012,6000000.0,4500000
 2914,Andrea Lazzari,Central Midfield,26,Cagliari Calcio,Serie A,Fiorentina,Italy,2011-2012,5500000.0,4500000
 2915,Manu del Moral,Centre-Forward,27,Getafe CF,LaLiga,Sevilla FC,Spain,2011-2012,5500000.0,4500000
@@ -2927,7 +2927,7 @@
 2925,Franco Vázquez,Attacking Midfield,22,Belgrano,Torneo Final,US Palermo,Italy,2011-2012,2400000.0,4500000
 2926,Ali Al-Habsi,Goalkeeper,29,Bolton,Premier League,Wigan,England,2011-2012,2000000.0,4300000
 2927,Joaquín,Right Winger,29,Valencia CF,LaLiga,Málaga CF,Spain,2011-2012,10000000.0,4200000
-2928,Mirel Radoi,Defensive Midfield,30,Hilal,Professional League,Al-Ain FC, United Arab Emirates,2011-2012,3000000.0,4200000
+2928,Mirel Radoi,Defensive Midfield,30,Hilal,Professional League,Al-Ain FC,United Arab Emirates,2011-2012,3000000.0,4200000
 2929,Emiliano Viviano,Goalkeeper,25,Bologna,Serie A,Inter,Italy,2011-2012,12000000.0,4100000
 2930,Vieirinha,Left-Back,25,PAOK Saloniki,Super League,VfL Wolfsburg,Germany,2011-2012,8000000.0,4000000
 2931,Jádson,Attacking Midfield,28,Shakhtar D.,Premier Liga,São Paulo,Brazil,2011-2012,7500000.0,4000000
@@ -3445,7 +3445,7 @@
 3443,Ljubomir Fejsa,Defensive Midfield,25,Olympiacos,Super League,Benfica,Portugal,2013-2014,2500000.0,4500000
 3444,Ante Rebic,Left Winger,19,RNK Split,1.HNL,Fiorentina,Italy,2013-2014,1000000.0,4500000
 3445,Long Zheng,Left Midfield,25,QD Jonoon,Super League,GZ Evergrande,China,2013-2014,475000.0,4500000
-3446,Angeliño,Left-Back,16,Depor Jugend, Spain,Man City U18, England,2013-2014,,4500000
+3446,Angeliño,Left-Back,16,Depor Jugend, Spain,Man City U18,England,2013-2014,,4500000
 3447,Ignacio Scocco,Centre-Forward,28,Al-Ain FC,UAE Gulf League,Internacional,Brazil,2013-2014,6000000.0,4250000
 3448,Ragnar Sigurdsson,Centre-Back,27,FC Copenhagen,Superligaen,Krasnodar,Russia,2013-2014,1750000.0,4250000
 3449,Luca Cigarini,Defensive Midfield,27,SSC Napoli,Serie A,Atalanta,Italy,2013-2014,7500000.0,4200000
@@ -4196,7 +4196,7 @@
 4194,Christian Kabasele,Centre-Back,25,KRC Genk,Jupiler Pro League,Watford,England,2016-2017,6000000.0,6950000
 4195,Patrick Bamford,Centre-Forward,23,Chelsea,Premier League,Middlesbrough,England,2016-2017,5000000.0,6900000
 4196,Haiqing Cao,Left-Back,23,ZJ Greentown,League One,JS Suning,China,2016-2017,175000.0,6870000
-4197,Hernán Toledo,Left Winger,20,Vélez Sarsfield,Primera División,Maldonado, Uruguay,2016-2017,200000.0,6750000
+4197,Hernán Toledo,Left Winger,20,Vélez Sarsfield,Primera División,Maldonado,Uruguay,2016-2017,200000.0,6750000
 4198,Matz Sels,Goalkeeper,24,KAA Gent,Jupiler Pro League,Newcastle,England,2016-2017,6500000.0,6600000
 4199,Silvio Romero,Centre-Forward,27,Chiapas FC,Liga MX Clausura,América,Mexico,2016-2017,3000000.0,6600000
 4200,Grant Hanley,Centre-Back,24,Blackburn,Championship,Newcastle,England,2016-2017,2500000.0,6600000

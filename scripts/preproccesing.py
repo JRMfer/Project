@@ -40,7 +40,9 @@ if __name__ == '__main__':
     data.loc[(data.League_to == "UAE Gulf League"), "League_to"] = "United Arab Emirates"
     data.loc[(data.League_to == "Série A"), "League_to"] = "Brazil"
 
-    data["Transfer_fee"] = pd.to_numeric(data.Transfer_fee)
+    # data["Transfer_fee"] = pd.to_numeric(data.Transfer_fee)
+    data.League_to = data.League_to.str.lstrip();
+    data.League_to = data.League_to.str.rstrip();
 
     data.to_csv("../data/transfers250.csv")
     print(data["League_to"])
