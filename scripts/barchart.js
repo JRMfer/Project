@@ -24,16 +24,19 @@ function drawBarChart(country, season, position, data) {
     data.forEach(function(transfer) {
       let index = countries.indexOf(transfer.League_to);
       if (index > -1) {
+        console.log(transferAmount[index]);
+        console.log(transfer.Transfer_fee);
         transferAmount[index] += transfer.Transfer_fee;
-        console.log(transferAmount);
+        // console.log(transferAmount);
       }
       else {
         countries.push(transfer.League_to);
         transferAmount.push(0);
-        console.log(countries);
+        // console.log(countries);
       }
-
     })
+    console.log(countries);
+    console.log(transferAmount);
   }
 
   // set yScale barChart
