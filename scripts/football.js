@@ -16,7 +16,7 @@ window.onload = function() {
     console.log(topology);
     console.log(data);
     drawDataMap(topology, data);
-    drawBarChart("All", "All", "All", data);
+    updateBarChart("All", "All", "All", data);
 
   }).catch(function(e) {
     throw (e);
