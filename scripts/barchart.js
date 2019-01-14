@@ -7,7 +7,7 @@ const marginsBar = {top: 0, right: 100, bottom: 100, left: 100},
             barPadding = 1;
 
 let colors = ["#ffffe5", "#f7fcb9", "#d9f0a3", "#addd8e", "#78c679", "#41ab5d", "#238443", "#006837", "#004529"];
-
+let colors2 = ["#fff5eb", "#fee6ce", "#fdd0a2", "#fdae6b", "#fd8d3c", "#f16913", "#d94801", "#a63603", "#7f2704"];
 // Create SVG for datamap
 let svgBar = d3.select("#barchart")
       .append("svg")
@@ -153,7 +153,7 @@ function arrayWithSteps (min, max, steps) {
   let temp = [];
   for (let i = min; i <= max; i += step) {
     // console.log(i);
-    temp.push(i);
+    temp.push((Math.floor(i/1.1)));
   }
   console.log(temp);
   return temp;
@@ -170,12 +170,13 @@ function drawBarChart(categories, amounts) {
   //   .range([heightBar + marginsBar.top + marginsBar.bottom, marginsBar.bottom]);
 
   let steps = arrayWithSteps(d3.min(amounts), d3.max(amounts), 8);
-  let color = d3.scaleThreshold()
+  let color = d3.scaleOrdinal()
     .domain(steps)
-    .range(colors);
+    // .range(d3.schemeBlues[9]);
+    .range(colors2);
 
   console.log(steps);
-  console.log(colors);
+  console.log(colors2);
 
   // set yScale barchart
   let yScale = d3.scaleLinear()
@@ -219,10 +220,10 @@ function drawBarChart(categories, amounts) {
     .attr("y", function(d, i) {
       return yScale(i);
     })
-    .attr("fill", function(d) {
-      console.log(color(d));
-      return color(d);
-    })
+    // .attr("fill", function(d) {
+    //   console.log(color(d));
+    //   return color(d);
+    // })
     .attr("width", 0)
     .attr("height", heightBar / categories.length - barPadding)
     .merge(bars)
@@ -237,6 +238,10 @@ function drawBarChart(categories, amounts) {
       return xScale(d[0]);
     })
     .attr("height", heightBar / categories.length - barPadding)
+    .attr("fill", function(d) {
+      console.log(color(d));
+      return color(d);
+    })
     // .on("mouseover", function(d) {
     //   div.transition()
     //   .style("opacity", 0.9)
