@@ -52,3 +52,14 @@ difficulty lies in the correct selection of the data. So the decision was made t
 first make an update function for every charts. The main purpose of the update
 function is to select the data according the country, season and position selected.
 This will be done by a simple for loop with the correct conditional statements.
+
+# Day 5
+
+While creating the update function for the barchart I encountered some difficulties:
+
+1. After retrieving the correct selection of the dataset I found that some values
+   were 0 because they contained a blank value in the csv file. The biggesst difficulty here
+   was that I needed to get rid of the zeros while containing the same order of
+   the values as these are the same as the array with the correspoding country/clubs.
+
+2. Also an alert or message should be shown if no information is available.
