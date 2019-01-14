@@ -16,7 +16,7 @@ window.onload = function() {
     console.log(topology);
     console.log(data);
     drawDataMap(topology, data);
-    updateBarChart("All", "All", "All", data);
+    updateBarChart("Netherlands", "2000-2001", "Left Winger", data);
 
   }).catch(function(e) {
     throw (e);

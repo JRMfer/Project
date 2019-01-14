@@ -22,7 +22,7 @@ will be located.
 
 A problem arised with the datamap. As the dataset of the football transfers consists
 information about the two competitions ,instead of the countries, it took place
-it was difficult to linkt the countries in the datamap to these transfer. So further
+it was difficult to link the countries in the datamap to these transfer. So further
 preproccesing of the dataset was necessary.
 
 
@@ -35,3 +35,20 @@ option could be to copy the csv column with competitions into another csv file w
 the column next to it the correct country. With this method one can easily merge
 the two csv into one with pandas. This would work if not that the excel file, when
 opened, has problems reading lettres with signs.
+
+# Day 4
+
+I've decided to preprocces the dataset with the dataframe loc function and it
+worked well.
+
+The next step is to already construct the datamap. At first I constructed
+the datamap the old-fashioned way, but I encoutered a problem. The svg containing
+the datamap was larger then the space available in the bootstrap grid element.
+This was easily solved with changing the width and height of the svg to two elements
+that keep the size of the div element it is placed in.
+
+The second step was to consruct the core of the different charts. The greatest
+difficulty lies in the correct selection of the data. So the decision was made to
+first make an update function for every charts. The main purpose of the update
+function is to select the data according the country, season and position selected.
+This will be done by a simple for loop with the correct conditional statements.
