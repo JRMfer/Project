@@ -1,3 +1,9 @@
+
+
+#pageHeader, #map, #barchart {
+  background: #999966;
+}
+
 .tooltip {
     position: absolute;
     text-align: center;

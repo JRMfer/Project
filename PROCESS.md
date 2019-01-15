@@ -81,3 +81,16 @@ possible to retrieve the selecte value from the dropdown menu.
 
 Furthermore a sequential color scheme by colorbrewer was chosen to set the style
 for the barchart and probably the other visualizations as well.
+
+# Day 7
+
+Dropdown menus were added to the navbar. All the options are passed with the function
+addOptions.
+
+This succeeded for one dropdownn for the seasons. However if two more dropdowns
+are added to the navbar all the possible options appear as a blank value, but can
+in turn be selected by clicking on them and this causes the barchart update correctly.
+Reason why still not found.
+
+Also a start for creating an update functionn of the datamap was made. This is
+still under progress.

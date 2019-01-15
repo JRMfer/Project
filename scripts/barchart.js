@@ -1,7 +1,7 @@
 // const var for marginsBar svg Bar chart
 const marginsBar = {top: 0, right: 100, bottom: 100, left: 100},
-            widthBar = 800 - marginsBar.left - marginsBar.right,
-            heightBar = 400 - marginsBar.top - marginsBar.bottom,
+            widthBar = 750 - marginsBar.left - marginsBar.right,
+            heightBar = 500 - marginsBar.top - marginsBar.bottom,
             animateDuration = 700,
             animateDelay = 75,
             barPadding = 1;
@@ -14,7 +14,7 @@ let svgBar = d3.select("#barchart")
       .attr("class", "svgBar")
       .attr("id", "barChart")
       .attr("preserveAspectRatio", "xMinYMin meet")
-      .attr("viewBox", "0 0 800 400")
+      .attr("viewBox", "0 0 800 500")
       // .attr("height", heightBar + marginsBar.top + marginsBar.bottom)
       // .attr("width", widthBar + marginsBar.left + marginsBar.right)
 
@@ -24,70 +24,6 @@ function zip(arrays) {
     });
 }
 
-
-// function updateBarChart(country, season, position, data) {
-//   console.log(data);
-//   if ((country === "All") && (season === "All") && (position === "All")) {
-//     let transferAmount = [];
-//     let countries = [];
-//     data.forEach(function(transfer) {
-//       let index = countries.indexOf(transfer.League_to);
-//       if (index > -1) {
-//         transferAmount[index] += +transfer.Transfer_fee;
-//       }
-//       else {
-//         countries.push(transfer.League_to);
-//         transferAmount.push(+transfer.Transfer_fee);
-//       }
-//     })
-//     let zeros = transferAmount.reduce(function(a, e, i) {
-//       if (e === 0)
-//           a.push(i);
-//       return a;
-//     }, []);
-//     // console.log(zeros);
-//     zeros.forEach(function(zero, i) {
-//       countries.splice(zero - i, 1);
-//       transferAmount.splice(zero - i, 1);
-//     })
-//     // console.log(countries);
-//     // console.log(transferAmount);
-//     drawBarChart(countries, transferAmount);
-//   }
-//   else {
-//     let transferAmount = [];
-//     let clubs= [];
-//     data.forEach(function(transfer) {
-//       if ((transfer.League_to === country) &&
-//           ((transfer.Season === season) || (season === "All")) &&
-//           ((transfer.Position === position) || (position === "All"))) {
-//             // console.log(transfer);
-//             let index = clubs.indexOf(transfer.Team_to);
-//             if (index > -1) {
-//               transferAmount[index] += +transfer.Transfer_fee;
-//             }
-//             else {
-//               clubs.push(transfer.Team_to);
-//               transferAmount.push(+transfer.Transfer_fee);
-//             }
-//           }
-//       // else if ((country === "All") && ((transfer.Season === )))
-//     })
-//     console.log(clubs);
-//     console.log(transferAmount);
-//     let zeros = transferAmount.reduce(function(a, e, i) {
-//       if (e === 0)
-//           a.push(i);
-//       return a;
-//     }, []);
-//     // console.log(zeros);
-//     zeros.forEach(function(zero, i) {
-//       clubs.splice(zero - i, 1);
-//       transferAmount.splice(zero - i, 1);
-//     })
-//     drawBarChart(clubs, transferAmount);
-//   }
-// }
 
 function updateBarChart(country, season, position, data) {
   if (country === "All") {
@@ -151,9 +87,8 @@ function updateBarChart(country, season, position, data) {
 function arrayWithSteps (min, max, steps) {
   let step = (max - min) / steps;
   let temp = [];
-  for (let i = min; i <= max; i += step) {
-    // console.log(i);
-    temp.push((Math.floor(i/1.1)));
+  for (let i = min; i < max; i += step) {
+    temp.push((Math.floor(i)));
   }
   console.log(temp);
   return temp;
@@ -164,13 +99,8 @@ function drawBarChart(categories, amounts) {
   // set format for data values (millions)
   let format = d3.format(",");
 
-  // // set yScale barchart
-  // let yScale = d3.scaleLinear()
-  //   .domain([d3.min(amounts), d3.max(amounts)])
-  //   .range([heightBar + marginsBar.top + marginsBar.bottom, marginsBar.bottom]);
-
   let steps = arrayWithSteps(d3.min(amounts), d3.max(amounts), 8);
-  let color = d3.scaleOrdinal()
+  let color = d3.scaleThreshold()
     .domain(steps)
     // .range(d3.schemeBlues[9]);
     .range(colors2);
@@ -183,10 +113,6 @@ function drawBarChart(categories, amounts) {
     .domain([0, categories.length])
     .range([marginsBar.top, heightBar + marginsBar.bottom]);
 
-  // // set xScale graph
-  // let xScale = d3.scaleLinear()
-  //   .domain([0, categories.length])
-  //   .range([marginsBar.left, widthBar + marginsBar.left]);
 
   // set yScale barchart
   let xScale = d3.scaleLinear()
@@ -196,6 +122,7 @@ function drawBarChart(categories, amounts) {
   // set tooltip for barchart
   let div = d3.select("#map").append("div")
       .attr("class", "tooltip")
+      .attr("id", "tooltipBars")
       .style("opacity", 0)
       // .html(function(d, country) {
       //   return "<strong>Country: </strong><span class='details'>" + d.League_to + "<br></span>" + "<strong>Government spending: </strong><span class='details'>" + format(total) + "%" + "</span>";
@@ -239,8 +166,9 @@ function drawBarChart(categories, amounts) {
     })
     .attr("height", heightBar / categories.length - barPadding)
     .attr("fill", function(d) {
-      console.log(color(d));
-      return color(d);
+      // console.log(color(d));
+      // console.log(d);
+      return color(d[0]);
     })
     // .on("mouseover", function(d) {
     //   div.transition()

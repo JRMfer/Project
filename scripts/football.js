@@ -4,7 +4,7 @@
 // const var for data source
 let data = "https://raw.githubusercontent.com/JRMfer/Project/master/data/transfers250.csv"
 let worldCountries = "https://raw.githubusercontent.com/JRMfer/Project/master/data/world_countries.json"
-let info = {"Seasons": ["All"], "data": []}
+let info = {"Seasons": ["All"], "data": [], "Countries": ["All"], "Positions": ["All"]}
 
 // read in world_countries.topojson and data
 let requests = [d3.json(worldCountries), d3.csv(data)]
@@ -17,13 +17,17 @@ function dropdownChange() {
   // let season = d3.select(".seasonclick")
   //                .property("value");
 
-  console.log("season");
   // info["Seasons"].forEach(function(season) {
   //   console.log(d3.select("#" + season).property("selected"));
   // })
   // console.log(d3.select('.seasonsdropdown option:checked').property("value"));
   // console.log(d3.select(this));
+  console.log("country");
+  console.log(d3.select("#countriesdropdown").property("value"));
+  console.log("season");
   console.log(d3.select("#seasonsdropdown").property("value"));
+  console.log("position")
+  console.log(d3.select("#positionsdropdown").property("value"));
   let season = d3.select("#seasonsdropdown").property("value");
 
   return updateBarChart("All", season, "All", info["data"])
@@ -31,43 +35,69 @@ function dropdownChange() {
 
 function optionsDropdown(data) {
 
-  let seasons = [];
+  // let seasons = [];
 
   data.forEach(function(transfer) {
-    let index = seasons.indexOf(transfer.Season);
+    let index = info.Seasons.indexOf(transfer.Season);
+    let index2 = info.Countries.indexOf(transfer.League_to);
+    let index3 = info.Positions.indexOf(transfer.Position);
     if (index < 0) {
-      seasons.push(transfer.Season);
-      info["Seasons"].push(transfer.Season)
+      // seasons.push(transfer.Season);
+      info["Seasons"].push(transfer.Season);
+    }
+    if (index2 < 0) {
+      info.Countries.push(transfer.League_to);
+    }
+    if (index3 < 0) {
+      info.Positions.push(transfer.Position);
     }
   })
-  console.log(seasons);
+  info.Countries.sort();
+  info.Positions.sort();
+  console.log(info.Seasons);
+  console.log(info.Countries);
+  console.log(info.Positions);
 
-  let dropdown = d3.select('#seasonsdropdown');
+  let dropdown = d3.select('#countriesdropdown');
   // .on('change', dropdownChange(data));
-console.log(d3.select('#seasonsdropdown'));
+
+  let dropdown2 = d3.select("#seasonsdropdown");
+
+  let dropdown3 = d3.select("#positionsdropdown");
 
 
-  let options = dropdown.selectAll("option")
-                        .data(info["Seasons"])
-                        .enter()
-                        .append("option")
-                        .attr("value", function(d) {
-                          return d;
-                        })
-                        // .attr("href", "/")
-                        // .attr("class", "seasonclick")
-                        // .attr("value", function(d) {
-                        //   return d;
-                        // })
-                        .text(function(d) {
-                          return d;
-                        })
-                        // .attr("href", "/")
-                        // .attr("onChange", "dropdownChange()");
+  dropdown.selectAll("option")
+          .data(info.Countries)
+          .enter()
+          .append("option")
+          .attr("value", function(d) {
+            return d;
+          })
+          .attr("text", function(d) {
+            return d;
+          })
 
-                        // d3.select('#seasonsdropdown')
-                        // dropdown.on('click', dropdownChange);
+  dropdown2.selectAll("option")
+           .data(info.Seasons)
+           .enter()
+           .append("option")
+           .attr("value", function(d) {
+             return d;
+           })
+           .attr("text", function(d) {
+             return d;
+           })
 
+  dropdown3.selectAll("option")
+           .data(info.Positions)
+           .enter()
+           .append("option")
+           .attr("value", function(d) {
+             return d;
+           })
+           .attr("text", function(d) {
+             return d;
+           })
 }
 
 

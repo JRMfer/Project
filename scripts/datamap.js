@@ -1,7 +1,9 @@
 // const var for marginsMap svg Data map
 const marginsMap = {top: 0, right: 0, bottom: 0, left: 0},
-            widthMap = 800 - marginsMap.left - marginsMap.right,
-            heightMap = 400 - marginsMap.top - marginsMap.bottom;
+            widthMap = 750 - marginsMap.left - marginsMap.right,
+            heightMap = 500 - marginsMap.top - marginsMap.bottom;
+
+let colorsMap = ["#fff5eb", "#fee6ce", "#fdd0a2", "#fdae6b", "#fd8d3c", "#f16913", "#d94801", "#a63603", "#7f2704"];
 
 // // const var topojson worldmap and data
 // let worldCountries = "https://bl.ocks.org/micahstubbs/raw/8e15870eb432a21f0bc4d3d527b2d14f/a45e8709648cafbbf01c78c76dfa53e31087e713/world_countries.json"
@@ -11,7 +13,7 @@ const marginsMap = {top: 0, right: 0, bottom: 0, left: 0},
 let svgMap = d3.select("#map")
       .append("svg")
       .attr("preserveAspectRatio", "xMinYMin meet")
-      .attr("viewBox", "0 0 800 400")
+      .attr("viewBox", "0 0 800 500")
       // .attr("height", heightMap + marginsMap.top + marginsMap.bottom)
       // .attr("width", widthMap + marginsMap.left + marginsMap.right)
       .append("g")
@@ -21,21 +23,39 @@ let svgMap = d3.select("#map")
 
 
 let projection = d3.geoMercator()
-                   .scale(130)
-                   .translate( [widthMap / 2, heightMap / 1.5]);
+                   .scale(100)
+                   .translate( [widthMap / 2, heightMap / 1.75]);
 
 let path = d3.geoPath().projection(projection);
+
+function zip(arrays) {
+    return arrays[0].map(function(_,i){
+        return arrays.map(function(array){return array[i]})
+    });
+}
+
+// function updateMap(data) {
+//   let info = {"expenditures": [], "amounts": []};
+//   data.forEach( function(transfer) {
+//     if (transfer.League_to in amounts)
+//   })
+// }
 
 function drawDataMap(topology, data) {
   console.log(topology);
   ready(0, topology, data);
 }
 
+// function updateData(data)
+
 function ready(error, topology, data) {
+
+  // let dataTotal = zip([topology.features, data]);
 
   // Define the div for the tooltip
   let div = d3.select("#map").append("div")
       .attr("class", "tooltip")
+      .attr("id", "tooltipMap")
       .style("opacity", 0);
 
   svgMap.append("g")
@@ -44,7 +64,10 @@ function ready(error, topology, data) {
         .data(topology.features)
         .enter().append("path")
         .attr("d", path)
-        .style("fill", "red")
+        .attr("fill", function(d) {
+          return "rgb(0,0,0)"
+        })
+        // .style("fill", "red")
         .style("stroke", "black")
         .style("stroke-width", 1.5)
         .on("mouseover", function(d) {
