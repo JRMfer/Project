@@ -1,7 +1,8 @@
 
 
 #pageHeader, #map, #barchart {
-  background: #999966;
+  /* background: #999966; */
+  background: #A0A0A0;
 }
 
 .tooltip {

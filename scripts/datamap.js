@@ -28,10 +28,68 @@ let projection = d3.geoMercator()
 
 let path = d3.geoPath().projection(projection);
 
-function zip(arrays) {
-    return arrays[0].map(function(_,i){
-        return arrays.map(function(array){return array[i]})
-    });
+// function zipMap(countries, data) {
+//   console.log(data);
+//   let dataMap = [];
+//   let competitions = [];
+//   let transfers = [];
+//   let totalExp = [];
+//   data.forEach(function(transfer) {
+//     countries.forEach(function(country) {
+//       if (country.properties.name === transfer.League_to) {
+//         let index = competitions.indexOf(transfer.League_to);
+//         if (index < 0) {
+//           competitions.push(transfer.League_to);
+//           transfers.push(1);
+//           totalExp.push(+transfer.Transfer_fee);
+//         }
+//         else {
+//           transfers[index] += 1;
+//           totalExp[index] += +transfer.Transfer_fee;
+//         }
+//       }
+//     })
+//   })
+//
+//   countries.forEach(function(country) {
+//     let index = competitions.indexOf(country.properties.name);
+//     if (index < 0) {
+//       competitions.push(country.properties.name);
+//       transfers.push(0);
+//       totalExp.push(0);
+//     }
+//   })
+//   dataMap.push(countries);
+//   dataMap.push(competitions);
+//   dataMap.push(transfers);
+//   dataMap.push(totalExp);
+//   // console.log(dataMap);
+//   return dataMap;
+// }
+
+function zipMap(countries, data) {
+  console.log(data);
+  console.log(countries);
+  let dataMap = [];
+  countries.forEach(function(country) {
+    let tempObj = {}
+    tempObj["features"] = country;
+    tempObj["name"] = country.properties.name;
+
+    let transfers = 0;
+    let totalExp = 0;
+    data.forEach(function(transfer) {
+      if (transfer.League_to === country.properties.name) {
+        transfers += 1;
+        totalExp += +transfer.Transfer_fee;
+      }
+    })
+    tempObj["transfers"] = transfers;
+    tempObj["totalExp"] = totalExp;
+    dataMap.push(tempObj);
+  })
+  console.log(dataMap);
+  return dataMap;
 }
 
 // function updateMap(data) {
@@ -49,8 +107,9 @@ function drawDataMap(topology, data) {
 // function updateData(data)
 
 function ready(error, topology, data) {
-
-  // let dataTotal = zip([topology.features, data]);
+  console.log(data);
+  // let dataTotal = zipMap(topology.features, data);
+  // console.log(dataTotal);
 
   // Define the div for the tooltip
   let div = d3.select("#map").append("div")

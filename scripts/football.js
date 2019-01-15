@@ -29,8 +29,10 @@ function dropdownChange() {
   console.log("position")
   console.log(d3.select("#positionsdropdown").property("value"));
   let season = d3.select("#seasonsdropdown").property("value");
+  let country = d3.select("#countriesdropdown").property("value")
+  let position = d3.select("#positionsdropdown").property("value")
 
-  return updateBarChart("All", season, "All", info["data"])
+  return updateBarChart(country, season, position, info["data"])
 }
 
 function optionsDropdown(data) {
@@ -107,9 +109,10 @@ window.onload = function() {
     let topology = response[0];
     info["data"] = response[1];
     console.log(topology);
-    console.log(data);
+    console.log(info["data"]);
     optionsDropdown(info["data"]);
     drawDataMap(topology, info["data"]);
+    drawSunburst(info.data);
     updateBarChart("All", "All", "All", info["data"]);
 
   }).catch(function(e) {
