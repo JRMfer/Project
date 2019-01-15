@@ -63,3 +63,21 @@ While creating the update function for the barchart I encountered some difficult
    the values as these are the same as the array with the correspoding country/clubs.
 
 2. Also an alert or message should be shown if no information is available.
+
+# Day 6
+
+After constructing the update function it was time to add an HTML element which
+can trigger the update function to work. I've chosen for a dropdown menu in the
+navbar.
+
+Although it seems easy to add the correct list items to the dropdown menu of the
+navbar it was not possible to retrieve the selected value by the user trough d3.
+After searching on the internet I encountered that it is not possible to select
+<ul> elements.
+
+So the dropdown was removed and another type of dropdown, with a <select> tag
+was added with help of d3 and the options were added as <option> tags. Now it is
+possible to retrieve the selecte value from the dropdown menu.
+
+Furthermore a sequential color scheme by colorbrewer was chosen to set the style
+for the barchart and probably the other visualizations as well.
