@@ -32,12 +32,14 @@ function dropdownChange() {
   let country = d3.select("#countriesdropdown").property("value")
   let position = d3.select("#positionsdropdown").property("value")
 
-  return updateBarChart(country, season, position, info["data"])
+  updateBarChart(country, season, position, info["data"]);
+  drawDataMap(features, info["data"],season, position);
 }
 
-function optionsDropdown(data) {
+function optionsDropdown(topology, data) {
 
   // let seasons = [];
+  console.log(topology);
 
   data.forEach(function(transfer) {
     let index = info.Seasons.indexOf(transfer.Season);
@@ -45,7 +47,7 @@ function optionsDropdown(data) {
     let index3 = info.Positions.indexOf(transfer.Position);
     if (index < 0) {
       // seasons.push(transfer.Season);
-      info["Seasons"].push(transfer.Season);
+      info.Seasons.push(transfer.Season);
     }
     if (index2 < 0) {
       info.Countries.push(transfer.League_to);
@@ -54,8 +56,19 @@ function optionsDropdown(data) {
       info.Positions.push(transfer.Position);
     }
   })
+
+  topology.forEach(function(country) {
+    let index = info.Countries.indexOf(country.properties.name);
+    if (index < 0) {
+      info.Countries.push(country.properties.name);
+    }
+  })
   info.Countries.sort();
   info.Positions.sort();
+  let index = info.Countries.indexOf("All");
+  let temp = info.Countries[0];
+  info.Countries[0] = info.Countries[index];
+  info.Countries[index] = temp;
   console.log(info.Seasons);
   console.log(info.Countries);
   console.log(info.Positions);
@@ -75,7 +88,7 @@ function optionsDropdown(data) {
           .attr("value", function(d) {
             return d;
           })
-          .attr("text", function(d) {
+          .text(function(d) {
             return d;
           })
 
@@ -86,7 +99,7 @@ function optionsDropdown(data) {
            .attr("value", function(d) {
              return d;
            })
-           .attr("text", function(d) {
+           .text(function(d) {
              return d;
            })
 
@@ -97,7 +110,7 @@ function optionsDropdown(data) {
            .attr("value", function(d) {
              return d;
            })
-           .attr("text", function(d) {
+           .text(function(d) {
              return d;
            })
 }
@@ -110,8 +123,8 @@ window.onload = function() {
     info["data"] = response[1];
     console.log(topology);
     console.log(info["data"]);
-    optionsDropdown(info["data"]);
-    drawDataMap(topology, info["data"]);
+    optionsDropdown(topology.features, info["data"]);
+    drawDataMap(topology, info["data"], "All", "All");
     drawSunburst(info.data);
     updateBarChart("All", "All", "All", info["data"]);
 

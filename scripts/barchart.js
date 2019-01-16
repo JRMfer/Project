@@ -8,6 +8,12 @@ const marginsBar = {top: 0, right: 100, bottom: 100, left: 100},
 
 let colors = ["#ffffe5", "#f7fcb9", "#d9f0a3", "#addd8e", "#78c679", "#41ab5d", "#238443", "#006837", "#004529"];
 let colors2 = ["#fff5eb", "#fee6ce", "#fdd0a2", "#fdae6b", "#fd8d3c", "#f16913", "#d94801", "#a63603", "#7f2704"];
+// let colorBar = d3.scaleThreshold()
+//                 // .domain([0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100])
+//                 .range(d3.schemeBuGn[5]);
+
+// let colorBar = d3.scaleSequential(d3.interpolateBuGn);
+
 // Create SVG for datamap
 let svgBar = d3.select("#barchart")
       .append("svg")
@@ -87,7 +93,7 @@ function updateBarChart(country, season, position, data) {
 function arrayWithSteps (min, max, steps) {
   let step = (max - min) / steps;
   let temp = [];
-  for (let i = min; i < max; i += step) {
+  for (let i = min; i <= max; i += step) {
     temp.push((Math.floor(i)));
   }
   console.log(temp);
@@ -99,11 +105,15 @@ function drawBarChart(categories, amounts) {
   // set format for data values (millions)
   let format = d3.format(",");
 
-  let steps = arrayWithSteps(d3.min(amounts), d3.max(amounts), 8);
-  let color = d3.scaleThreshold()
+  let steps = arrayWithSteps(d3.min(amounts), d3.max(amounts), 7);
+  let colorBar = d3.scaleThreshold()
     .domain(steps)
     // .range(d3.schemeBlues[9]);
     .range(colors2);
+
+  // let colorBar = d3.scaleOrdinal(d3.interpolateBuGn);
+  //                   // d3.scaleOrdinal(  d3.schemeBuGn[5])
+  //                   // .domain([0, d3.max(amounts)]);
 
   console.log(steps);
   console.log(colors2);
@@ -168,7 +178,7 @@ function drawBarChart(categories, amounts) {
     .attr("fill", function(d) {
       // console.log(color(d));
       // console.log(d);
-      return color(d[0]);
+      return colorBar(d[0]);
     })
     // .on("mouseover", function(d) {
     //   div.transition()
@@ -192,6 +202,8 @@ function drawBarChart(categories, amounts) {
       .remove();
 
   bars.on("mouseover", function(d) {
+    console.log(d[1]);
+    console.log(d[0]);
         div.transition()
         .style("opacity", 0.9)
         div.html(d[1] + ": " + format(d[0]))

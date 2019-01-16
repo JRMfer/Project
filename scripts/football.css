@@ -5,6 +5,10 @@
   background: #A0A0A0;
 }
 
+#sunburst {
+  background: darkgrey;
+}
+
 .tooltip {
     position: absolute;
     text-align: center;
