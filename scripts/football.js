@@ -11,27 +11,22 @@ let requests = [d3.json(worldCountries), d3.csv(data)]
 
 function dropdownChange() {
 
-  // console.log("test2");
-  // console.log(info["Seasons"]);
-  //
-  // let season = d3.select(".seasonclick")
-  //                .property("value");
 
-  // info["Seasons"].forEach(function(season) {
-  //   console.log(d3.select("#" + season).property("selected"));
-  // })
-  // console.log(d3.select('.seasonsdropdown option:checked').property("value"));
-  // console.log(d3.select(this));
-  // console.log("country");
-  // console.log(d3.select("#countriesdropdown").property("value"));
-  // console.log("season");
-  // console.log(d3.select("#seasonsdropdown").property("value"));
-  // console.log("position")
-  // console.log(d3.select("#positionsdropdown").property("value"));
   let season = d3.select("#seasonsdropdown").property("value");
   let country = d3.select("#countriesdropdown").property("value")
   let position = d3.select("#positionsdropdown").property("value")
+  // let dataSun = preproccesSunburst(country, season, position, data);
+  // let root = d3.hierarchy(dataSun)  // <-- 1
+  //   .sum(function (d) { return d.size})
+  //   .sort(function(a, b) { return b.vakue - a.vlue; });  // <-- 2
+  //
+  // // console.log(root);
+  //
+  // partition(root);  // <-- 1
+  // slice.selectAll("path").transition().duration(750).attrTween("d", arcTweenPath);  // <-- 7
 
+  // updateSun(country, season, position, info.data);
+  drawSunburst(country, season, position, info.data);
   updateBarChart(country, season, position, info["data"]);
   drawDataMap(features, info["data"],season, position);
 }
