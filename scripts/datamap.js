@@ -57,7 +57,6 @@ function findValuesMap(data, season, position) {
       }
     }
   })
-  console.log(values);
   return values;
 }
 
@@ -82,7 +81,6 @@ function zipMap(countries, data) {
     tempObj["totalExp"] = totalExp;
     dataMap.push(tempObj);
   })
-  console.log(dataMap);
   return dataMap;
 }
 
@@ -100,7 +98,6 @@ function findMax(data) {
   maxMin = {};
   maxMin["max"] = max;
   maxMin["min"] = min;
-  console.log(maxMin);
   return maxMin;
 }
 
@@ -110,25 +107,28 @@ function arrayStepsMap (min, max, steps) {
   for (let i = min; i <= max; i += step) {
     temp.push((Math.floor(i)));
   }
-  console.log(temp);
   return temp;
 }
 
+function dataMapClick(country) {
+  console.log(info.data);
+  season = d3.select("#seasonsdropdown").property("value");
+  d3.select('#countriesdropdown').property('value', country);
+  position = d3.select("#positionsdropdown").property("value")
+  updateBarChart(country, season, position, info["data"]);
+}
+
 function drawDataMap(topology, data, season, position) {
-  console.log(topology);
   ready(0, topology, data, season, position);
 }
 
 // function updateData(data)
 
 function ready(error, topology, data , season, position) {
-  console.log(data);
   features = topology;
-  console.log(features);
   let newData = findValuesMap(data, season, position);
   let maxMin = findMax(newData);
   let steps = arrayStepsMap(maxMin.min, maxMin.max, 7);
-  console.log(steps);
   let colorPath = d3.scaleThreshold()
     .domain(steps)
     .range(colorsMap);
@@ -198,6 +198,12 @@ function ready(error, topology, data , season, position) {
             divMap.transition()
                 .style("opacity", 0)
             d3.select(this).style('opacity', 1);
+        })
+        .on("click", function(d) {
+          dataMapClick(d.properties.name);
+          console.log(d.properties.name);
+          console.log(d3.select("#seasonsdropdown").property("value"));
+          console.log(d3.select("#positionsdropdown").property("value"));
         });
 
   pathMap.exit()

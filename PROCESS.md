@@ -96,7 +96,9 @@ Also a start for creating an update functionn of the datamap was made. This is
 still under progress.
 
 # Day 8
+
 Sunburst was added.
+
 Datamap can update, but it still has problems with setting the appropriate color
 for the country (perhaps scaling not good).
 Also encountered some crashes while switching with the dropdown menus. Could also be

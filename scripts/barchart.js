@@ -96,7 +96,6 @@ function arrayWithSteps (min, max, steps) {
   for (let i = min; i <= max; i += step) {
     temp.push((Math.floor(i)));
   }
-  console.log(temp);
   return temp;
 }
 
@@ -115,8 +114,6 @@ function drawBarChart(categories, amounts) {
   //                   // d3.scaleOrdinal(  d3.schemeBuGn[5])
   //                   // .domain([0, d3.max(amounts)]);
 
-  console.log(steps);
-  console.log(colors2);
 
   // set yScale barchart
   let yScale = d3.scaleLinear()
@@ -163,6 +160,21 @@ function drawBarChart(categories, amounts) {
     // })
     .attr("width", 0)
     .attr("height", heightBar / categories.length - barPadding)
+    .on("mouseover", function(d) {
+      // console.log(d[1]);
+      // console.log(d[0]);
+          div.transition()
+          .style("opacity", 0.9)
+          div.html(d[1] + ": " + format(d[0]))
+          .style("left", (d3.event.pageX) + "px")
+          .style("top", (d3.event.pageY - heightBar / 2) + "px")
+          d3.select(this).style('opacity', 0.5)
+        })
+        .on("mouseout", function(d) {
+            div.transition()
+                .style("opacity", 0)
+            d3.select(this).style('opacity', 1);
+        })
     .merge(bars)
     .transition()
     .duration(750)
@@ -201,19 +213,19 @@ function drawBarChart(categories, amounts) {
       .attr("x", widthBar)
       .remove();
 
-  bars.on("mouseover", function(d) {
-    console.log(d[1]);
-    console.log(d[0]);
-        div.transition()
-        .style("opacity", 0.9)
-        div.html(d[1] + ": " + format(d[0]))
-        .style("left", (d3.event.pageX) + "px")
-        .style("top", (d3.event.pageY - heightBar / 2) + "px")
-        d3.select(this).style('opacity', 0.5)
-      })
-      .on("mouseout", function(d) {
-          div.transition()
-              .style("opacity", 0)
-          d3.select(this).style('opacity', 1);
-      });
+  // bars.on("mouseover", function(d) {
+  //   // console.log(d[1]);
+  //   // console.log(d[0]);
+  //       div.transition()
+  //       .style("opacity", 0.9)
+  //       div.html(d[1] + ": " + format(d[0]))
+  //       .style("left", (d3.event.pageX) + "px")
+  //       .style("top", (d3.event.pageY - heightBar / 2) + "px")
+  //       d3.select(this).style('opacity', 0.5)
+  //     })
+  //     .on("mouseout", function(d) {
+  //         div.transition()
+  //             .style("opacity", 0)
+  //         d3.select(this).style('opacity', 1);
+  //     });
 }

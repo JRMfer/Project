@@ -38,97 +38,109 @@ let partition = d3.partition()  // <-- 1
     .size([2 * Math.PI, radiusSun]);  // <-- 2
 
 
-// function preproccesSunburst(data) {
-//   console.log(data);
-//   let newData = {};
-//   newData["name"] = "World";
-//   newData["children"] = [];
-//   data.forEach(function(transfer) {
-//     let counterCompetition = 0;
-//     newData.children.forEach(function(competition) {
-//       let counterClub = 0;
-//       if (competition.name === transfer.League_to) {
-//         counterCompetition += 1;
-//         competition.children.forEach(function(club) {
-//           if (club.name === transfer.Team_to) {
-//             counterClub += 1;
-//             club.size += +transfer.Transfer_fee;
-//           }
-//         })
-//         if (counterClub === 0) {
-//           let tempObj = {};
-//           tempObj["name"] = transfer.Team_to;
-//           tempObj["size"] = +transfer.Transfer_fee;
-//           competition.children.push(tempObj);
-//         }
-//       }
-//     })
-//     if (counterCompetition === 0) {
-//       let tempObj = {};
-//       tempObj["name"] = transfer.League_to;
-//       tempObj["children"] = [];
-//       newData.children.push(tempObj);
-//     }
-//   })
-//   console.log(newData);
-//   return newData;
-// }
-
-function preproccesSunburst(data) {
-  console.log(data);
+function preproccesSunburst(country, season, position, data) {
+  // console.log(data);
   let newData = {"name": "Football Transfers top 250", "children": []};
   let rootObj = {"name": "World", "children": []};
   newData.children.push(rootObj);
 
   data.forEach(function(transfer) {
-    newData.children.forEach(function(world) {
-      let counterCompetition = 0;
-      world.children.forEach(function(competition) {
-        let counterClub = 0;
-        if (competition.name === transfer.League_to) {
-          counterCompetition += 1;
-          competition.children.forEach(function(club) {
-            if ((club.name === transfer.Team_to) && (+transfer.Transfer_fee > 0)) {
-              counterClub += 1;
-              club.size += +transfer.Transfer_fee;
+    if (((transfer.League_to === country) || (country = "All")) &&
+        ((transfer.Season === season) || (season === "All")) &&
+        ((transfer.Position === position) || (position === "All")) &&
+        (+transfer.Transfer_fee > 0)) {
+          newData.children.forEach(function(world) {
+            let counterCompetition = 0;
+            world.children.forEach(function(competition) {
+              if (competition.name === transfer.League_to) {
+                counterCompetition += 1;
+                let counterClub = 0;
+                competition.children.forEach(function(club) {
+                  if ((club.name === transfer.Team_to)) {
+                    counterClub += 1;
+                    club.size += +transfer.Transfer_fee;
+                  }
+                })
+                if ((counterClub === 0)) {
+                  let tempObj = {}
+                  tempObj["name"] = transfer.Team_to;
+                  tempObj["size"] = +transfer.Transfer_fee;
+                  competition.children.push(tempObj);
+                }
+              }
+            })
+            if ((counterCompetition === 0) && (+transfer.Transfer_fee > 0)) {
+                let tempObj = {};
+                let tempObj2 = {};
+                tempObj["name"] = transfer.League_to;
+                tempObj["children"] = [];
+                tempObj2["name"] = transfer.Team_to;
+                tempObj2["size"] = +transfer.Transfer_fee;
+                tempObj["children"].push(tempObj2);
+                world.children.push(tempObj);
             }
           })
-          if ((counterClub === 0) && (+transfer.Transfer_fee > 0)) {
-            let tempObj = {};
-            tempObj["name"] = transfer.Team_to;
-            tempObj["size"] = +transfer.Transfer_fee;
-            competition.children.push(tempObj);
-          }
         }
-      })
-      if ((counterCompetition === 0) && (+transfer.Transfer_fee > 0)) {
-        let tempObj = {};
-        let tempObj2 = {};
-        tempObj["name"] = transfer.League_to;
-        tempObj["children"] = [];
-        tempObj2["name"] = transfer.Team_to;
-        tempObj2["size"] = +transfer.Transfer_fee;
-        tempObj["children"].push(tempObj2);
-        world.children.push(tempObj);
-      }
-    })
   })
-
-  console.log(newData.children);
   console.log(newData);
   return newData;
 }
 
-function drawSunburst(data) {
+// function preproccesSunburst(data) {
+//   // console.log(data);
+//   let newData = {"name": "Football Transfers top 250", "children": []};
+//   let rootObj = {"name": "World", "children": []};
+//   newData.children.push(rootObj);
+//
+//   data.forEach(function(transfer) {
+//     newData.children.forEach(function(world) {
+//       let counterCompetition = 0;
+//       world.children.forEach(function(competition) {
+//         let counterClub = 0;
+//         if (competition.name === transfer.League_to) {
+//           counterCompetition += 1;
+//           competition.children.forEach(function(club) {
+//             if ((club.name === transfer.Team_to) && (+transfer.Transfer_fee > 0)) {
+//               counterClub += 1;
+//               club.size += +transfer.Transfer_fee;
+//             }
+//           })
+//           if ((counterClub === 0) && (+transfer.Transfer_fee > 0)) {
+//             let tempObj = {};
+//             tempObj["name"] = transfer.Team_to;
+//             tempObj["size"] = +transfer.Transfer_fee;
+//             competition.children.push(tempObj);
+//           }
+//         }
+//       })
+//       if ((counterCompetition === 0) && (+transfer.Transfer_fee > 0)) {
+//         let tempObj = {};
+//         let tempObj2 = {};
+//         tempObj["name"] = transfer.League_to;
+//         tempObj["children"] = [];
+//         tempObj2["name"] = transfer.Team_to;
+//         tempObj2["size"] = +transfer.Transfer_fee;
+//         tempObj["children"].push(tempObj2);
+//         world.children.push(tempObj);
+//       }
+//     })
+//   })
+//
+//   // console.log(newData.children);
+//   // console.log(newData);
+//   return newData;
+// }
+
+function drawSunburst(country, season, position, data) {
   // set format for data values (millions)
   let format = d3.format(",");
 
-  let newData = preproccesSunburst(data);
+  let newData = preproccesSunburst(country, season, position, data);
 
   let root = d3.hierarchy(newData)  // <-- 1
     .sum(function (d) { return d.size});  // <-- 2
 
-  console.log(root);
+  // console.log(root);
 
   partition(root);  // <-- 1
   let arc = d3.arc()  // <-- 2
@@ -153,20 +165,16 @@ function drawSunburst(data) {
         var parentValue = d.parent.value;
 				var childValue = d.value;
 				var childPercentage = Math.round((childValue / parentValue) * 100);
-        console.log(childPercentage);
 				return colorSun(childPercentage);
 			}
       else {
 				var parentValue = d.parent.value;
 				var childValue = d.value;
 				var childPercentage = Math.round((childValue / parentValue) * 100);
-        console.log(d.name);
-        console.log(childPercentage);
 				return colorSun(childPercentage);
 			}
 			})
     .on("mouseover", function(d) {
-      console.log(d);
       if (d.data.size) {
             div.transition()
             .style("opacity", 0.9)

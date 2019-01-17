@@ -11,8 +11,8 @@ let requests = [d3.json(worldCountries), d3.csv(data)]
 
 function dropdownChange() {
 
-  console.log("test2");
-  console.log(info["Seasons"]);
+  // console.log("test2");
+  // console.log(info["Seasons"]);
   //
   // let season = d3.select(".seasonclick")
   //                .property("value");
@@ -22,12 +22,12 @@ function dropdownChange() {
   // })
   // console.log(d3.select('.seasonsdropdown option:checked').property("value"));
   // console.log(d3.select(this));
-  console.log("country");
-  console.log(d3.select("#countriesdropdown").property("value"));
-  console.log("season");
-  console.log(d3.select("#seasonsdropdown").property("value"));
-  console.log("position")
-  console.log(d3.select("#positionsdropdown").property("value"));
+  // console.log("country");
+  // console.log(d3.select("#countriesdropdown").property("value"));
+  // console.log("season");
+  // console.log(d3.select("#seasonsdropdown").property("value"));
+  // console.log("position")
+  // console.log(d3.select("#positionsdropdown").property("value"));
   let season = d3.select("#seasonsdropdown").property("value");
   let country = d3.select("#countriesdropdown").property("value")
   let position = d3.select("#positionsdropdown").property("value")
@@ -39,7 +39,7 @@ function dropdownChange() {
 function optionsDropdown(topology, data) {
 
   // let seasons = [];
-  console.log(topology);
+  // console.log(topology);
 
   data.forEach(function(transfer) {
     let index = info.Seasons.indexOf(transfer.Season);
@@ -69,9 +69,9 @@ function optionsDropdown(topology, data) {
   let temp = info.Countries[0];
   info.Countries[0] = info.Countries[index];
   info.Countries[index] = temp;
-  console.log(info.Seasons);
-  console.log(info.Countries);
-  console.log(info.Positions);
+  // console.log(info.Seasons);
+  // console.log(info.Countries);
+  // console.log(info.Positions);
 
   let dropdown = d3.select('#countriesdropdown');
   // .on('change', dropdownChange(data));
@@ -121,11 +121,11 @@ window.onload = function() {
     //gather data
     let topology = response[0];
     info["data"] = response[1];
-    console.log(topology);
-    console.log(info["data"]);
+    // console.log(topology);
+    // console.log(info["data"]);
     optionsDropdown(topology.features, info["data"]);
     drawDataMap(topology, info["data"], "All", "All");
-    drawSunburst(info.data);
+    drawSunburst("All", "All", "All", info.data);
     updateBarChart("All", "All", "All", info["data"]);
 
   }).catch(function(e) {
