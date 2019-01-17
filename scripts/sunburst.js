@@ -138,7 +138,8 @@ function drawSunburst(country, season, position, data) {
   let newData = preproccesSunburst(country, season, position, data);
 
   let root = d3.hierarchy(newData)  // <-- 1
-    .sum(function (d) { return d.size});  // <-- 2
+    .sum(function (d) { return d.size})
+    .sort(function(a, b) { return b.vakue - a.vlue; });  // <-- 2
 
   // console.log(root);
 
@@ -149,9 +150,9 @@ function drawSunburst(country, season, position, data) {
       .innerRadius(function (d) { return d.y0 })
       .outerRadius(function (d) { return d.y1 });
 
-  svgSun.selectAll('path')  // <-- 1
+  svgSun.selectAll('g')  // <-- 1
     .data(root.descendants())  // <-- 2
-    .enter()  // <-- 3
+    .enter().append('g').attr("class", "node") // <-- 3
     .append('path')  // <-- 4
     .attr("display", function (d) { return d.depth ? null : "none"; })  // <-- 5
     .attr("d", arc)  // <-- 6

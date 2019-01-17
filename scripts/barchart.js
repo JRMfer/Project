@@ -7,7 +7,8 @@ const marginsBar = {top: 0, right: 100, bottom: 100, left: 100},
             barPadding = 1;
 
 let colors = ["#ffffe5", "#f7fcb9", "#d9f0a3", "#addd8e", "#78c679", "#41ab5d", "#238443", "#006837", "#004529"];
-let colors2 = ["#fff5eb", "#fee6ce", "#fdd0a2", "#fdae6b", "#fd8d3c", "#f16913", "#d94801", "#a63603", "#7f2704"];
+// let colors2 = ["#fff5eb", "#fee6ce", "#fdd0a2", "#fdae6b", "#fd8d3c", "#f16913", "#d94801", "#a63603", "#7f2704"];
+let colors2 = ["#fdae6b", "#fd8d3c", "#f16913", "#d94801", "#a63603", "#7f2704"];
 // let colorBar = d3.scaleThreshold()
 //                 // .domain([0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100])
 //                 .range(d3.schemeBuGn[5]);
@@ -105,8 +106,8 @@ function drawBarChart(categories, amounts) {
   let format = d3.format(",");
 
   let steps = arrayWithSteps(d3.min(amounts), d3.max(amounts), 7);
-  let colorBar = d3.scaleThreshold()
-    .domain(steps)
+  let colorBar = d3.scaleQuantile()
+    .domain(amounts)
     // .range(d3.schemeBlues[9]);
     .range(colors2);
 

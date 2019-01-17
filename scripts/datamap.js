@@ -3,7 +3,7 @@ const marginsMap = {top: 0, right: 0, bottom: 0, left: 0},
             widthMap = 750 - marginsMap.left - marginsMap.right,
             heightMap = 500 - marginsMap.top - marginsMap.bottom;
 
-let colorsMap = ["#fff5eb", "#fee6ce", "#fdd0a2", "#fdae6b", "#fd8d3c", "#f16913", "#d94801", "#a63603", "#7f2704"];
+let colorsMap = ["#fdae6b", "#fd8d3c", "#f16913", "#d94801", "#a63603", "#7f2704"];
 let features = 0;
 
 // // const var topojson worldmap and data
@@ -50,39 +50,43 @@ function findValuesMap(data, season, position) {
     else {
       if (((transfer.Season === season) || (season === "All")) &&
           ((transfer.Position === position) || (position === "All")) &&
-          (+transfer.Transfer_fee > 0)) {
+          (+transfer.Transfer_fee > 0) && !(transfer.League_to === "Libya")) {
         tempObj["transfers"] = 1;
         tempObj["total"] = +transfer.Transfer_fee;
         values[transfer.League_to] = tempObj;
       }
     }
   })
+  values["valuesArray"] = [];
+  Object.keys(values).forEach( function(country) {
+    values.valuesArray.push(values[country].total);
+  })
   return values;
 }
-
-function zipMap(countries, data) {
-  // console.log(data);
-  // console.log(countries);
-  let dataMap = [];
-  countries.forEach(function(country) {
-    let tempObj = {}
-    tempObj["features"] = country;
-    tempObj["name"] = country.properties.name;
-
-    let transfers = 0;
-    let totalExp = 0;
-    data.forEach(function(transfer) {
-      if (transfer.League_to === country.properties.name) {
-        transfers += 1;
-        totalExp += +transfer.Transfer_fee;
-      }
-    })
-    tempObj["transfers"] = transfers;
-    tempObj["totalExp"] = totalExp;
-    dataMap.push(tempObj);
-  })
-  return dataMap;
-}
+//
+// function zipMap(countries, data) {
+//   // console.log(data);
+//   // console.log(countries);
+//   let dataMap = [];
+//   countries.forEach(function(country) {
+//     let tempObj = {}
+//     tempObj["features"] = country;
+//     tempObj["name"] = country.properties.name;
+//
+//     let transfers = 0;
+//     let totalExp = 0;
+//     data.forEach(function(transfer) {
+//       if (transfer.League_to === country.properties.name) {
+//         transfers += 1;
+//         totalExp += +transfer.Transfer_fee;
+//       }
+//     })
+//     tempObj["transfers"] = transfers;
+//     tempObj["totalExp"] = totalExp;
+//     dataMap.push(tempObj);
+//   })
+//   return dataMap;
+// }
 
 function findMax(data) {
   let max = 0;
@@ -115,7 +119,9 @@ function dataMapClick(country) {
   season = d3.select("#seasonsdropdown").property("value");
   d3.select('#countriesdropdown').property('value', country);
   position = d3.select("#positionsdropdown").property("value")
-  updateBarChart(country, season, position, info["data"]);
+  if (!(country === "Libya")) {
+    updateBarChart(country, season, position, info["data"]);
+  }
 }
 
 function drawDataMap(topology, data, season, position) {
@@ -128,10 +134,14 @@ function ready(error, topology, data , season, position) {
   features = topology;
   let newData = findValuesMap(data, season, position);
   let maxMin = findMax(newData);
+  console.log(newData);
   let steps = arrayStepsMap(maxMin.min, maxMin.max, 7);
-  let colorPath = d3.scaleThreshold()
-    .domain(steps)
-    .range(colorsMap);
+  // let colorPath = d3.scaleThreshold()
+  //   .domain(steps)
+  //   .range(colorsMap);
+  let colorPath = d3.scaleQuantile()
+                    .domain(newData.valuesArray)
+                    .range(colorsMap);
   // let dataTotal = zipMap(topology.features, data);
   // console.log(dataTotal);
 
@@ -154,7 +164,12 @@ function ready(error, topology, data , season, position) {
         .merge(pathMap)
         .attr("d", path)
         .attr("fill", function(d) {
-          return colorPath(d);
+          if (d.properties.name in newData) {
+            return colorPath(newData[d.properties.name].total);
+          }
+          else {
+            return "#fee6ce";
+          }
         })
         // .style("fill", "red")
         .style("stroke", "black")
