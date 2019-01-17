@@ -179,6 +179,9 @@ function drawBarChart(categories, amounts) {
     .merge(bars)
     .transition()
     .duration(750)
+    .delay(function(d, i) {
+      return i * 25;
+    })
     // .attr("x", xScale(marginsBar.left))
     .attr("x", xScale(marginsBar.left))
     .attr("y", function(d, i) {
@@ -210,6 +213,9 @@ function drawBarChart(categories, amounts) {
   bars.exit()
       .transition()
       .duration(750)
+      .delay(function(d, i) {
+        return i * 25;
+      })
       .attr("width", 0)
       .attr("x", widthBar)
       .remove();

@@ -103,3 +103,20 @@ Datamap can update, but it still has problems with setting the appropriate color
 for the country (perhaps scaling not good).
 Also encountered some crashes while switching with the dropdown menus. Could also be
 because of the low speed of the internet?
+
+# Day 9
+
+Found a good scale for dataMap: its an quantile scale based on the whole dataset.
+Fixed some crashes, such as loading errors whenever the "new" dataset did not contain
+any data to create the charts.
+
+Also a different way for creating the sunburst was implemented. With this new method
+it was now possible to have linked views with the datamap and barchart and an update
+with the dropdown was fixed. The sunburst is also zoomable.
+
+Datamap also has an onclick function and updates the barchart with it. Sunburst
+still needs to be done.
+
+Also onclcik for barchart needs to be done.
+
+Considering to skip the line graph as this may become too much work.

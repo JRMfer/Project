@@ -10,7 +10,7 @@ let info = {"Seasons": ["All"], "data": [], "Countries": ["All"], "Positions": [
 let requests = [d3.json(worldCountries), d3.csv(data)]
 
 function dropdownChange() {
-
+  console.log(d3.select(this));
 
   let season = d3.select("#seasonsdropdown").property("value");
   let country = d3.select("#countriesdropdown").property("value")
@@ -26,9 +26,16 @@ function dropdownChange() {
   // slice.selectAll("path").transition().duration(750).attrTween("d", arcTweenPath);  // <-- 7
 
   // updateSun(country, season, position, info.data);
-  drawSunburst(country, season, position, info.data);
-  updateBarChart(country, season, position, info["data"]);
-  drawDataMap(features, info["data"],season, position);
+  // drawSunburst(country, season, position, info.data);
+  let newData = preproccesSunburst(country, season, position, info.data);
+  if (newData.children[0].children.length > 0) {
+    drawSunburst(newData);
+    updateBarChart(country, season, position, info["data"]);
+    drawDataMap(features, info["data"],season, position);
+  }
+  else {
+    alert("I'm an alert box!");
+  }
 }
 
 function optionsDropdown(topology, data) {
@@ -120,7 +127,8 @@ window.onload = function() {
     // console.log(info["data"]);
     optionsDropdown(topology.features, info["data"]);
     drawDataMap(topology, info["data"], "All", "All");
-    drawSunburst("All", "All", "All", info.data);
+    let newData = preproccesSunburst("All", "All", "All", info.data);
+    drawSunburst(newData);
     updateBarChart("All", "All", "All", info["data"]);
 
   }).catch(function(e) {

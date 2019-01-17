@@ -1,6 +1,6 @@
-let widthSun = 500;  // <-- 1
-let heightSun = 500;
-let radiusSun = Math.min(widthSun, heightSun) / 2;  // < -- 2
+let widthSun = 960;  // <-- 1
+let heightSun = 700;
+let radiusSun = Math.min(widthSun, heightSun) / 2 - 10;  // < -- 2
 // //Continuous sequential scale
 // let colorSun = d3.scaleSequential(d3.interpolateBuGn)
 //                 .domain([0, 100]);
@@ -11,11 +11,11 @@ let colorSun = d3.scaleThreshold()
                 .domain([0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100])
                 .range(colors2);
 
-// let colorSun = d3.scaleLinear()
-//                 .domain([0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100])
-//                 .range(colors2);
+let x = d3.scaleLinear()
+    .range([0, 2 * Math.PI]);
 
-
+let y = d3.scaleSqrt()
+    .range([0, radiusSun]);
 
 // var g = d3.select('svg')  // <-- 1
 //     .attr('width', width)  // <-- 2
@@ -26,7 +26,8 @@ let colorSun = d3.scaleThreshold()
 let svgSun = d3.select("#sunburst")
     .append("svg")
     .attr("preserveAspectRatio", "xMinYMin meet")
-    .attr("viewBox", "-300 -300 750 750")
+    .attr("viewBox", "-400 -350 960 750")
+    // .attr("transform", "translate(" + widthSun / 2 + "," + (heightSun / 2) + ")")
     // .attr("height", heightMap + marginsMap.top + marginsMap.bottom)
     // .attr("width", widthMap + marginsMap.left + marginsMap.right)
     .append("g")
@@ -38,8 +39,10 @@ let div = d3.select("#sunburst").append("div")
     .attr("id", "tooltipSun")
     .style("opacity", 0)
 
-let partition = d3.partition()  // <-- 1
-    .size([2 * Math.PI, radiusSun]);  // <-- 2
+let partition = d3.partition();  // <-- 1
+    // .size([2 * Math.PI, radiusSun]);  // <-- 2
+
+let arc = d3.arc();
 
 
 function preproccesSunburst(country, season, position, data) {
@@ -126,7 +129,6 @@ function drawSunburst(newData) {
   let format = d3.format(",");
 
   // let newData = preproccesSunburst(country, season, position, data);
-  console.log(newData.children[0].children);
 
   let root = d3.hierarchy(newData)  // <-- 1
     .sum(function (d) { return d.size})
@@ -135,11 +137,11 @@ function drawSunburst(newData) {
   // console.log(root);
 
   partition(root);  // <-- 1
-  let arc = d3.arc()  // <-- 2
-      .startAngle(function (d) { d.x0s = d.x0; return d.x0 })
-      .endAngle(function (d) { d.x1s = d.x1; return d.x1 })
-      .innerRadius(function (d) { return d.y0 })
-      .outerRadius(function (d) { return d.y1 });
+  // let arc = d3.arc()
+  arc.startAngle(function(d) { return Math.max(0, Math.min(2 * Math.PI, x(d.x0))); })
+      .endAngle(function(d) { return Math.max(0, Math.min(2 * Math.PI, x(d.x1))); })
+      .innerRadius(function(d) { return Math.max(0, y(d.y0)); })
+      .outerRadius(function(d) { return Math.max(0, y(d.y1)); });
 
   // let node = svgSun.selectAll('g')  // <-- 1
   //   .data(root.descendants())  // <-- 2
@@ -152,7 +154,6 @@ function drawSunburst(newData) {
   .delay(function(d, i) {
     return i * 5;
   })
-  .ease(d3.easeCircle)
   .remove();
   node.selectAll("path").remove();
 
@@ -219,23 +220,31 @@ function drawSunburst(newData) {
             d3.select(this).style('opacity', 1);
         });
 
-  // newNode.on("click", clickSlice);
+  newNode.on("click", click);
 }
 
-// Respond to slice click.
 function click(d) {
-  node = d;
-  svgSun.selectAll("path").transition().duration(1000).attrTween("d", arcTweenZoom(d));
-}
-
-// When zooming: interpolate the scales.
-function arcTweenZoom(d) {
-  var xd = d3.interpolate(x.domain(), [d.x0, d.x1]),
-      yd = d3.interpolate(y.domain(), [d.y0, 1]), // [d.y0, 1]
-      yr = d3.interpolate(y.range(), [d.y0 ? 40 : 0, radius]);
-  return function (d, i) {
-    return i
-        ? function (t) { return arc(d); }
-        : function (t) { x.domain(xd(t)); y.domain(yd(t)).range(yr(t)); return arc(d); };
-  };
+  console.log(d);
+  if (d.data.name === "World") {
+    let season = d3.select("#seasonsdropdown").property("value");
+    let position = d3.select("#positionsdropdown").property("value");
+    updateBarChart("All", season, position, info.data);
+    drawDataMap(features, info["data"], season, position);
+  }
+  else if (d.depth === 2) {
+    let season = d3.select("#seasonsdropdown").property("value");
+    let position = d3.select("#positionsdropdown").property("value");
+    updateBarChart(d.data.name, season, position, info.data);
+    drawDataMap(features, info["data"], season, position);
+  }
+  svgSun.transition()
+      .duration(750)
+      .tween("scale", function() {
+        var xd = d3.interpolate(x.domain(), [d.x0, d.x1]),
+            yd = d3.interpolate(y.domain(), [d.y0, 1]),
+            yr = d3.interpolate(y.range(), [d.y0 ? 20 : 0, radiusSun]);
+        return function(t) { x.domain(xd(t)); y.domain(yd(t)).range(yr(t)); };
+      })
+    .selectAll("path")
+      .attrTween("d", function(d) { return function() { return arc(d); }; });
 }
