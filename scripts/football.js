@@ -4,17 +4,58 @@
 // const var for data source
 let data = "https://raw.githubusercontent.com/JRMfer/Project/master/data/transfers250.csv"
 let worldCountries = "https://raw.githubusercontent.com/JRMfer/Project/master/data/world_countries.json"
-let info = {"Seasons": ["All"], "data": [], "Countries": ["All"], "Positions": ["All"]}
+let info = {"Seasons": ["All"], "data": [], "Countries": ["All"], "Positions": ["All"], "rootSun": 0};
 
 // read in world_countries.topojson and data
 let requests = [d3.json(worldCountries), d3.csv(data)]
+
+function countriesDropdownChange() {
+  console.log(d3.select(this));
+
+  let season = d3.select("#seasonsdropdown").property("value");
+  let country = d3.select("#countriesdropdown").property("value");
+  let position = d3.select("#positionsdropdown").property("value");
+
+
+    // drawSunburst(newData);
+    barZoomSunburst(country);
+    updateBarChart(country, season, position, info["data"]);
+    drawDataMap(dataMap, info["data"],season, position);
+
+}
+
+function seasonsDropdownChange() {
+  console.log(d3.select(this));
+
+  let season = d3.select("#seasonsdropdown").property("value");
+  let country = d3.select("#countriesdropdown").property("value");
+  let position = d3.select("#positionsdropdown").property("value");
+  console.log(country);
+
+  let newData = preproccesSunburst(country, season, position, info.data);
+  if (newData.children[0].children.length > 0) {
+    drawSunburst(newData);
+    // updateBarChart(country, season, position, info["data"]);
+    // barZoomSunburst(country);
+    // updateBarChart(country, season, position, info["data"]);
+    // drawDataMap(dataMap, info["data"],season, position);
+  }
+  else {
+    // updateBarChart(country, season, position, info["data"]);
+    alert("I'm an alert box!");
+  }
+  barZoomSunburst(country);
+  console.log(season);
+  updateBarChart(country, season, position, info["data"]);
+  drawDataMap(dataMap, info["data"],season, position);
+}
 
 function dropdownChange() {
   console.log(d3.select(this));
 
   let season = d3.select("#seasonsdropdown").property("value");
-  let country = d3.select("#countriesdropdown").property("value")
-  let position = d3.select("#positionsdropdown").property("value")
+  let country = d3.select("#countriesdropdown").property("value");
+  let position = d3.select("#positionsdropdown").property("value");
   // let dataSun = preproccesSunburst(country, season, position, data);
   // let root = d3.hierarchy(dataSun)  // <-- 1
   //   .sum(function (d) { return d.size})
@@ -30,8 +71,9 @@ function dropdownChange() {
   let newData = preproccesSunburst(country, season, position, info.data);
   if (newData.children[0].children.length > 0) {
     drawSunburst(newData);
+    // barZoomSunburst(country);
     updateBarChart(country, season, position, info["data"]);
-    drawDataMap(features, info["data"],season, position);
+    drawDataMap(dataMap, info["data"],season, position);
   }
   else {
     alert("I'm an alert box!");
@@ -123,12 +165,13 @@ window.onload = function() {
     //gather data
     let topology = response[0];
     info["data"] = response[1];
-    // console.log(topology);
-    // console.log(info["data"]);
+    let season = d3.select("#seasonsdropdown").property("value");
+    let country = d3.select("#countriesdropdown").property("value");
+    let position = d3.select("#positionsdropdown").property("value");
     optionsDropdown(topology.features, info["data"]);
     drawDataMap(topology, info["data"], "All", "All");
-    let newData = preproccesSunburst("All", "All", "All", info.data);
-    drawSunburst(newData);
+    info["rootSun"] = preproccesSunburst("All", "All", "All", info.data);
+    drawSunburst(info.rootSun);
     updateBarChart("All", "All", "All", info["data"]);
 
   }).catch(function(e) {

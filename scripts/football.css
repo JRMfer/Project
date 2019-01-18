@@ -1,12 +1,8 @@
 
 
-#pageHeader, #map, #barchart {
+#navbar, #pageHeader, #map, #barchart, #sunburst {
   /* background: #999966; */
-  background: #A0A0A0;
-}
-
-#sunburst {
-  background: darkgrey;
+  background: lightgrey;
 }
 
 .tooltip {

@@ -22,130 +22,124 @@ let svgBar = d3.select("#barchart")
       .attr("id", "barChart")
       .attr("preserveAspectRatio", "xMinYMin meet")
       .attr("viewBox", "0 0 800 500")
-      // .attr("height", heightBar + marginsBar.top + marginsBar.bottom)
-      // .attr("width", widthBar + marginsBar.left + marginsBar.right)
-
-function zip(arrays) {
-    return arrays[0].map(function(_,i){
-        return arrays.map(function(array){return array[i]})
-    });
-}
 
 function updateBarChart(country, season, position, data) {
-  console.log(country);
-  console.log(season);
-  console.log(position);
-  console.log(data);
+
+  // let transfersBar = [];
+  let infoBar = {"valuesArray": [], "transfers": []};
+  // let tempObj = {};
+
   if (country === "All") {
-    let transferAmounts = [];
-    let countries = [];
+    // let tempObj = {};
+
     data.forEach(function(transfer) {
       if (((transfer.Season === season) || (season === "All")) &&
-          ((transfer.Position === position) || (position === "All")) && (+transfer.Transfer_fee > 0)) {
-            let index = countries.indexOf(transfer.League_to);
-            if (index < 0) {
-              countries.push(transfer.League_to);
-              transferAmounts.push(+transfer.Transfer_fee);
-            }
-            else {
-              transferAmounts[index] += +transfer.Transfer_fee;
+          ((transfer.Position === position) || (position === "All")) &&
+          (+transfer.Transfer_fee > 0)) {
+            let tempObj = {};
+            let count = 0;
+            infoBar.transfers.forEach(function(tBar) {
+              if (transfer.League_to in tBar) {
+                count += 1;
+                tBar[transfer.League_to].value += +transfer.Transfer_fee;
+                tBar[transfer.League_to].count += 1;
+              }
+            })
+            if (count === 0) {
+              let tempObj2 = {};
+              tempObj2["value"] = +transfer.Transfer_fee;
+              tempObj2["count"] = 1;
+              tempObj[transfer.League_to] = tempObj2;
+              infoBar.transfers.push(tempObj);
             }
           }
     })
-    console.log(countries);
-    console.log(transferAmounts);
-    if (countries.length > 0) {
-      return drawBarChart(countries, transferAmounts);
+    infoBar.transfers.forEach(function(transfer) {
+      // console.log(transfer[Object.keys(transfer)]);
+      infoBar.valuesArray.push(transfer[Object.keys(transfer)].value);
+      // infoBar.valuesArray.push(transfer[Object.keys(transfer).value]);
+    })
+    if (infoBar.transfers.length > 0) {
+      drawBarChart(infoBar);
     }
-    // else {
-    //   alert("No info for map was found (countries)");
-    // }
   }
   else {
-    // console.log(season);
-    let transferAmounts = [];
-    let clubs = [];
-    // console.log(season);
     data.forEach(function(transfer) {
-      // console.log(season);
-      // console.log(transfer.Season);
       if (((transfer.League_to === country)) &&
           ((transfer.Season === season) || (season === "All")) &&
           ((transfer.Position === position) || (position === "All")) &&
           (+transfer.Transfer_fee > 0)) {
-            let index = clubs.indexOf(transfer.Team_to);
-            if (index < 0) {
-              clubs.push(transfer.Team_to);
-              transferAmounts.push(+transfer.Transfer_fee);
-            }
-            else {
-              transferAmounts[index] += +transfer.Transfer_fee;
+            let tempObj = {};
+            let count = 0;
+            infoBar.transfers.forEach(function(tBar) {
+              if (transfer.Team_to in tBar) {
+                count += 1;
+                tBar[transfer.Team_to].value += +transfer.Transfer_fee;
+                tBar[transfer.Team_to].count += 1;
+              }
+            })
+            if (count === 0) {
+              let tempObj2 = {};
+              tempObj2["value"] = +transfer.Transfer_fee;
+              tempObj2["count"] = 1;
+              tempObj[transfer.Team_to] = tempObj2;
+              infoBar.transfers.push(tempObj);
             }
           }
-    })
-    console.log(clubs);
-    console.log(transferAmounts);
-    if (clubs.length > 0) {
-      return drawBarChart(clubs, transferAmounts);
+        })
+        infoBar.transfers.forEach(function(transfer) {
+          infoBar.valuesArray.push(transfer[Object.keys(transfer)].value);
+        })
+        if (infoBar.transfers.length > 0) {
+          return drawBarChart(infoBar);
+        }
     }
-    else {
-      alert("No info for map was found (clubs)");
-    }
-  }
 }
 
 
-
-function arrayWithSteps (min, max, steps) {
-  let step = (max - min) / steps;
-  let temp = [];
-  for (let i = min; i <= max; i += step) {
-    temp.push((Math.floor(i)));
-  }
-  return temp;
-}
-
-function drawBarChart(categories, amounts) {
+function drawBarChart(data) {
 
   // set format for data values (millions)
   let format = d3.format(",");
-  //
-  // let steps = arrayWithSteps(d3.min(amounts), d3.max(amounts), 7);
+  console.log(data);
+
+  data.transfers.sort(function(a, b) {
+    // console.log(a);
+    // console.log("b")
+    // console.log(b);
+    return ((a[Object.keys(a)].value > b[Object.keys(b)].value) ? -1 : ((a[Object.keys(a)].value == b[Object.keys(b)].value) ? 0 : 1));
+});
+  console.log(data.transfers);
+
+
   let colorBar = d3.scaleQuantile()
-    .domain(amounts)
+    .domain(data.valuesArray)
     .range(colors2);
-
-
-
+  //
+  //
+  //
   // set yScale barchart
   let yScale = d3.scaleLinear()
-    .domain([0, categories.length])
+    .domain([0, data.transfers.length])
     .range([marginsBar.top, heightBar + marginsBar.bottom]);
-
-
+  //
+  //
   // set yScale barchart
   let xScale = d3.scaleLinear()
-    .domain([0, d3.max(amounts)])
+    .domain([0, d3.max(data.transfers, function(d) {
+      return d[Object.keys(d)].value;
+    })])
     .range([marginsBar.left, widthBar]);
-
+  //
   // set tooltip for barchart
   let div = d3.select("#map").append("div")
       .attr("class", "tooltip")
       .attr("id", "tooltipBars")
       .style("opacity", 0)
-      // .html(function(d, country) {
-      //   return "<strong>Country: </strong><span class='details'>" + d.League_to + "<br></span>" + "<strong>Government spending: </strong><span class='details'>" + format(total) + "%" + "</span>";
-      // }
-
-  let data = zip([amounts, categories]);
-  // console.log(data);
-
-  // let t = d3.transition()
-  //   .duration(750);
 
   // draw graph
   let bars = svgBar.selectAll("rect")
-    .data(data)
+    .data(data.transfers)
 
     bars.enter()
     .append("rect")
@@ -156,21 +150,17 @@ function drawBarChart(categories, amounts) {
     .attr("y", function(d, i) {
       return yScale(i);
     })
-    // .attr("fill", function(d) {
-    //   console.log(color(d));
-    //   return color(d);
-    // })
     .attr("width", 0)
-    .attr("height", heightBar / categories.length - barPadding)
+    .attr("height", heightBar / data.transfers.length - barPadding)
     .on("click", function(d) {
-      barZoomSunburst(d[1]);
+      barZoomSunburst(Object.keys(d)[0]);
     })
     .on("mouseover", function(d) {
       // console.log(d[1]);
       // console.log(d[0]);
           div.transition()
           .style("opacity", 0.9)
-          div.html(d[1] + ": " + format(d[0]))
+          div.html(Object.keys(d) + ": " + format(d[Object.keys(d)].value))
           .style("left", (d3.event.pageX) + "px")
           .style("top", (d3.event.pageY - heightBar / 2) + "px")
           d3.select(this).style('opacity', 0.5)
@@ -188,39 +178,20 @@ function drawBarChart(categories, amounts) {
     // .delay(function(d, i) {
     //   return i * 5;
     // })
-    // .attr("x", xScale(marginsBar.left))
     .attr("x", xScale(marginsBar.left))
     .attr("y", function(d, i) {
       return yScale(i);
     })
     .attr("width", function(d) {
-      return xScale(d[0]);
+      return xScale(d[Object.keys(d)].value);
     })
-    .attr("height", heightBar / categories.length - barPadding)
+    .attr("height", heightBar / data.transfers.length - barPadding)
     // .transition()
     .attr("fill", function(d) {
       // console.log(color(d));
       // console.log(d);
-      return colorBar(d[0]);
+      return colorBar(d[Object.keys(d)].value);
     })
-    // .duration(1000)
-    // .ease(d3.easeLinear)
-    // .delay(function(d, i) {
-    //   return i * 15;
-    // })
-    // .on("mouseover", function(d) {
-    //   div.transition()
-    //   .style("opacity", 0.9)
-    //   div.html(d[1] + ": " + format(d[0]))
-    //   .style("left", (d3.event.pageX) + "px")
-    //   .style("top", (d3.event.pageY - heightBar / 2) + "px")
-    //   d3.select(this).style('opacity', 0.5)
-    // })
-    // .on("mouseout", function(d) {
-    //     div.transition()
-    //         .style("opacity", 0)
-    //     d3.select(this).style('opacity', 1);
-    // });
 
   bars.exit()
       .transition()
@@ -232,7 +203,7 @@ function drawBarChart(categories, amounts) {
       .attr("x", widthBar)
       .remove();
 
-  // bars.on("click", barZoomSunburst("s"))
+  // // bars.on("click", barZoomSunburst("s"))
 }
 
 function barZoomSunburst(countryName) {
@@ -307,21 +278,4 @@ function barZoomSunburst(countryName) {
     })
 
   }
-  // if (info.rootSun.depth === 0) {
-  //   console.log( "test")
-  //   rootWorld.forEach(function(competition) {
-  //     console.log(competition);
-  //     if (competition.data.name === countryName) {
-  //       console.log("Gevonden!");
-  //       info.rootSun = competition;
-  //       click(competition);
-  //     }
-  //     competition.children.forEach(function(club) {
-  //       if (club.data.name === countryName) {
-  //         info.rootSun = club;
-  //         click(club);
-  //       }
-  //     })
-  //   })
-  // }
 }

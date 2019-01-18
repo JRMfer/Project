@@ -43,6 +43,7 @@ let partition = d3.partition();  // <-- 1
     // .size([2 * Math.PI, radiusSun]);  // <-- 2
 
 let arc = d3.arc();
+let depth = 0;
 
 
 function preproccesSunburst(country, season, position, data) {
@@ -110,10 +111,11 @@ function arcTweenPath(a, i) {
 }
 
 function updateSun(country, season, position, data) {
-  let dataSun = preproccesSunburst(country, season, position, data);
-  let root = d3.hierarchy(dataSun)  // <-- 1
+ let newData = preproccesSunburst(country, season, position, data);
+  let root = d3.hierarchy(newData)  // <-- 1
     .sum(function (d) { return d.size})
     .sort(function(a, b) { return b.vakue - a.vlue; });  // <-- 2
+  info.rootSun = root;
 
   // console.log(root);
 
@@ -127,12 +129,16 @@ function updateSun(country, season, position, data) {
 function drawSunburst(newData) {
   // set format for data values (millions)
   let format = d3.format(",");
+  depth = 3;
 
   // let newData = preproccesSunburst(country, season, position, data);
 
   let root = d3.hierarchy(newData)  // <-- 1
     .sum(function (d) { return d.size})
-    .sort(function(a, b) { return b.vakue - a.vlue; });  // <-- 2
+    .sort(function(a, b) { return b.value - a.value; });  // <-- 2
+
+  info.rootSun = root;
+  console.log(info.rootSun);
 
   // console.log(root);
 
@@ -168,6 +174,7 @@ function drawSunburst(newData) {
     .attr("d", arc)  // <-- 6
     .style('stroke', '#fff')  // <-- 7
     // .style("fill", function (d) { console.log((d.children ? d : d.parent).data); return colorSun((d.children ? d : d.parent).data.name); })  // <-- 8
+    // .transition()
     .style("fill", function(d) {
       if ((d.children ? d : d.parent).data.name === "Football Transfers top 250") {
         return;
@@ -185,7 +192,9 @@ function drawSunburst(newData) {
 				return colorSun(childPercentage);
 			}
 			})
-    .on("mouseover", function(d) {
+      // .duration(750)
+      // .ease(d3.easeLinear)
+    newNode.on("mouseover", function(d) {
       if (d.data.size) {
             div.transition()
             .style("opacity", 0.9)
@@ -225,17 +234,24 @@ function drawSunburst(newData) {
 
 function click(d) {
   console.log(d);
+  console.log(info.rootSun);
+  info.rootSun = d;
+  // console.log(root);
+  depth = d.depth;
+  console.log(depth);
   if (d.data.name === "World") {
+    d3.select("#countriesdropdown").property("value", "All");
     let season = d3.select("#seasonsdropdown").property("value");
     let position = d3.select("#positionsdropdown").property("value");
     updateBarChart("All", season, position, info.data);
-    drawDataMap(features, info["data"], season, position);
+    drawDataMap(dataMap, info["data"], season, position);
   }
   else if (d.depth === 2) {
+    d3.select("#countriesdropdown").property("value", d.data.name);
     let season = d3.select("#seasonsdropdown").property("value");
     let position = d3.select("#positionsdropdown").property("value");
     updateBarChart(d.data.name, season, position, info.data);
-    drawDataMap(features, info["data"], season, position);
+    drawDataMap(dataMap, info["data"], season, position);
   }
   svgSun.transition()
       .duration(750)
@@ -247,4 +263,43 @@ function click(d) {
       })
     .selectAll("path")
       .attrTween("d", function(d) { return function() { return arc(d); }; });
+}
+
+function zoomSunburst (country) {
+  console.log(country);
+  console.log(info.rootSun);
+  let root = d3.hierarchy(info.rootSun)  // <-- 1
+    .sum(function (d) { return d.size})
+    .sort(function(a, b) { return b.vakue - a.vlue; });  // <-- 2
+
+  // console.log(root);
+
+  let nodes = partition(root);
+  console.log(nodes);
+
+  // svgSun.transition()
+  //     .duration(750)
+  //     .tween("scale", function() {
+  //       var xd = d3.interpolate(x.domain(), [nodes.x0, nodes.x1]),
+  //           yd = d3.interpolate(y.domain(), [nodes.y0, 1]),
+  //           yr = d3.interpolate(y.range(), [nodes.y0 ? 20 : 0, radiusSun]);
+  //       return function(t) { x.domain(xd(t)); y.domain(yd(t)).range(yr(t)); };
+  //     })
+  //   .selectAll("path")
+  //     .attrTween("d", function(d) { return function() { return arc(nodes); }; });
+
+  // click(nodes);
+  // nodes.data.children.forEach(function(world) {
+  //   world.children.forEach(function(competition) {
+  //     if (competition.name === country) {
+  //       console.log(competition)
+  //       return click(competition);
+  //     }
+  //     competition.children.forEach(function(club) {
+  //       if (club.name === country) {
+  //         return click(club);
+  //       }
+  //     })
+  //   })
+  // })
 }

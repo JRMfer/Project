@@ -4,7 +4,7 @@ const marginsMap = {top: 0, right: 0, bottom: 0, left: 0},
             heightMap = 500 - marginsMap.top - marginsMap.bottom;
 
 let colorsMap = ["#fdae6b", "#fd8d3c", "#f16913", "#d94801", "#a63603", "#7f2704"];
-let features = 0;
+let dataMap;
 
 // // const var topojson worldmap and data
 // let worldCountries = "https://bl.ocks.org/micahstubbs/raw/8e15870eb432a21f0bc4d3d527b2d14f/a45e8709648cafbbf01c78c76dfa53e31087e713/world_countries.json"
@@ -50,7 +50,7 @@ function findValuesMap(data, season, position) {
     else {
       if (((transfer.Season === season) || (season === "All")) &&
           ((transfer.Position === position) || (position === "All")) &&
-          (+transfer.Transfer_fee > 0) && !(transfer.League_to === "Libya")) {
+          (+transfer.Transfer_fee > 0)) {
         tempObj["transfers"] = 1;
         tempObj["total"] = +transfer.Transfer_fee;
         values[transfer.League_to] = tempObj;
@@ -119,9 +119,12 @@ function dataMapClick(country) {
   season = d3.select("#seasonsdropdown").property("value");
   d3.select('#countriesdropdown').property('value', country);
   position = d3.select("#positionsdropdown").property("value")
-  if (!(country === "Libya")) {
+  // if (!(country === "Libya")) {
+  console.log(country);
+  console.log(info.rootSun);
     updateBarChart(country, season, position, info["data"]);
-  }
+    barZoomSunburst(country);
+  // }
 }
 
 function drawDataMap(topology, data, season, position) {
@@ -131,11 +134,11 @@ function drawDataMap(topology, data, season, position) {
 // function updateData(data)
 
 function ready(error, topology, data , season, position) {
-  features = topology;
+  dataMap = topology;
   let newData = findValuesMap(data, season, position);
-  let maxMin = findMax(newData);
+  // let maxMin = findMax(newData);
   console.log(newData);
-  let steps = arrayStepsMap(maxMin.min, maxMin.max, 7);
+  // let steps = arrayStepsMap(maxMin.min, maxMin.max, 7);
   // let colorPath = d3.scaleThreshold()
   //   .domain(steps)
   //   .range(colorsMap);
@@ -161,19 +164,6 @@ function ready(error, topology, data , season, position) {
 
 
         pathMap.enter().append("path")
-        .merge(pathMap)
-        .attr("d", path)
-        .attr("fill", function(d) {
-          if (d.properties.name in newData) {
-            return colorPath(newData[d.properties.name].total);
-          }
-          else {
-            return "#fee6ce";
-          }
-        })
-        // .style("fill", "red")
-        .style("stroke", "black")
-        .style("stroke-width", 1.5)
         .on("mouseover", function(d) {
           if (d.properties.name in newData) {
             divMap.transition()
@@ -192,6 +182,58 @@ function ready(error, topology, data , season, position) {
               d3.select(this).style('opacity', 0.5)
           }
         })
+        .on("mouseout", function(d) {
+            divMap.transition()
+            .duration(750)
+            .ease(d3.easeLinear)
+                .style("opacity", 0)
+            d3.select(this).style('opacity', 1);
+        })
+        .on("click", function(d) {
+          dataMapClick(d.properties.name);
+          // barZoomSunburst(d.properties.name);
+          console.log(d.properties.name);
+          console.log(d3.select("#seasonsdropdown").property("value"));
+          console.log(d3.select("#positionsdropdown").property("value"));
+        })
+        .merge(pathMap)
+        // .transition().duration(250)
+        // .delay(function(d, i) {
+        //   return i * 5;
+        // })
+        .attr("d", path)
+        .transition()
+        .attr("fill", function(d) {
+          if (d.properties.name in newData) {
+            return colorPath(newData[d.properties.name].total);
+          }
+          else {
+            return "#fee6ce";
+          }
+        })
+        .duration(750)
+        .ease(d3.easeLinear)
+        // .style("fill", "red")
+        .style("stroke", "black")
+        .style("stroke-width", 1.5)
+        // .on("mouseover", function(d) {
+        //   if (d.properties.name in newData) {
+        //     divMap.transition()
+        //       .style("opacity", 0.9)
+        //       divMap.html("Country: " + d.properties.name + "<br>" + "Transfers: " + newData[d.properties.name]["transfers"] + "<br>" + "Expenditures: " + format(newData[d.properties.name]["total"]))
+        //       .style("left", (d3.event.pageX) + "px")
+        //       .style("top", (d3.event.pageY - heightMap / 2.5) + "px")
+        //       d3.select(this).style('opacity', 0.5)
+        //   }
+        //   else {
+        //     divMap.transition()
+        //       .style("opacity", 0.9)
+        //       divMap.html("Country: " + d.properties.name + "<br>" + "Transfers: " + 0 + "<br>" + "Expenditures: " + 0)
+        //       .style("left", (d3.event.pageX) + "px")
+        //       .style("top", (d3.event.pageY - heightMap / 2.5) + "px")
+        //       d3.select(this).style('opacity', 0.5)
+        //   }
+        // })
         // .on("mouseover", function(d) {
         //   let transfers = 0;
         //   let amount = 0;
@@ -209,19 +251,23 @@ function ready(error, topology, data , season, position) {
         //   .style("top", (d3.event.pageY - heightMap / 2.5) + "px")
         //   d3.select(this).style('opacity', 0.5)
         // })
-        .on("mouseout", function(d) {
-            divMap.transition()
-                .style("opacity", 0)
-            d3.select(this).style('opacity', 1);
-        })
-        .on("click", function(d) {
-          dataMapClick(d.properties.name);
-          console.log(d.properties.name);
-          console.log(d3.select("#seasonsdropdown").property("value"));
-          console.log(d3.select("#positionsdropdown").property("value"));
-        });
+        // .on("mouseout", function(d) {
+        //     divMap.transition()
+        //         .style("opacity", 0)
+        //     d3.select(this).style('opacity', 1);
+        // })
+        // .on("click", function(d) {
+        //   dataMapClick(d.properties.name);
+        //   console.log(d.properties.name);
+        //   console.log(d3.select("#seasonsdropdown").property("value"));
+        //   console.log(d3.select("#positionsdropdown").property("value"));
+        // });
 
   pathMap.exit()
+  // .transition().duration(750)
+  // .delay(function(d, i) {
+  //   return i * 25;
+  // })
     .remove();
 
   // svgMap.append("path")
