@@ -3,7 +3,8 @@ const marginsMap = {top: 0, right: 0, bottom: 0, left: 0},
             widthMap = 750 - marginsMap.left - marginsMap.right,
             heightMap = 500 - marginsMap.top - marginsMap.bottom;
 
-let colorsMap = ["#fdae6b", "#fd8d3c", "#f16913", "#d94801", "#a63603", "#7f2704"];
+let colorsMap = ["#65cd94", "#52c786", "#52c786", "#3ec179", "#38ad6d", "#329a61", "#2c8755","#257449", "#1f603c", "#194d30"];
+;
 let dataMap;
 
 // // const var topojson worldmap and data

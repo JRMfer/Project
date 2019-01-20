@@ -44,7 +44,28 @@ function seasonsDropdownChange() {
     // updateBarChart(country, season, position, info["data"]);
     alert("I'm an alert box!");
   }
-  barZoomSunburst(country);
+  // barZoomSunburst(country);
+  console.log(season);
+  updateBarChart(country, season, position, info["data"]);
+  drawDataMap(dataMap, info["data"],season, position);
+}
+
+function positionsDropdownChange() {
+  console.log(d3.select(this));
+
+  let season = d3.select("#seasonsdropdown").property("value");
+  let country = d3.select("#countriesdropdown").property("value");
+  let position = d3.select("#positionsdropdown").property("value");
+
+  let newData = preproccesSunburst(country, season, position, info.data);
+  if (newData.children[0].children.length > 0) {
+    drawSunburst(newData);
+  }
+  else {
+    // updateBarChart(country, season, position, info["data"]);
+    alert("I'm an alert box!");
+  }
+  // barZoomSunburst(country);
   console.log(season);
   updateBarChart(country, season, position, info["data"]);
   drawDataMap(dataMap, info["data"],season, position);
@@ -173,6 +194,9 @@ window.onload = function() {
     info["rootSun"] = preproccesSunburst("All", "All", "All", info.data);
     drawSunburst(info.rootSun);
     updateBarChart("All", "All", "All", info["data"]);
+
+    updateLine("All", "All", info.data);
+
 
   }).catch(function(e) {
     throw (e);

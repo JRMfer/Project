@@ -120,3 +120,15 @@ still needs to be done.
 Also onclcik for barchart needs to be done.
 
 Considering to skip the line graph as this may become too much work.
+
+# Day 10:
+
+Fixed the crashes when an empty dataset was given.
+Also completed the linked views with the datamap, barchart and sunburst. All 3
+have an onclick function and can be changed by the 3 dropdown menus.
+Furthermore both the barchart and sunburst are sorted at the load of the page and
+after every transition.
+
+To achieve this I changed the updateBarChart function such that this returns an object
+with as entries a list with all the transfer fees and another list filled with objects
+representing the values per category.
