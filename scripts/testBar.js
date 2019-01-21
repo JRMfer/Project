@@ -196,7 +196,7 @@ function drawBarChart(data) {
   let div = d3.select("#map").append("div")
       .attr("class", "tooltip")
       .attr("id", "tooltipBars")
-      .style("opacity", 0)
+      .style("opacity", 0);
 
   // draw graph
   let bars = svgBar.selectAll("rect")
