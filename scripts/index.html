@@ -27,14 +27,14 @@
 <body>
   <!-- <h1>Central goverment spending OECD (2014)</h1> -->
   <div class="row">
-    <div class="col-sm-12", id="navbar">
-      <nav class="navbar navbar-inverse">
+    <div class="col-sm-12" id="navbarCol">
+      <nav class="navbar navbar-inverse navbar-fixed-top" id="navbar">
         <div class="container-fluid">
           <div class="navbar-header">
             <a class="navbar-brand" href="/">Transfers top 250</a>
           </div>
           <ul class="nav navbar-nav">
-            <li><a href="/story.html">Story</a></li>
+            <li class="nav-item"><a href="/story.html">Story</a></li>
             <li><a href="/data.html">Data Source</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
@@ -59,18 +59,31 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-sm-12", id="pageHeader"><h1>The development of the top 250 football transfers 2000-2018</h1></div>
+    <div class="col-sm-1" id="space"></div>
+    <div class="col-sm-10" id="pageHeader"><h1 id="header" align="center">The development of the top 250 football transfers 2000-2018</h1></div>
+    <div class="col-sm-1" id="space"></div>
+  </div>
+  <!-- <div class="row">
+  </div> -->
+  <div class="row">
+    <div class="col-sm-1" id="space"></div>
+    <div class="col-sm-5" id="map"><h2 id="header" align="center">By Country</h2></div>
+    <!-- <div class="col-sm-6", id="barchart"><h2 id="header" align="center">By Category</h2></div> -->
+    <div class="col-sm-5" id="linechart"><h2 id="header" align="center">Linechart
+    </h2><button type="button" class="btn btn-default btn-m" id="buttonLine" onclick="animateLine()">Start</button></div>
+    <div class="col-sm-1" id="space"></div>
   </div>
   <div class="row">
-    <div class="col-sm-6", id="map"><h2>By Country</h2></div>
-    <div class="col-sm-6", id="barchart"><h2>By Category</h2></div>
-  </div>
-  <div class="row">
-    <div class="col-sm-6" id="sunburst"><h2>Sunburst
+    <div class="col-sm-1" id="space"></div>
+    <div class="col-sm-5" id="sunburst"><h2 id="header" align="center">Sunburst
     </h2></div>
-    <div class="col-sm-6" id="linechart"><h2>Linechart
-    </h2></div>
+        <div class="col-sm-5" id="barchart"><h2 id="header" align="center">By Category</h2></div>
+        <div class="col-sm-1" id="space"></div>
+    <!-- <div class="col-sm-6" id="linechart"><h2 id="header" align="center">Linechart
+    </h2><button type="button" class="btn btn-default btn-m" id="buttonLine" onclick="animateLine()">Start</button></div> -->
   </div>
+
+
 
   <!-- <script src="d3-tip.js"></script> -->
   <script src=linechart.js></script>

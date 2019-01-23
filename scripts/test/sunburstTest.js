@@ -5,13 +5,11 @@ let radiusSun = Math.min(widthSun, heightSun) / 2 - 10;  // < -- 2
 // let colorSun = d3.scaleSequential(d3.interpolateBuGn)
 //                 .domain([0, 100]);
 // let colors2 = ["#fff5eb", "#fee6ce", "#fdd0a2", "#fdae6b", "#fd8d3c", "#f16913", "#d94801", "#a63603", "#7f2704"];
-let colors3 = ["#f1f9ff", "#d2ebfe", "#c3e5fe", "#abdcfe", "#8fd2fd", "#77cbfd", "#63c5fc", "#49c0fc"];
-// let colors4 = ["#49c0fc", "#63c5fc"]
-// let
+
 
 let colorSun = d3.scaleThreshold()
-                .domain([2.5, 5, 7.5, 10, 15, 20, 30, 40, 60])
-                .range(colors3);
+                .domain([0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100])
+                .range(colors2);
 
 let x = d3.scaleLinear()
     .range([0, 2 * Math.PI]);
@@ -28,7 +26,7 @@ let y = d3.scaleSqrt()
 let svgSun = d3.select("#sunburst")
     .append("svg")
     .attr("preserveAspectRatio", "xMinYMin meet")
-    .attr("viewBox", "-465 -350 960 725")
+    .attr("viewBox", "-465 -350 960 700")
     // .attr("transform", "translate(" + widthSun / 2 + "," + (heightSun / 2) + ")")
     // .attr("height", heightMap + marginsMap.top + marginsMap.bottom)
     // .attr("width", widthMap + marginsMap.left + marginsMap.right)
@@ -174,7 +172,7 @@ function drawSunburst(newData) {
     newNode.append('path')  // <-- 4
     .attr("display", function (d) { return d.depth ? null : "none"; })  // <-- 5
     .attr("d", arc)  // <-- 6
-    .style('stroke', '#000')  // <-- 7
+    .style('stroke', '#fff')  // <-- 7
     // .style("fill", function (d) { console.log((d.children ? d : d.parent).data); return colorSun((d.children ? d : d.parent).data.name); })  // <-- 8
     // .transition()
     .style("fill", function(d) {
@@ -209,7 +207,7 @@ function drawSunburst(newData) {
                   div.html(d.data.name + ": " + childPercentage + " %")
                   .style("left", (d3.event.pageX) + "px")
                   .style("top", (d3.event.pageY - heightSun) + "px")
-                  d3.select(this).style('opacity', 0.75)
+                  d3.select(this).style('opacity', 0.5)
   			}
         else {
   				var parentValue = d.parent.value;
@@ -220,7 +218,7 @@ function drawSunburst(newData) {
                   div.html(d.data.name + ": " + childPercentage + "% of " + d.parent.data.name)
                   .style("left", (d3.event.pageX) + "px")
                   .style("top", (d3.event.pageY - heightSun) + "px")
-                  d3.select(this).style('opacity', 0.75)
+                  d3.select(this).style('opacity', 0.5)
   			}
   			})
     // newNode.on("mouseover", function(d) {

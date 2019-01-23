@@ -35,7 +35,6 @@ function seasonsDropdownChange() {
   let newData = preproccesSunburst(country, season, position, info.data);
   if (newData.children[0].children.length > 0) {
     drawSunburst(newData);
-    barZoomSunburst(country);
     // updateBarChart(country, season, position, info["data"]);
     // barZoomSunburst(country);
     // updateBarChart(country, season, position, info["data"]);
@@ -61,7 +60,6 @@ function positionsDropdownChange() {
   let newData = preproccesSunburst(country, season, position, info.data);
   if (newData.children[0].children.length > 0) {
     drawSunburst(newData);
-    barZoomSunburst(country);
   }
   else {
     // updateBarChart(country, season, position, info["data"]);

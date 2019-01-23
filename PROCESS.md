@@ -132,3 +132,28 @@ after every transition.
 To achieve this I changed the updateBarChart function such that this returns an object
 with as entries a list with all the transfer fees and another list filled with objects
 representing the values per category.
+
+# Day 11:
+
+Completed the line chart, with button to start the animtion of the chart.
+Dataset of the chart is linked to the selected country and/or position in the
+dropdown menus.
+
+# Day 12:
+
+Styled the dashboard a bit more:
+
+Added space around the charts with different background-color.
+Added borders around the chartsn in the same color as the space around it.
+Changed colors charts. Sequential base color is now a shade of blue.
+
+Changed stroke color sunburst.
+
+To do next time:
+
+Complete tooltips Linechart to show the top 3 transfers in that season for the
+required dataset.
+
+Also need to smoothen the update for the sunburst when season and/or position of
+the dataset are changed. This could be done by extending the options at the
+end of the hierachy (not only size, but also keys for the season/position asked).

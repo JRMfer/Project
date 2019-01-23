@@ -1,7 +1,7 @@
 let marginLine = {top: 20, right: 20, bottom: 20, left: 50};
 let colorsLine = ["#65cd94", "#52c786", "#52c786", "#3ec179", "#38ad6d", "#329a61", "#2c8755","#257449", "#1f603c", "#194d30"];
-let widthLine = 1100 - marginLine.right - marginLine.left;
-let heightLine = 900 - marginLine.top - marginLine.bottom;
+let widthLine = 800 - marginLine.right - marginLine.left;
+let heightLine = 650 - marginLine.top - marginLine.bottom;
 //
 // let svgLine = d3.select("#linechart").append("svg")
 //   .attr("class", "svgLine")
@@ -15,13 +15,7 @@ let svgLine = d3.select("#linechart")
       .attr("class", "svg")
       .attr("id", "lineChart")
       .attr("preserveAspectRatio", "xMinYMin meet")
-      .attr("viewBox", "-75 0 1360 995");
-
-//
-let divLine = d3.select("#linechart").append("div")
-    .attr("class", "tooltip")
-    .attr("id", "tooltipLine")
-    .style("opacity", 0);
+      .attr("viewBox", "-25 0 960 700");
 
 // let g = svgLine.append("g")
 // .attr("transform",
@@ -30,7 +24,7 @@ let divLine = d3.select("#linechart").append("div")
 let xAxisSvgLine = svgLine.append("g")
   .attr("class", "axis")
   .attr("id", "xAxis")
- .attr("transform", "translate(15,"  + ((marginLine.top + marginLine.bottom) * 22) + ")")
+ .attr("transform", "translate(15,"  + ((marginLine.top + marginLine.bottom) * 15.75) + ")")
 
 let yAxisSvgLine = svgLine.append("g")
   .attr("class", "axis")
@@ -48,50 +42,22 @@ let yAxisLine = d3.axisLeft();
 //   .curve(d3.curveMonotoneX);
 
 function updateLine(country, position, data) {
-  let seasons = {"data": [], "seasons": [], "topTransfers": {}};
+  let seasons = {"data": [], "seasons": []};
   // let dataLine = {"data": [], "seasons": []};
   data.forEach(function(transfer) {
-    // let tempObj = {};
     if (((transfer.League_to === country) || (country === "All")) &&
         ((transfer.Position === position) || (position === "All")) &&
         (+transfer.Transfer_fee > 0)) {
           let index = seasons.seasons.indexOf(transfer.Season);
           if (index < 0) {
-            let tempObj = {};
-            seasons.topTransfers[transfer.Season] = [];
-            tempObj["name"] = transfer.Name;
-            tempObj["value"] = +transfer.Transfer_fee;
-            seasons.topTransfers[transfer.Season].push(tempObj);
-            // tempObj[transfer.Season] = [tempObj2];
             seasons.data.push(+transfer.Transfer_fee);
             seasons.seasons.push(transfer.Season);
           }
           else {
-            seasons.data[index] += +transfer.Transfer_fee;
-            let tempObj = {};
-            tempObj["name"] = transfer.Name;
-            tempObj["value"] = +transfer.Transfer_fee;
-            seasons.topTransfers[transfer.Season].push(tempObj);
-            // seasons.topTransfers.forEach(function(transfer) {
-            //   if (transfer.Season in transfer) {
-            //     transfer[transfer.Season]
-            //   }
-            // })
+            data[index] += +transfer.Transfer_fee;
           }
         }
   })
-  // seasons.topTransfers.forEach( function(transfer, i) {
-  //   transfer[Object.keys(transfer)].sort(function(a, b) {
-  //     return ((a.value > b.value) ? -1 : ((a.value == b.value) ? 0 : 1));
-  //   })
-  // })
-  Object.keys(seasons.topTransfers).forEach(function(season) {
-    seasons.topTransfers[season].sort(function(a, b) {
-      return ((a.value > b.value) ? -1 : ((a.value == b.value) ? 0 : 1));
-    })
-  })
-  // infoBar.transfers.sort(function(a, b) {
-  //   return ((a[Object.keys(a)].value > b[Object.keys(b)].value) ? -1 : ((a[Object.keys(a)].value == b[Object.keys(b)].value) ? 0 : 1)); })
   console.log(seasons);
 
   return drawLineChart(seasons);
@@ -171,11 +137,11 @@ function drawLineChart(data) {
   let color = d3.scaleLinear()
                 .domain([d3.min(data.data), d3.max(data.data)])
                 .range(colorsLine);
-  // //
-  // let divLine = d3.select("#linechart").append("div")
-  //     .attr("class", "tooltip")
-  //     .attr("id", "tooltipLine")
-  //     .style("opacity", 0);
+  //
+  let divLine = d3.select("#linechart").append("div")
+      .attr("class", "tooltip")
+      .attr("id", "tooltipLine")
+      .style("opacity", 0);
   //
   let line = d3.line()
     .x(function(d, i) { return xScaleLine(i + 1); })
@@ -188,51 +154,12 @@ function drawLineChart(data) {
       .attr("class", "line")
     .attr("d", line)
     .call(transition)
-    .style("stroke", "#49c0fc")
-    .style("stroke-width", 3)
-    .style("fill", "none")
-    // .on("mouseover", function(d, i) {
-    //   // console.log(d[1]);
-    //   // console.log(d[0]);
-    //       divLine.transition()
-    //       .style("opacity", 0.9)
-    //       div.html("Total expenditures: " + format(d) + "<br>" + "Top 3 transfers: " + "<br>" +
-    //       data.topTransfers[data.seasons[i]][0].name + ": " + data.topTransfers[data.seasons[i]][0].value + "<br>" +
-    //       data.topTransfers[data.seasons[i]][1].name + ": " + data.topTransfers[data.seasons[i]][1].value + "<br>" +
-    //       data.topTransfers[data.seasons[i]][2].name + ": " + data.topTransfers[data.seasons[i]][2].value)
-    //       .style("left", (d3.event.pageX) + "px")
-    //       .style("top", (d3.event.pageY - heightLine / 2) + "px")
-    //       d3.select(this).style('opacity', 0.5)
-    //     })
-    //     .on("mouseout", function(d) {
-    //         divLine.transition()
-    //             .style("opacity", 0)
-    //         d3.select(this).style('opacity', 1);
-    //     });
+    .style("stroke", "#65cd94")
+    .style("fill", "none");
 
   svgLine.selectAll(".dot")
     .data(data.data)
     .enter().append("circle")
-    .on("mouseover", function(d, i) {
-      // console.log(d[1]);
-      // console.log(d[0]);
-          divLine.transition()
-          .style("opacity", 0.9)
-          divLine.html("Total expenditures: " + format(d) + "<br>" + "Top 3 transfers: " + "<br>" +
-          data.topTransfers[data.seasons[i]][0].name + ": " + format(data.topTransfers[data.seasons[i]][0].value) + "<br>" +
-          data.topTransfers[data.seasons[i]][1].name + ": " + format(data.topTransfers[data.seasons[i]][1].value) + "<br>" +
-          data.topTransfers[data.seasons[i]][2].name + ": " + format(data.topTransfers[data.seasons[i]][2].value))
-          .style("left", (d3.event.pageX - widthLine / 1.5) + "px")
-          .style("top", (d3.event.pageY - heightLine / 3) + "px")
-          // .style("left", xScaleLine(i + 1) + "px")
-          // .style("top", yScaleLine(d) + "px")
-          d3.select(this).style('opacity', 0.5)
-        })
-        .on("mouseout", function(d) {
-            divLine.transition()
-                .style("opacity", 0)
-            d3.select(this).style('opacity', 1);
-        })
     .transition()
     .duration(2000)
     // .delay(function(d, i) {
@@ -240,28 +167,9 @@ function drawLineChart(data) {
     // })
     .attr("cx", function(d, i) { return xScaleLine(i + 1) })
     .attr("cy", function(d) { return yScaleLine(d) })
-    .attr("r", 10)
+    .attr("r", 5)
     // .style("stroke", "green")
-    .style("fill", "#49c0fc")
-    // .on("mouseover", function(d, i) {
-    //   console.log(d);
-    //   // console.log(d[1]);
-    //   // console.log(d[0]);
-    //       divLine.transition()
-    //       .style("opacity", 0.9)
-    //       divLine.html("Total expenditures: " + format(d) + "<br>" + "Top 3 transfers: " + "<br>" +
-    //       data.topTransfers[data.seasons[i]][0].name + ": " + data.topTransfers[data.seasons[i]][0].value + "<br>" +
-    //       data.topTransfers[data.seasons[i]][1].name + ": " + data.topTransfers[data.seasons[i]][1].value + "<br>" +
-    //       data.topTransfers[data.seasons[i]][2].name + ": " + data.topTransfers[data.seasons[i]][2].value)
-    //       .style("left", (d3.event.pageX) + "px")
-    //       .style("top", (d3.event.pageY - heightLine / 2) + "px")
-    //       d3.select(this).style('opacity', 0.5)
-    //     })
-    //     .on("mouseout", function(d) {
-    //         divLine.transition()
-    //             .style("opacity", 0)
-    //         d3.select(this).style('opacity', 1);
-    //     });
+    .style("fill", "#65cd94");
 
 
     xAxisSvgLine.transition().duration(1500).ease(d3.easeLinear).call(xAxisLine.bind(this)).selectAll("text").attr("transform", "rotate(20)");

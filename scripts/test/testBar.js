@@ -1,17 +1,14 @@
 // const var for marginsBar svg Bar chart
 const marginsBar = {top: 50, right: 100, bottom: 100, left: 100},
-            widthBar = 1200 - marginsBar.left - marginsBar.right,
-            heightBar = 960 - marginsBar.top - marginsBar.bottom,
+            widthBar = 900 - marginsBar.left - marginsBar.right,
+            heightBar = 650 - marginsBar.top - marginsBar.bottom,
             animateDuration = 700,
             animateDelay = 75,
             barPadding = 1;
 
 let colors = ["#ffffe5", "#f7fcb9", "#d9f0a3", "#addd8e", "#78c679", "#41ab5d", "#238443", "#006837", "#004529"];
 // let colors2 = ["#fff5eb", "#fee6ce", "#fdd0a2", "#fdae6b", "#fd8d3c", "#f16913", "#d94801", "#a63603", "#7f2704"];
-// let colors2 = ["#65cd94", "#52c786", "#52c786", "#3ec179", "#38ad6d", "#329a61", "#2c8755","#257449", "#1f603c", "#194d30"];
-// let colors2 = ["#f7f7f7", "#e5ebee", "#d1dee4", "#9fbecb", "#8ab2c1", "#77a6b8", "#649baf", "#4f90a6", "#3a869f", "#1d7d97"];
-// let colors2 = ["#8d999a", "#7c898b", "#6d7c7e", "#586a6c", "#485c5e", "#3e5355", "#354b4d", "#2d4447", "#1d373a", "#0d2a2d"];
-let colors2 = ["#f1f9ff", "#d2ebfe", "#c3e5fe", "#abdcfe", "#8fd2fd", "#77cbfd", "#63c5fc", "#49c0fc"];
+let colors2 = ["#65cd94", "#52c786", "#52c786", "#3ec179", "#38ad6d", "#329a61", "#2c8755","#257449", "#1f603c", "#194d30"];
 // let colors2 = ["#194d30", "#1f603c", "#257449", "#2c8755", "##329a61", "#38ad6d"];
 // let colorBar = d3.scaleThreshold()
 //                 // .domain([0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100])
@@ -25,7 +22,7 @@ let svgBar = d3.select("#barchart")
       .attr("class", "svg")
       .attr("id", "svgBar")
       .attr("preserveAspectRatio", "xMinYMin meet")
-      .attr("viewBox", "-100 0 1350 1020");
+      .attr("viewBox", "0 0 960 700");
 
 let yAxisSvg = svgBar.append("g")
         .attr("class", "axis")
@@ -35,7 +32,7 @@ let yAxisSvg = svgBar.append("g")
 let xAxisSvg = svgBar.append("g")
         .attr("class", "axis")
         .attr("id", "xAxis")
-        .attr("transform", "translate(0,"  +(marginsBar.top + marginsBar.bottom) * 6.06 + ")")
+        .attr("transform", "translate(0,"  +(marginsBar.top + marginsBar.bottom) * 4 + ")")
 
 let xAxis = d3.axisBottom();
 let yAxis = d3.axisLeft();
@@ -50,7 +47,7 @@ let yAxis = d3.axisLeft();
 function updateBarChart(country, season, position, data) {
 
   // let transfersBar = [];
-  let infoBar = {"valuesArray": [], "transfers": [], "categories": [], "topValues": []};
+  let infoBar = {"valuesArray": [], "transfers": [], "categories": []};
   // let tempObj = {};
 
   if (country === "All") {
@@ -67,30 +64,16 @@ function updateBarChart(country, season, position, data) {
                 count += 1;
                 tBar[transfer.League_to].value += +transfer.Transfer_fee;
                 tBar[transfer.League_to].count += 1;
-                let tempTop = {};
-                tempTop["name"] = transfer.Name;
-                tempTop["value"] = +transfer.Transfer_fee;
-                tBar[transfer.League_to].transfersTop.push(tempTop);
-
               }
             })
             if (count === 0) {
-              let tempObj2 = {"transfersTop": []};
-              let tempObj3 = {};
-              tempObj3["name"] = transfer.Name;
-              tempObj3["value"] = +transfer.Transfer_fee;
-              tempObj2.transfersTop.push(tempObj3);
+              let tempObj2 = {};
               tempObj2["value"] = +transfer.Transfer_fee;
               tempObj2["count"] = 1;
               tempObj[transfer.League_to] = tempObj2;
               infoBar.transfers.push(tempObj);
             }
           }
-    })
-    infoBar.transfers.forEach(function(transfer) {
-      transfer[Object.keys(transfer)].transfersTop.sort(function(a, b) {
-        return ((a.value > b.value) ? -1 : ((a.value == b.value) ? 0 : 1));
-      })
     })
     infoBar.transfers.sort(function(a, b) {
       // console.log(a);
@@ -122,30 +105,16 @@ function updateBarChart(country, season, position, data) {
                 count += 1;
                 tBar[transfer.Team_to].value += +transfer.Transfer_fee;
                 tBar[transfer.Team_to].count += 1;
-                let tempTop = {};
-                tempTop["name"] = transfer.Name;
-                tempTop["value"] = +transfer.Transfer_fee;
-                tBar[transfer.Team_to].transfersTop.push(tempTop);
               }
             })
             if (count === 0) {
-              // let tempObj2 = {};
-              let tempObj2 = {"transfersTop": []};
-              let tempObj3 = {};
-              tempObj3["name"] = transfer.Name;
-              tempObj3["value"] = +transfer.Transfer_fee;
-              tempObj2.transfersTop.push(tempObj3);
+              let tempObj2 = {};
               tempObj2["value"] = +transfer.Transfer_fee;
               tempObj2["count"] = 1;
               tempObj[transfer.Team_to] = tempObj2;
               infoBar.transfers.push(tempObj);
             }
           }
-        })
-        infoBar.transfers.forEach(function(transfer) {
-          transfer[Object.keys(transfer)].transfersTop.sort(function(a, b) {
-            return ((a.value > b.value) ? -1 : ((a.value == b.value) ? 0 : 1));
-          })
         })
         infoBar.transfers.sort(function(a, b) {
           // console.log(a);
@@ -224,7 +193,7 @@ function drawBarChart(data) {
   // yAxisSvg.call(yAxis);
   //
   // set tooltip for barchart
-  let div = d3.select("#barchart").append("div")
+  let div = d3.select("#map").append("div")
       .attr("class", "tooltip")
       .attr("id", "tooltipBars")
       .style("opacity", 0);
@@ -253,8 +222,8 @@ function drawBarChart(data) {
           div.transition()
           .style("opacity", 0.9)
           div.html("Expenditures: " + format(d[Object.keys(d)].value) + "<br>" + "Number of transfers: " + format(d[Object.keys(d)].count))
-          .style("left", (d3.event.pageX - widthBar / 2) + "px")
-          .style("top", (d3.event.pageY - heightBar / 1.25) + "px")
+          .style("left", (d3.event.pageX) + "px")
+          .style("top", (d3.event.pageY - heightBar / 2) + "px")
           d3.select(this).style('opacity', 0.5)
         })
         .on("mouseout", function(d) {
