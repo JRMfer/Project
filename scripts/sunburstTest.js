@@ -206,9 +206,13 @@ function drawSunburst(newData) {
   				var childPercentage = Math.round((childValue / parentValue) * 100);
           div.transition()
                   .style("opacity", 0.9)
-                  div.html(d.data.name + ": " + childPercentage + "%")
-                  .style("left", (d3.event.pageX) + "px")
-                  .style("top", (d3.event.pageY - heightSun) + "px")
+                  div.html("<strong>" + d.data.name + ": " + "</strong><span class='details'>"
+                            + "<br>" + '€' + format(childValue) + "<br></span>" +"<strong>"
+                            + "Percentage: " + "</strong><span class='details'>"
+                            + "<br>" + childPercentage + "%" + "</span>")
+                    // d.data.name + ": " + format(childValue) + ' (' + childPercentage + "%)")
+                  .style("left", (d3.event.pageX - widthSun / 1.25) + "px")
+                  .style("top", (d3.event.pageY - heightSun / 0.75) + "px")
                   d3.select(this).style('opacity', 0.75)
   			}
         else {
@@ -217,9 +221,13 @@ function drawSunburst(newData) {
   				var childPercentage = Math.round((childValue / parentValue) * 100);
           div.transition()
                   .style("opacity", 0.9)
-                  div.html(d.data.name + ": " + format(childValue) + ' (' + childPercentage + "% of " + d.parent.data.name + ')')
-                  .style("left", (d3.event.pageX) + "px")
-                  .style("top", (d3.event.pageY - heightSun) + "px")
+                  div.html("<strong>" + d.data.name + ": " + "</strong><span class='details'>"
+                            + "<br>" + '€' + format(childValue) + "<br></span>" +"<strong>"
+                            + "Percentage: " + "</strong><span class='details'>"
+                            + "<br>" + childPercentage + "% of " + d.parent.data.name + "</span>")
+                    // d.data.name + ": " + format(childValue) + ' (' + childPercentage + "% of " + d.parent.data.name + ')')
+                  .style("left", (d3.event.pageX - widthSun / 1.25) + "px")
+                  .style("top", (d3.event.pageY - heightSun / 0.75) + "px")
                   d3.select(this).style('opacity', 0.75)
   			}
   			})
@@ -273,14 +281,14 @@ function click(d) {
     let season = d3.select("#seasonsdropdown").property("value");
     let position = d3.select("#positionsdropdown").property("value");
     updateBarChart("All", season, position, info.data);
-    drawDataMap(dataMap, info["data"], season, position);
+    // drawDataMap(dataMap, info["data"], season, position);
   }
   else if (d.depth === 2) {
     d3.select("#countriesdropdown").property("value", d.data.name);
     let season = d3.select("#seasonsdropdown").property("value");
     let position = d3.select("#positionsdropdown").property("value");
     updateBarChart(d.data.name, season, position, info.data);
-    drawDataMap(dataMap, info["data"], season, position);
+    // drawDataMap(dataMap, info["data"], season, position);
   }
   svgSun.transition()
       .duration(750)

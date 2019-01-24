@@ -252,8 +252,11 @@ function drawBarChart(data) {
       // console.log(d[0]);
           div.transition()
           .style("opacity", 0.9)
-          div.html("Expenditures: " + format(d[Object.keys(d)].value) + "<br>" + "Number of transfers: " + format(d[Object.keys(d)].count))
-          .style("left", (d3.event.pageX - widthBar / 2) + "px")
+          div.html("<strong>Total transfers: </strong><span class='details'>" +
+                    format(d[Object.keys(d)].count) + "<br></span>" +
+                    "<strong>Total transfer fees: </strong><br><span class='details'>"
+                     + '€' + format(d[Object.keys(d)].value)  + "</span>")
+          .style("left", (d3.event.pageX + widthBar / 2 - marginsBar.left * 2 - marginsBar.right * 2) + "px")
           .style("top", (d3.event.pageY - heightBar / 1.25) + "px")
           d3.select(this).style('opacity', 0.5)
         })

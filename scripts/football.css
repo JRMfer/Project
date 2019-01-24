@@ -73,10 +73,10 @@ body {
     text-align: center;
     padding: 2px;
     font: 12px sans-serif;
-    background: white;
-    color: black;
+    background: black;
+    color: white;
     /* color: white; */
-    border: 3px solid black;
+    border: 1px solid white;
     border-radius: 8px;
     pointer-events: none;
 }
@@ -111,6 +111,7 @@ body {
   transition: .5s ease;
   top: 87.5%;
   left: 87.5%;
-  background: #1a1a1a;
-  color: #d9d9d9;
+  background: #0d0d0d;
+  /* background: #49c0fc; */
+  color: white;
 }

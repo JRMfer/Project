@@ -213,15 +213,28 @@ function drawLineChart(data) {
   svgLine.selectAll(".dot")
     .data(data.data)
     .enter().append("circle")
+    .on("click", function(d, j) {
+      d3.select("#seasonsdropdown").property("value", data.seasons[j]);
+      seasonsDropdownChange();
+    })
     .on("mouseover", function(d, i) {
       // console.log(d[1]);
       // console.log(d[0]);
           divLine.transition()
           .style("opacity", 0.9)
-          divLine.html("Total expenditures: " + format(d) + "<br>" + "Top 3 transfers: " + "<br>" +
-          data.topTransfers[data.seasons[i]][0].name + ": " + format(data.topTransfers[data.seasons[i]][0].value) + "<br>" +
-          data.topTransfers[data.seasons[i]][1].name + ": " + format(data.topTransfers[data.seasons[i]][1].value) + "<br>" +
-          data.topTransfers[data.seasons[i]][2].name + ": " + format(data.topTransfers[data.seasons[i]][2].value))
+          divLine.html("<strong>Total transfer fees: </strong><br><span class='details'>"
+                    + '€' + format(d) + "</span>" + "<br>" + "<strong>"
+                    + "Top 3 transfers: " + "</strong><br><span class='details'>"
+                    + "<strong>1. " + data.topTransfers[data.seasons[i]][0].name + "</strong><br>" +
+                    "<span class='details'>" + '€' + format(data.topTransfers[data.seasons[i]][0].value) + "</span><br>"
+                    + "<strong>2." + data.topTransfers[data.seasons[i]][1].name + "</strong><br>" +
+                    "<span class='details'>" + '€' + format(data.topTransfers[data.seasons[i]][1].value) + "</span><br>"
+                    + "<strong>3. " + data.topTransfers[data.seasons[i]][2].name + "</strong><br>" +
+                    "<span class='details'>" + '€' + format(data.topTransfers[data.seasons[i]][2].value) + "</span><br>")
+          //   "Total expenditures: " + format(d) + "<br>" + "Top 3 transfers: " + "<br>" +
+          // data.topTransfers[data.seasons[i]][0].name + ": " + format(data.topTransfers[data.seasons[i]][0].value) + "<br>" +
+          // data.topTransfers[data.seasons[i]][1].name + ": " + format(data.topTransfers[data.seasons[i]][1].value) + "<br>" +
+          // data.topTransfers[data.seasons[i]][2].name + ": " + format(data.topTransfers[data.seasons[i]][2].value))
           .style("left", (d3.event.pageX - widthLine / 1.5) + "px")
           .style("top", (d3.event.pageY - heightLine / 3) + "px")
           // .style("left", xScaleLine(i + 1) + "px")

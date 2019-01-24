@@ -174,7 +174,12 @@ function ready(error, topology, data , season, position) {
           if (d.properties.name in newData) {
             divMap.transition()
               .style("opacity", 0.9)
-              divMap.html("Country: " + d.properties.name + "<br>" + "Transfers: " + newData[d.properties.name]["transfers"] + "<br>" + "Expenditures: " + format(newData[d.properties.name]["total"]))
+              divMap.html("<strong>Country: </strong><span class='details'>"
+                        + d.properties.name + "</span>" + "<br>" + "<strong>"
+                        + "Total transfers: " + "</strong><span class='details'>"
+                        + newData[d.properties.name]["transfers"] + "</span><br>" +
+                        "<strong>Total transfer fees: </strong><br>" + '€' + format(newData[d.properties.name]["total"]))
+                // "Country: " + d.properties.name + "<br>" + "Transfers: " + newData[d.properties.name]["transfers"] + "<br>" + "Expenditures: " + format(newData[d.properties.name]["total"]))
               .style("left", (d3.event.pageX) + "px")
               .style("top", (d3.event.pageY - heightMap / 2.5) + "px")
               d3.select(this).style('opacity', 0.75)
@@ -183,7 +188,11 @@ function ready(error, topology, data , season, position) {
           else {
             divMap.transition()
               .style("opacity", 0.9)
-              divMap.html("Country: " + d.properties.name + "<br>" + "Transfers: " + 0 + "<br>" + "Expenditures: " + 0)
+              divMap.html("<strong>Country: </strong><span class='details'>"
+                        + d.properties.name + "</span>" + "<br>" + "<strong>"
+                        + "Total transfers: " + "</strong><span class='details'>"
+                        + 0 + "</span><br>" +
+                        "<strong>Total transfer fees: </strong><br>" + 0)
               .style("left", (d3.event.pageX) + "px")
               .style("top", (d3.event.pageY - heightMap / 2.5) + "px")
               d3.select(this).style('opacity', 0.75)
@@ -264,6 +273,7 @@ legendRect.enter().append("rect")
     return (colorsMap.length - i) * legendWidth / 4;
   })
   .attr("height", legendWidth)
+  .style("stroke", "#000")
   .style("fill", function(d, j) {
     return d;
   })
@@ -278,7 +288,7 @@ legendRect.enter().append("rect")
     .ease(d3.easeLinear)
     .attr('x', widthMap + marginsMap.left + marginsMap.right + 5)
     .attr('y', function(d, i) {
-      return (colorsMap.length - i + 3) * legendWidth / 4;
+      return (colorsMap.length - i + 4) * legendWidth / 4;
     })
     // .attr('x', function(d, i) {
     //   return (i + 1) * legendWidth;
