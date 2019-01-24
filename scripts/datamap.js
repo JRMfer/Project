@@ -16,7 +16,7 @@ let dataMap;
 let svgMap = d3.select("#map")
       .append("svg")
       .attr("preserveAspectRatio", "xMinYMin meet")
-      .attr("viewBox", "-25 0 960 702")
+      .attr("viewBox", "-60 0 960 702")
       // .attr("height", heightMap + marginsMap.top + marginsMap.bottom)
       // .attr("width", widthMap + marginsMap.left + marginsMap.right)
       .append("g")
@@ -25,7 +25,7 @@ let svgMap = d3.select("#map")
       // .attr("transform", "translate(" + marginsMap.left + "," + marginsMap.top + ")");
 
 let legendMap = svgMap.append("g").attr("class", "legend");
-let legendWidth = 40;
+let legendWidth = 60;
 
 
 
@@ -229,7 +229,10 @@ function ready(error, topology, data , season, position) {
             // return "darkgrey";
           }
         })
-        .duration(750)
+        .duration(1500)
+        .delay(function(d, i) {
+          return i * 15
+        })
         .ease(d3.easeLinear)
         // .style("fill", "red")
         .style("stroke", "darkgrey")
@@ -244,6 +247,7 @@ function ready(error, topology, data , season, position) {
     console.log(colorPath.quantiles);
 
 let legendRect = legendMap.selectAll("rect").data(colorPath.range());
+console.log(colorPath.range());
 
 legendRect.enter().append("rect")
   .merge(legendRect)
@@ -255,9 +259,9 @@ legendRect.enter().append("rect")
   //   return i * legendWidth;
   // })
   // .attr('y', 50)
-  .attr('x', widthMap - marginsMap.right)
+  .attr('x', widthMap + marginsMap.left + marginsMap.right - legendWidth)
   .attr('y', function(d, i) {
-    return i * legendWidth;
+    return (colorsMap.length - i) * legendWidth / 4;
   })
   .attr("height", legendWidth)
   .style("fill", function(d, j) {
@@ -265,25 +269,32 @@ legendRect.enter().append("rect")
   })
 
   let legendText = legendMap.selectAll("text").data(colorPath.quantiles())
+  console.log(colorPath.quantiles());
 
   legendText.enter().append("text")
     .merge(legendText)
-    .attr('x', widthMap - marginsMap.right + legendWidth + 5)
+    .transition()
+    .duration(750)
+    .ease(d3.easeLinear)
+    .attr('x', widthMap + marginsMap.left + marginsMap.right + 5)
     .attr('y', function(d, i) {
-      return (i + 1) * legendWidth;
+      return (colorsMap.length - i + 3) * legendWidth / 4;
     })
     // .attr('x', function(d, i) {
     //   return (i + 1) * legendWidth;
     // })
     // .attr('y', 80)
     .text(function(d,i){
+      if ((i === 0) || (i === (colorPath.quantiles().length - 1))) {
           var rv = Math.round(d*10)/10;
-          if (i === 0) rv = '<' + rv;
-          else if (i === (colorPath.quantiles().length - 1))  rv = '>' + rv;
+          if (i === 0) rv = '<' + format(rv);
+          else if (i === (colorPath.quantiles().length - 1))  rv = '>' + format(rv);
           return  rv;
+        }
         })
         .style('fill', 'white')
-        .style('stroke', 'none');
+        .style('stroke', 'none')
+        .style("font-size", "20px");
 
     legendRect.exit().remove();
     legendText.exit().remove();

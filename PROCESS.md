@@ -157,3 +157,15 @@ required dataset.
 Also need to smoothen the update for the sunburst when season and/or position of
 the dataset are changed. This could be done by extending the options at the
 end of the hierachy (not only size, but also keys for the season/position asked).
+
+# Day 13:
+
+Solved the update of the sunburst by calling the tween function after redrawing
+the sunburst (already with a merge update).
+
+Completed tooltip line chart, also correct after update. it now shows the total
+transfer fees in that season together with the corresponding top 3 transfers.
+
+Added a legend to the data map based on the sequential color scheme.
+
+Made a start with a modal for a explanation about the dashboard.

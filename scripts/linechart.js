@@ -1,4 +1,4 @@
-let marginLine = {top: 20, right: 20, bottom: 20, left: 50};
+let marginLine = {top: 20, right: 20, bottom: 20, left: 100};
 let colorsLine = ["#65cd94", "#52c786", "#52c786", "#3ec179", "#38ad6d", "#329a61", "#2c8755","#257449", "#1f603c", "#194d30"];
 let widthLine = 1100 - marginLine.right - marginLine.left;
 let heightLine = 900 - marginLine.top - marginLine.bottom;
@@ -100,7 +100,7 @@ function updateLine(country, position, data) {
 // From https://bl.ocks.org/mbostock/5649592
 function transition(path) {
     path.transition()
-        .duration(4000)
+        .duration(6000)
         .attrTween("stroke-dasharray", tweenDash);
 }
 function tweenDash() {
@@ -234,7 +234,7 @@ function drawLineChart(data) {
             d3.select(this).style('opacity', 1);
         })
     .transition()
-    .duration(2000)
+    .duration(1000)
     // .delay(function(d, i) {
     //   return i * 25;
     // })
@@ -264,7 +264,7 @@ function drawLineChart(data) {
     //     });
 
 
-    xAxisSvgLine.transition().duration(1500).ease(d3.easeLinear).call(xAxisLine.bind(this)).selectAll("text").attr("transform", "rotate(20)");
+    xAxisSvgLine.transition().duration(1500).ease(d3.easeLinear).call(xAxisLine.bind(this)).selectAll("text").attr("transform", "rotate(40)");
     yAxisSvgLine.transition().duration(1500).ease(d3.easeLinear).call(yAxisLine.bind(this));
   // //
   //   lines.exit().remove();

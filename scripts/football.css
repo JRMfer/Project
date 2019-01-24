@@ -1,16 +1,35 @@
 .container-fluid {
   background: #0d0d0d;
 }
+
 body {
   padding-top: 50px;
   /* background: #1a1a1a;
   color: #d9d9d9; */
 }
 
-#navbar {
+/* #headerModal {
+  color: #1a1a1a;
+} */
+
+#contentModal {
   background: #1a1a1a;
   color: #d9d9d9;
 }
+/* .modal .modal-dialog {
+   width: 150px;
+   background-color: blue;
+} */
+
+/* #aboutModal {
+  background: #1a1a1a;
+  color: #d9d9d9;
+} */
+
+/* #navbar {
+  background: #1a1a1a;
+  color: #d9d9d9;
+} */
 
 #map, #barchart, #sunburst, #linechart{
   /* background: #333333; */
@@ -75,7 +94,7 @@ body {
   color: #d9d9d9;
   text-anchor: start;
   font-family: sans-serif;
-  font-size: 18px;
+  font-size: 25px;
   font-weight: normal;
 }
 
@@ -83,7 +102,7 @@ body {
   color: #d9d9d9;
   text-anchor: end;
   font-family: sans-serif;
-  font-size: 18px;
+  font-size: 25px;
   font-weight: normal;
 }
 

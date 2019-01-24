@@ -1,10 +1,10 @@
 // const var for marginsBar svg Bar chart
-const marginsBar = {top: 50, right: 100, bottom: 100, left: 100},
+const marginsBar = {top: 50, right: 100, bottom: 100, left: 150},
             widthBar = 1200 - marginsBar.left - marginsBar.right,
             heightBar = 960 - marginsBar.top - marginsBar.bottom,
             animateDuration = 700,
             animateDelay = 75,
-            barPadding = 1;
+            barPadding = 5;
 
 let colors = ["#ffffe5", "#f7fcb9", "#d9f0a3", "#addd8e", "#78c679", "#41ab5d", "#238443", "#006837", "#004529"];
 // let colors2 = ["#fff5eb", "#fee6ce", "#fdd0a2", "#fdae6b", "#fd8d3c", "#f16913", "#d94801", "#a63603", "#7f2704"];
@@ -264,7 +264,10 @@ function drawBarChart(data) {
         })
     .merge(bars)
     .transition()
-    .duration(750)
+    .duration(850)
+    // .delay(function(d, i) {
+    //   return i * 10;
+    // })
     .ease(d3.easeLinear)
     // .ease(d3.easePoly.exponent(2))
     // .delay(function(d, i) {
@@ -295,8 +298,8 @@ function drawBarChart(data) {
       .attr("x", widthBar)
       .remove();
 
-      xAxisSvg.transition().duration(750).ease(d3.easeLinear).call(xAxis.bind(this)).selectAll("text").attr("transform", "rotate(20)");;
-      yAxisSvg.transition().duration(750).ease(d3.easeLinear).call(yAxis.bind(this));
+      xAxisSvg.transition().duration(750).ease(d3.easeLinear).call(xAxis.bind(this)).selectAll("text").attr("transform", "rotate(20)");
+      yAxisSvg.transition().duration(750).ease(d3.easeLinear).call(yAxis.bind(this)).selectAll("text").attr("transform", "rotate(0)");
 
   // // bars.on("click", barZoomSunburst("s"))
 }

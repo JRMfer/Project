@@ -25,16 +25,35 @@
 </head>
 
 <body>
+  <!-- The Modal -->
+<!-- <div class="modal-fade" id="aboutModal" aria-hidden="true"> -->
+
+  <!-- Modal content -->
+  <!-- <div class="modal-content">
+    <div class="modal-header">
+      <span class="close">&times;</span>
+      <h2>Modal Header</h2>
+    </div>
+    <div class="modal-body">
+      <p>Some text in the Modal Body</p>
+      <p>Some other text...</p>
+    </div>
+    <div class="modal-footer">
+      <h3>Modal Footer</h3>
+    </div>
+  </div>
+
+</div> -->
   <!-- <h1>Central goverment spending OECD (2014)</h1> -->
   <div class="row">
-    <div class="col-sm-12" id="navbarCol">
-      <nav class="navbar navbar-inverse navbar-fixed-top" id="navbar">
+    <div class="col-sm-12">
+      <nav class="navbar navbar-inverse navbar-fixed-top">
         <div class="container-fluid">
           <div class="navbar-header">
             <a class="navbar-brand" href="/">Transfers top 250</a>
           </div>
           <ul class="nav navbar-nav">
-            <li class="nav-item"><a href="/story.html">Story</a></li>
+            <li class="nav-active"><a data-toggle="modal" data-target="#aboutModal" role='button'>Story</a></li>
             <li><a href="/data.html">Data Source</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
@@ -56,6 +75,30 @@
           </ul>
         </div>
       </nav>
+      <div class="modal fade" id="aboutModal" role="dialog">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content" id="contentModal">
+            <div class="modal-header">
+                <h2 class="modal-title" id="headerModal">About this dashboard</h2>
+            </div>
+            <div class="modal-body">
+              <h2>The visualizations</h2>
+              <h3>World map</h3>
+              <p>The world map shows the total transfers fees and amount of
+                transfers for a certain time period and/or position. Hovering a
+                country shows the exact amounts in that particular country.
+                Clicking a country updates the other three visualizations
+                according the country selected. The same result can be achieved
+                by selecting the country in the dropdown menu.
+              </p>
+              <h3>Line chart</h3>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
     </div>
   </div>
   <div class="row">
@@ -69,13 +112,13 @@
     <div class="col-sm-1" id="space"></div>
     <div class="col-sm-5" id="map"><h2 id="header" align="center">By Country</h2></div>
     <!-- <div class="col-sm-6", id="barchart"><h2 id="header" align="center">By Category</h2></div> -->
-    <div class="col-sm-5" id="linechart"><h2 id="header" align="center">Linechart
+    <div class="col-sm-5" id="linechart"><h2 id="header" align="center">By Season
     </h2><button type="button" class="btn btn-default btn-m" id="buttonLine" onclick="animateLine()">Start</button></div>
     <div class="col-sm-1" id="space"></div>
   </div>
   <div class="row">
     <div class="col-sm-1" id="space"></div>
-    <div class="col-sm-5" id="sunburst"><h2 id="header" align="center">Sunburst
+    <div class="col-sm-5" id="sunburst"><h2 id="header" align="center">Distribution
     </h2></div>
         <div class="col-sm-5" id="barchart"><h2 id="header" align="center">By Category</h2></div>
         <div class="col-sm-1" id="space"></div>

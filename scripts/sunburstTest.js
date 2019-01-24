@@ -206,7 +206,7 @@ function drawSunburst(newData) {
   				var childPercentage = Math.round((childValue / parentValue) * 100);
           div.transition()
                   .style("opacity", 0.9)
-                  div.html(d.data.name + ": " + childPercentage + " %")
+                  div.html(d.data.name + ": " + childPercentage + "%")
                   .style("left", (d3.event.pageX) + "px")
                   .style("top", (d3.event.pageY - heightSun) + "px")
                   d3.select(this).style('opacity', 0.75)
@@ -217,7 +217,7 @@ function drawSunburst(newData) {
   				var childPercentage = Math.round((childValue / parentValue) * 100);
           div.transition()
                   .style("opacity", 0.9)
-                  div.html(d.data.name + ": " + childPercentage + "% of " + d.parent.data.name)
+                  div.html(d.data.name + ": " + format(childValue) + ' (' + childPercentage + "% of " + d.parent.data.name + ')')
                   .style("left", (d3.event.pageX) + "px")
                   .style("top", (d3.event.pageY - heightSun) + "px")
                   d3.select(this).style('opacity', 0.75)
