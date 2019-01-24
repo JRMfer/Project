@@ -1,0 +1,41 @@
+body {
+  padding-top: 50px;
+  /* background: #1a1a1a;
+  color: #d9d9d9; */
+}
+
+/* Bottom right text */
+.text-block {
+  position: absolute;
+  /* bottom: 20px;
+  right: 20px; */
+  top: 35%;
+  right: 37.5%;
+  width: 400px;
+  height: 300x;
+  font-size: 20px;
+  text-align: center;
+  background-color: #1a1a1a;
+  border: 1px solid white;
+  color: white;
+  padding-left: 20px;
+  padding-right: 20px;
+  /* box-shadow: 5px 5px; */
+  -moz-box-shadow: 1px 2px 4px rgba(0, 0, 0,0.5);
+  -webkit-box-shadow: 1px 2px 4px rgba(0, 0, 0, .5);
+  box-shadow: 1px 2px 4px rgba(0, 0, 0, .5);
+
+}
+
+.text-block::after {
+  z-index: -1; /* hide shadow behind image */
+ -webkit-box-shadow: 0 15px 20px rgba(0, 0, 0, 0.3);
+ -moz-box-shadow: 0 15px 20px rgba(0, 0, 0, 0.3);
+ box-shadow: 0 15px 20px rgba(0, 0, 0, 0.3);
+ width: 70%;
+ left: 15%; /* one half of the remaining 30% */
+}
+
+.jumbotron {
+  text-align: center;
+}
