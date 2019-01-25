@@ -257,7 +257,7 @@ function drawBarChart(data) {
                     "<strong>Total transfer fees: </strong><br><span class='details'>"
                      + '€' + format(d[Object.keys(d)].value)  + "</span>")
           .style("left", (d3.event.pageX + widthBar / 2 - marginsBar.left * 2 - marginsBar.right * 2) + "px")
-          .style("top", (d3.event.pageY - heightBar / 1.25) + "px")
+          .style("top", (d3.event.pageY - heightBar + marginsBar.top + marginsBar.bottom) + "px")
           d3.select(this).style('opacity', 0.5)
         })
         .on("mouseout", function(d) {

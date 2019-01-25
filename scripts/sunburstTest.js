@@ -211,8 +211,8 @@ function drawSunburst(newData) {
                             + "Percentage: " + "</strong><span class='details'>"
                             + "<br>" + childPercentage + "%" + "</span>")
                     // d.data.name + ": " + format(childValue) + ' (' + childPercentage + "%)")
-                  .style("left", (d3.event.pageX - widthSun / 1.25) + "px")
-                  .style("top", (d3.event.pageY - heightSun / 0.75) + "px")
+                  .style("left", (d3.event.pageX - widthSun / 1.5) + "px")
+                  .style("top", (d3.event.pageY - heightSun / 1) + "px")
                   d3.select(this).style('opacity', 0.75)
   			}
         else {
@@ -226,8 +226,8 @@ function drawSunburst(newData) {
                             + "Percentage: " + "</strong><span class='details'>"
                             + "<br>" + childPercentage + "% of " + d.parent.data.name + "</span>")
                     // d.data.name + ": " + format(childValue) + ' (' + childPercentage + "% of " + d.parent.data.name + ')')
-                  .style("left", (d3.event.pageX - widthSun / 1.25) + "px")
-                  .style("top", (d3.event.pageY - heightSun / 0.75) + "px")
+                  .style("left", (d3.event.pageX - widthSun / 1.5) + "px")
+                  .style("top", (d3.event.pageY - heightSun / 1) + "px")
                   d3.select(this).style('opacity', 0.75)
   			}
   			})

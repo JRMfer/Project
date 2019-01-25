@@ -300,12 +300,14 @@ legendRect.enter().append("rect")
           var rv = Math.round(d*10)/10;
           if (i === 0) rv = '< ' + '€ ' + format(rv);
           else if (i === (colorPath.quantiles().length - 1))  rv = '> ' + '€ ' + format(rv);
-          return  rv + " <br> Total transfer fee <br> for season: " + d3.select("#seasonsdropdown");
+          return  rv;
         }
-        })
-        .style('fill', 'white')
-        .style('stroke', 'none')
-        .style("font-size", "20px");
+      })
+      // // .append("tspan")
+      // .attr("dy", ".35em")
+      .style('fill', 'white')
+      .style('stroke', 'none')
+      .style("font-size", "20px");
 
     legendRect.exit().remove();
     legendText.exit().remove();
