@@ -304,6 +304,17 @@ function drawBarChart(data) {
       xAxisSvg.transition().duration(750).ease(d3.easeLinear).call(xAxis.bind(this)).selectAll("text").attr("transform", "rotate(20)");
       yAxisSvg.transition().duration(750).ease(d3.easeLinear).call(yAxis.bind(this)).selectAll("text").attr("transform", "rotate(0)");
 
+  if (d3.select("#countriesdropdown").property("value") === "All") {
+    // console.log(d3.select("#countriesdropdown").property("value"));
+    d3.select("#headerBarchart").text("By Competition")
+    // .property("text", "By Country");
+  }
+  else {
+    // console.log(d3.select("#countriesdropdown").property("value"));
+    d3.select("#headerBarchart").text("By Club")
+    // .property("text", "By Club");
+  }
+
   // // bars.on("click", barZoomSunburst("s"))
 }
 

@@ -25,7 +25,7 @@ let svgMap = d3.select("#map")
       // .attr("transform", "translate(" + marginsMap.left + "," + marginsMap.top + ")");
 
 let legendMap = svgMap.append("g").attr("class", "legend");
-let legendWidth = 60;
+let legendWidth = 20;
 
 
 
@@ -180,7 +180,7 @@ function ready(error, topology, data , season, position) {
                         + newData[d.properties.name]["transfers"] + "</span><br>" +
                         "<strong>Total transfer fees: </strong><br>" + '€' + format(newData[d.properties.name]["total"]))
                 // "Country: " + d.properties.name + "<br>" + "Transfers: " + newData[d.properties.name]["transfers"] + "<br>" + "Expenditures: " + format(newData[d.properties.name]["total"]))
-              .style("left", (d3.event.pageX) + "px")
+              .style("left", (d3.event.pageX - marginsMap.left - marginsMap.right) + "px")
               .style("top", (d3.event.pageY - heightMap / 2.5) + "px")
               d3.select(this).style('opacity', 0.75)
               d3.select(this).style("fill", "#fee6ce")
@@ -191,9 +191,9 @@ function ready(error, topology, data , season, position) {
               divMap.html("<strong>Country: </strong><span class='details'>"
                         + d.properties.name + "</span>" + "<br>" + "<strong>"
                         + "Total transfers: " + "</strong><span class='details'>"
-                        + 0 + "</span><br>" +
-                        "<strong>Total transfer fees: </strong><br>" + 0)
-              .style("left", (d3.event.pageX) + "px")
+                        + "undefined </span><br>" +
+                        "<strong>Total transfer fees: </strong><br> undefined")
+              .style("left", (d3.event.pageX - marginsMap.left - marginsMap.right) + "px")
               .style("top", (d3.event.pageY - heightMap / 2.5) + "px")
               d3.select(this).style('opacity', 0.75)
               d3.select(this).style("fill", "#fee6ce")
@@ -268,9 +268,10 @@ legendRect.enter().append("rect")
   //   return i * legendWidth;
   // })
   // .attr('y', 50)
-  .attr('x', widthMap + marginsMap.left + marginsMap.right - legendWidth)
+  .attr('x', widthMap + marginsMap.left - legendWidth)
   .attr('y', function(d, i) {
-    return (colorsMap.length - i) * legendWidth / 4;
+    // return (colorsMap.length - i) * legendWidth / 1;
+    return (i * legendWidth) + 5;
   })
   .attr("height", legendWidth)
   .style("stroke", "#000")
@@ -286,9 +287,9 @@ legendRect.enter().append("rect")
     .transition()
     .duration(750)
     .ease(d3.easeLinear)
-    .attr('x', widthMap + marginsMap.left + marginsMap.right + 5)
+    .attr('x', widthMap + marginsMap.left + 7.5)
     .attr('y', function(d, i) {
-      return (colorsMap.length - i + 4) * legendWidth / 4;
+      return (colorsMap.length - i - 1) * legendWidth + legendWidth / 2;
     })
     // .attr('x', function(d, i) {
     //   return (i + 1) * legendWidth;
@@ -297,9 +298,9 @@ legendRect.enter().append("rect")
     .text(function(d,i){
       if ((i === 0) || (i === (colorPath.quantiles().length - 1))) {
           var rv = Math.round(d*10)/10;
-          if (i === 0) rv = '<' + format(rv);
-          else if (i === (colorPath.quantiles().length - 1))  rv = '>' + format(rv);
-          return  rv;
+          if (i === 0) rv = '< ' + '€ ' + format(rv);
+          else if (i === (colorPath.quantiles().length - 1))  rv = '> ' + '€ ' + format(rv);
+          return  rv + " <br> Total transfer fee <br> for season: " + d3.select("#seasonsdropdown");
         }
         })
         .style('fill', 'white')

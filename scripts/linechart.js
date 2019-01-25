@@ -235,8 +235,8 @@ function drawLineChart(data) {
           // data.topTransfers[data.seasons[i]][0].name + ": " + format(data.topTransfers[data.seasons[i]][0].value) + "<br>" +
           // data.topTransfers[data.seasons[i]][1].name + ": " + format(data.topTransfers[data.seasons[i]][1].value) + "<br>" +
           // data.topTransfers[data.seasons[i]][2].name + ": " + format(data.topTransfers[data.seasons[i]][2].value))
-          .style("left", (d3.event.pageX - widthLine / 1.5) + "px")
-          .style("top", (d3.event.pageY - heightLine / 3) + "px")
+          .style("left", (d3.event.pageX - widthLine / 1.25) + "px")
+          .style("top", (d3.event.pageY - heightLine / 3 + marginLine.top + marginLine.bottom) + "px")
           // .style("left", xScaleLine(i + 1) + "px")
           // .style("top", yScaleLine(d) + "px")
           d3.select(this).style('opacity', 0.5)

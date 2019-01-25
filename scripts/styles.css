@@ -14,7 +14,7 @@ body {
   width: 400px;
   height: 300x;
   font-size: 20px;
-  text-align: center;
+  /* text-align: center; */
   background-color: #1a1a1a;
   border: 1px solid white;
   color: white;
@@ -37,5 +37,15 @@ body {
 }
 
 .jumbotron {
-  text-align: center;
+  /* text-align: center; */
+}
+
+.row {
+  margin.left: 0px;
+  margin-right: -15px;
+}
+
+.col-sm-12 {
+  padding-left: 0px;
+  padding-right: 0px;
 }
