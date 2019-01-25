@@ -169,3 +169,22 @@ transfer fees in that season together with the corresponding top 3 transfers.
 Added a legend to the data map based on the sequential color scheme.
 
 Made a start with a modal for a explanation about the dashboard.
+
+# Day 14:
+
+Finished modal for Explanation.
+Added homepage and link to github source.
+
+# Day 15:
+
+While creating the homepage I discovered that boostrap automatically works with
+margins and padding. These were removed to get rid of the horizontal scroll.
+
+Changed header barchart. Now it shows the subject by which the bars are ordered.
+
+Added a linked view at the line chart. When a point is clicked the other 3 Visualizations
+will be updated by the corresponding season.
+
+Changed the "show up place" of the tooltip for all the 4 visualizations.
+
+Furthermore some styling of the visualizations: Dropdowns still need to be done.
