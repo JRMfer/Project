@@ -55,4 +55,4 @@ Data source: https://www.kaggle.com/vardan95ghazaryan/top-250-football-transfers
 pandas, csv, d3.js
 
 ## Github page Link
-https://JRMfer.github.io/Project/index.html
+https://JRMfer.github.io/Project
