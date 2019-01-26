@@ -93,8 +93,9 @@ function updateLine(country, position, data) {
   // infoBar.transfers.sort(function(a, b) {
   //   return ((a[Object.keys(a)].value > b[Object.keys(b)].value) ? -1 : ((a[Object.keys(a)].value == b[Object.keys(b)].value) ? 0 : 1)); })
   console.log(seasons);
-
-  return drawLineChart(seasons);
+  if (seasons.data.length > 0) {
+    return drawLineChart(seasons);
+  }
 }
 
 // From https://bl.ocks.org/mbostock/5649592
@@ -218,28 +219,64 @@ function drawLineChart(data) {
       seasonsDropdownChange();
     })
     .on("mouseover", function(d, i) {
-      // console.log(d[1]);
-      // console.log(d[0]);
-          divLine.transition()
-          .style("opacity", 0.9)
-          divLine.html("<strong>Total transfer fees: </strong><br><span class='details'>"
-                    + '€' + format(d) + "</span>" + "<br>" + "<strong>"
-                    + "Top 3 transfers: " + "</strong><br><span class='details'>"
-                    + "<strong>1. " + data.topTransfers[data.seasons[i]][0].name + "</strong><br>" +
-                    "<span class='details'>" + '€' + format(data.topTransfers[data.seasons[i]][0].value) + "</span><br>"
-                    + "<strong>2." + data.topTransfers[data.seasons[i]][1].name + "</strong><br>" +
-                    "<span class='details'>" + '€' + format(data.topTransfers[data.seasons[i]][1].value) + "</span><br>"
-                    + "<strong>3. " + data.topTransfers[data.seasons[i]][2].name + "</strong><br>" +
-                    "<span class='details'>" + '€' + format(data.topTransfers[data.seasons[i]][2].value) + "</span><br>")
-          //   "Total expenditures: " + format(d) + "<br>" + "Top 3 transfers: " + "<br>" +
-          // data.topTransfers[data.seasons[i]][0].name + ": " + format(data.topTransfers[data.seasons[i]][0].value) + "<br>" +
-          // data.topTransfers[data.seasons[i]][1].name + ": " + format(data.topTransfers[data.seasons[i]][1].value) + "<br>" +
-          // data.topTransfers[data.seasons[i]][2].name + ": " + format(data.topTransfers[data.seasons[i]][2].value))
-          .style("left", (d3.event.pageX - widthLine / 1.25 + marginLine.left + marginLine.right) + "px")
-          .style("top", (d3.event.pageY - heightLine / 3 + marginLine.top + marginLine.bottom) + "px")
-          // .style("left", xScaleLine(i + 1) + "px")
-          // .style("top", yScaleLine(d) + "px")
-          d3.select(this).style('opacity', 0.5)
+          if (data.topTransfers[data.seasons[i]].length >= 3) {
+            divLine.transition()
+            .style("opacity", 0.9)
+            divLine.html("<strong>Total transfer fees: </strong><br><span class='details'>"
+                      + '€' + format(d) + "</span>" + "<br>" + "<strong>"
+                      + "Top 3 transfers: " + "</strong><br><span class='details'>"
+                      + "<strong>1. " + data.topTransfers[data.seasons[i]][0].name + "</strong><br>" +
+                      "<span class='details'>" + '€' + format(data.topTransfers[data.seasons[i]][0].value) + "</span><br>"
+                      + "<strong>2." + data.topTransfers[data.seasons[i]][1].name + "</strong><br>" +
+                      "<span class='details'>" + '€' + format(data.topTransfers[data.seasons[i]][1].value) + "</span><br>"
+                      + "<strong>3. " + data.topTransfers[data.seasons[i]][2].name + "</strong><br>" +
+                      "<span class='details'>" + '€' + format(data.topTransfers[data.seasons[i]][2].value) + "</span><br>")
+            .style("left", (d3.event.pageX - widthLine / 1.25 + marginLine.left + marginLine.right) + "px")
+            .style("top", (d3.event.pageY - heightLine / 3 + marginLine.top + marginLine.bottom) + "px")
+            d3.select(this).style('opacity', 0.5)
+          }
+          else if (data.topTransfers[data.seasons[i]].length === 2) {
+            divLine.transition()
+            .style("opacity", 0.9)
+            divLine.html("<strong>Total transfer fees: </strong><br><span class='details'>"
+                      + '€' + format(d) + "</span>" + "<br>" + "<strong>"
+                      + "Top 3 transfers: " + "</strong><br><span class='details'>"
+                      + "<strong>1. " + data.topTransfers[data.seasons[i]][0].name + "</strong><br>" +
+                      "<span class='details'>" + '€' + format(data.topTransfers[data.seasons[i]][0].value) + "</span><br>"
+                      + "<strong>2." + data.topTransfers[data.seasons[i]][1].name + "</strong><br>" +
+                      "<span class='details'>" + '€' + format(data.topTransfers[data.seasons[i]][1].value) + "</span><br>")
+            .style("left", (d3.event.pageX - widthLine / 1.25 + marginLine.left + marginLine.right) + "px")
+            .style("top", (d3.event.pageY - heightLine / 3 + marginLine.top + marginLine.bottom) + "px")
+            d3.select(this).style('opacity', 0.5)
+          }
+          else if (data.topTransfers[data.seasons[i]].length === 1) {
+            divLine.transition()
+            .style("opacity", 0.9)
+            divLine.html("<strong>Total transfer fees: </strong><br><span class='details'>"
+                      + '€' + format(d) + "</span>" + "<br>" + "<strong>"
+                      + "Top 3 transfers: " + "</strong><br><span class='details'>"
+                      + "<strong>1. " + data.topTransfers[data.seasons[i]][0].name + "</strong><br>" +
+                      "<span class='details'>" + '€' + format(data.topTransfers[data.seasons[i]][0].value) + "</span><br>")
+            .style("left", (d3.event.pageX - widthLine / 1.25 + marginLine.left + marginLine.right) + "px")
+            .style("top", (d3.event.pageY - heightLine / 3 + marginLine.top + marginLine.bottom) + "px")
+            d3.select(this).style('opacity', 0.5)
+          }
+
+
+          // divLine.transition()
+          // .style("opacity", 0.9)
+          // divLine.html("<strong>Total transfer fees: </strong><br><span class='details'>"
+          //           + '€' + format(d) + "</span>" + "<br>" + "<strong>"
+          //           + "Top 3 transfers: " + "</strong><br><span class='details'>"
+          //           + "<strong>1. " + data.topTransfers[data.seasons[i]][0].name + "</strong><br>" +
+          //           "<span class='details'>" + '€' + format(data.topTransfers[data.seasons[i]][0].value) + "</span><br>"
+          //           + "<strong>2." + data.topTransfers[data.seasons[i]][1].name + "</strong><br>" +
+          //           "<span class='details'>" + '€' + format(data.topTransfers[data.seasons[i]][1].value) + "</span><br>"
+          //           + "<strong>3. " + data.topTransfers[data.seasons[i]][2].name + "</strong><br>" +
+          //           "<span class='details'>" + '€' + format(data.topTransfers[data.seasons[i]][2].value) + "</span><br>")
+          // .style("left", (d3.event.pageX - widthLine / 1.25 + marginLine.left + marginLine.right) + "px")
+          // .style("top", (d3.event.pageY - heightLine / 3 + marginLine.top + marginLine.bottom) + "px")
+          // d3.select(this).style('opacity', 0.5)
         })
         .on("mouseout", function(d) {
             divLine.transition()

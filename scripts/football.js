@@ -47,7 +47,7 @@ function seasonsDropdownChange() {
   else {
     // updateBarChart(country, season, position, info["data"]);
     alert("No data found");
-    d3.select("#seasonsdropdown").property("value", "All");
+    // d3.select("#seasonsdropdown").property("value", "All");
   }
   // barZoomSunburst(country);
   console.log(season);
@@ -72,7 +72,7 @@ function positionsDropdownChange() {
   else {
     // updateBarChart(country, season, position, info["data"]);
     alert("No data found");
-    d3.select("#positionsdropdown").property("value", "All");
+    // d3.select("#positionsdropdown").property("value", "All");
   }
   // barZoomSunburst(country);
   console.log(season);
