@@ -152,7 +152,7 @@ function drawLineChart(data) {
 
   let xScaleLine = d3.scaleLinear()
                     .domain([0, data.seasons.length])
-                    .range([marginLine.left, widthLine]);
+                    .range([marginLine.left, widthLine -marginLine.right]);
   //
   // let yMin = d3.min(data.data, function(d) {
   //   return d[Object.keys(d)].value;
