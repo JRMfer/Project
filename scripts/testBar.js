@@ -108,6 +108,10 @@ function updateBarChart(country, season, position, data) {
     if (infoBar.transfers.length > 0) {
       drawBarChart(infoBar);
     }
+    // else {
+    //   alert("no data found");
+    //   d3.select("#countriesdropdown").property("value", "All");
+    // }
   }
   else {
     data.forEach(function(transfer) {
@@ -159,6 +163,10 @@ function updateBarChart(country, season, position, data) {
         })
         if (infoBar.transfers.length > 0) {
           return drawBarChart(infoBar);
+        }
+        else {
+          alert("no data found");
+          d3.select("#countriesdropdown").property("value", "All");
         }
     }
 }

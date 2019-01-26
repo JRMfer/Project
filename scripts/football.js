@@ -19,8 +19,9 @@ function countriesDropdownChange() {
 
     // drawSunburst(newData);
     barZoomSunburst(country);
-    updateBarChart(country, season, position, info["data"]);
     drawDataMap(dataMap, info["data"],season, position);
+    updateBarChart(country, season, position, info["data"]);
+    // drawDataMap(dataMap, info["data"],season, position);
 
 }
 
@@ -36,6 +37,8 @@ function seasonsDropdownChange() {
   if (newData.children[0].children.length > 0) {
     drawSunburst(newData);
     barZoomSunburst(country);
+    updateBarChart(country, season, position, info["data"]);
+    drawDataMap(dataMap, info["data"],season, position);
     // updateBarChart(country, season, position, info["data"]);
     // barZoomSunburst(country);
     // updateBarChart(country, season, position, info["data"]);
@@ -43,12 +46,13 @@ function seasonsDropdownChange() {
   }
   else {
     // updateBarChart(country, season, position, info["data"]);
-    alert("I'm an alert box!");
+    alert("No data found");
+    d3.select("#seasonsdropdown").property("value", "All");
   }
   // barZoomSunburst(country);
   console.log(season);
-  updateBarChart(country, season, position, info["data"]);
-  drawDataMap(dataMap, info["data"],season, position);
+  // updateBarChart(country, season, position, info["data"]);
+  // drawDataMap(dataMap, info["data"],season, position);
 }
 
 function positionsDropdownChange() {
@@ -62,15 +66,18 @@ function positionsDropdownChange() {
   if (newData.children[0].children.length > 0) {
     drawSunburst(newData);
     barZoomSunburst(country);
+    updateBarChart(country, season, position, info["data"]);
+    drawDataMap(dataMap, info["data"],season, position);
   }
   else {
     // updateBarChart(country, season, position, info["data"]);
-    alert("I'm an alert box!");
+    alert("No data found");
+    d3.select("#positionsdropdown").property("value", "All");
   }
   // barZoomSunburst(country);
   console.log(season);
-  updateBarChart(country, season, position, info["data"]);
-  drawDataMap(dataMap, info["data"],season, position);
+  // updateBarChart(country, season, position, info["data"]);
+  // drawDataMap(dataMap, info["data"],season, position);
 }
 
 function dropdownChange() {

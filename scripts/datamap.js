@@ -67,7 +67,13 @@ function findValuesMap(data, season, position) {
   Object.keys(values).forEach( function(country) {
     values.valuesArray.push(values[country].total);
   })
-  return values;
+  if (values.valuesArray.length > 0) {
+    return values;
+  }
+  // else {
+  //   alert("no data found");
+  //   d3.select("#countriesdropdown").property("value", "All");
+  // }
 }
 //
 // function zipMap(countries, data) {
@@ -184,6 +190,7 @@ function ready(error, topology, data , season, position) {
               .style("top", (d3.event.pageY - heightMap / 2.5) + "px")
               d3.select(this).style('opacity', 0.75)
               d3.select(this).style("fill", "#fee6ce")
+              d3.select(this).style("stroke", "3px")
           }
           else {
             divMap.transition()
@@ -197,6 +204,7 @@ function ready(error, topology, data , season, position) {
               .style("top", (d3.event.pageY - heightMap / 2.5) + "px")
               d3.select(this).style('opacity', 0.75)
               d3.select(this).style("fill", "#fee6ce")
+              d3.select(this).style("stroke", "3px")
           }
         })
         .on("mouseout", function(d) {
@@ -216,11 +224,13 @@ function ready(error, topology, data , season, position) {
           })}
         })
         .on("click", function(d) {
-          dataMapClick(d.properties.name);
-          // barZoomSunburst(d.properties.name);
-          console.log(d.properties.name);
-          console.log(d3.select("#seasonsdropdown").property("value"));
-          console.log(d3.select("#positionsdropdown").property("value"));
+          if (d.properties.name in newData) {
+            dataMapClick(d.properties.name);
+            // barZoomSunburst(d.properties.name);
+            console.log(d.properties.name);
+            console.log(d3.select("#seasonsdropdown").property("value"));
+            console.log(d3.select("#positionsdropdown").property("value"));
+          }
         })
         .merge(pathMap)
         // .transition().duration(250)
@@ -245,7 +255,7 @@ function ready(error, topology, data , season, position) {
         .ease(d3.easeLinear)
         // .style("fill", "red")
         .style("stroke", "darkgrey")
-        .style("stroke-width", 1.5);
+        .style("stroke-width", 2);
 
   pathMap.exit()
   // .transition().duration(750)
