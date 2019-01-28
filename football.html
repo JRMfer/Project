@@ -28,6 +28,7 @@
 </head>
 
 <body>
+  <div class="container-fluid text-center">
   <!-- <h1>Central goverment spending OECD (2014)</h1> -->
   <div class="row">
     <div class="col-sm-12">
@@ -42,7 +43,10 @@
             <li><a class="nav-link" href="https://github.com/JRMfer/Project">Github Source</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
-            <li class="dropdown">
+            <span class="navbar-text">
+               Country:
+            </span>
+            <li>
               <div class="select-wrapper">
               <select id="countriesdropdown" href="/" onchange="countriesDropdownChange()">
                 <!-- <option value="All" class="seasonclick" id="All" href="/" >All</option> -->
@@ -50,14 +54,20 @@
               <!-- <i class="fa fa-angle-down"></i> -->
               </div>
             </li>
-            <li class="dropdown">
+            <span class="navbar-text">
+               Season:
+            </span>
+            <li>
               <div class="select-wrapper">
               <select id="seasonsdropdown" href="/" onchange="seasonsDropdownChange()">
                 <!-- <option value="All" class="seasonclick" id="All" href="/" >All</option> -->
               </select>
               </div>
             </li>
-            <li class="dropdown">
+            <span class="navbar-text">
+              Position: 
+            </span>
+            <li>
               <div class="select-wrapper">
               <select id="positionsdropdown" href="/" onchange="positionsDropdownChange()">
                 <!-- <option value="All" class="seasonclick" id="All" href="/" >All</option> -->
@@ -151,6 +161,7 @@
     </div>
 </div>
     </div>
+  </div>
   </div>
   <div class="row">
     <div class="col-sm-1" id="space"></div>
