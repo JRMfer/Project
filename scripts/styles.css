@@ -1,7 +1,33 @@
 body {
-  padding-top: 50px;
+  padding-top: 80px;
+  background: #0d0d0d;
+  /* padding-bottom: -20px; */
   /* background: #1a1a1a;
   color: #d9d9d9; */
+}
+
+.navbar-brand, .navbar-link, .navbar-active {
+  padding: 0 15px;
+  height: 80px;
+  line-height: 80px;
+}
+
+
+@media (min-width: 768px) {
+  .navbar-nav > li > a {
+    /* (80px - line-height of 27px) / 2 = 26.5px */
+    padding-top: 26.5px;
+    padding-bottom: 26.5px;
+    line-height: 27px;
+  }
+}
+
+.navbar.navbar-inverse.navbar-fixed-top {
+ /* min-height: 80px; */
+ /* height: 80px; */
+ font-size: 20px;
+ background: #0d0d0d;
+ /* color: #d9d9d9; */
 }
 
 /* Bottom right text */
@@ -37,7 +63,8 @@ body {
 }
 
 .jumbotron {
-  /* text-align: center; */
+  background: #0d0d0d;
+  color: #d9d9d9;
 }
 
 .row {

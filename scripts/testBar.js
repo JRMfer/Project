@@ -227,7 +227,9 @@ function drawBarChart(data) {
     })])
     .range([marginsBar.left, widthBar + marginsBar.right]);
 
-  xAxis.scale(xAxisScale);
+  xAxis.scale(xAxisScale).tickFormat(function(d) {
+    return "€ " + format(d / 1000000) + "M";
+  });
   // xAxisSvg.call(xAxis);
   // yAxisSvg.call(yAxis);
   //

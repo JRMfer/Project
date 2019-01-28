@@ -170,7 +170,7 @@ function drawLineChart(data) {
 
   xAxisLine.scale(xAxisScaleLine);
   yAxisLine.scale(yScaleLine).tickFormat(function(d) {
-    return "€" + format(d / 1000000) + "M";
+    return "€ " + format(d / 1000000) + "M";
   })
 //   .tickFormat(function(d) { if (d > 1000000) {
 //     return "€" + d3.formatPrefix(".1", 1e6)(d);

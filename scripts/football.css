@@ -1,9 +1,9 @@
 .container-fluid {
   background: #0d0d0d;
 }
-.navbar {
+/* .navbar {
   min-height: 80px;
-}
+} */
 
 .navbar-brand, .navbar-link, .navbar-active {
   padding: 0 15px;
@@ -38,7 +38,7 @@
 }
 
 .navbar.navbar-inverse.navbar-fixed-top {
- min-height: 80px;
+ /* min-height: 80px; */
  /* height: 80px; */
  font-size: 20px;
  background: #0d0d0d;
@@ -49,7 +49,7 @@
 } */
 
 body {
-  padding-top: 70px;
+  padding-top: 80px;
   /* background: #1a1a1a;
   color: #d9d9d9; */
 }
@@ -59,8 +59,9 @@ body {
 } */
 
 #contentModal {
-  background: #1a1a1a;
+  background: #0d0d0d;
   color: #d9d9d9;
+  text-align: left;
 }
 
 
@@ -122,6 +123,10 @@ select {
     font-weight: 900;
 }
 
+select:focus {
+  outline: none;
+}
+
 #header {
   color: #d9d9d9;
   text-align: center;
@@ -173,4 +178,8 @@ select {
   background: #0d0d0d;
   /* background: #49c0fc; */
   color: white;
+}
+
+#buttonLine:focus {
+    outline:none;
 }
