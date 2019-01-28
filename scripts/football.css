@@ -16,20 +16,7 @@ body {
   background: #1a1a1a;
   color: #d9d9d9;
 }
-/* .modal .modal-dialog {
-   width: 150px;
-   background-color: blue;
-} */
 
-/* #aboutModal {
-  background: #1a1a1a;
-  color: #d9d9d9;
-} */
-
-/* #navbar {
-  background: #1a1a1a;
-  color: #d9d9d9;
-} */
 
 #map, #barchart, #sunburst, #linechart{
   /* background: #333333; */
@@ -51,19 +38,40 @@ body {
   color: #d9d9d9;
 }
 
-/* select {
-   -webkit-appearance: none;
-   -moz-appearance: none;
-   appearance: none;       /* remove default arrow */
-   background-image: url(...);   /* add custom arrow */
-  background: #1a1a1a;
+select {
+	/* background: #F0F3FB; */
+  background: #0d0d0d;
+	border: 1px solid #F0F3FB;
+	border-radius: 4px;
+	width: 100%;
+	padding: 20px;
+	font-size: 16px;
+	/* color: #3F3F3F; */
   color: #d9d9d9;
-} */
 
-/* select option {
-  background: #1a1a1a;
-  color: #d9d9d9;
-} */
+	/* Here's the code we need */
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	-ms-appearance: none;
+	 -o-appearance: none;
+		appearance: none;
+}
+
+.select-wrapper {
+	position: relative;
+}
+
+.select-wrapper:after {
+	 /* font-family: FontAwesome; */
+  	content: '\f107';
+  	font-size: 28px;
+  	position: absolute;
+  	top: 12px;
+  	right: 20px;
+  	/* color: #d9d9d9; */
+    color: white;
+  	pointer-events: none;
+}
 
 #header {
   color: #d9d9d9;

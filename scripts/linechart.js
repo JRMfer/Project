@@ -169,7 +169,17 @@ function drawLineChart(data) {
                     .range([heightLine - marginLine.bottom, marginLine.top]);
 
   xAxisLine.scale(xAxisScaleLine);
-  yAxisLine.scale(yScaleLine);
+  yAxisLine.scale(yScaleLine).tickFormat(function(d) {
+    return "€" + format(d / 1000000) + "M";
+  })
+//   .tickFormat(function(d) { if (d > 1000000) {
+//     return "€" + d3.formatPrefix(".1", 1e6)(d);
+//   }
+//   else {
+//     return "€" + d3.formatPrefix(".1", 1e5)(d);
+//   }
+// })
+  // .tickFormat(d3.formatPrefix("$.0", 1e6));
   //
   let color = d3.scaleLinear()
                 .domain([d3.min(data.data), d3.max(data.data)])
@@ -235,8 +245,8 @@ function drawLineChart(data) {
                       "<span class='details'>" + '€' + format(data.topTransfers[data.seasons[i]][2].value) + "</span><br>")
               // .style("left", (xAxisScaleLine(data.seasons[i]) - marginLine.left - marginLine.right) + "px")
               // .style("top", (d3.event.pageY - heightLine / 3 + marginLine.top + marginLine.bottom) + "px")
-            .style("left", (d3.event.pageX - widthLine / 1.25 + (marginLine.right + marginLine.left)) + "px")
-            .style("top", (d3.event.pageY - heightLine / 3 + marginLine.top + marginLine.bottom) + "px")
+            .style("left", (d3.event.pageX - widthLine  + (marginLine.right + marginLine.left)) + "px")
+            .style("top", (d3.event.pageY - heightLine / 3.5 + marginLine.top + marginLine.bottom) + "px")
             d3.select(this).style('opacity', 0.5)
           }
           else if (data.topTransfers[data.seasons[i]].length === 2) {
@@ -249,8 +259,8 @@ function drawLineChart(data) {
                       "<span class='details'>" + '€' + format(data.topTransfers[data.seasons[i]][0].value) + "</span><br>"
                       + "<strong>2." + data.topTransfers[data.seasons[i]][1].name + "</strong><br>" +
                       "<span class='details'>" + '€' + format(data.topTransfers[data.seasons[i]][1].value) + "</span><br>")
-            .style("left", (d3.event.pageX - widthLine / 1.25 + marginLine.left + marginLine.right) + "px")
-            .style("top", (d3.event.pageY - heightLine / 3 + marginLine.top + marginLine.bottom) + "px")
+                      .style("left", (d3.event.pageX - widthLine  + (marginLine.right + marginLine.left)) + "px")
+                      .style("top", (d3.event.pageY - heightLine / 3.5 + marginLine.top + marginLine.bottom) + "px")
             d3.select(this).style('opacity', 0.5)
           }
           else if (data.topTransfers[data.seasons[i]].length === 1) {
@@ -261,8 +271,8 @@ function drawLineChart(data) {
                       + "Top 3 transfers: " + "</strong><br><span class='details'>"
                       + "<strong>1. " + data.topTransfers[data.seasons[i]][0].name + "</strong><br>" +
                       "<span class='details'>" + '€' + format(data.topTransfers[data.seasons[i]][0].value) + "</span><br>")
-            .style("left", (d3.event.pageX - widthLine / 1.25 + marginLine.left + marginLine.right) + "px")
-            .style("top", (d3.event.pageY - heightLine / 3 + marginLine.top + marginLine.bottom) + "px")
+                      .style("left", (d3.event.pageX - widthLine  + (marginLine.right + marginLine.left)) + "px")
+                      .style("top", (d3.event.pageY - heightLine / 3.5 + marginLine.top + marginLine.bottom) + "px")
             d3.select(this).style('opacity', 0.5)
           }
 

@@ -15,6 +15,7 @@
   <script src="https://d3js.org/d3.v5.min.js"></script>
   <!-- Latest compiled and minified CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
   <link href="scripts/football.css" rel="stylesheet">
 
   <!-- jQuery library -->
@@ -22,6 +23,7 @@
 
   <!-- Latest compiled JavaScript -->
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel='icon' href='doc/favicon.ico' type='image/x-icon'/ >
   <title>Football transfers top250 2000-2018</title>
 </head>
 
@@ -41,19 +43,26 @@
           </ul>
           <ul class="nav navbar-nav navbar-right">
             <li class="dropdown">
-              <select class="form-control" id="countriesdropdown" href="/" onchange="countriesDropdownChange()">
+              <div class="select-wrapper">
+              <select id="countriesdropdown" href="/" onchange="countriesDropdownChange()">
                 <!-- <option value="All" class="seasonclick" id="All" href="/" >All</option> -->
               </select>
+              <!-- <i class="fa fa-angle-down"></i> -->
+              </div>
             </li>
             <li class="dropdown">
-              <select class="form-control" id="seasonsdropdown" href="/" onchange="seasonsDropdownChange()">
+              <div class="select-wrapper">
+              <select id="seasonsdropdown" href="/" onchange="seasonsDropdownChange()">
                 <!-- <option value="All" class="seasonclick" id="All" href="/" >All</option> -->
               </select>
+              </div>
             </li>
             <li class="dropdown">
-              <select class="form-control" id="positionsdropdown" href="/" onchange="positionsDropdownChange()">
+              <div class="select-wrapper">
+              <select id="positionsdropdown" href="/" onchange="positionsDropdownChange()">
                 <!-- <option value="All" class="seasonclick" id="All" href="/" >All</option> -->
               </select>
+              </div>
             </li>
           </ul>
         </div>

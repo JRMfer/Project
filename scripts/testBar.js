@@ -232,7 +232,7 @@ function drawBarChart(data) {
   // yAxisSvg.call(yAxis);
   //
   // set tooltip for barchart
-  let div = d3.select("#barchart").append("div")
+  let divBar = d3.select("#barchart").append("divBar")
       .attr("class", "tooltip")
       .attr("id", "tooltipBars")
       .style("opacity", 0);
@@ -258,18 +258,18 @@ function drawBarChart(data) {
     .on("mouseover", function(d) {
       // console.log(d[1]);
       // console.log(d[0]);
-          div.transition()
+          divBar.transition()
           .style("opacity", 0.9)
-          div.html("<strong>Total transfers: </strong><span class='details'>" +
+          divBar.html("<strong>Total transfers: </strong><span class='details'>" +
                     format(d[Object.keys(d)].count) + "<br></span>" +
                     "<strong>Total transfer fees: </strong><br><span class='details'>"
                      + '€' + format(d[Object.keys(d)].value)  + "</span>")
-          .style("left", (d3.event.pageX + (marginsBar.left + marginsBar.right) / 2) + "px")
-          .style("top", (d3.event.pageY - heightBar + (marginsBar.top + marginsBar.bottom) / .75) + "px")
+          .style("left", (d3.event.pageX - marginsBar.left) + "px")
+          .style("top", (d3.event.pageY - heightBar + (marginsBar.top + marginsBar.bottom)) + "px")
           d3.select(this).style('opacity', 0.5)
         })
         .on("mouseout", function(d) {
-            div.transition()
+            divBar.transition()
                 .style("opacity", 0)
             d3.select(this).style('opacity', 1);
         })
