@@ -264,8 +264,8 @@ function drawBarChart(data) {
                     format(d[Object.keys(d)].count) + "<br></span>" +
                     "<strong>Total transfer fees: </strong><br><span class='details'>"
                      + '€' + format(d[Object.keys(d)].value)  + "</span>")
-          .style("left", (d3.event.pageX + widthBar / 2 - marginsBar.left * 2 - marginsBar.right * 2) + "px")
-          .style("top", (d3.event.pageY - heightBar + marginsBar.top + marginsBar.bottom) + "px")
+          .style("left", (d3.event.pageX + (marginsBar.left + marginsBar.right) / 2) + "px")
+          .style("top", (d3.event.pageY - heightBar + (marginsBar.top + marginsBar.bottom) / .75) + "px")
           d3.select(this).style('opacity', 0.5)
         })
         .on("mouseout", function(d) {

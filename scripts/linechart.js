@@ -1,6 +1,6 @@
-let marginLine = {top: 20, right: 20, bottom: 20, left: 100};
+let marginLine = {top: 20, right: 20, bottom: 20, left: 200};
 let colorsLine = ["#65cd94", "#52c786", "#52c786", "#3ec179", "#38ad6d", "#329a61", "#2c8755","#257449", "#1f603c", "#194d30"];
-let widthLine = 1100 - marginLine.right - marginLine.left;
+let widthLine = 1200 - marginLine.right - marginLine.left;
 let heightLine = 900 - marginLine.top - marginLine.bottom;
 //
 // let svgLine = d3.select("#linechart").append("svg")
@@ -15,7 +15,7 @@ let svgLine = d3.select("#linechart")
       .attr("class", "svg")
       .attr("id", "lineChart")
       .attr("preserveAspectRatio", "xMinYMin meet")
-      .attr("viewBox", "-75 0 1360 995");
+      .attr("viewBox", "0 0 1360 995");
 
 //
 let divLine = d3.select("#linechart").append("div")
@@ -30,12 +30,12 @@ let divLine = d3.select("#linechart").append("div")
 let xAxisSvgLine = svgLine.append("g")
   .attr("class", "axis")
   .attr("id", "xAxis")
- .attr("transform", "translate(15,"  + ((marginLine.top + marginLine.bottom) * 22) + ")")
+ .attr("transform", "translate(0,"  + (heightLine - marginLine.bottom) + ")")
 
 let yAxisSvgLine = svgLine.append("g")
   .attr("class", "axis")
   .attr("id", "yAxis")
-  .attr("transform", "translate(" + (marginLine.left + marginLine.right) / 1.1 + ",0)")
+  .attr("transform", "translate(" + (marginLine.left)+ ",0)")
 
 
 let xAxisLine = d3.axisBottom();
@@ -145,14 +145,16 @@ function drawLineChart(data) {
   let xAxisScaleLine = d3.scaleBand()
         .domain(data.seasons)
         .range([marginLine.left, widthLine + marginLine.right])
-        .paddingInner(0.05);
+        // .paddingInner(0.05);
+
+  let tickCorrect =( widthLine / data.data.length) / 2;
 
   console.log(data.seasons.length);
   console.log(data.data.length);
 
   let xScaleLine = d3.scaleLinear()
-                    .domain([0, data.seasons.length])
-                    .range([marginLine.left, widthLine -marginLine.right]);
+                    .domain([0, data.data.length])
+                    .range([marginLine.left, widthLine]);
   //
   // let yMin = d3.min(data.data, function(d) {
   //   return d[Object.keys(d)].value;
@@ -164,7 +166,7 @@ function drawLineChart(data) {
   //
   let yScaleLine = d3.scaleLinear()
                     .domain([0, d3.max(data.data)])
-                    .range([heightLine + marginLine.bottom, marginLine.top]);
+                    .range([heightLine - marginLine.bottom, marginLine.top]);
 
   xAxisLine.scale(xAxisScaleLine);
   yAxisLine.scale(yScaleLine);
@@ -179,7 +181,7 @@ function drawLineChart(data) {
   //     .style("opacity", 0);
   //
   let line = d3.line()
-    .x(function(d, i) { return xScaleLine(i + 1); })
+    .x(function(d, i) { return xAxisScaleLine(data.seasons[i]) + tickCorrect; })
     .y(function(d) { return yScaleLine(d); });
     // .curve(d3.curveMonotoneX);
 
@@ -231,7 +233,9 @@ function drawLineChart(data) {
                       "<span class='details'>" + '€' + format(data.topTransfers[data.seasons[i]][1].value) + "</span><br>"
                       + "<strong>3. " + data.topTransfers[data.seasons[i]][2].name + "</strong><br>" +
                       "<span class='details'>" + '€' + format(data.topTransfers[data.seasons[i]][2].value) + "</span><br>")
-            .style("left", (d3.event.pageX - widthLine / 1.25 + marginLine.left + marginLine.right) + "px")
+              // .style("left", (xAxisScaleLine(data.seasons[i]) - marginLine.left - marginLine.right) + "px")
+              // .style("top", (d3.event.pageY - heightLine / 3 + marginLine.top + marginLine.bottom) + "px")
+            .style("left", (d3.event.pageX - widthLine / 1.25 + (marginLine.right + marginLine.left)) + "px")
             .style("top", (d3.event.pageY - heightLine / 3 + marginLine.top + marginLine.bottom) + "px")
             d3.select(this).style('opacity', 0.5)
           }
@@ -288,8 +292,8 @@ function drawLineChart(data) {
     // .delay(function(d, i) {
     //   return i * 25;
     // })
-    .attr("cx", function(d, i) { return xScaleLine(i + 1) })
-    .attr("cy", function(d) { return yScaleLine(d) })
+    .attr("cx", function(d, i) { return xAxisScaleLine(data.seasons[i]) + tickCorrect; })
+    .attr("cy", function(d) { return yScaleLine(d); })
     .attr("r", 10)
     // .style("stroke", "green")
     .style("fill", "#49c0fc")
