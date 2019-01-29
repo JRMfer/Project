@@ -114,8 +114,43 @@ function dataMapClick(country) {
   barZoomSunburst(country);
 }
 
+function mouseoverMap(d) {
+   // checks if country is in data set and gives the right values to tooltip
+   if (d.properties.name in dataMap) {
 
-function drawDataMap(error, topology, data, season, position) {
+     divMap.transition().style("opacity", 0.9);
+
+     divMap.html("<strong>Country: </strong><span class='details'>" +
+         d.properties.name + "</span>" + "<br><br>" + "<strong>" +
+         "Total transfers: " + "</strong><span class='details'>" +
+         dataMap[d.properties.name]["transfers"] + "</span><br><br>" +
+         "<strong>Total transfer fees: </strong><br>" + '€ ' + format(dataMap[d.properties.name]["total"]))
+       .style("left", (d3.event.pageX - marginsMap.left - marginsMap.right) + "px")
+       .style("top", (d3.event.pageY - heightMap / 2.5) + "px");
+
+     d3.select(this).style('opacity', 0.5);
+     d3.select(this).style("fill", "#ffa31a");
+     d3.select(this).style("stroke", "3px");
+   }
+   // if not set values to undefined
+   else {
+     divMap.transition().style("opacity", 0.9);
+
+     divMap.html("<strong>Country: </strong><span class='details'>" +
+         d.properties.name + "</span>" + "<br><br>" + "<strong>" +
+         "Total transfers: " + "</strong><span class='details'>" +
+         "undefined </span><br><br>" +
+         "<strong>Total transfer fees: </strong><br> undefined")
+       .style("left", (d3.event.pageX - marginsMap.left - marginsMap.right) + "px")
+       .style("top", (d3.event.pageY - heightMap / 2.5) + "px");
+
+     d3.select(this).style('opacity', 0.5);
+     d3.select(this).style("fill", "#ffa31a");
+     d3.select(this).style("stroke", "3px");
+   }
+}
+
+function drawDataMap(topology, data, season, position) {
   /*
     function that draws datamap with a transition on the fill of colours, and
     legend and tooltip which can be updated. Tooltip shows country's name, the
@@ -147,14 +182,13 @@ function drawDataMap(error, topology, data, season, position) {
       divMap.transition().style("opacity", 0.9);
 
       divMap.html("<strong>Country: </strong><span class='details'>" +
-          d.properties.name + "</span>" + "<br>" + "<strong>" +
+          d.properties.name + "</span>" + "<br><br>" + "<strong>" +
           "Total transfers: " + "</strong><span class='details'>" +
-          dataMap[d.properties.name]["transfers"] + "</span><br>" +
-          "<strong>Total transfer fees: </strong><br>" + '€' + format(dataMap[d.properties.name]["total"]))
+          dataMap[d.properties.name]["transfers"] + "</span><br><br>" +
+          "<strong>Total transfer fees: </strong><br>" + '€ ' + format(dataMap[d.properties.name]["total"]))
         .style("left", (d3.event.pageX - marginsMap.left - marginsMap.right) + "px")
         .style("top", (d3.event.pageY - heightMap / 2.5) + "px");
 
-      d3.select(this).style('opacity', 0.5);
       d3.select(this).style("fill", "#ffa31a");
       d3.select(this).style("stroke", "3px");
     }
@@ -163,14 +197,13 @@ function drawDataMap(error, topology, data, season, position) {
       divMap.transition().style("opacity", 0.9);
 
       divMap.html("<strong>Country: </strong><span class='details'>" +
-          d.properties.name + "</span>" + "<br>" + "<strong>" +
+          d.properties.name + "</span>" + "<br><br>" + "<strong>" +
           "Total transfers: " + "</strong><span class='details'>" +
-          "undefined </span><br>" +
+          "undefined </span><br><br>" +
           "<strong>Total transfer fees: </strong><br> undefined")
         .style("left", (d3.event.pageX - marginsMap.left - marginsMap.right) + "px")
         .style("top", (d3.event.pageY - heightMap / 2.5) + "px");
 
-      d3.select(this).style('opacity', 0.5);
       d3.select(this).style("fill", "#ffa31a");
       d3.select(this).style("stroke", "3px");
     }

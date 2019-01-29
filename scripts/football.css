@@ -68,6 +68,12 @@ body {
   font-size: 20px;
 }
 
+.line {
+  stroke: #49c0fc;
+  stroke-width: 3;
+  fill: none;
+}
+
 .row {
   background: #333333;
   margin-left: 0px;

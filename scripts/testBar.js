@@ -1,3 +1,14 @@
+/*
+Name: Julien Fer
+University: University of Amsterdam
+Studentnumber: 10649441
+
+This script contains the functionality to draw a linechart with the total transfer
+fee over time (per season) including a tooltip that shows this amount and also
+the top 3 transfers (per season). The dots in the chart contain a click function
+to update the other 3 visualiszations.
+*/
+
 // const var for marginsBar svg Bar chart
 const marginsBar = {top: 50, right: 100, bottom: 100, left: 150},
             widthBar = 1200 - marginsBar.left - marginsBar.right,
@@ -6,18 +17,8 @@ const marginsBar = {top: 50, right: 100, bottom: 100, left: 150},
             animateDelay = 75,
             barPadding = 5;
 
-let colors = ["#ffffe5", "#f7fcb9", "#d9f0a3", "#addd8e", "#78c679", "#41ab5d", "#238443", "#006837", "#004529"];
-// let colors2 = ["#fff5eb", "#fee6ce", "#fdd0a2", "#fdae6b", "#fd8d3c", "#f16913", "#d94801", "#a63603", "#7f2704"];
-// let colors2 = ["#65cd94", "#52c786", "#52c786", "#3ec179", "#38ad6d", "#329a61", "#2c8755","#257449", "#1f603c", "#194d30"];
-// let colors2 = ["#f7f7f7", "#e5ebee", "#d1dee4", "#9fbecb", "#8ab2c1", "#77a6b8", "#649baf", "#4f90a6", "#3a869f", "#1d7d97"];
-// let colors2 = ["#8d999a", "#7c898b", "#6d7c7e", "#586a6c", "#485c5e", "#3e5355", "#354b4d", "#2d4447", "#1d373a", "#0d2a2d"];
-let colors2 = ["#f1f9ff", "#d2ebfe", "#c3e5fe", "#abdcfe", "#8fd2fd", "#77cbfd", "#63c5fc", "#49c0fc"];
-// let colors2 = ["#194d30", "#1f603c", "#257449", "#2c8755", "##329a61", "#38ad6d"];
-// let colorBar = d3.scaleThreshold()
-//                 // .domain([0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100])
-//                 .range(d3.schemeBuGn[5]);
 
-// let colorBar = d3.scaleSequential(d3.interpolateBuGn);
+let colors2 = ["#f1f9ff", "#d2ebfe", "#c3e5fe", "#abdcfe", "#8fd2fd", "#77cbfd", "#63c5fc", "#49c0fc"];
 
 // Create SVG for bar chart
 let svgBar = d3.select("#barchart")

@@ -24,7 +24,7 @@ function countriesDropdownChange() {
 
     // drawSunburst(newData);
     barZoomSunburst(country);
-    drawDataMap(0, featuresMap, info["data"],season, position);
+    // drawDataMap(0, featuresMap, info["data"],season, position);
     updateBarChart(country, season, position, info["data"]);
     // drawDataMap(dataMap, info["data"],season, position);
 
@@ -43,7 +43,7 @@ function seasonsDropdownChange() {
     drawSunburst(newData);
     barZoomSunburst(country);
     updateBarChart(country, season, position, info["data"]);
-    drawDataMap(0, featuresMap, info["data"],season, position);
+    drawDataMap(featuresMap, info["data"],season, position);
     // updateBarChart(country, season, position, info["data"]);
     // barZoomSunburst(country);
     // updateBarChart(country, season, position, info["data"]);
@@ -72,7 +72,7 @@ function positionsDropdownChange() {
     drawSunburst(newData);
     barZoomSunburst(country);
     updateBarChart(country, season, position, info["data"]);
-    drawDataMap(0, featuresMap, info["data"], season, position);
+    drawDataMap(featuresMap, info["data"], season, position);
   }
   else {
     // updateBarChart(country, season, position, info["data"]);
@@ -108,7 +108,7 @@ function dropdownChange() {
     drawSunburst(newData);
     // barZoomSunburst(country);
     updateBarChart(country, season, position, info["data"]);
-    drawDataMap(0, featuresMap, info["data"],season, position);
+    drawDataMap(featuresMap, info["data"],season, position);
   }
   else {
     alert("I'm an alert box!");
@@ -205,7 +205,7 @@ window.onload = function() {
     let country = d3.select("#countriesdropdown").property("value");
     let position = d3.select("#positionsdropdown").property("value");
     optionsDropdown(featuresMap.features, info["data"]);
-    drawDataMap(0, featuresMap, info["data"], "All", "All");
+    drawDataMap(featuresMap, info["data"], "All", "All");
     info["rootSun"] = preproccesSunburst("All", "All", "All", info.data);
     drawSunburst(info.rootSun);
     updateBarChart("All", "All", "All", info["data"]);
