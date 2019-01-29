@@ -72,7 +72,7 @@ function positionsDropdownChange() {
     drawSunburst(newData);
     barZoomSunburst(country);
     updateBarChart(country, season, position, info["data"]);
-    drawDataMap(0, featuresMap, info["data"],season, position);
+    drawDataMap(0, featuresMap, info["data"], season, position);
   }
   else {
     // updateBarChart(country, season, position, info["data"]);

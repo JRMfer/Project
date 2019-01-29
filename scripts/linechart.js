@@ -1,13 +1,18 @@
-let marginLine = {top: 20, right: 20, bottom: 20, left: 200};
-let colorsLine = ["#65cd94", "#52c786", "#52c786", "#3ec179", "#38ad6d", "#329a61", "#2c8755","#257449", "#1f603c", "#194d30"];
-let widthLine = 1200 - marginLine.right - marginLine.left;
-let heightLine = 900 - marginLine.top - marginLine.bottom;
-//
-// let svgLine = d3.select("#linechart").append("svg")
-//   .attr("class", "svgLine")
-//   .attr("height", heightLine).attr("width", widthLine)
-//   .append("g")
-//     .attr("transform", `translate(${marginLine.left}, ${marginLine.right})`)
+/*
+Name: Julien Fer
+University: University of Amsterdam
+Studentnumber: 10649441
+
+This script contains the functionality to draw a datamap with the colours
+varying depending on the value of the total transfer fee in a country. Also
+a tooltip and legend is included. All of these elements can be updated with a
+transition.
+*/
+
+const marginLine = {top: 20, right: 20, bottom: 20, left: 200};
+const colorsLine = ["#65cd94", "#52c786", "#52c786", "#3ec179", "#38ad6d", "#329a61", "#2c8755","#257449", "#1f603c", "#194d30"];
+const widthLine = 1200 - marginLine.right - marginLine.left;
+const heightLine = 900 - marginLine.top - marginLine.bottom;
 
 // Create SVG for line chart
 let svgLine = d3.select("#linechart")

@@ -132,47 +132,59 @@ function drawDataMap(error, topology, data, season, position) {
 
   // set up variable representing every path in dataMap
   let pathMap = svgMap.append("g")
-    .attr("class", "countries")
     .selectAll("path")
-    .data(topology.features)
+    .data(topology.features);
 
-  // enter dataset append path and setup tooltip
-  pathMap.enter().append("path")
-    .on("mouseover", function(d) {
-      if (d.properties.name in dataMap) {
-        divMap.transition()
-          .style("opacity", 0.9)
-        divMap.html("<strong>Country: </strong><span class='details'>" +
-            d.properties.name + "</span>" + "<br>" + "<strong>" +
-            "Total transfers: " + "</strong><span class='details'>" +
-            dataMap[d.properties.name]["transfers"] + "</span><br>" +
-            "<strong>Total transfer fees: </strong><br>" + '€' + format(dataMap[d.properties.name]["total"]))
-          .style("left", (d3.event.pageX - marginsMap.left - marginsMap.right) + "px")
-          .style("top", (d3.event.pageY - heightMap / 2.5) + "px")
-        d3.select(this).style('opacity', 0.5)
-        d3.select(this).style("fill", "#ffa31a")
-        d3.select(this).style("stroke", "3px")
-      } else {
-        divMap.transition()
-          .style("opacity", 0.9)
-        divMap.html("<strong>Country: </strong><span class='details'>" +
-            d.properties.name + "</span>" + "<br>" + "<strong>" +
-            "Total transfers: " + "</strong><span class='details'>" +
-            "undefined </span><br>" +
-            "<strong>Total transfer fees: </strong><br> undefined")
-          .style("left", (d3.event.pageX - marginsMap.left - marginsMap.right) + "px")
-          .style("top", (d3.event.pageY - heightMap / 2.5) + "px")
-        d3.select(this).style('opacity', 0.5)
-        d3.select(this).style("fill", "#ffa31a")
-        d3.select(this).style("stroke", "3px")
-      }
-    })
-    .on("mouseout", function(d) {
+  // enter dataset append path
+  let pathDataMap = pathMap.enter().append("path");
+
+  // set up tooltip
+  pathDataMap.on("mouseover", function(d) {
+
+    // checks if country is in data set and gives the right values to tooltip
+    if (d.properties.name in dataMap) {
+
+      divMap.transition().style("opacity", 0.9);
+
+      divMap.html("<strong>Country: </strong><span class='details'>" +
+          d.properties.name + "</span>" + "<br>" + "<strong>" +
+          "Total transfers: " + "</strong><span class='details'>" +
+          dataMap[d.properties.name]["transfers"] + "</span><br>" +
+          "<strong>Total transfer fees: </strong><br>" + '€' + format(dataMap[d.properties.name]["total"]))
+        .style("left", (d3.event.pageX - marginsMap.left - marginsMap.right) + "px")
+        .style("top", (d3.event.pageY - heightMap / 2.5) + "px");
+
+      d3.select(this).style('opacity', 0.5);
+      d3.select(this).style("fill", "#ffa31a");
+      d3.select(this).style("stroke", "3px");
+    }
+    // if not set values to undefined
+    else {
+      divMap.transition().style("opacity", 0.9);
+
+      divMap.html("<strong>Country: </strong><span class='details'>" +
+          d.properties.name + "</span>" + "<br>" + "<strong>" +
+          "Total transfers: " + "</strong><span class='details'>" +
+          "undefined </span><br>" +
+          "<strong>Total transfer fees: </strong><br> undefined")
+        .style("left", (d3.event.pageX - marginsMap.left - marginsMap.right) + "px")
+        .style("top", (d3.event.pageY - heightMap / 2.5) + "px");
+
+      d3.select(this).style('opacity', 0.5);
+      d3.select(this).style("fill", "#ffa31a");
+      d3.select(this).style("stroke", "3px");
+    }
+  })
+
+  // set mouseout effects
+  pathDataMap.on("mouseout", function(d) {
       divMap.transition()
         .duration(750)
         .ease(d3.easeLinear)
-        .style("opacity", 0)
+        .style("opacity", 0);
+
       d3.select(this).style('opacity', 1);
+
       if (d.properties.name in dataMap) {
         d3.select(this).style("fill", function(d) {
           return colorPath(dataMap[d.properties.name].total);
@@ -182,66 +194,69 @@ function drawDataMap(error, topology, data, season, position) {
           return "#1a1a1a";
         })
       }
-    })
-    .on("click", function(d) {
-      if (d.properties.name in dataMap) {
-        dataMapClick(d.properties.name);
-      }
-    })
-    .merge(pathMap)
+    });
+
+  // set click function with check if country is in dataset
+  pathDataMap.on("click", function(d) {
+    if (d.properties.name in dataMap) {
+      dataMapClick(d.properties.name);
+    }
+  })
+  // merge dataset
+  pathDataMap.merge(pathMap)
     .attr("d", path)
+    // transition on fill colours countries
     .transition()
-    .attr("fill", function(d) {
+    .style("fill", function(d) {
       if (d.properties.name in dataMap) {
         return colorPath(dataMap[d.properties.name].total);
       } else {
         return "#1a1a1a";
-        // return "darkgrey";
       }
     })
     .duration(1500)
     .delay(function(d, i) {
-      return i * 15
+      return i * 15;
     })
     .ease(d3.easeLinear)
-    // .style("fill", "red")
     .style("stroke", "darkgrey")
     .style("stroke-width", 2);
 
+  // remove data dat not coincides
   pathMap.exit().remove();
 
+  // add legend to map
   addLegendMap(colorPath);
 }
 
 function addLegendMap(colorPath) {
-  let legendRect = legendMap.selectAll("rect").data(colorPath.range());
-  console.log(colorPath.range());
+  /*
+    Function to create a legend for a color scheme based on quantiles.
+  */
 
+  // bind dataset values transfer fees
+  let legendRect = legendMap.selectAll("rect").data(colorPath.range());
+
+  // enter dataset, merge dataset and draw rectangles with black stroke
   legendRect.enter().append("rect")
     .merge(legendRect)
-    .transition()
-    .duration(750)
-    .ease(d3.easeLinear)
     .attr("width", legendWidth)
-    // .attr('x', function(d, i) {
-    //   return i * legendWidth;
-    // })
-    // .attr('y', 50)
     .attr('x', widthMap + marginsMap.left - legendWidth)
     .attr('y', function(d, i) {
-      // return (colorsMap.length - i) * legendWidth / 1;
       return (i * legendWidth) + 5;
     })
     .attr("height", legendWidth)
     .style("stroke", "#000")
     .style("fill", function(d, j) {
       return d;
-    })
+    });
 
-  let legendText = legendMap.selectAll("text").data(colorPath.quantiles())
-  console.log(colorPath.quantiles());
+  // bind data text
+  let legendText = legendMap.selectAll("text").data(colorPath.quantiles());
 
+  // set text legend at appropriate place
   legendText.enter().append("text")
+    .attr("id", "textLegendMap")
     .merge(legendText)
     .transition()
     .duration(750)
@@ -250,24 +265,18 @@ function addLegendMap(colorPath) {
     .attr('y', function(d, i) {
       return (colorsMap.length - i - 1) * legendWidth + legendWidth / 2;
     })
-    // .attr('x', function(d, i) {
-    //   return (i + 1) * legendWidth;
-    // })
-    // .attr('y', 80)
     .text(function(d, i) {
+
+      // a check to make sure to only fill text for the border values
       if ((i === 0) || (i === (colorPath.quantiles().length - 1))) {
         var rv = Math.round(d * 10) / 10;
         if (i === 0) rv = '< ' + "€ " + format(rv / 1000000) + "M";
         else if (i === (colorPath.quantiles().length - 1)) rv = '> ' + "€ " + format(rv / 1000000) + "M";
         return rv;
       }
-    })
-    // // .append("tspan")
-    // .attr("dy", ".35em")
-    .style('fill', 'white')
-    .style('stroke', 'none')
-    .style("font-size", "20px");
+    });
 
+  // remove text, rects that do not coincides
   legendRect.exit().remove();
   legendText.exit().remove();
 }

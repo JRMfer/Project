@@ -62,6 +62,12 @@ body {
   /* background: #404040; */
 }
 
+#textLegendMap {
+  fill: white;
+  stroke: none;
+  font-size: 20px;
+}
+
 .row {
   background: #333333;
   margin-left: 0px;
