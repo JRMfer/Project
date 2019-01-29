@@ -1,10 +1,3 @@
-.container-fluid {
-  background: #0d0d0d;
-}
-/* .navbar {
-  min-height: 80px;
-} */
-
 .navbar-brand, .navbar-link, .navbar-active {
   padding: 0 15px;
   height: 80px;
@@ -44,19 +37,11 @@
  background: #0d0d0d;
 }
 
-/* .navbar.navbar-inverse.navbar-fixed-top text {
-  font-size: 50px;
-} */
-
 body {
   padding-top: 80px;
   /* background: #1a1a1a;
   color: #d9d9d9; */
 }
-
-/* #headerModal {
-  color: #1a1a1a;
-} */
 
 #contentModal {
   background: #0d0d0d;
@@ -81,7 +66,6 @@ body {
   background: #333333;
   margin-left: 0px;
   margin-right: 0px;
-  /* background: #1a1a1a; */
   color: #d9d9d9;
 }
 
@@ -97,6 +81,7 @@ select {
 	font-size: 16px;
 	/* color: #3F3F3F; */
   color: #d9d9d9;
+  cursor: pointer;
 
 	/* Here's the code we need */
 	-webkit-appearance: none;
@@ -134,7 +119,7 @@ select:focus {
 
 .tooltip {
     position: absolute;
-    text-align: center;
+    text-align: left;
     padding: 2px;
     font: 12px sans-serif;
     background: black;

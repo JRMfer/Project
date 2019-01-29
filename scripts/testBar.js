@@ -19,7 +19,7 @@ let colors2 = ["#f1f9ff", "#d2ebfe", "#c3e5fe", "#abdcfe", "#8fd2fd", "#77cbfd",
 
 // let colorBar = d3.scaleSequential(d3.interpolateBuGn);
 
-// Create SVG for datamap
+// Create SVG for bar chart
 let svgBar = d3.select("#barchart")
       .append("svg")
       .attr("class", "svg")
