@@ -1,6 +1,6 @@
 # Project Minor Programming (UvA)
-
-Name: Julien Fer (10649441)
+Name: Julien Fer
+Student Number: 10649441
 University: University of Amsterdam
 
 This repository contains the functionality for a dashboard viusalization
