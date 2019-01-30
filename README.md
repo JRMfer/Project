@@ -1,5 +1,4 @@
 # Project Minor Programming (UvA)
-
 Name: Julien Fer (10649441)
 University: University of Amsterdam
 
