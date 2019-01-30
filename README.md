@@ -25,22 +25,21 @@ country, season and position.
 Main features:
 
 * Interactive world map (MVP)
-Shows all countries with hover and click.
+  - Shows all countries with hover and click.
 
 * Interactive horizontal bar chart (MVP)
-Shows the total transfer fees per country/club with hover and click.
+  - Shows the total transfer fees per country/club with hover and click.
 
 * Sunburst (MVP)
-Shows the distribtuion of the total transfer fee with tooltip and click
+  - Shows the distribtuion of the total transfer fee with tooltip and click
 
 * Navbar with dropdowns (MVP)
-Navbar to switch to home page, visualization, explanation (modal) and
-Github
+  - Navbar to switch to home page, visualization, explanation (modal) and Github
 
 Extra features:
 
 * line chart with animation
-shows the development of the total transfer fee over time
+  - shows the development of the total transfer fee over time
 
 Instead of a visual sketch a website walktrough will follow.
 
@@ -100,7 +99,7 @@ layer represents all the clubs in the dataset, the second the countries
 and the third (inner) layer the world. A tooltip shows the exact total
 transfer fee and its percentage w.r.t its parent.
 
-![](doc/visualizations_middle.png)
+![](doc/visualizations_midden.png)
 
 And again at the bottom of the page (when scrolled down) some general
 information is displayed. Some of the text is hyperlinked.
