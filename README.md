@@ -1,7 +1,7 @@
 # Project Minor Programming (UvA)
-Name: Julien Fer
-Student Number: 10649441
-University: University of Amsterdam
+* Name: Julien Fer
+* Student Number: 10649441
+* University: University of Amsterdam
 
 This repository contains the functionality for a dashboard viusalization
 
@@ -18,7 +18,8 @@ will show a pattern trough the years.
 
 ## Website Waltrough
 #### Homepage
-
+The website consists of a main homepage that shows the title and subtitle of the product, projected on an image. At the top of the page is a navigation bar, which contains links with symbols to the other webpages of the site.
+![](doc/homepage_boven.png) 
 
 ## Solution
 At first the statistics will be shown for all the years. But the user can
