@@ -1,0 +1,71 @@
+/*
+Name: Julien Fer
+University: University of Amsterdam
+Studentnumber: 10649441
+
+Stylesheet for the homepage.
+*/
+
+
+/* padding-top body */
+body {
+  padding-top: 80px;
+}
+
+/* adjust padding row */
+.row {
+  margin.left: 0px;
+  margin-right: -15px;
+}
+
+/* adjust padding column */
+.col-sm-12 {
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+/* adjust height navbar  */
+.navbar-brand, .navbar-link, .navbar-active {
+  padding: 0 15px;
+  height: 80px;
+  line-height: 80px;
+}
+
+/* adjust position for navbar nav li items  */
+@media (min-width: 768px) {
+  .navbar-nav>li>a {
+    padding-top: 26.5px;
+    padding-bottom: 26.5px;
+    line-height: 27px;
+  }
+}
+
+/* font-size and background color navbar */
+.navbar.navbar-inverse.navbar-fixed-top {
+  font-size: 20px;
+  background: #0d0d0d;
+}
+
+/* Position text block in middle of image and set style */
+.text-block {
+  position: absolute;
+  top: 35%;
+  right: 37.5%;
+  width: 400px;
+  height: 300x;
+  font-size: 20px;
+  background-color: #1a1a1a;
+  border: 1px solid white;
+  color: white;
+  padding-left: 20px;
+  padding-right: 20px;
+  -moz-box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.5);
+  -webkit-box-shadow: 1px 2px 4px rgba(0, 0, 0, .5);
+  box-shadow: 20px 20px 4px rgba(0, 0, 0, .5);
+}
+
+/* set style jumbotron bottom page */
+.jumbotron {
+  background: #0d0d0d;
+  color: #d9d9d9;
+}

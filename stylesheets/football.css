@@ -1,19 +1,33 @@
+/*
+Name: Julien Fer
+University: University of Amsterdam
+Studentnumber: 10649441
+
+Stylesheet for the dashboard
+*/
+
+/* padding-top body */
+body {
+  padding-top: 80px;
+}
+
+/* set new height navbar */
 .navbar-brand, .navbar-link, .navbar-active {
   padding: 0 15px;
   height: 80px;
   line-height: 80px;
 }
 
-
+/* adjust position navbar nav items */
 @media (min-width: 768px) {
   .navbar-nav > li > a {
-    /* (80px - line-height of 27px) / 2 = 26.5px */
     padding-top: 26.5px;
     padding-bottom: 26.5px;
     line-height: 27px;
   }
 }
 
+/* adjust position text dropdowns */
 @media (min-width: 768px) {
   .nav.navbar-nav.navbar-right > span {
     padding-top: 15px;
@@ -22,6 +36,7 @@
   }
 }
 
+/* adjust position dropdowns */
 @media (min-width: 768px) {
   .nav.navbar-nav.navbar-right > li {
     padding-top: 12px;
@@ -30,50 +45,50 @@
   }
 }
 
+/* font-size and background navbar */
 .navbar.navbar-inverse.navbar-fixed-top {
- /* min-height: 80px; */
- /* height: 80px; */
  font-size: 20px;
  background: #0d0d0d;
 }
 
-body {
-  padding-top: 80px;
-  /* background: #1a1a1a;
-  color: #d9d9d9; */
-}
-
+/* style modal */
 #contentModal {
   background: #0d0d0d;
   color: #d9d9d9;
   text-align: left;
 }
 
-
-#map, #barchart, #sunburst, #linechart{
-  /* background: #333333; */
+/*
+background, color text, border adn box shadow for svgs in visualizations
+*/
+svg {
   background: #1a1a1a;
-  /* background: white; */
   color: white;
   border: 1px solid #333333;
   padding: 10px;
-  /* box-shadow: 5px 10px 8px inset #333333; */
-  /* background: lightgrey; */
-  /* background: #404040; */
+  box-shadow: 10px 10px 10px 10px rgba(230, 230, 230, .1);
 }
 
+/* set box shadow for svg datamap and bar chart */
+#svgMap, #barChart {
+  box-shadow: -10px 10px 10px 10px rgba(230, 230, 230, .1)set style text legend datamap;
+}
+
+/* set style text legend datamap */
 #textLegendMap {
   fill: white;
   stroke: none;
   font-size: 20px;
 }
 
+/* set style for borders counrty */
 .line {
   stroke: #49c0fc;
   stroke-width: 3;
   fill: none;
 }
 
+/* adjust margins, background, color for row */
 .row {
   background: #333333;
   margin-left: 0px;
@@ -81,32 +96,12 @@ body {
   color: #d9d9d9;
 }
 
-select {
-	/* background: #F0F3FB; */
-  background: #0d0d0d;
-	border: 1px solid #0d0d0d;
-	border-radius: 4px;
-	width: 150px;
-  height: 100%;
-  /* display: inline-block; */
-	padding: 20px;
-	font-size: 16px;
-	/* color: #3F3F3F; */
-  color: #d9d9d9;
-  cursor: pointer;
-
-	/* Here's the code we need */
-	-webkit-appearance: none;
-	-moz-appearance: none;
-	-ms-appearance: none;
-	 -o-appearance: none;
-		appearance: none;
-}
-
+/* relative position select wrapper */
 .select-wrapper {
 	position: relative;
 }
 
+/* add caret to the right of dropdown and style it */
 .select-wrapper:after {
 	 font-family: "Font Awesome\ 5 Free";
   	content: "\f0d7";
@@ -114,21 +109,43 @@ select {
   	position: absolute;
   	top: 20px;
   	right: 20px;
-  	/* color: #d9d9d9; */
     color: #d9d9d9;
   	pointer-events: none;
     font-weight: 900;
 }
 
+/* get rid of blue line around drodpdown */
 select:focus {
   outline: none;
 }
 
+/* set style dropdown */
+select {
+  background: #0d0d0d;
+	border: 1px solid #0d0d0d;
+	border-radius: 4px;
+	width: 150px;
+  height: 100%;
+	padding: 20px;
+	font-size: 16px;
+  color: #d9d9d9;
+  cursor: pointer;
+
+	/* set web appearance select off */
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	-ms-appearance: none;
+	 -o-appearance: none;
+		appearance: none;
+}
+
+/* set style headers */
 #header {
   color: #d9d9d9;
   text-align: center;
 }
 
+/* set style tooltip */
 .tooltip {
     position: absolute;
     text-align: left;
@@ -136,22 +153,21 @@ select:focus {
     font: 12px sans-serif;
     background: black;
     color: white;
-    /* color: white; */
     border: 1px solid white;
     border-radius: 0px;
     pointer-events: none;
 }
 
+/* set style axis path and line */
 .axis path, line {
-  /* fill: none; */
   stroke: #d9d9d9;
   stroke-width: 1px;
   font-weight: normal;
   shape-rendering: crispEdges;
 }
 
+/* set style text x axis */
 #xAxis text {
-  /* color: #bfbfbf; */
   color: #d9d9d9;
   text-anchor: start;
   font-family: sans-serif;
@@ -159,6 +175,7 @@ select:focus {
   font-weight: normal;
 }
 
+/* set style text y axis */
 #yAxis text {
   color: #d9d9d9;
   text-anchor: end;
@@ -167,16 +184,24 @@ select:focus {
   font-weight: normal;
 }
 
+/* set style button line chart */
 #buttonLine {
   position:absolute;
   transition: .5s ease;
   top: 87.5%;
   left: 87.5%;
   background: #0d0d0d;
-  /* background: #49c0fc; */
   color: white;
 }
 
+/* get rid off blue focus button */
 #buttonLine:focus {
     outline:none;
+}
+
+/* set style jumbotron bottom page */
+.jumbotron {
+  background: #0d0d0d;
+  color: #d9d9d9;
+  text-align: center;
 }

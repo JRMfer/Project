@@ -1,327 +1,343 @@
+/*
+Name: Julien Fer
+University: University of Amsterdam
+Studentnumber: 10649441
+
+This script contains the functionality to draw a bar chart with sorted bars.
+The barchart also contains a transition on the rects and on the axis with every update.
+*/
+
 // const var for marginsBar svg Bar chart
-const marginsBar = {top: 0, right: 100, bottom: 100, left: 100},
-            widthBar = 750 - marginsBar.left - marginsBar.right,
-            heightBar = 500 - marginsBar.top - marginsBar.bottom,
-            animateDuration = 700,
-            animateDelay = 75,
-            barPadding = 1;
+const marginsBar = {
+    top: 50,
+    right: 100,
+    bottom: 100,
+    left: 150
+  },
+  widthBar = 1200 - marginsBar.left - marginsBar.right,
+  heightBar = 960 - marginsBar.top - marginsBar.bottom,
+  animateDuration = 700,
+  animateDelay = 75,
+  barPadding = 5;
 
-let colors = ["#ffffe5", "#f7fcb9", "#d9f0a3", "#addd8e", "#78c679", "#41ab5d", "#238443", "#006837", "#004529"];
-// let colors2 = ["#fff5eb", "#fee6ce", "#fdd0a2", "#fdae6b", "#fd8d3c", "#f16913", "#d94801", "#a63603", "#7f2704"];
-let colors2 = ["#fdae6b", "#fd8d3c", "#f16913", "#d94801", "#a63603", "#7f2704"];
-// let colorBar = d3.scaleThreshold()
-//                 // .domain([0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100])
-//                 .range(d3.schemeBuGn[5]);
+// colors for bar chart
+const colorsBar = ["#f1f9ff", "#d2ebfe", "#c3e5fe", "#abdcfe", "#8fd2fd", "#77cbfd", "#63c5fc", "#49c0fc"];
 
-// let colorBar = d3.scaleSequential(d3.interpolateBuGn);
+// create SVG for bar chart
+const svgBar = d3.select("#barchart")
+  .append("svg")
+  .attr("id", "barChart")
+  .attr("preserveAspectRatio", "xMinYMin meet")
+  .attr("viewBox", "-100 0 1350 1020");
 
-// Create SVG for datamap
-let svgBar = d3.select("#barchart")
-      .append("svg")
-      .attr("class", "svgBar")
-      .attr("id", "barChart")
-      .attr("preserveAspectRatio", "xMinYMin meet")
-      .attr("viewBox", "0 0 800 500")
-      // .attr("height", heightBar + marginsBar.top + marginsBar.bottom)
-      // .attr("width", widthBar + marginsBar.left + marginsBar.right)
+// set tooltip for barchart
+const divBar = d3.select("#barchart").append("divBar")
+  .attr("class", "tooltip")
+  .attr("id", "tooltipBars")
+  .style("opacity", 0);
 
-function zip(arrays) {
-    return arrays[0].map(function(_,i){
-        return arrays.map(function(array){return array[i]})
-    });
-}
+// append g and add transform for y axis
+const yAxisSvg = svgBar.append("g")
+  .attr("class", "axis")
+  .attr("id", "yAxis")
+  .attr("transform", "translate(" + (marginsBar.left - barPadding) + ",0)");
 
-function updateBarChart(country, season, position, data) {
-  console.log(country);
-  console.log(season);
-  console.log(position);
-  console.log(data);
-  if (country === "All") {
-    let transferAmounts = [];
-    let countries = [];
-    data.forEach(function(transfer) {
-      if (((transfer.Season === season) || (season === "All")) &&
-          ((transfer.Position === position) || (position === "All")) && (+transfer.Transfer_fee > 0)) {
-            let index = countries.indexOf(transfer.League_to);
-            if (index < 0) {
-              countries.push(transfer.League_to);
-              transferAmounts.push(+transfer.Transfer_fee);
-            }
-            else {
-              transferAmounts[index] += +transfer.Transfer_fee;
-            }
-          }
-    })
-    console.log(countries);
-    console.log(transferAmounts);
-    if (countries.length > 0) {
-      return drawBarChart(countries, transferAmounts);
-    }
-    // else {
-    //   alert("No info for map was found (countries)");
-    // }
-  }
-  else {
-    // console.log(season);
-    let transferAmounts = [];
-    let clubs = [];
-    // console.log(season);
-    data.forEach(function(transfer) {
-      // console.log(season);
-      // console.log(transfer.Season);
-      if (((transfer.League_to === country)) &&
-          ((transfer.Season === season) || (season === "All")) &&
-          ((transfer.Position === position) || (position === "All")) &&
-          (+transfer.Transfer_fee > 0)) {
-            let index = clubs.indexOf(transfer.Team_to);
-            if (index < 0) {
-              clubs.push(transfer.Team_to);
-              transferAmounts.push(+transfer.Transfer_fee);
-            }
-            else {
-              transferAmounts[index] += +transfer.Transfer_fee;
-            }
-          }
-    })
-    console.log(clubs);
-    console.log(transferAmounts);
-    if (clubs.length > 0) {
-      return drawBarChart(clubs, transferAmounts);
-    }
-    else {
-      alert("No info for map was found (clubs)");
-    }
-  }
-}
+// append g and add transform for x axis
+const xAxisSvg = svgBar.append("g")
+  .attr("class", "axis")
+  .attr("id", "xAxis")
+  .attr("transform", "translate(0," + (marginsBar.top + marginsBar.bottom) * 6.06 + ")");
 
+// set up var for x and y axis
+let xAxis = d3.axisBottom();
+let yAxis = d3.axisLeft();
 
+function drawBarChart(data) {
+  /*
+    Function to draw a barchart with transition. Tooltip shows total amount of
+    transfers and the total transfer fee. The axis also contain a transition.
+  */
 
-function arrayWithSteps (min, max, steps) {
-  let step = (max - min) / steps;
-  let temp = [];
-  for (let i = min; i <= max; i += step) {
-    temp.push((Math.floor(i)));
-  }
-  return temp;
-}
-
-function drawBarChart(categories, amounts) {
-
-  // set format for data values (millions)
-  let format = d3.format(",");
-  //
-  // let steps = arrayWithSteps(d3.min(amounts), d3.max(amounts), 7);
+  // set up scale
   let colorBar = d3.scaleQuantile()
-    .domain(amounts)
-    .range(colors2);
+    .domain(data.valuesArray)
+    .range(colorsBar);
 
-
+  // set x scale barchart
+  let xScale = d3.scaleLinear()
+    .domain([0, d3.max(data.transfers, function(d) {
+      return d[Object.keys(d)].value;
+    })])
+    .range([marginsBar.left, widthBar]);
 
   // set yScale barchart
   let yScale = d3.scaleLinear()
-    .domain([0, categories.length])
+    .domain([0, data.transfers.length])
     .range([marginsBar.top, heightBar + marginsBar.bottom]);
 
-
-  // set yScale barchart
-  let xScale = d3.scaleLinear()
-    .domain([0, d3.max(amounts)])
-    .range([marginsBar.left, widthBar]);
-
-  // set tooltip for barchart
-  let div = d3.select("#map").append("div")
-      .attr("class", "tooltip")
-      .attr("id", "tooltipBars")
-      .style("opacity", 0)
-      // .html(function(d, country) {
-      //   return "<strong>Country: </strong><span class='details'>" + d.League_to + "<br></span>" + "<strong>Government spending: </strong><span class='details'>" + format(total) + "%" + "</span>";
-      // }
-
-  let data = zip([amounts, categories]);
-  // console.log(data);
-
-  // let t = d3.transition()
-  //   .duration(750);
-
-  // draw graph
+  // bind data
   let bars = svgBar.selectAll("rect")
-    .data(data)
+    .data(data.transfers);
 
-    bars.enter()
-    .append("rect")
-    .attr("class", "bar")
-    .attr("id", "competitionsRects")
-    // .attr("x", xScale(marginsBar.left))
-    .attr("x", widthBar)
+  // enter data set and append rect to svg bar chart
+  let rectsBar = bars.enter().append("rect");
+
+  // set starting points bars
+  rectsBar.attr("x", widthBar)
     .attr("y", function(d, i) {
       return yScale(i);
     })
-    // .attr("fill", function(d) {
-    //   console.log(color(d));
-    //   return color(d);
-    // })
     .attr("width", 0)
-    .attr("height", heightBar / categories.length - barPadding)
-    .on("click", function(d) {
-      barZoomSunburst(d[1]);
-    })
-    .on("mouseover", function(d) {
-      // console.log(d[1]);
-      // console.log(d[0]);
-          div.transition()
-          .style("opacity", 0.9)
-          div.html(d[1] + ": " + format(d[0]))
-          .style("left", (d3.event.pageX) + "px")
-          .style("top", (d3.event.pageY - heightBar / 2) + "px")
-          d3.select(this).style('opacity', 0.5)
-        })
-        .on("mouseout", function(d) {
-            div.transition()
-                .style("opacity", 0)
-            d3.select(this).style('opacity', 1);
-        })
-    .merge(bars)
-    .transition()
-    .duration(750)
+    .attr("height", heightBar / data.transfers.length - barPadding);
+
+    // set on click function for bars (linked to sunburst and line chart)
+  rectsBar.on("click", function(d) {
+      zoomSunburst(Object.keys(d)[0]);
+    });
+
+  // set mouseover effects
+  rectsBar.on("mouseover", function(d) {
+
+      divBar.transition()
+        .style("opacity", 0.9);
+      if (d3.select("#countriesdropdown").property("value") === "All") {
+        divBar.html("<strong>Country: </strong><span class='details'>" + Object.keys(d)[0] + "</span><br><br>"
+            + "<strong>Total transfers: </strong><span class='details'>" +
+            format(d[Object.keys(d)].count) + "</span><br><br>" +
+            "<strong>Total transfer fees: </strong><br><span class='details'>" +
+            '€' + format(d[Object.keys(d)].value) + "</span>");
+      }
+      else {
+        divBar.html("<strong>Club: </strong><span class='details'>" + Object.keys(d)[0] + "</span><br><br>"
+            + "<strong>Total transfers: </strong><span class='details'>" +
+            format(d[Object.keys(d)].count) + "</span><br><br>" +
+            "<strong>Total transfer fees: </strong><br><span class='details'>" +
+            '€' + format(d[Object.keys(d)].value) + "</span>");
+      }
+
+      divBar.style("left", (d3.event.pageX - marginsBar.left) + "px")
+        .style("top", (d3.event.pageY - heightBar / .925 + (marginsBar.top + marginsBar.bottom)) + "px");
+
+      d3.select(this).style("opacity", 0.5);
+    });
+
+  // set mouse out effects
+  rectsBar.on("mouseout", function(d) {
+
+      divBar.transition()
+        .style("opacity", 0);
+
+      d3.select(this).style('opacity', 1);
+    });
+
+  // merge bars
+  let mergedBars = rectsBar.merge(bars);
+
+  // set transition
+  mergedBars.transition()
+    .duration(850)
     .ease(d3.easeLinear)
-    // .ease(d3.easePoly.exponent(2))
-    // .delay(function(d, i) {
-    //   return i * 5;
-    // })
-    // .attr("x", xScale(marginsBar.left))
+    // set attributes bars updated data set
     .attr("x", xScale(marginsBar.left))
     .attr("y", function(d, i) {
       return yScale(i);
     })
     .attr("width", function(d) {
-      return xScale(d[0]);
+      return xScale(d[Object.keys(d)].value);
     })
-    .attr("height", heightBar / categories.length - barPadding)
+    .attr("height", heightBar / data.transfers.length - barPadding)
     // .transition()
-    .attr("fill", function(d) {
-      // console.log(color(d));
-      // console.log(d);
-      return colorBar(d[0]);
-    })
-    // .duration(1000)
-    // .ease(d3.easeLinear)
-    // .delay(function(d, i) {
-    //   return i * 15;
-    // })
-    // .on("mouseover", function(d) {
-    //   div.transition()
-    //   .style("opacity", 0.9)
-    //   div.html(d[1] + ": " + format(d[0]))
-    //   .style("left", (d3.event.pageX) + "px")
-    //   .style("top", (d3.event.pageY - heightBar / 2) + "px")
-    //   d3.select(this).style('opacity', 0.5)
-    // })
-    // .on("mouseout", function(d) {
-    //     div.transition()
-    //         .style("opacity", 0)
-    //     d3.select(this).style('opacity', 1);
-    // });
+    .style("fill", function(d) {
+      return colorBar(d[Object.keys(d)].value);
+    });
 
-  bars.exit()
-      .transition()
-      // .duration(750)
-      // .delay(function(d, i) {
-      //   return i * 25;
-      // })
-      .attr("width", 0)
-      .attr("x", widthBar)
-      .remove();
+  // remove bars
+  bars.exit().transition()
+    .attr("width", 0)
+    .attr("x", widthBar)
+    .remove();
 
-  // bars.on("click", barZoomSunburst("s"))
+  // set axis bar chart
+  axisBarchart(data);
+
+  // set correct header chart
+  if (d3.select("#countriesdropdown").property("value") === "All") {
+    d3.select("#headerBarchart").text("By Competition")
+  } else {
+    d3.select("#headerBarchart").text("By Club")
+  }
 }
 
-function barZoomSunburst(countryName) {
-  console.log(countryName);
-  console.log(info);
-  let root = info.rootSun;
-  console.log(root);
+function axisBarchart(data) {
+  /*
+    Function to set axis for bar chart
+  */
 
-  if (root.depth === 0) {
-    if (countryName === "All") {
-      return click(root.children[0]);
-    }
-    console.log("test");
-    root.children.forEach(function(world) {
-      world.children.forEach(function(competition) {
-        if (competition.data.name === countryName) {
-          info.rootSun = competition;
-          d3.select("#countriesdropdown").property("value", countryName);
-          return click(competition);
-        }
-      })
-    })
+  // set scale for y axis with strings
+  let yAxisScale = d3.scaleBand()
+    .domain(data.categories)
+    .range([marginsBar.top, heightBar + marginsBar.bottom])
+    .paddingInner(0.05);
+
+  yAxis.scale(yAxisScale);
+
+  // set x scale axis
+  let xAxisScale = d3.scaleLinear()
+    .domain([0, d3.max(data.transfers, function(d) {
+      return d[Object.keys(d)].value;
+    })])
+    .range([marginsBar.left, widthBar + marginsBar.right]);
+
+  xAxis.scale(xAxisScale).tickFormat(function(d) {
+    return "€ " + format(d / 1000000) + "M";
+  });
+
+  // set transition for axis
+  xAxisSvg.transition().duration(750).ease(d3.easeLinear).call(xAxis.bind(this)).selectAll("text").attr("transform", "rotate(20)");
+  yAxisSvg.transition().duration(750).ease(d3.easeLinear).call(yAxis.bind(this)).selectAll("text").attr("transform", "rotate(0)");
+}
+
+function updateBarChart(country, season, position, data) {
+  /*
+    Collects the data asked by the user from the total dataset. It returns an
+    object with 3 arrays. 1 for all the values, 1 with objects of the total
+    transfer fee and amount of transfers of every Category and 1 with all the
+    categories (countries/clubs).
+  */
+
+  // set object (infoBar) for the 3 arrays
+  let infoBar = {
+    "valuesArray": [],
+    "transfers": [],
+    "categories": []
+  };
+
+  // check if data for the world ("All") is needed
+  if (country === "All") {
+    checkAllCountriesBar(data, infoBar, season, position);
   }
-  else if (root.depth === 1) {
-    if (countryName === "All") {
-      return click(root);
-    }
-    root.children.forEach(function(competition) {
-      if (competition.data.name === countryName) {
-        info.rootSun = competition;
-        d3.select("#countriesdropdown").property("value", countryName);
-        return click(competition);
-      }
-    })
-  }
-  else if (root.depth === 2) {
-    if (countryName === "All") {
-      return click(root.parent);
-    }
-    let rootWorld = root.parent;
-    rootWorld.children.forEach(function(competition) {
-      if (competition.data.name === countryName) {
-        info.rootSun = competition;
-        d3.select("#countriesdropdown").property("value", countryName);
-        return click(competition);
-      }
-      competition.children.forEach(function(club) {
-        if (club.data.name === countryName) {
-          info.rootSun === club;
-          return click(club);
-        }
-      })
-    })
-  }
+  // if a country is selected
   else {
-    if (countryName === "All") {
-      return click(root.parent.parent);
-    }
-    let rootWorld =  root.parent.parent;
-    rootWorld.children.forEach(function(competition) {
-      if (competition.data.name === countryName) {
-        info.rootSun = competition;
-        d3.select("#countriesdropdown").property("value", countryName);
-        return click(competition);
-      }
-      competition.children.forEach(function(club) {
-        if (club.data.name === countryName) {
-          info.rootSun === club;
-          return click(club);
-        }
-      })
-    })
-
+    checkCountryBar(data, infoBar, country, season, position);
   }
-  // if (info.rootSun.depth === 0) {
-  //   console.log( "test")
-  //   rootWorld.forEach(function(competition) {
-  //     console.log(competition);
-  //     if (competition.data.name === countryName) {
-  //       console.log("Gevonden!");
-  //       info.rootSun = competition;
-  //       click(competition);
-  //     }
-  //     competition.children.forEach(function(club) {
-  //       if (club.data.name === countryName) {
-  //         info.rootSun = club;
-  //         click(club);
-  //       }
-  //     })
-  //   })
-  // }
+}
+
+function checkAllCountriesBar(data, infoBar, season, position) {
+  /*
+    Gathers the updated data when All countries is selected.
+  */
+
+  // loop for every transfer
+  data.forEach(function(transfer) {
+
+    // checks if transfer satisfies condition
+    if (((transfer.Season === season) || (season === "All")) &&
+      ((transfer.Position === position) || (position === "All")) &&
+      (+transfer.Transfer_fee > 0)) {
+
+      // set op tempObj and count var
+      let tempObj = {};
+      let count = 0;
+
+      // loop for every country in infoBar's transfers
+      infoBar.transfers.forEach(function(country) {
+
+        // If country in transfers add the values to it
+        if (transfer.League_to in country) {
+          count += 1;
+          country[transfer.League_to].value += +transfer.Transfer_fee;
+          country[transfer.League_to].count += 1;
+
+        }
+      });
+
+      // if country not in infobar make a new object and add this
+      if (count === 0) {
+        let tempObj2 = {};
+        tempObj2["value"] = +transfer.Transfer_fee;
+        tempObj2["count"] = 1;
+        tempObj[transfer.League_to] = tempObj2;
+        infoBar.transfers.push(tempObj);
+      }
+    }
+  });
+
+  // sort the transfers according the total transfer fee of each country
+  infoBar.transfers.sort(function(a, b) {
+    return ((a[Object.keys(a)].value > b[Object.keys(b)].value) ? -1 : ((a[Object.keys(a)].value == b[Object.keys(b)].value) ? 0 : 1));
+  });
+
+  // add total transfer fee and corresponding in sync to an array
+  infoBar.transfers.forEach(function(transfer) {
+    infoBar.valuesArray.push(transfer[Object.keys(transfer)].value);
+    infoBar.categories.push(Object.keys(transfer)[0]);
+  });
+
+  // checks if infobar contains any data, if so draw bar chart,
+  // if not show alert
+  if (infoBar.transfers.length > 0) {
+    drawBarChart(infoBar);
+  } else {
+    alert("no data found");
+  }
+}
+
+
+function checkCountryBar(data, infoBar, country, season, position) {
+  /*
+    Gathers all the data for a certain country.
+  */
+
+  // loop for every transfer in dataset
+  data.forEach(function(transfer) {
+
+    // checks if transfer satisfies condition
+    if (((transfer.League_to === country)) &&
+      ((transfer.Season === season) || (season === "All")) &&
+      ((transfer.Position === position) || (position === "All")) &&
+      (+transfer.Transfer_fee > 0)) {
+
+      // set op tempObj and count var
+      let tempObj = {};
+      let count = 0;
+
+      // loop over every tclub in infoBar.transfers
+      infoBar.transfers.forEach(function(club) {
+
+        // if club in transfers add the values to it
+        if (transfer.Team_to in club) {
+          count += 1;
+          club[transfer.Team_to].value += +transfer.Transfer_fee;
+          club[transfer.Team_to].count += 1;
+        }
+      });
+
+      // if not make a new object for the club and add it to inforbar.transfers
+      if (count === 0) {
+        let tempObj2 = {}
+        tempObj2["value"] = +transfer.Transfer_fee;
+        tempObj2["count"] = 1;
+        tempObj[transfer.Team_to] = tempObj2;
+        infoBar.transfers.push(tempObj);
+      }
+    }
+  });
+
+  // sort infobar.transfers
+  infoBar.transfers.sort(function(a, b) {
+    return ((a[Object.keys(a)].value > b[Object.keys(b)].value) ? -1 : ((a[Object.keys(a)].value == b[Object.keys(b)].value) ? 0 : 1));
+  });
+
+  // fill array with all total transfer fees and one with all clubs in sync
+  infoBar.transfers.forEach(function(transfer) {
+    infoBar.valuesArray.push(transfer[Object.keys(transfer)].value);
+    infoBar.categories.push(Object.keys(transfer)[0]);
+  });
+
+  // if data in infobar draw bar chart, if not show alert
+  if (infoBar.transfers.length > 0) {
+    return drawBarChart(infoBar);
+  } else {
+    alert("no data found");
+  }
 }

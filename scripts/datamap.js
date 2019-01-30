@@ -24,6 +24,7 @@ const colorsMap = ["#f1f9ff", "#d2ebfe", "#c3e5fe", "#abdcfe", "#8fd2fd", "#77cb
 
 // create SVG for datamap
 const svgMap = d3.select("#map").append("svg")
+.attr("id", "svgMap")
   .attr("preserveAspectRatio", "xMinYMin meet")
   .attr("viewBox", "-60 0 960 702")
   .append("g");
@@ -111,7 +112,7 @@ function dataMapClick(country) {
   d3.select('#countriesdropdown').property('value', country);
 
   updateBarChart(country, season, position, info["data"]);
-  barZoomSunburst(country);
+  zoomSunburst(country);
 }
 
 function mouseoverMap(d) {

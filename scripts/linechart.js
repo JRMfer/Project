@@ -45,6 +45,157 @@ const yAxisSvgLine = svgLine.append("g")
   .attr("transform", "translate(" + (marginLine.left) + ",0)");
 
 
+function drawLineChart(data) {
+  /*
+    Function to draw the line chart with transition on the axis and dots and a
+    animation for the paths. The dots include a onclick to update the other 3
+    visualisations.
+  */
+
+  // set up scale xaxis
+  let xAxisScaleLine = d3.scaleBand()
+    .domain(data.seasons)
+    .range([marginLine.left, widthLine + marginLine.right]);
+
+  // setup x scale paths and dots
+  let xScaleLine = d3.scaleLinear()
+    .domain([0, data.data.length])
+    .range([marginLine.left, widthLine]);
+
+  // tick correct scale x axis and paths/dots
+  let tickCorrect = (widthLine / data.data.length) / 2;
+
+  // set y scale path, dots and yaxis
+  let yScaleLine = d3.scaleLinear()
+    .domain([0, d3.max(data.data) + (0.1 * d3.max(data.data))])
+    .range([heightLine - marginLine.bottom, marginLine.top]);
+
+  // creat xaxis and yaxis
+  let xAxisLine = d3.axisBottom().scale(xAxisScaleLine);
+  let yAxisLine = d3.axisLeft().scale(yScaleLine).tickFormat(function(d) {
+    return "€ " + format(d / 1000000) + "M";
+  });
+
+  // bind values axis wit transition
+  xAxisSvgLine.transition().duration(1500).ease(d3.easeLinear).call(xAxisLine.bind(this)).selectAll("text").attr("transform", "rotate(40)");
+  yAxisSvgLine.transition().duration(1500).ease(d3.easeLinear).call(yAxisLine.bind(this));
+
+  // set up function to give the corresponding x,y values to draw lines
+  let line = d3.line()
+    .x(function(d, i) {
+      return xAxisScaleLine(data.seasons[i]) + tickCorrect;
+    })
+    .y(function(d) {
+      return yScaleLine(d);
+    });
+
+  // Add the valueline path with transition
+  svgLine.append("path")
+    .datum(data.data)
+    .attr("class", "line")
+    .attr("d", line)
+    .call(transition);
+
+  // bind data to every dot
+  let dots = svgLine.selectAll(".dot")
+                .data(data.data);
+
+  // append for every data point a circle
+  let dataDots = dots.enter().append("circle");
+
+  // add onclick ability for dot to trigger seasonsDropdownChange()
+  dataDots.on("click", function(d, i) {
+    d3.select("#seasonsdropdown").property("value", data.seasons[i]);
+    seasonsDropdownChange();
+  });
+
+  /*
+    add tooltip to dot that show total transfer fee and top 3 transfers
+    also checks if there is a top 3 otherwise return top 1/2 transfers
+  */
+  dataDots.on("mouseover", function(d, i) {
+
+    if (data.topTransfers[data.seasons[i]].length >= 3) {
+      divLine.transition()
+        .style("opacity", 0.9);
+
+      divLine.html("<strong>Season: </strong><br><span class='details'>" +
+           data.seasons[i] + "</span>" + "<br><br>"  +
+        "<strong>Total transfer fees: </strong><br><span class='details'>" +
+          '€ ' + format(d) + "</span>" + "<br><br>" + "<strong>" +
+          "Top 3 transfers: " + "</strong><br><span class='details'>" +
+          "<strong>1. " + data.topTransfers[data.seasons[i]][0].name + "</strong><br>" +
+          "<span class='details'>" + '€ ' + format(data.topTransfers[data.seasons[i]][0].value) + "</span><br><br>" +
+          "<strong>2." + data.topTransfers[data.seasons[i]][1].name + "</strong><br>" +
+          "<span class='details'>" + '€ ' + format(data.topTransfers[data.seasons[i]][1].value) + "</span><br><br>" +
+          "<strong>3. " + data.topTransfers[data.seasons[i]][2].name + "</strong><br>" +
+          "<span class='details'>" + '€ ' + format(data.topTransfers[data.seasons[i]][2].value) + "</span><br>")
+        .style("left", (d3.event.pageX - widthLine + marginLine.left / 2 + "px"))
+        .style("top", (d3.event.pageY - heightLine / 3.5 + marginLine.top + marginLine.bottom) + "px");
+
+      d3.select(this).style("fill", "#ffa31a");
+      d3.select(this).style("r", 20);
+    }
+    else if (data.topTransfers[data.seasons[i]].length === 2) {
+      divLine.transition()
+        .style("opacity", 0.9);
+
+      divLine.html("<strong>Season: </strong><br><span class='details'>" +
+           data.seasons[i] + "</span>" + "<br><br>"  +
+        "<strong>Total transfer fees: </strong><br><span class='details'>" +
+          '€ ' + format(d) + "</span>" + "<br><br>" + "<strong>" +
+          "Top 3 transfers: " + "</strong><br><span class='details'>" +
+          "<strong>1. " + data.topTransfers[data.seasons[i]][0].name + "</strong><br>" +
+          "<span class='details'>" + '€ ' + format(data.topTransfers[data.seasons[i]][0].value) + "</span><br><br>" +
+          "<strong>2." + data.topTransfers[data.seasons[i]][1].name + "</strong><br>" +
+          "<span class='details'>" + '€ ' + format(data.topTransfers[data.seasons[i]][1].value) + "</span><br>")
+        .style("left", (d3.event.pageX - widthLine + marginLine.left / 2 + "px"))
+        .style("top", (d3.event.pageY - heightLine / 3.5 + marginLine.top + marginLine.bottom) + "px");
+
+        d3.select(this).style("fill", "#ffa31a");
+        d3.select(this).style("r", 20);
+    }
+    else if (data.topTransfers[data.seasons[i]].length === 1) {
+      divLine.transition()
+        .style("opacity", 0.9);
+
+      divLine.html("<strong>Season: </strong><br><span class='details'>" +
+           data.seasons[i] + "</span>" + "<br><br>"  +
+        "<strong>Total transfer fees: </strong><br><span class='details'>" +
+          '€ ' + format(d) + "</span>" + "<br><br>" + "<strong>" +
+          "Top 3 transfers: " + "</strong><br><span class='details'>" +
+          "<strong>1. " + data.topTransfers[data.seasons[i]][0].name + "</strong><br>" +
+          "<span class='details'>" + '€ ' + format(data.topTransfers[data.seasons[i]][0].value) + "</span><br>")
+        .style("left", (d3.event.pageX - widthLine + marginLine.left / 2 + "px"))
+        .style("top", (d3.event.pageY - heightLine / 3.5 + marginLine.top + marginLine.bottom) + "px");
+
+        d3.select(this).style("fill", "#ffa31a");
+        d3.select(this).style("r", 20);
+    }
+  });
+
+  // mouseout effets: adjust opacity tooltip, radius and color dots
+  dataDots.on("mouseout", function(d) {
+    divLine.transition()
+      .style("opacity", 0)
+    d3.select(this).style('opacity', 1);
+    d3.select(this).style("fill", "#49c0fc");
+    d3.select(this).style("r", 10);
+  });
+
+  // transition on appending the circles
+  dataDots.transition()
+  .duration(1000)
+  .attr("cx", function(d, i) {
+    return xAxisScaleLine(data.seasons[i]) + tickCorrect;
+  })
+  .attr("cy", function(d) {
+    return yScaleLine(d);
+  })
+  .attr("r", 10)
+  .style("fill", "#49c0fc");
+}
+
 function updateLine(country, position, data) {
   /*
     Function to update the data to the input asked and gather the total transfer
@@ -122,153 +273,6 @@ function tweenDash() {
   return function(t) {
     return i(t);
   };
-}
-
-function drawLineChart(data) {
-  /*
-    Function to draw the line chart with transition on the axis and dots and a
-    animation for the paths. The dots include a onclick to update the other 3
-    visualisations.
-  */
-
-  // set up scale xaxis
-  let xAxisScaleLine = d3.scaleBand()
-    .domain(data.seasons)
-    .range([marginLine.left, widthLine + marginLine.right]);
-
-  // setup x scale paths and dots
-  let xScaleLine = d3.scaleLinear()
-    .domain([0, data.data.length])
-    .range([marginLine.left, widthLine]);
-
-  // tick correct scale x axis and paths/dots
-  let tickCorrect = (widthLine / data.data.length) / 2;
-
-  // set y scale path, dots and yaxis
-  let yScaleLine = d3.scaleLinear()
-    .domain([0, d3.max(data.data) + (0.1 * d3.max(data.data))])
-    .range([heightLine - marginLine.bottom, marginLine.top]);
-
-  // creat xaxis and yaxis
-  let xAxisLine = d3.axisBottom().scale(xAxisScaleLine);
-  let yAxisLine = d3.axisLeft().scale(yScaleLine).tickFormat(function(d) {
-    return "€ " + format(d / 1000000) + "M";
-  });
-
-  // bind values axis wit transition
-  xAxisSvgLine.transition().duration(1500).ease(d3.easeLinear).call(xAxisLine.bind(this)).selectAll("text").attr("transform", "rotate(40)");
-  yAxisSvgLine.transition().duration(1500).ease(d3.easeLinear).call(yAxisLine.bind(this));
-
-  // set up function to give the corresponding x,y values to draw lines
-  let line = d3.line()
-    .x(function(d, i) {
-      return xAxisScaleLine(data.seasons[i]) + tickCorrect;
-    })
-    .y(function(d) {
-      return yScaleLine(d);
-    });
-
-  // Add the valueline path with transition
-  svgLine.append("path")
-    .datum(data.data)
-    .attr("class", "line")
-    .attr("d", line)
-    .call(transition);
-
-  // bind data to every dot
-  let dots = svgLine.selectAll(".dot")
-                .data(data.data);
-
-  // append for every data point a circle
-  let dataDots = dots.enter().append("circle");
-
-  // add onclick ability for dot to trigger seasonsDropdownChange()
-  dataDots.on("click", function(d, i) {
-    d3.select("#seasonsdropdown").property("value", data.seasons[i]);
-    seasonsDropdownChange();
-  });
-  /*
-    add tooltip to dot that show total transfer fee and top 3 transfers
-    also checks if there is a top 3 otherwise return top 1/2 transfers
-  */
-  dataDots.on("mouseover", function(d, i) {
-
-    if (data.topTransfers[data.seasons[i]].length >= 3) {
-      divLine.transition()
-        .style("opacity", 0.9);
-
-      divLine.html("<strong>Total transfer fees: </strong><br><span class='details'>" +
-          '€' + format(d) + "</span>" + "<br>" + "<strong>" +
-          "Top 3 transfers: " + "</strong><br><span class='details'>" +
-          "<strong>1. " + data.topTransfers[data.seasons[i]][0].name + "</strong><br>" +
-          "<span class='details'>" + '€' + format(data.topTransfers[data.seasons[i]][0].value) + "</span><br>" +
-          "<strong>2." + data.topTransfers[data.seasons[i]][1].name + "</strong><br>" +
-          "<span class='details'>" + '€' + format(data.topTransfers[data.seasons[i]][1].value) + "</span><br>" +
-          "<strong>3. " + data.topTransfers[data.seasons[i]][2].name + "</strong><br>" +
-          "<span class='details'>" + '€' + format(data.topTransfers[data.seasons[i]][2].value) + "</span><br>")
-        .style("left", (d3.event.pageX - widthLine + (marginLine.right + marginLine.left)) + "px")
-        .style("top", (d3.event.pageY - heightLine / 3.5 + marginLine.top + marginLine.bottom) + "px");
-
-      d3.select(this).style('opacity', 0.5);
-      d3.select(this).style("fill", "#ffa31a");
-      d3.select(this).style("r", 20);
-    }
-    else if (data.topTransfers[data.seasons[i]].length === 2) {
-      divLine.transition()
-        .style("opacity", 0.9);
-
-      divLine.html("<strong>Total transfer fees: </strong><br><span class='details'>" +
-          '€' + format(d) + "</span>" + "<br>" + "<strong>" +
-          "Top 3 transfers: " + "</strong><br><span class='details'>" +
-          "<strong>1. " + data.topTransfers[data.seasons[i]][0].name + "</strong><br>" +
-          "<span class='details'>" + '€' + format(data.topTransfers[data.seasons[i]][0].value) + "</span><br>" +
-          "<strong>2." + data.topTransfers[data.seasons[i]][1].name + "</strong><br>" +
-          "<span class='details'>" + '€' + format(data.topTransfers[data.seasons[i]][1].value) + "</span><br>")
-        .style("left", (d3.event.pageX - widthLine + (marginLine.right + marginLine.left)) + "px")
-        .style("top", (d3.event.pageY - heightLine / 3.5 + marginLine.top + marginLine.bottom) + "px");
-
-        d3.select(this).style('opacity', 0.5);
-        d3.select(this).style("fill", "#ffa31a");
-        d3.select(this).style("r", 20);
-    }
-    else if (data.topTransfers[data.seasons[i]].length === 1) {
-      divLine.transition()
-        .style("opacity", 0.9);
-
-      divLine.html("<strong>Total transfer fees: </strong><br><span class='details'>" +
-          '€' + format(d) + "</span>" + "<br>" + "<strong>" +
-          "Top 3 transfers: " + "</strong><br><span class='details'>" +
-          "<strong>1. " + data.topTransfers[data.seasons[i]][0].name + "</strong><br>" +
-          "<span class='details'>" + '€' + format(data.topTransfers[data.seasons[i]][0].value) + "</span><br>")
-        .style("left", (d3.event.pageX - widthLine + (marginLine.right + marginLine.left)) + "px")
-        .style("top", (d3.event.pageY - heightLine / 3.5 + marginLine.top + marginLine.bottom) + "px");
-
-        d3.select(this).style('opacity', 0.5);
-        d3.select(this).style("fill", "#ffa31a");
-        d3.select(this).style("r", 20);
-    }
-  });
-
-  // mouseout effets: adjust opacity tooltip, radius and color dots
-  dataDots.on("mouseout", function(d) {
-    divLine.transition()
-      .style("opacity", 0)
-    d3.select(this).style('opacity', 1);
-    d3.select(this).style("fill", "#49c0fc");
-    d3.select(this).style("r", 10);
-  });
-
-  // transition on appending the circles
-  dataDots.transition()
-  .duration(1000)
-  .attr("cx", function(d, i) {
-    return xAxisScaleLine(data.seasons[i]) + tickCorrect;
-  })
-  .attr("cy", function(d) {
-    return yScaleLine(d);
-  })
-  .attr("r", 10)
-  .style("fill", "#49c0fc");
 }
 
 function animateLine() {
