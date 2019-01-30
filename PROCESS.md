@@ -188,3 +188,14 @@ will be updated by the corresponding season.
 Changed the "show up place" of the tooltip for all the 4 visualizations.
 
 Furthermore some styling of the visualizations: Dropdowns still need to be done.
+
+# Day 16:
+
+Fineshed styling dropdowns, and the rest of the pages.
+
+To style the dropdowns it was necessary to increase the height of the navbar and
+its contents.
+
+Ordered code, made functions for the different actions.
+
+Ordered style sheets
