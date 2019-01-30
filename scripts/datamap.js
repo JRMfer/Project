@@ -22,7 +22,7 @@ const marginsMap = {
 // const variable colors datamap
 const colorsMap = ["#f1f9ff", "#d2ebfe", "#c3e5fe", "#abdcfe", "#8fd2fd", "#77cbfd", "#63c5fc", "#49c0fc"];
 
-// Create SVG for datamap
+// create SVG for datamap
 const svgMap = d3.select("#map").append("svg")
   .attr("preserveAspectRatio", "xMinYMin meet")
   .attr("viewBox", "-60 0 960 702")

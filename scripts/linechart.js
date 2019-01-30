@@ -9,13 +9,14 @@ the top 3 transfers (per season). The dots in the chart contain a click function
 to update the other 3 visualiszations.
 */
 
+// margins, width and height line chart
 const marginLine = {
   top: 20,
   right: 20,
   bottom: 20,
   left: 200
 };
-const colorsLine = ["#65cd94", "#52c786", "#52c786", "#3ec179", "#38ad6d", "#329a61", "#2c8755", "#257449", "#1f603c", "#194d30"];
+
 const widthLine = 1200 - marginLine.right - marginLine.left;
 const heightLine = 900 - marginLine.top - marginLine.bottom;
 
@@ -126,7 +127,8 @@ function tweenDash() {
 function drawLineChart(data) {
   /*
     Function to draw the line chart with transition on the axis and dots and a
-    animation for the paths.
+    animation for the paths. The dots include a onclick to update the other 3
+    visualisations.
   */
 
   // set up scale xaxis
@@ -144,7 +146,7 @@ function drawLineChart(data) {
 
   // set y scale path, dots and yaxis
   let yScaleLine = d3.scaleLinear()
-    .domain([0, d3.max(data.data)])
+    .domain([0, d3.max(data.data) + (0.1 * d3.max(data.data))])
     .range([heightLine - marginLine.bottom, marginLine.top]);
 
   // creat xaxis and yaxis

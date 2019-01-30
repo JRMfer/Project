@@ -3,203 +3,189 @@ Name: Julien Fer
 University: University of Amsterdam
 Studentnumber: 10649441
 
-This script contains the functionality to draw a linechart with the total transfer
-fee over time (per season) including a tooltip that shows this amount and also
-the top 3 transfers (per season). The dots in the chart contain a click function
-to update the other 3 visualiszations.
+This script contains the functionality to draw a bar chart with sorted bars.
+The barchart also contains a transition on the rects and on the axis with every update.
 */
 
 // const var for marginsBar svg Bar chart
-const marginsBar = {top: 50, right: 100, bottom: 100, left: 150},
-            widthBar = 1200 - marginsBar.left - marginsBar.right,
-            heightBar = 960 - marginsBar.top - marginsBar.bottom,
-            animateDuration = 700,
-            animateDelay = 75,
-            barPadding = 5;
+const marginsBar = {
+    top: 50,
+    right: 100,
+    bottom: 100,
+    left: 150
+  },
+  widthBar = 1200 - marginsBar.left - marginsBar.right,
+  heightBar = 960 - marginsBar.top - marginsBar.bottom,
+  animateDuration = 700,
+  animateDelay = 75,
+  barPadding = 5;
 
+// colors for bar chart
+const colorsBar = ["#f1f9ff", "#d2ebfe", "#c3e5fe", "#abdcfe", "#8fd2fd", "#77cbfd", "#63c5fc", "#49c0fc"];
 
-let colors2 = ["#f1f9ff", "#d2ebfe", "#c3e5fe", "#abdcfe", "#8fd2fd", "#77cbfd", "#63c5fc", "#49c0fc"];
+// create SVG for bar chart
+const svgBar = d3.select("#barchart")
+  .append("svg")
+  .attr("preserveAspectRatio", "xMinYMin meet")
+  .attr("viewBox", "-100 0 1350 1020");
 
-// Create SVG for bar chart
-let svgBar = d3.select("#barchart")
-      .append("svg")
-      .attr("class", "svg")
-      .attr("id", "svgBar")
-      .attr("preserveAspectRatio", "xMinYMin meet")
-      .attr("viewBox", "-100 0 1350 1020");
+// set tooltip for barchart
+const divBar = d3.select("#barchart").append("divBar")
+  .attr("class", "tooltip")
+  .attr("id", "tooltipBars")
+  .style("opacity", 0);
 
-let yAxisSvg = svgBar.append("g")
-        .attr("class", "axis")
-        .attr("id", "yAxis")
-        .attr("transform", "translate(" + (marginsBar.left - barPadding) + ",0)");
+// append g and add transform for y axis
+const yAxisSvg = svgBar.append("g")
+  .attr("class", "axis")
+  .attr("id", "yAxis")
+  .attr("transform", "translate(" + (marginsBar.left - barPadding) + ",0)");
 
-let xAxisSvg = svgBar.append("g")
-        .attr("class", "axis")
-        .attr("id", "xAxis")
-        .attr("transform", "translate(0,"  +(marginsBar.top + marginsBar.bottom) * 6.06 + ")")
+// append g and add transform for x axis
+const xAxisSvg = svgBar.append("g")
+  .attr("class", "axis")
+  .attr("id", "xAxis")
+  .attr("transform", "translate(0," + (marginsBar.top + marginsBar.bottom) * 6.06 + ")");
 
+// set up var for x and y axis
 let xAxis = d3.axisBottom();
 let yAxis = d3.axisLeft();
-// // x axis at the appropriate place and rotate the labels
-// svgBar.append("g")
-//   .attr("class", "axis")
-//   .attr("id", "yAxis")
-//   .attr("transform", "translate(0," + (heightBar
-//                                         - barPadding) + ")")
-//   .call(yAxis);
 
 function updateBarChart(country, season, position, data) {
+  /*
+    Collects the data asked by the user from the total dataset. It returns an
+    object with 3 arrays. 1 for all the values, 1 with objects of the total
+    transfer fee and amount of transfers of every Category and 1 with all the
+    categories (countries/clubs).
+  */
 
-  // let transfersBar = [];
-  let infoBar = {"valuesArray": [], "transfers": [], "categories": [], "topValues": []};
-  // let tempObj = {};
+  // set object (infoBar) for the 3 arrays
+  let infoBar = {
+    "valuesArray": [],
+    "transfers": [],
+    "categories": []
+  };
 
+  // check if data for the world ("All") is needed
   if (country === "All") {
-    // let tempObj = {};
 
+    // loop for every transfer
     data.forEach(function(transfer) {
-      if (((transfer.Season === season) || (season === "All")) &&
-          ((transfer.Position === position) || (position === "All")) &&
-          (+transfer.Transfer_fee > 0)) {
-            let tempObj = {};
-            let count = 0;
-            infoBar.transfers.forEach(function(tBar) {
-              if (transfer.League_to in tBar) {
-                count += 1;
-                tBar[transfer.League_to].value += +transfer.Transfer_fee;
-                tBar[transfer.League_to].count += 1;
-                let tempTop = {};
-                tempTop["name"] = transfer.Name;
-                tempTop["value"] = +transfer.Transfer_fee;
-                tBar[transfer.League_to].transfersTop.push(tempTop);
 
-              }
-            })
-            if (count === 0) {
-              let tempObj2 = {"transfersTop": []};
-              let tempObj3 = {};
-              tempObj3["name"] = transfer.Name;
-              tempObj3["value"] = +transfer.Transfer_fee;
-              tempObj2.transfersTop.push(tempObj3);
-              tempObj2["value"] = +transfer.Transfer_fee;
-              tempObj2["count"] = 1;
-              tempObj[transfer.League_to] = tempObj2;
-              infoBar.transfers.push(tempObj);
-            }
+      // checks if transfer satisfies condition
+      if (((transfer.Season === season) || (season === "All")) &&
+        ((transfer.Position === position) || (position === "All")) &&
+        (+transfer.Transfer_fee > 0)) {
+
+        // set op tempObj and count var
+        let tempObj = {};
+        let count = 0;
+
+        // loop for every country in infoBar's transfers
+        infoBar.transfers.forEach(function(country) {
+
+          // If country in transfers add the values to it
+          if (transfer.League_to in country) {
+            count += 1;
+            country[transfer.League_to].value += +transfer.Transfer_fee;
+            country[transfer.League_to].count += 1;
+
           }
-    })
-    infoBar.transfers.forEach(function(transfer) {
-      transfer[Object.keys(transfer)].transfersTop.sort(function(a, b) {
-        return ((a.value > b.value) ? -1 : ((a.value == b.value) ? 0 : 1));
-      })
-    })
+        });
+
+        // if country not in infobar make a new object and add this
+        if (count === 0) {
+          let tempObj2 = {};
+          tempObj2["value"] = +transfer.Transfer_fee;
+          tempObj2["count"] = 1;
+          tempObj[transfer.League_to] = tempObj2;
+          infoBar.transfers.push(tempObj);
+        }
+      }
+    });
+
+    // sort the transfers according the total transfer fee of each country
     infoBar.transfers.sort(function(a, b) {
-      // console.log(a);
-      // console.log("b")
-      // console.log(b);
       return ((a[Object.keys(a)].value > b[Object.keys(b)].value) ? -1 : ((a[Object.keys(a)].value == b[Object.keys(b)].value) ? 0 : 1));
-  });
+    });
+
+    // add total transfer fee and corresponding in sync to an array
     infoBar.transfers.forEach(function(transfer) {
-      // console.log(transfer[Object.keys(transfer)]);
       infoBar.valuesArray.push(transfer[Object.keys(transfer)].value);
       infoBar.categories.push(Object.keys(transfer)[0]);
-      // infoBar.valuesArray.push(transfer[Object.keys(transfer).value]);
-    })
-    console.log(infoBar.categories);
+    });
+
+    // checks if infobar contains any data, if so draw bar chart,
+    // if not show alert
     if (infoBar.transfers.length > 0) {
       drawBarChart(infoBar);
-    }
-    else {
+    } else {
       alert("no data found");
-      // d3.select("#countriesdropdown").property("value", "All");
     }
   }
+  // if a country is selected
   else {
+
+    // loop for every transfer in dataset
     data.forEach(function(transfer) {
+
+      // checks if transfer satisfies condition
       if (((transfer.League_to === country)) &&
-          ((transfer.Season === season) || (season === "All")) &&
-          ((transfer.Position === position) || (position === "All")) &&
-          (+transfer.Transfer_fee > 0)) {
-            let tempObj = {};
-            let count = 0;
-            infoBar.transfers.forEach(function(tBar) {
-              if (transfer.Team_to in tBar) {
-                count += 1;
-                tBar[transfer.Team_to].value += +transfer.Transfer_fee;
-                tBar[transfer.Team_to].count += 1;
-                let tempTop = {};
-                tempTop["name"] = transfer.Name;
-                tempTop["value"] = +transfer.Transfer_fee;
-                tBar[transfer.Team_to].transfersTop.push(tempTop);
-              }
-            })
-            if (count === 0) {
-              // let tempObj2 = {};
-              let tempObj2 = {"transfersTop": []};
-              let tempObj3 = {};
-              tempObj3["name"] = transfer.Name;
-              tempObj3["value"] = +transfer.Transfer_fee;
-              tempObj2.transfersTop.push(tempObj3);
-              tempObj2["value"] = +transfer.Transfer_fee;
-              tempObj2["count"] = 1;
-              tempObj[transfer.Team_to] = tempObj2;
-              infoBar.transfers.push(tempObj);
-            }
+        ((transfer.Season === season) || (season === "All")) &&
+        ((transfer.Position === position) || (position === "All")) &&
+        (+transfer.Transfer_fee > 0)) {
+
+        // set op tempObj and count var
+        let tempObj = {};
+        let count = 0;
+
+        // loop over every tclub in infoBar.transfers
+        infoBar.transfers.forEach(function(club) {
+
+          // if club in transfers add the values to it
+          if (transfer.Team_to in club) {
+            count += 1;
+            club[transfer.Team_to].value += +transfer.Transfer_fee;
+            club[transfer.Team_to].count += 1;
           }
-        })
-        infoBar.transfers.forEach(function(transfer) {
-          transfer[Object.keys(transfer)].transfersTop.sort(function(a, b) {
-            return ((a.value > b.value) ? -1 : ((a.value == b.value) ? 0 : 1));
-          })
-        })
-        infoBar.transfers.sort(function(a, b) {
-          // console.log(a);
-          // console.log("b")
-          // console.log(b);
-          return ((a[Object.keys(a)].value > b[Object.keys(b)].value) ? -1 : ((a[Object.keys(a)].value == b[Object.keys(b)].value) ? 0 : 1));
-      });
-        infoBar.transfers.forEach(function(transfer) {
-          infoBar.valuesArray.push(transfer[Object.keys(transfer)].value);
-          infoBar.categories.push(Object.keys(transfer)[0]);
-        })
-        if (infoBar.transfers.length > 0) {
-          return drawBarChart(infoBar);
+        });
+
+        // if not make a new object for the club and add it to inforbar.transfers
+        if (count === 0) {
+          let tempObj2 = {}
+          tempObj2["value"] = +transfer.Transfer_fee;
+          tempObj2["count"] = 1;
+          tempObj[transfer.Team_to] = tempObj2;
+          infoBar.transfers.push(tempObj);
         }
-        else {
-          alert("no data found");
-          // d3.select("#countriesdropdown").property("value", "All");
-        }
+      }
+    });
+
+    // sort infobar.transfers
+    infoBar.transfers.sort(function(a, b) {
+      return ((a[Object.keys(a)].value > b[Object.keys(b)].value) ? -1 : ((a[Object.keys(a)].value == b[Object.keys(b)].value) ? 0 : 1));
+    });
+
+    // fill array with all total transfer fees and one with all clubs in sync
+    infoBar.transfers.forEach(function(transfer) {
+      infoBar.valuesArray.push(transfer[Object.keys(transfer)].value);
+      infoBar.categories.push(Object.keys(transfer)[0]);
+    });
+
+    // if data in infobar draw bar chart, if not show alert
+    if (infoBar.transfers.length > 0) {
+      return drawBarChart(infoBar);
+    } else {
+      alert("no data found");
     }
+  }
 }
 
+function axisBarchart(data) {
+  /*
+    Function to set axis for bar chart
+  */
 
-function drawBarChart(data) {
-
-  // set format for data values (millions)
-  let format = d3.format(",");
-  console.log(data);
-
-//   data.transfers.sort(function(a, b) {
-//     // console.log(a);
-//     // console.log("b")
-//     // console.log(b);
-//     return ((a[Object.keys(a)].value > b[Object.keys(b)].value) ? -1 : ((a[Object.keys(a)].value == b[Object.keys(b)].value) ? 0 : 1));
-// });
-  console.log(data.transfers);
-
-
-  let colorBar = d3.scaleQuantile()
-    .domain(data.valuesArray)
-    .range(colors2);
-  //
-  //
-  //
-  // set yScale barchart
-  let yScale = d3.scaleLinear()
-    .domain([0, data.transfers.length])
-    .range([marginsBar.top, heightBar + marginsBar.bottom]);
-  //
-  // console.log(data.categories)
   // set scale for y axis with strings
   let yAxisScale = d3.scaleBand()
     .domain(data.categories)
@@ -207,21 +193,8 @@ function drawBarChart(data) {
     .paddingInner(0.05);
 
   yAxis.scale(yAxisScale);
-  // x axis at the appropriate place and rotate the labels
-  // svgBar.append("g")
-  //   .attr("class", "axis")
-  //   .attr("id", "yAxis")
-  //   .attr("transform", "translate(" + marginsBar.left + ",0)")
-  //   .call(yAxis);
 
-
-  // set yScale barchart
-  let xScale = d3.scaleLinear()
-    .domain([0, d3.max(data.transfers, function(d) {
-      return d[Object.keys(d)].value;
-    })])
-    .range([marginsBar.left, widthBar]);
-
+  // set x scale axis
   let xAxisScale = d3.scaleLinear()
     .domain([0, d3.max(data.transfers, function(d) {
       return d[Object.keys(d)].value;
@@ -231,20 +204,44 @@ function drawBarChart(data) {
   xAxis.scale(xAxisScale).tickFormat(function(d) {
     return "€ " + format(d / 1000000) + "M";
   });
-  // xAxisSvg.call(xAxis);
-  // yAxisSvg.call(yAxis);
-  //
-  // set tooltip for barchart
-  let divBar = d3.select("#barchart").append("divBar")
-      .attr("class", "tooltip")
-      .attr("id", "tooltipBars")
-      .style("opacity", 0);
 
-  // draw graph
+  // set transition for axis
+  xAxisSvg.transition().duration(750).ease(d3.easeLinear).call(xAxis.bind(this)).selectAll("text").attr("transform", "rotate(20)");
+  yAxisSvg.transition().duration(750).ease(d3.easeLinear).call(yAxis.bind(this)).selectAll("text").attr("transform", "rotate(0)");
+}
+
+
+function drawBarChart(data) {
+  /*
+    Function to draw a barchart with transition. Tooltip shows total amount of
+    transfers and the total transfer fee. The axis also contain a transition.
+  */
+
+  // set up scale
+  let colorBar = d3.scaleQuantile()
+    .domain(data.valuesArray)
+    .range(colorsBar);
+
+  axisBarchart(data);
+
+  // set x scale barchart
+  let xScale = d3.scaleLinear()
+    .domain([0, d3.max(data.transfers, function(d) {
+      return d[Object.keys(d)].value;
+    })])
+    .range([marginsBar.left, widthBar]);
+
+  // set yScale barchart
+  let yScale = d3.scaleLinear()
+    .domain([0, data.transfers.length])
+    .range([marginsBar.top, heightBar + marginsBar.bottom]);
+
+  // bind data
   let bars = svgBar.selectAll("rect")
     .data(data.transfers)
 
-    bars.enter()
+  // enter data a
+  bars.enter()
     .append("rect")
     .attr("class", "bar")
     .attr("id", "competitionsRects")
@@ -261,21 +258,21 @@ function drawBarChart(data) {
     .on("mouseover", function(d) {
       // console.log(d[1]);
       // console.log(d[0]);
-          divBar.transition()
-          .style("opacity", 0.9)
-          divBar.html("<strong>Total transfers: </strong><span class='details'>" +
-                    format(d[Object.keys(d)].count) + "<br></span>" +
-                    "<strong>Total transfer fees: </strong><br><span class='details'>"
-                     + '€' + format(d[Object.keys(d)].value)  + "</span>")
-          .style("left", (d3.event.pageX - marginsBar.left) + "px")
-          .style("top", (d3.event.pageY - heightBar + (marginsBar.top + marginsBar.bottom)) + "px")
-          d3.select(this).style('opacity', 0.5)
-        })
-        .on("mouseout", function(d) {
-            divBar.transition()
-                .style("opacity", 0)
-            d3.select(this).style('opacity', 1);
-        })
+      divBar.transition()
+        .style("opacity", 0.9)
+      divBar.html("<strong>Total transfers: </strong><span class='details'>" +
+          format(d[Object.keys(d)].count) + "<br></span>" +
+          "<strong>Total transfer fees: </strong><br><span class='details'>" +
+          '€' + format(d[Object.keys(d)].value) + "</span>")
+        .style("left", (d3.event.pageX - marginsBar.left) + "px")
+        .style("top", (d3.event.pageY - heightBar + (marginsBar.top + marginsBar.bottom)) + "px")
+      d3.select(this).style('opacity', 0.5)
+    })
+    .on("mouseout", function(d) {
+      divBar.transition()
+        .style("opacity", 0)
+      d3.select(this).style('opacity', 1);
+    })
     .merge(bars)
     .transition()
     .duration(850)
@@ -303,24 +300,20 @@ function drawBarChart(data) {
     })
 
   bars.exit()
-      .transition()
-      // .duration(750)
-      // .delay(function(d, i) {
-      //   return i * 25;
-      // })
-      .attr("width", 0)
-      .attr("x", widthBar)
-      .remove();
-
-      xAxisSvg.transition().duration(750).ease(d3.easeLinear).call(xAxis.bind(this)).selectAll("text").attr("transform", "rotate(20)");
-      yAxisSvg.transition().duration(750).ease(d3.easeLinear).call(yAxis.bind(this)).selectAll("text").attr("transform", "rotate(0)");
+    .transition()
+    // .duration(750)
+    // .delay(function(d, i) {
+    //   return i * 25;
+    // })
+    .attr("width", 0)
+    .attr("x", widthBar)
+    .remove();
 
   if (d3.select("#countriesdropdown").property("value") === "All") {
     // console.log(d3.select("#countriesdropdown").property("value"));
     d3.select("#headerBarchart").text("By Competition")
     // .property("text", "By Country");
-  }
-  else {
+  } else {
     // console.log(d3.select("#countriesdropdown").property("value"));
     d3.select("#headerBarchart").text("By Club")
     // .property("text", "By Club");
@@ -349,8 +342,7 @@ function barZoomSunburst(countryName) {
         }
       })
     })
-  }
-  else if (root.depth === 1) {
+  } else if (root.depth === 1) {
     if (countryName === "All") {
       return click(root);
     }
@@ -361,8 +353,7 @@ function barZoomSunburst(countryName) {
         return click(competition);
       }
     })
-  }
-  else if (root.depth === 2) {
+  } else if (root.depth === 2) {
     if (countryName === "All") {
       return click(root.parent);
     }
@@ -380,12 +371,11 @@ function barZoomSunburst(countryName) {
         }
       })
     })
-  }
-  else {
+  } else {
     if (countryName === "All") {
       return click(root.parent.parent);
     }
-    let rootWorld =  root.parent.parent;
+    let rootWorld = root.parent.parent;
     rootWorld.children.forEach(function(competition) {
       if (competition.data.name === countryName) {
         info.rootSun = competition;
