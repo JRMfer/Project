@@ -80,11 +80,6 @@ visualizations.
 
 ![](doc/visualizations_boven.png)
 
-Fogot what the dashboard is about? Select the explanation in the navbar
-and a modal will appear.
-
-![](doc/modal.png)
-
 When scrolling down one will encounter more visualizations.
 At the left there will be a horizontal bar chart which visualiszes the
 total transfer fees per country/club. There is a tooltip which shows this
@@ -100,6 +95,11 @@ and the third (inner) layer the world. A tooltip shows the exact total
 transfer fee and its percentage w.r.t its parent.
 
 ![](doc/visualizations_midden.png)
+
+Fogot what the dashboard is about? Select the explanation in the navbar
+and a modal will appear.
+
+![](doc/modal.png)
 
 And again at the bottom of the page (when scrolled down) some general
 information is displayed. Some of the text is hyperlinked.
