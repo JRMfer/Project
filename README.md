@@ -1,8 +1,11 @@
 # Project Minor Programming (UvA)
 
 Name: Julien Fer (10649441)
+University: University of Amsterdam
 
-This repository now only contains the proposal for the final project of the minor programming at the University of Amsterdam
+This repository contains the functionality for a dashboard viusalization
+
+## [GitHub Pages](https://jrmfer.github.io/Project)
 
 ## Problem Statement
 A hot topic in sport news is the development of the transfer values in football.
@@ -12,6 +15,10 @@ explain this development based on the top 250 transfers from 2000-2018. Certain
 indicators will be examined as the competitions these transfers took place,
 which club bought and the positions of the players. Hopefully the statistics
 will show a pattern trough the years.
+
+## Website Waltrough
+#### Homepage
+
 
 ## Solution
 At first the statistics will be shown for all the years. But the user can
