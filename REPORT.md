@@ -15,9 +15,9 @@ Hopefully the statistics will show a pattern trough the years.
 
 ![](doc/screenshot_dashboard.png)
 
-A D3 dashboard tries to show the development of the total transfer fees over
+A D3 dashboard that tries to show the development of the total transfer fees over
 time which can be examined in more depth with some indicators as the
-country, season and position. The dashboar
+country, season and position.
 
 ## Technical Design
 This section describes the functionality of the product, starting with a high
@@ -40,3 +40,18 @@ the values and a tooltip and thus interactive
   - Line chart (includes button to start animation of drawing line chart)
   - Horizontal bar chart
   - Sunburst
+
+### Detailed Overview
+#### Data
+The data folder contains 3 different files:
+
+* [Orignal Dataset](data/top250-00-19.csv)
+  - this one is preproccesed in python
+* [Preproccesed Dataset](data/transfers250.csv)
+  - The competition names are replaced by their corresponding country names
+  - Removed whitespace
+The data will be imported by the d3.csv function (see football.js) and this
+returns an array with transfers. The transfers are repsented as an object with
+all containing the necassary information.
+
+* [Data Topojson](data/world_countries.json)
