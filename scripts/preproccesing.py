@@ -1,13 +1,23 @@
+# Name: Julien Fer
+# Student Number: 10649441
+# University: University of Amsterdam
+#
+# This script contains the preprocces functionality for the D3 dashboard.
+# It mostly change the competition names into country names and remove some white
+# space
+
+# import pandas
 import pandas as pd
 
+#  input csv
 INPUT_CSV = "https://raw.githubusercontent.com/JRMfer/Project/master/data/top250-00-19.csv"
 
 if __name__ == '__main__':
 
+    # read in data
     data = pd.read_csv(INPUT_CSV)
-    print(data["League_to"])
-    print(data.loc[(data.League_to == "1.Bundesliga")])
 
+    # change the competition names into country names
     data.loc[(data.League_to == "1.Bundesliga") | (data.League_to == "2.Bundesliga"), "League_to"] = "Germany"
     data.loc[(data.League_to == "Bundesliga"), "League_to"] = "Switzerland"
     data.loc[(data.League_to == "Allsvenskan"), "League_to"] = "Sweden"
@@ -40,11 +50,9 @@ if __name__ == '__main__':
     data.loc[(data.League_to == "UAE Gulf League"), "League_to"] = "United Arab Emirates"
     data.loc[(data.League_to == "Série A"), "League_to"] = "Brazil"
 
-    # data["Transfer_fee"] = pd.to_numeric(data.Transfer_fee)
+    // remove white space
     data.League_to = data.League_to.str.lstrip();
     data.League_to = data.League_to.str.rstrip();
-    print(data.loc[(data.League_to == "Libya")])
 
+    # write dataframr to new csv file
     data.to_csv("../data/transfers250.csv")
-    print(data["League_to"])
-    print(data.loc[(data.League_to == "Germany")])
