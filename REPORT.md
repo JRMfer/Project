@@ -88,8 +88,8 @@ global.
 
   - Function to find the relevant dataset for the datamap (findValuesMap)
     - loop over array of transfers, returns object with an array for all the
-      total transfer fee values for the color scale (quantile) and one for the
-      transfers satisfying the condtions given by user (dropdown or onclick events).
+      total transfer fee values for the color scale (quantile) and adds object of
+      countries with the "correct" values.
 
   - Function for on click events
     - updates line chart, bar chart and sunburst. Also sets dropdown to new country
@@ -104,6 +104,7 @@ global.
 
   - Function to draw datamap
     - Combines above function to draw datamap with transition on the fill of the
+      colours
 
 * [linechart.js](scripts/linechart.js)
-  - 
+  -
