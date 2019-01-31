@@ -82,100 +82,100 @@ Every visualization has its own Javscript file and are combined in
 and in most of them elements as the axis, legend and scale are also declared
 global.
 
-* [datamap.js](scripts/datamap.js)
+* [datamap.js](scripts/datamap.js) <br>
 This script receives the loaded Topojson and transfers data from football.js
 and initiates a datamap with color.
 
-  - Function to find the relevant dataset for the datamap (findValuesMap)
+  - Function to find the relevant dataset for the datamap (findValuesMap) <br>
     loop over array of transfers, returns object with an array for all the
     total transfer fee values for the color scale (quantile) and adds object of
     countries with the "correct" values.
 
-  - Function for on click events (dataMapClick)
+  - Function for on click events (dataMapClick) <br>
     updates line chart, bar chart and sunburst. Also sets dropdown to new country
     (works only if country has data)
 
-  - Function for tooltip text (mouseoverMap)
+  - Function for tooltip text (mouseoverMap) <br>
     Shows the total transfer fee and amount if country in the relevant dataset,
     other undefined values
 
-  - Function to add legend (addLegendMap)
+  - Function to add legend (addLegendMap) <br>
     Follows the colorscheme and only shows the border values of the quantiles
     (formatted)
 
-  - Function to draw datamap (drawDataMap)
+  - Function to draw datamap (drawDataMap) <br>
     Combines above function to draw datamap with transition on the fill of the
     colours and add change of colour when hovering
 
-* [linechart.js](scripts/linechart.js)
+* [linechart.js](scripts/linechart.js) <br>
 This script contains the functionality to draw a line chart from the array
 of transfers.
 
-  - Function for button (animateLine)
+  - Function for button (animateLine) <br>
     gathers the condition for the dataset (dropdowns) and returns updateLine
 
-  - Function for retrieving relevant dataset (updateLine)
+  - Function for retrieving relevant dataset (updateLine) <br>
     finds total transfer fee per season, all the transfers per season (sorted)
     and the seasons (only returns if there is any data)
 
-  - Function to draw line chart (drawLineChart)
+  - Function to draw line chart (drawLineChart) <br>
     transition on axis, dots and line <br>
     onclick on dots to update datamap, bar chart and sunburst <br>
     mouse on effects to show season, total transfer fee, top 3 transfers
     and dots changing colors (top 3 can also be top 1 or 2 thanks to
     an if-else if - else if statement)
 
-* [barchart.js](scripts/barchart.js)
+* [barchart.js](scripts/barchart.js) <br>
 This script contains the functionality to draw a sorted horizontal bar chart from
 the array of transfers.
 
-  - Function to gather the relevant dataset (updateBarChart)
+  - Function to gather the relevant dataset (updateBarChart) <br>
     gathers total transfer fee and amount of transfers either by country or by
     club in the selected country for the givens season and/or posiiton and
     returns drawBarChart
 
-  - Function for axis bar chart with transition (axisBarchart)
+  - Function for axis bar chart with transition (axisBarchart) <br>
     adds new axis with transtition
 
-  - Function to draw bar chart
+  - Function to draw bar chart <br>
     draws bar chart with transition, onclick to update sunburst (zoomSunburst),
     hover with tooltip showing the data.
 
-* [sunburst.js](scripts/sunburst.js)
+* [sunburst.js](scripts/sunburst.js) <br>
 This script contains the functionality to draw a sunburst of depth 3 from
 the array of transfers.
 
-  - Function to preprocces data (preproccesSunburst)
+  - Function to preprocces data (preproccesSunburst) <br>
     gathers the relevant data and convert it into an hierarchical structure
     needed for the sunburst
 
-  - Function for onclick events (clickSun)
+  - Function for onclick events (clickSun) <br>
     updates bar chart and only change value dropdown if country is selected
     and add transition to sunburst.
 
   - Function to update zoomburst when dataset switches of country (zoomSunburst)
 
-  - Function to draw Sunburst (drawSunburst)
+  - Function to draw Sunburst (drawSunburst) <br>
     combines the above functions to draw a sunburst, with tooltip showing total
     transfer fees and the percentage relative to its parent.
 
-* [football.js](scripts/football.js)
+* [football.js](scripts/football.js) <br>
 This script has a few functions to set the options for the dropdowns and thus an
 update function for either one of them.
 
-  - Function optionsDropdown
+  - Function optionsDropdown <br>
     set options dropdowns
 
-  - countriesDropdownChange, seasonsDropdownChange, positionsDropdownChange
+  - countriesDropdownChange, seasonsDropdownChange, positionsDropdownChange <br>
     triggers the update functions, with season or positions changes there is an
     extra check for data needed.
 
 #### Stylsheets (CSS)
-* [styles.css](stylesheets/styles.css)
+* [styles.css](stylesheets/styles.css) <br>
   Contains the stylesheet for the homepage: Navbar, dropdowns, text block and
   jumbotron
 
-* [football.css](stylesheets/football.css)
+* [football.css](stylesheets/football.css) <br>
   Contains the stylesheet for the visualization:
   Navbar, dropdowns, body, svg, tooltips, axis button, modal etc..
 
