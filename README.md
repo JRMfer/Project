@@ -9,8 +9,7 @@ This repository contains the functionality for a dashboard viusalization
 
 ## Problem Statement
 A hot topic in sport news is the development of the transfer values in
-football.
-The last past years the values rised to high amounts and from clubs as
+football. The last past years the values rised to high amounts and from clubs as
 well associety complaints arises regarding this development. This project
 tries toexplain this development based on the top 250 transfers from
 2000-2018. Certainindicators will be examined as the competitions these
