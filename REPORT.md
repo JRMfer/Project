@@ -168,4 +168,63 @@ update function for either one of them.
 
   - countriesDropdownChange, seasonsDropdownChange, positionsDropdownChange
     triggers the update functions, with season or positions changes there is an
-    extra check for data needed.  
+    extra check for data needed.
+
+#### Stylsheets (CSS)
+* [styles.css](stylesheets/styles.css)
+  Contains the stylesheet for the homepage: Navbar, dropdowns, text block and
+  jumbotron
+
+* [football.css](stylesheets/football.css)
+  Contains the stylesheet for the visualization:
+  Navbar, dropdowns, body, svg, tooltips, axis button, modal etc..
+
+## Procces and Development
+#### Challenges
+One of the big challanges was to work with Bootstrap as if never worked with it
+before. Constructing a grid system and appending a svg to it was quite problematic
+at the beginning, but was solved by using viewbox for the width and height measures
+of the svg. <br>
+I also encountered problems when I tried to add the options to Bootstrap's original
+dropdown menu as I could not select the options with D3. This problem was solved
+by adding a regular select to the navigation bar amd styling it in CSS.<br>
+Now the dropdronw "problem" was solved a new problem arised as the dropdown was
+bigger than the navigation bar. This was solved by changing the height of the
+navigaition bar, centering the elements in the navigation bar and adding padding
+to the body with help of CSS.
+<br><br>
+Another big challenge was the construciton of the sunburst as this was also new
+to me. Especially the merge and transition was difficult, but was solved by
+merging the slices of the new dataset before removing the slices of the old
+dataset. When a country was already selected and one switches season/postition
+I needed to first redraw the sunburst and then return zoomSunburst with the
+country as argument.
+
+#### Acquired Skills
+* data formatting as I needed different dataset for the
+  different type of visualizations in the dashboard.
+
+* Learned working with CSS and how to turn off web appearances and create custom
+  html elements.
+
+* General improvement HTML, D3, CSS programming skills
+
+## Comparison to DESIGN.md
+#### Changes
+* Layout now includes homepage and links on the navigation bar instead of only
+  dropdowns and a footer bottom page.
+
+* Data is gatherd as an array of transfers which in turn are represented as objects
+  - This was a better structure as every transfer now contained all the information
+    on which the data could easily be filtered.
+
+* Did not make use of d3-tip.js
+  - Widht and height of tootlip varies in the different charts, so decided to
+    custom style a tooltip with d3 and CSS.
+
+* Created sunburst instead of pie chart
+  - Sunburst shows more in depth statistics.
+
+* Indeed have an update function for every chart
+  - As this maybe is the hardest part I chose to make different update functions
+    as a mistake will be prevented.
