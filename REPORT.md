@@ -29,7 +29,8 @@ and modules.
 The visualization consists of the following components:
 
 * Every html template contains a fixed navbar at the top with 4 navegational
-links and 3 interactive elements (dropdowns) and a footer at the bottom
+links and 3 interactive elements (dropdowns) and a footer at the bottom as well
+as a favicon in the title.
 
 * A homepage with image  an on top of the image a text block (html template #1)
 
@@ -55,3 +56,6 @@ returns an array with transfers. The transfers are repsented as an object with
 all containing the necassary information.
 
 * [Data Topojson](data/world_countries.json)
+  - Contains all the paths to draw a datamap of the world.
+
+#### HTML and Bootstrap
