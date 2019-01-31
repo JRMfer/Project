@@ -73,10 +73,10 @@ navbar.
 Although it seems easy to add the correct list items to the dropdown menu of the
 navbar it was not possible to retrieve the selected value by the user trough d3.
 After searching on the internet I encountered that it is not possible to select
-<ul> elements.
+ul elements.
 
-So the dropdown was removed and another type of dropdown, with a <select> tag
-was added with help of d3 and the options were added as <option> tags. Now it is
+So the dropdown was removed and another type of dropdown, with a select tag
+was added with help of d3 and the options were added as option tags. Now it is
 possible to retrieve the selecte value from the dropdown menu.
 
 Furthermore a sequential color scheme by colorbrewer was chosen to set the style
