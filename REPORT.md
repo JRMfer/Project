@@ -131,7 +131,7 @@ the array of transfers.
 
   - Function to gather the relevant dataset (updateBarChart) <br>
     gathers total transfer fee and amount of transfers either by country or by
-    club in the selected country for the givens season and/or posiiton and
+    club in the selected country for the given season and/or positon and
     returns drawBarChart
 
   - Function for axis bar chart with transition (axisBarchart) <br>
@@ -228,3 +228,49 @@ country as argument.
 * Indeed have an update function for every chart
   - As this maybe is the hardest part I chose to make different update functions
     as a mistake will be prevented.
+
+## Sources
+#### Data Source
+All used data collected from [Kaggle](https://www.kaggle.com/), an
+online community of data scientists and machine learners, owned by
+Google, Inc. The exact data used is:
+* [Top 250 transfers 2000-2018](https://www.kaggle.com/vardan95ghazaryan/top-250-football-transfers-from-2000-to-2018/version/1)
+
+#### Code Sources
+Note: a lot of these materials have their own respective licenses.
+* Bootstrap related elements:
+    - [Navigation bar](https://www.w3schools.com/bootstrap/bootstrap_navbar.asp)
+    - [Jumbotron](https://www.w3schools.com/bootstrap/bootstrap_jumbotron_header.asp)
+    - [Rows and columns](https://www.w3schools.com/bootstrap/bootstrap_grid_basic.asp)
+
+* Style dropdown menus:
+  - [Dropdown](https://byprimer.co/blog/style-select-fields-using-css/)
+
+* Datamap:
+  - [Topojson](https://bl.ocks.org/micahstubbs/raw/8e15870eb432a21f0bc4d3d527b2d14f/a45e8709648cafbbf01c78c76dfa53e31087e713/world_countries.json)
+
+* Line chart (animation):
+  - [Arctween](https://bl.ocks.org/mbostock/5649592)
+
+* Sunburst
+  - [Tutorial](https://bl.ocks.org/denjn5/e1cdbbe586ac31747b4a304f8f86efa)
+  - [Transition](https://bl.ocks.org/maybelinot/5552606564ef37b5de7e47ed2b7dc099)
+* Favicon
+  - [Favicon](https://www.freefavicon.com/freefavicons/sports/iconinfo/football-soccer-ball-152-183228.html)
+* Homepage image:
+  - [Image](https://www.google.com/search?q=football+transfers&tbm=isch&tbs=simg:CAQSmQEJu8Ck-C_17Ig0ajQELEKjU2AQaBghCCBUICAwLELCMpwgaYgpgCAMSKM4fnxuoG8wf0h-fENQcmxCrEM0f3S6GL-Au8S3yLYIvkCX0Oosv3i4aMIWnxaXKfQaUt8wFOUz6-PSUVL8OEAgymNIWX91FcgYYYMTNlmWStBl4F8yMPhoNiCAEDAsQjq7-CBoKCggIARIE6IkN4Qw&sa=X&ved=0ahUKEwjZjfDQz5bgAhXMJVAKHSmvBt0Qwg4IKigA&biw=767&bih=744#imgrc=aqDT6u3kNehgRM:)
+
+## External components
+
+* [Pandas](https://pandas.pydata.org/pandas-docs/stable/)
+* [D3.js](https://d3js.org)
+* [jQuery](https://jquery.com)
+* [Bootstrap](https://getbootstrap.com)
+* [TopoJSON](https://github.com/topojson/topojson)
+* [FontAwesome](https://fontawesome.com/)
+
+
+<p align="center"><i>
+This project is licensed under the terms of the MIT license.</br>
+Julien Fer, 2018
+</i></p>
