@@ -40,10 +40,13 @@ Extra features:
 
 * line chart with animation
   - shows the development of the total transfer fee over time
+* Homepage with image and footer
+* An explanation part about the dashboard
+  - can be either a modal or another html template
 
 Instead of a visual sketch a website walktrough will follow.
 
-## Website Waltrough
+## Website Walktrough
 #### Homepage
 The website consists of a main homepage that shows the title and subtitle
 of the product, projected on an image. At the top of the page is a
