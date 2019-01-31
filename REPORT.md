@@ -65,14 +65,14 @@ pages, homepage ([index.html](index.html)) and the visualizations
 ([football.html](football.html)). All pages have the same title with favicon shown
 in the website-tab of the browser and the elements of the page are placed in a
 Bootstrap grid system.
-
+<br>
 The two templates are linked with each other through the Bootstrap navigation
 bar. More on the left of the navigation bar there is an element to show a modal
 (works only for the visualization page) and a link to the Github repository.
 On the right there are 3 dropdown menus (only for football.html). In the HTML
-template these are regular <select> elements and are styled in the CSS file
-([football.css](/stylesheets/football.css)). Also the line chart contains a
-button element from Bootstrap but styled with CSS. At the bottom of the pages
+template these are regular select elements and are styled in the CSS file
+([football.css](stylesheets/football.css)). Furthermore the line chart contains a
+button element from Bootstrap but styled with CSS. <br> At the bottom of the pages
 there is a Bootstrap jumbotron containing some information which is also styled
 with the CSS files in the repository.
 
